@@ -54,7 +54,7 @@ const TOOLS = [
   },
   {
     name: 'get_format',
-    description: '获取 OpenJubensha 剧本格式规范、JSON Schema 地址和示例剧本地址，写剧本前先读。Get the scenario format spec.',
+    description: '获取 OpenMystery 剧本格式规范、JSON Schema 地址和示例剧本地址，写剧本前先读。Get the scenario format spec.',
     inputSchema: { type: 'object', properties: {} },
   },
   {
@@ -178,11 +178,11 @@ async function callTool(name, a, { publicBase, internalBase, lang }) {
     }
     case 'get_format':
       return [
-        `Spec: ${publicBase}/openjubensha.md`,
-        `JSON Schema：${publicBase}/schema/openjubensha-1.schema.json`,
+        `Spec: ${publicBase}/openmystery.md`,
+        `JSON Schema：${publicBase}/schema/openmystery-1.schema.json`,
         `Example: ${publicBase}/api/scenarios/yuye-yaohuo/source`,
         '',
-        await api('/openjubensha.md', null, { raw: true }),
+        await api('/openmystery.md', null, { raw: true }),
       ].join('\n');
     case 'check_scenario':
     case 'submit_scenario': {

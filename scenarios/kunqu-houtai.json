@@ -1,6 +1,6 @@
 {
-  "$schema": "../schema/openjubensha-1.schema.json",
-  "format": "openjubensha/1",
+  "$schema": "../schema/openmystery-1.schema.json",
+  "format": "openmystery/1",
   "id": "kunqu-houtai",
   "version": "1.0.0",
   "title": "水袖惊梦",

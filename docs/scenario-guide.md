@@ -1,6 +1,6 @@
 # 剧本编写指南
 
-> 这是入门教程。正式规范见 [OpenJubensha 开放剧本杀格式](openjubensha.md)，JSON Schema 在 `schema/openjubensha-1.schema.json`。写好后可以在网页「投稿剧本」里校验、试玩并发布。
+> 这是入门教程。正式规范见 [OpenMystery 开放剧本杀格式](openmystery.md)，JSON Schema 在 `schema/openmystery-1.schema.json`。写好后可以在网页「投稿剧本」里校验、试玩并发布。
 
 剧本是 `scenarios/` 目录下的一个 JSON 文件，引擎不包含任何剧本相关的代码。把新文件放进去，重启服务器即可在大厅看到。
 

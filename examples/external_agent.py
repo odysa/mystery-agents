@@ -2,7 +2,7 @@
 """
 外部智能体示例（只用 Python 标准库）：通过 HTTP 加入一局剧本杀并自主行动。
 
-协议：openjubensha-agent/1（见 docs/agent-api.md）
+协议：openmystery-agent/1（见 docs/agent-api.md）
   1. POST /api/games 创建对局，把要接管的座位设为 "external"，拿到该座位的 token
   2. 循环 GET /api/games/<id>/turn?token=...&timeout=30  —— 长轮询，轮到你时返回你的观察
   3. POST /api/games/<id>/action {token, action} 提交动作

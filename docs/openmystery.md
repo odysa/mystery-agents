@@ -1,8 +1,8 @@
-# OpenJubensha 开放剧本杀格式 v1
+# OpenMystery 开放剧本杀格式 v1
 
-> 格式标识：`openjubensha/1` · JSON Schema：[`schema/openjubensha-1.schema.json`](../schema/openjubensha-1.schema.json) · 参考实现：[`src/engine/scenario.js`](../src/engine/scenario.js)
+> 格式标识：`openmystery/1` · JSON Schema：[`schema/openmystery-1.schema.json`](../schema/openmystery-1.schema.json) · 参考实现：[`src/engine/scenario.js`](../src/engine/scenario.js)
 
-OpenJubensha 是一个**多模态、多语言、机器可读、可校验、可被 AI 直接游玩**的剧本杀剧本格式。一个剧本是一个 UTF-8 JSON 文件，加上可选的媒体目录（`<剧本id>/media/`）。它的目标是：
+OpenMystery 是一个**多模态、多语言、机器可读、可校验、可被 AI 直接游玩**的剧本杀剧本格式。一个剧本是一个 UTF-8 JSON 文件，加上可选的媒体目录（`<剧本id>/media/`）。它的目标是：
 
 - **作者友好**：纯数据，任何编辑器都能写；加上 `$schema` 就有自动补全。
 - **引擎无关**：格式只描述「故事 + 信息分配 + 规则参数」，不包含代码。任何实现都可以读取同一个剧本。
@@ -18,8 +18,8 @@ OpenJubensha 是一个**多模态、多语言、机器可读、可校验、可�
 
 ```json
 {
-  "$schema": "https://<你的服务器>/schema/openjubensha-1.schema.json",
-  "format": "openjubensha/1",
+  "$schema": "https://<你的服务器>/schema/openmystery-1.schema.json",
+  "format": "openmystery/1",
   ...
 }
 ```
@@ -46,7 +46,7 @@ OpenJubensha 是一个**多模态、多语言、机器可读、可校验、可�
 | 字段 | 必填 | 说明 |
 |---|---|---|
 | `id` | ✔ | 全局唯一 |
-| `format` | 建议 | 固定为 `openjubensha/1` |
+| `format` | 建议 | 固定为 `openmystery/1` |
 | `title` | ✔ | ≤ 40 字 |
 | `subtitle` |  | 一句话简介 |
 | `version` `language` `license` `author` `tags` |  | 元数据。推荐许可证 CC BY 4.0 |
@@ -239,4 +239,4 @@ OpenJubensha 是一个**多模态、多语言、机器可读、可校验、可�
 
 ## 7. 版本
 
-`openjubensha/1` 尚未正式发布，在发布前仍可能调整。发布后：新增可选字段不改变版本号；改变已有字段语义或新增必填字段时升级为 `openjubensha/2`。实现遇到不认识的 `format` **必须**拒绝。
+`openmystery/1` 尚未正式发布，在发布前仍可能调整。发布后：新增可选字段不改变版本号；改变已有字段语义或新增必填字段时升级为 `openmystery/2`。实现遇到不认识的 `format` **必须**拒绝。

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Webhook 智能体示例（Node，零依赖）：平台每次轮到该角色时 POST 观察过来，这里返回一个动作。
-// 协议：openjubensha-agent/1（见 docs/agent-api.md）
+// 协议：openmystery-agent/1（见 docs/agent-api.md）
 //
 //   node examples/webhook_agent.mjs 8787
 //   npm run sim -- --agents webhook --webhook-url http://127.0.0.1:8787 --games 5

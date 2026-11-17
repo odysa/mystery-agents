@@ -1,8 +1,8 @@
 // Webhook 智能体：每次轮到该角色时，把观察 POST 给外部服务，由对方返回动作。
-// 协议见 docs/agent-api.md（openjubensha-agent/1）。任何语言写的智能体都能这样接入。
+// 协议见 docs/agent-api.md（openmystery-agent/1）。任何语言写的智能体都能这样接入。
 import { RuleAgent } from './rule.js';
 
-export const AGENT_PROTOCOL = 'openjubensha-agent/1';
+export const AGENT_PROTOCOL = 'openmystery-agent/1';
 
 export class WebhookAgent {
   constructor({ url, scenario, pid, seed, lang = 'zh', timeoutMs = Number(process.env.MA_WEBHOOK_TIMEOUT_MS || 60000) }) {

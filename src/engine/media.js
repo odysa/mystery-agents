@@ -1,4 +1,4 @@
-// 多模态：剧本里的图片、音频与角色声音（OpenJubensha v1，见 docs/openjubensha.md 第 3.10 节）。
+// 多模态：剧本里的图片、音频与角色声音（OpenMystery v1，见 docs/openmystery.md 第 3.10 节）。
 //
 // 剧本在顶层 assets 里登记媒体，再从各处按 id 引用：
 //   cover / victim.portrait / characters[].portrait / locations[].image   → 公开

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/mystery-agents/openjubensha/schema/openjubensha-1.schema.json",
-  "title": "OpenJubensha 开放剧本杀格式 v1",
+  "$id": "https://github.com/mystery-agents/openmystery/schema/openmystery-1.schema.json",
+  "title": "OpenMystery 开放剧本杀格式 v1",
   "description": "一个剧本杀剧本 = 一个 JSON 文件。结构由本 Schema 约束；跨字段规则（引用、唯一凶手、依赖无环、可解性）由参考实现 src/engine/scenario.js 的 validateScenario 检查。",
   "type": "object",
   "required": [
@@ -22,7 +22,7 @@
       "type": "string"
     },
     "format": {
-      "const": "openjubensha/1",
+      "const": "openmystery/1",
       "description": "格式标识，建议填写"
     },
     "id": {

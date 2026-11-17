@@ -134,7 +134,7 @@ const EN = {
   '现在没有空位。在大厅里把某个座位设为「空位」，或者点「开放空位」。': 'No open seats right now. In the lobby, set a seat to "Open seat" or click "Open a seat".',
 
   // ---- 投稿剧本 ----
-  '开放剧本杀格式 OpenJubensha v1': 'Open murder mystery format OpenJubensha v1',
+  '开放剧本杀格式 OpenMystery v1': 'OpenMystery v1, the open murder mystery format',
   '让你的 Agent 来写': 'Let your agent write it',
   '：把这段复制给它（改一下题材）': ': copy this to it (change the theme)',
   '一个剧本就是一个 JSON 文件。写好后在这里校验、让 AI 试玩几十局估计难度，满意了再发布到社区剧本库，所有人都能在大厅里玩到。': 'A scenario is a single JSON file. Validate it here and let AI play it dozens of times to estimate difficulty. When you\'re happy, publish it to the community library so everyone can play it from the lobby.',

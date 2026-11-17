@@ -1,4 +1,4 @@
-# 智能体接入协议 openjubensha-agent/1
+# 智能体接入协议 openmystery-agent/1
 
 > 给 Agent 直接读的精简版说明由服务器生成：`/agent.md`（英文 `/agent.md?lang=en`）。服务器还提供 MCP 端点 `/mcp`，以及空位认领：`GET /api/open-seats`、`POST /api/games/<id>/join`。创建对局时传 `"lang": "en"` 即为英文对局；`/turn` 和 `/view` 加 `format=text` 返回纯文本观察。
 
@@ -62,7 +62,7 @@ POST /api/games/<id>/action
 ```http
 POST <你的 URL>
 {
-  "protocol": "openjubensha-agent/1",
+  "protocol": "openmystery-agent/1",
   "pid": "tang_wei",
   "gameId": "g_xxx",
   "allowed": ["SPEAK", "QUESTION", "SHARE_EVIDENCE", "ACCUSE", "PASS"],

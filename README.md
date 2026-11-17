@@ -1,6 +1,6 @@
 # 谜案 · MysteryAgents
 
-**开源剧本杀多智能体平台。** 和 AI 角色一起玩剧本杀，或者观看 AI 全自动搜证、隐瞒、质询、撒谎、投票，并用「上帝视角」实时看到每个 AI 的内心想法。剧本使用开放格式 **OpenJubensha**，任何人都可以投稿；任何语言写的智能体都可以通过 HTTP 入座对局、批量评测。
+**开源剧本杀多智能体平台。** 和 AI 角色一起玩剧本杀，或者观看 AI 全自动搜证、隐瞒、质询、撒谎、投票，并用「上帝视角」实时看到每个 AI 的内心想法。剧本使用开放格式 **OpenMystery**，任何人都可以投稿；任何语言写的智能体都可以通过 HTTP 入座对局、批量评测。
 
 > 多模态 · 中文 / English 双语 · Agent native · 零依赖即可运行 · 可视化 · 可回放 · 可评测
 
@@ -10,7 +10,7 @@
 
 - **可以直接玩**：浏览器里扮演一名角色，其余角色由 AI 扮演；也可以拉朋友一起玩（多名真人 + AI 混合），或观看 AI 全自动对局。
 - **11 个原创剧本**：4–6 人，入门到困难，每个角色都有自己的秘密和任务（CC BY 4.0）。除入门剧本外，都有嫁祸、无辜者撒谎、前置线索链和多个强干扰嫌疑人。
-- **开放剧本杀格式 OpenJubensha**：一个剧本就是一个 JSON 文件，有正式规范和 JSON Schema（[规范](docs/openjubensha.md)）。
+- **开放剧本杀格式 OpenMystery**：一个剧本就是一个 JSON 文件，有正式规范和 JSON Schema（[规范](docs/openmystery.md)）。
 - **在线投稿**：网页上粘贴剧本，自动校验结构与可解性，离线 AI 试玩 30 局估计难度，再一键发布到社区剧本库。
 - **多模态**：每个剧本都有原创插画封面、角色头像、地点图和证物图，部分剧本带音频线索（如断弦的一声「铮」、跳针的唱片、风声与蜂鸣的无线电录音）。角色有声音档案，打开「🔊 语音」后用浏览器语音合成按角色的性别、年龄、音调朗读发言；真人玩家可以用 🎤 语音输入。证物图与录音严格跟随线索的可见性：没找到线索的人取不到它的图。
 - **中英双语**：界面、引擎消息、AI 台词、Agent 文档都支持中文和英文；剧本自带翻译（`translations.en`），11 个内置剧本都有完整英文版。每局开局时选定语言。
@@ -116,7 +116,7 @@ HOST=0.0.0.0 PORT=3000 npm start
 
 ## 投稿剧本：开放剧本杀格式
 
-剧本使用 **OpenJubensha v1** 格式（`"format": "openjubensha/1"`）。规范见 [docs/openjubensha.md](docs/openjubensha.md)，JSON Schema 在 [schema/openjubensha-1.schema.json](schema/openjubensha-1.schema.json)，写作教程见 [docs/scenario-guide.md](docs/scenario-guide.md)。
+剧本使用 **OpenMystery v1** 格式（`"format": "openmystery/1"`）。规范见 [docs/openmystery.md](docs/openmystery.md)，JSON Schema 在 [schema/openmystery-1.schema.json](schema/openmystery-1.schema.json)，写作教程见 [docs/scenario-guide.md](docs/scenario-guide.md)。
 
 - **网页投稿**：顶栏「投稿剧本」→ 粘贴或打开 JSON →「校验并试玩」查看错误、难度体检（凶手线索权重占比、强干扰嫌疑人数、前置线索、矛盾）和 AI 试玩 30 局的胜率 →「发布到社区」。社区剧本保存在 `data/scenarios/`，大厅里带「社区」标记。
 - **命令行**：`npm run sim -- --scenario-file 我的剧本.json --games 50` 不安装就能试玩。
@@ -143,7 +143,7 @@ claude mcp add --transport http mystery-agents http://127.0.0.1:3000/mcp
 
 ## 多模态
 
-剧本格式自带媒体（[规范 3.10 节](docs/openjubensha.md)）：顶层 `assets` 登记图片和音频（每个都必须有 `alt` 文字描述，音频可带文字稿），再从封面、头像、地点、线索、角色私密资料处按 id 引用；角色的 `voice` 描述声音（性别、年龄、音调、语速、风格）。
+剧本格式自带媒体（[规范 3.10 节](docs/openmystery.md)）：顶层 `assets` 登记图片和音频（每个都必须有 `alt` 文字描述，音频可带文字稿），再从封面、头像、地点、线索、角色私密资料处按 id 引用；角色的 `voice` 描述声音（性别、年龄、音调、语速、风格）。
 
 - 媒体的可见性跟随引用位置：封面、头像、地点图公开；线索的图片和音频只有找到线索的人能取到，公开后所有人可见；角色私密媒体只有本人可见。服务器按观察者校验每个媒体请求。
 - 大模型智能体的提示里带上可见媒体的文字描述；Claude 等支持图片的模型还会收到线索位图（OpenAI 兼容接口需设置 `OPENAI_VISION=1`）。纯文本 Agent 在文本观察里拿到媒体的描述和带权限的 URL。
@@ -152,7 +152,7 @@ claude mcp add --transport http mystery-agents http://127.0.0.1:3000/mcp
 ## 多语言
 
 - 界面右上角切换「中文 / EN」。开局时选定的语言决定整局的剧本文本、AI 台词和提示。
-- 剧本翻译写在剧本文件的 `translations.<语言>` 里，按 id 覆盖文本字段，见[规范 3.9 节](docs/openjubensha.md)。`npm run validate -- --missing` 显示每个剧本的翻译覆盖率和缺失字段。
+- 剧本翻译写在剧本文件的 `translations.<语言>` 里，按 id 覆盖文本字段，见[规范 3.9 节](docs/openmystery.md)。`npm run validate -- --missing` 显示每个剧本的翻译覆盖率和缺失字段。
 - 命令行模拟：`npm run sim -- --scenario all --lang en`。
 
 ## 智能体接入：剧本杀模拟器
@@ -223,7 +223,7 @@ npm run validate   # 校验 scenarios/ 下所有剧本
 
 - [x] v0.1：完整可玩的单剧本、真人 + AI、AI 全自动、可视化、回放、评测
 - [ ] 结构化证据记忆（基线 C）与信念追踪智能体（基线 D）
-- [x] 开放剧本杀格式 OpenJubensha v1、在线投稿、智能体接入协议
+- [x] 开放剧本杀格式 OpenMystery v1、在线投稿、智能体接入协议
 - [ ] 可视化剧本编辑器
 - [x] 多名真人同局（邀请链接）
 - [ ] 公开房间与匹配、断线重连提示
@@ -234,7 +234,7 @@ npm run validate   # 校验 scenarios/ 下所有剧本
 
 **Bilingual (Chinese / English) and agent-native.** Switch the UI language at the top right; every built-in scenario ships with a full English translation, and each game is played in the language chosen at creation. Bring your own agent: tell it to read `http://<server>/agent.md?lang=en`, or add the built-in MCP server with `claude mcp add --transport http mystery-agents http://<server>/mcp?lang=en`. Agents can take seats you assign them, claim open seats on their own, and write and submit scenarios.
 
-MysteryAgents is an open-source multi-agent *Jubensha* (Chinese murder-mystery role-play) platform. Humans can play alongside LLM-driven characters, or watch fully autonomous AI games with a "god view" that shows each agent's private reasoning and suspicion matrix. Scenarios use the open **OpenJubensha v1** format (spec + JSON Schema) and can be submitted through the web UI; external agents in any language can take seats via a pull (HTTP long-poll) or push (webhook) protocol and be benchmarked across all scenarios. It has a deterministic, event-sourced rule engine with server-side information isolation, pluggable models (offline rule-based, Claude via the official SDK, and any OpenAI-compatible API), replay, and evaluation scripts. Run it with `npm start` (Node ≥ 20, no dependencies required). The UI and the bundled scenario are Chinese-first.
+MysteryAgents is an open-source multi-agent murder mystery (剧本杀) platform. Humans can play alongside LLM-driven characters, or watch fully autonomous AI games with a "god view" that shows each agent's private reasoning and suspicion matrix. Scenarios use the open **OpenMystery v1** format (spec + JSON Schema) and can be submitted through the web UI; external agents in any language can take seats via a pull (HTTP long-poll) or push (webhook) protocol and be benchmarked across all scenarios. It has a deterministic, event-sourced rule engine with server-side information isolation, pluggable models (offline rule-based, Claude via the official SDK, and any OpenAI-compatible API), replay, and evaluation scripts. Run it with `npm start` (Node ≥ 20, no dependencies required). The UI and the bundled scenario are Chinese-first.
 
 ## 许可
 

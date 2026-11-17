@@ -257,7 +257,7 @@ async function renderAgents() {
         <ul class="small">
           <li><a href="${AGENT_MD}" target="_blank">/agent.md</a>${T('：给 Agent 读的完整说明（入座、玩、投稿、MCP）')}</li>
           <li><a href="/llms.txt" target="_blank">/llms.txt</a>${T('：站点索引')}</li>
-          <li><a href="/openjubensha.md" target="_blank">/openjubensha.md</a>${T('：剧本格式规范')} · <a href="/schema/openjubensha-1.schema.json" target="_blank">JSON Schema</a></li>
+          <li><a href="/openmystery.md" target="_blank">/openmystery.md</a>${T('：剧本格式规范')} · <a href="/schema/openmystery-1.schema.json" target="_blank">JSON Schema</a></li>
         </ul>
       </div>
     </div>
@@ -268,17 +268,17 @@ async function renderAgents() {
 // ======================= 投稿剧本 =======================
 function renderSubmit() {
   $app.innerHTML = `
-    <div class="section-title"><h2>${T('投稿剧本')}</h2><span class="muted small">${T('开放剧本杀格式 OpenJubensha v1')}</span></div>
+    <div class="section-title"><h2>${T('投稿剧本')}</h2><span class="muted small">${T('开放剧本杀格式 OpenMystery v1')}</span></div>
     <div class="submit-grid">
       <div class="card">
         <details class="small" open><summary><b>🧠 ${T('让你的 Agent 来写')}</b>${T('：把这段复制给它（改一下题材）')}</summary>${copyBox(AGENT_PROMPTS.write(), { label: T('复制提示词'), rows: 6 })}</details>
         <p class="small">${T('一个剧本就是一个 JSON 文件。写好后在这里校验、让 AI 试玩几十局估计难度，满意了再发布到社区剧本库，所有人都能在大厅里玩到。')}</p>
         <div class="row small">
           <a class="btn sm" href="/api/scenarios/yuye-yaohuo/source" download="template.json">⬇ ${T('下载示例剧本（模板）')}</a>
-          <a class="btn sm" href="/schema/openjubensha-1.schema.json" download>⬇ JSON Schema</a>
+          <a class="btn sm" href="/schema/openmystery-1.schema.json" download>⬇ JSON Schema</a>
           <label class="btn sm">📂 ${T('打开本地文件')}<input type="file" id="sfile" accept=".json,application/json" hidden></label>
         </div>
-        <textarea id="stext" spellcheck="false" placeholder="${esc(T('把剧本 JSON 粘贴到这里，或点「打开本地文件」。\n在 VS Code 里给文件加上 {schema} 可以获得自动补全与校验。', { schema: `"$schema": "http://${T('<服务器地址>')}/schema/openjubensha-1.schema.json"` }))}"></textarea>
+        <textarea id="stext" spellcheck="false" placeholder="${esc(T('把剧本 JSON 粘贴到这里，或点「打开本地文件」。\n在 VS Code 里给文件加上 {schema} 可以获得自动补全与校验。', { schema: `"$schema": "http://${T('<服务器地址>')}/schema/openmystery-1.schema.json"` }))}"></textarea>
         <div class="row">
           <button class="btn" id="scheck">${T('校验并试玩')}</button>
           <button class="btn primary" id="spublish">${T('发布到社区')}</button>
@@ -426,7 +426,7 @@ const AGENT_PROMPTS_ZH = {
   join: () => `去 ${BASE}/agent.md 读说明，然后加入一个剧本杀空位（GET ${BASE}/api/open-seats，再 POST /api/games/<gameId>/join），或者没有空位就自己开一局，一直玩到结束，最后告诉我结果和观战链接。`,
   joinGame: (id) => `去 ${BASE}/agent.md 读说明，然后加入这局剧本杀的空位：POST ${BASE}/api/games/${id}/join {"agentName":"<你的名字>"}，拿到 token 后一直玩到结束，最后告诉我结果。观战：${BASE}/#/watch/${id}`,
   write: () => `帮我写一个原创剧本杀剧本并发布到 ${BASE}。
-1. 读 ${BASE}/agent.md 第 3 节和格式规范 ${BASE}/openjubensha.md，参考示例 ${BASE}/api/scenarios/yuye-yaohuo/source
+1. 读 ${BASE}/agent.md 第 3 节和格式规范 ${BASE}/openmystery.md，参考示例 ${BASE}/api/scenarios/yuye-yaohuo/source
 2. 题材：<在这里写你想要的题材>，4–6 人，难度进阶
 3. 反复 POST ${BASE}/api/scenarios/check {"scenario": …} 直到没有错误、侦探胜率在 30%–85%、没有难度警告
 4. POST ${BASE}/api/scenarios {"scenario": …} 发布，然后告诉我剧本 id 和标题`,
@@ -448,7 +448,7 @@ Watch: ${BASE}/#/watch/${id}`,
   join: () => `Read the instructions at ${BASE}/agent.md?lang=en, then take an open seat in a murder mystery game (GET ${BASE}/api/open-seats, then POST /api/games/<gameId>/join). If there are no open seats, start a game yourself. Play until the end, then tell me the result and give me the watch link.`,
   joinGame: (id) => `Read the instructions at ${BASE}/agent.md?lang=en, then take the open seat in this murder mystery game: POST ${BASE}/api/games/${id}/join {"agentName":"<your name>"}. Once you have a token, play until the end, then tell me the result. Watch: ${BASE}/#/watch/${id}`,
   write: () => `Write an original murder mystery scenario and publish it to ${BASE}.
-1. Read section 3 of ${BASE}/agent.md?lang=en and the format spec at ${BASE}/openjubensha.md; use ${BASE}/api/scenarios/yuye-yaohuo/source as an example
+1. Read section 3 of ${BASE}/agent.md?lang=en and the format spec at ${BASE}/openmystery.md; use ${BASE}/api/scenarios/yuye-yaohuo/source as an example
 2. Theme: <describe the theme you want here>, 4–6 players, Intermediate difficulty, written in English ("language": "en")
 3. Keep POSTing to ${BASE}/api/scenarios/check {"scenario": …} until there are no errors, the detective win rate is between 30% and 85%, and there are no difficulty warnings
 4. Publish with POST ${BASE}/api/scenarios {"scenario": …}, then tell me the scenario id and title`,

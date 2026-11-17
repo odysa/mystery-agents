@@ -85,10 +85,10 @@ test('投稿：校验 → 发布 → 出现在剧本库 → 可以开局；重�
     assert.equal((await call('/api/scenarios/yuye-yaohuo/source')).status, 200);
     const g = await call('/api/games', { scenarioId: 'my-test-case', seats: {}, speedMs: 0 });
     assert.equal(g.status, 201);
-    const schema = await fetch(`${base}/schema/openjubensha-1.schema.json`).then((r) => r.json());
-    assert.equal(schema.properties.format.const, 'openjubensha/1');
+    const schema = await fetch(`${base}/schema/openmystery-1.schema.json`).then((r) => r.json());
+    assert.equal(schema.properties.format.const, 'openmystery/1');
     const fmt = await call('/api/format');
-    assert.equal(fmt.body.agentProtocol, 'openjubensha-agent/1');
+    assert.equal(fmt.body.agentProtocol, 'openmystery-agent/1');
   });
 });
 
@@ -118,7 +118,7 @@ test('webhook 智能体：模拟器把观察 POST 给外部服务；服务器默
     req.on('end', () => {
       calls++;
       const msg = JSON.parse(b);
-      assert.equal(msg.protocol, 'openjubensha-agent/1');
+      assert.equal(msg.protocol, 'openmystery-agent/1');
       assert.ok(!JSON.stringify(msg).includes('"implicates"'), '观察里不能有作者标注');
       const a = msg.allowed;
       // 第一次故意给一个非法动作，测试重试

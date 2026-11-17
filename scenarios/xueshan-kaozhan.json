@@ -1,6 +1,6 @@
 {
-  "$schema": "../schema/openjubensha-1.schema.json",
-  "format": "openjubensha/1",
+  "$schema": "../schema/openmystery-1.schema.json",
+  "format": "openmystery/1",
   "id": "xueshan-kaozhan",
   "version": "1.0.0",
   "title": "雪山孤站",

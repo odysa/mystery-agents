@@ -22,7 +22,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
 const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json; charset=utf-8', '.png': 'image/png', '.ico': 'image/x-icon' };
 
-const SCHEMA_FILE = join(ROOT, 'schema', 'openjubensha-1.schema.json');
+const SCHEMA_FILE = join(ROOT, 'schema', 'openmystery-1.schema.json');
 const MAX_COMMUNITY = Number(process.env.MA_MAX_COMMUNITY_SCENARIOS || 500);
 
 export function createApp({
@@ -164,7 +164,7 @@ export function createApp({
     const L = langOf(req, q);
     const t = (zh, vars) => tr(L, zh, vars);
     if (req.method === 'GET' && parts[1] === 'format') {
-      return json(res, 200, { format: FORMAT, agentProtocol: 'openjubensha-agent/1', schema: JSON.parse(readFileSync(SCHEMA_FILE, 'utf8')) });
+      return json(res, 200, { format: FORMAT, agentProtocol: 'openmystery-agent/1', schema: JSON.parse(readFileSync(SCHEMA_FILE, 'utf8')) });
     }
     if (req.method === 'POST' && parts[1] === 'scenarios' && (parts[2] === 'check' || !parts[2])) {
       if (!allowSubmit) return json(res, 403, { error: t('这台服务器关闭了剧本投稿（MA_ALLOW_SUBMIT=0）') });
@@ -398,7 +398,7 @@ export function createApp({
 
   function serveStatic(req, res, url) {
     // 开放格式的 JSON Schema 也作为静态文件提供，方便编辑器引用
-    if (url.pathname === '/schema/openjubensha-1.schema.json') {
+    if (url.pathname === '/schema/openmystery-1.schema.json') {
       res.writeHead(200, { 'content-type': MIME['.json'], 'access-control-allow-origin': '*' });
       return res.end(readFileSync(SCHEMA_FILE));
     }
@@ -418,7 +418,7 @@ export function createApp({
     try {
       if (url.pathname === '/agent.md' || url.pathname === '/AGENTS.md') return text(res, 200, agentGuide(baseOf(req), langOf(req, url.searchParams)), 'text/markdown; charset=utf-8');
       if (url.pathname === '/llms.txt') return text(res, 200, llmsTxt(baseOf(req), langOf(req, url.searchParams)));
-      if (url.pathname === '/openjubensha.md') return text(res, 200, readFileSync(join(ROOT, 'docs', 'openjubensha.md'), 'utf8'), 'text/markdown; charset=utf-8');
+      if (url.pathname === '/openmystery.md') return text(res, 200, readFileSync(join(ROOT, 'docs', 'openmystery.md'), 'utf8'), 'text/markdown; charset=utf-8');
       const pm = url.pathname.match(/^\/media\/([\w-]+)\/([\w-]+)$/);
       if (pm && (req.method === 'GET' || req.method === 'HEAD')) {
         let sc;

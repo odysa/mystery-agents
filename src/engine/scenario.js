@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 export const SCENARIO_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'scenarios');
 
-export const FORMAT = 'openjubensha/1';
+export const FORMAT = 'openmystery/1';
 
 // 内置剧本目录之外的社区剧本目录（服务器启动时注册 data/scenarios）
 const extraDirs = new Set();
@@ -309,7 +309,7 @@ export function lintScenario(s) {
 
 // ---------- 多语言 ----------
 // 剧本的原文语言由 language 声明；translations.<lang> 按 id 覆盖可翻译的文本字段。
-// 结构见 docs/openjubensha.md「翻译」一节。引擎、校验、作者标注都与语言无关。
+// 结构见 docs/openmystery.md「翻译」一节。引擎、校验、作者标注都与语言无关。
 
 export const LANGS = ['zh', 'en'];
 export const baseLang = (s) => String(s?.language || 'zh-CN').slice(0, 2).toLowerCase();
