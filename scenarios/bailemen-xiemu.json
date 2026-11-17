@@ -1,0 +1,1113 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "bailemen-xiemu",
+  "version": "1.0.0",
+  "title": "金雀谢幕",
+  "subtitle": "1936 年冬，上海金雀舞厅。熄灯舞的十分钟里，琴声未断，头牌歌女却再也没能走上舞台。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 6,
+  "difficulty": "进阶",
+  "estimatedMinutes": 60,
+  "victim": {
+    "id": "bai_lu",
+    "name": "白露",
+    "bio": "26 岁，金雀舞厅的头牌歌女，一曲《夜来香》红遍上海滩。美艳、精明、手腕强硬，得罪过的人不比捧她的人少。"
+  },
+  "background": "民国二十五年（1936 年）冬，上海静安寺路，金雀舞厅。今晚 22:00，头牌歌女白露要登台唱压轴的《夜来香》，舞池里挤满了慕名而来的客人。\n\n21:30 是金雀的招牌节目「熄灯舞」：全场灯火熄灭十分钟，只有钢琴独奏《夜来香》在黑暗里流淌，舞客们相拥慢舞。21:40 灯光重新亮起，爵士乐队接着上场。\n\n21:50，梳头娘姨苏小桃去后台化妆间请白露准备登场，却发现她倒在梳妆凳边，颈上缠着她自己的白丝巾，已经没了气息。\n\n老板沈啸云当即锁了后门，请在场的巡捕房华探马金福暂时封锁后台。工部局的督察要到午夜才能赶来——在那之前，凶手就在你们六个人之中。",
+  "intro": "【主持人】欢迎来到《金雀谢幕》。这是一个「人人都在撒谎」的夜晚：今晚后台的每个人，都有不能让别人知道的事。请记住，说谎的人未必是凶手，看起来最清白的人也未必清白。凶手的目标是不被投票指认；其他人要在秘密与真相之间作出取舍。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。化妆间、舞台乐池、音控室、老板办公室、后巷，都已被马探目封锁。你找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。请先把每个人 21:20 到 21:50 的去向摆上桌面。",
+    "investigate_2": "【主持人】爵士乐停了，舞客们被请到前厅。第二轮搜证开始，每人还可以搜查两次。有些东西，只有在你先看到另一样东西之后才会被注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。督察快到了。想一想：熄灯舞那十分钟，黑暗里谁真的待在自己说的地方？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "dressing_room",
+      "name": "白露化妆间",
+      "description": "案发现场。后台走廊尽头的单间，梳妆台、穿衣镜、衣架上挂着压轴要穿的旗袍。隔壁是二牌歌女杜美琪的化妆间。",
+      "x": 0.2,
+      "y": 0.3
+    },
+    {
+      "id": "stage",
+      "name": "舞台与乐池",
+      "description": "舞池正前方的半圆舞台，台侧是乐池和一架三角钢琴。熄灯舞时这里一片漆黑。",
+      "x": 0.55,
+      "y": 0.2
+    },
+    {
+      "id": "booth",
+      "name": "音控室",
+      "description": "侧台旁的小隔间，放着电唱机和扩音器，平时由音控员老周看管，一扇小门通往后台走廊。",
+      "x": 0.85,
+      "y": 0.35
+    },
+    {
+      "id": "office",
+      "name": "老板办公室",
+      "description": "二楼的老板办公室，红木大班台、保险柜和一扇对着后巷的窗户。",
+      "x": 0.35,
+      "y": 0.75
+    },
+    {
+      "id": "alley",
+      "name": "后巷",
+      "description": "舞厅后门外的窄巷，堆着垃圾箱和空酒箱，平时只有送货的车会开进来。",
+      "x": 0.75,
+      "y": 0.78
+    }
+  ],
+  "characters": [
+    {
+      "id": "chen_mubai",
+      "name": "陈慕白",
+      "color": "#5b7fbf",
+      "publicBio": "31 岁，金雀乐队的钢琴师，熄灯舞的钢琴独奏一向由他担纲。沉默寡言，据说《夜来香》的钢琴编曲出自他手。",
+      "personality": "温和克制、说话轻声细语，被逼问时会显得委屈，然后不动声色地把话题引向别人。",
+      "script": "你是陈慕白，金雀乐队的钢琴师，也是杀害白露的凶手。白露唱红上海滩的《夜来香》《雨巷》，其实都是你写的曲子，唱片上却只署她一个人的名字。你们偷偷相好了三年，她答应攒够钱就和你去香港。可今晚开场前，她把你送的戒指扔还给你：她已签了联华影业，下个月要嫁给洋行买办，还笑你「一个弹琴的，也配」。\n\n【当晚真实经历】\n20:05 排练刚完，你在台边捡到杜美琪掉的一只珍珠耳环，顺手揣进口袋。\n20:50 你在后台走廊看见杜美琪鬼鬼祟祟地从白露化妆间溜出来。\n21:28 音控员老周不在，你溜进音控室，把上个月在百代灌的试音片《夜来香》钢琴独奏放上电唱机，接通扩音器。\n21:30 熄灯舞开始，全场漆黑，人人都以为是你在台上弹琴。你从侧台摸进后台。\n21:34 你在化妆间和她争执，用她自己的白丝巾从背后勒死了她，把杜美琪的耳环丢在梳妆台下。\n21:38 你回音控室取下唱片。21:40 灯亮时，你已坐在琴凳上向全场鞠躬。之后你把唱片掰碎，藏进琴凳的翻盖里。\n\n【你的谎言】熄灯舞十分钟，我一直在台上弹琴，全场都听见了。\n【你的任务】不被指认；不让琴凳里的碎唱片被公开。20:50 看见杜美琪是真事，可以说。",
+      "isMurderer": true,
+      "coverStory": "21:30 到 21:40 熄灯舞，我一直在台上弹《夜来香》，全场都听见了琴声。灯一亮我就在琴凳上鞠躬，好多人都看见了。",
+      "knowledge": [
+        {
+          "id": "k_chen_cover",
+          "text": "21:30-21:40 熄灯舞，我一直在台上弹《夜来香》，全场都听见了。",
+          "time": "21:30-21:40",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_chen_saw_du",
+          "text": "20:50 左右我在后台走廊，看见杜美琪鬼鬼祟祟地从白露的化妆间里溜出来。",
+          "time": "20:50",
+          "implicates": {
+            "du_meiqi": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_chen_earring",
+          "text": "20:05 排练完，我在台边捡到杜美琪掉的珍珠耳环，一直揣在兜里。",
+          "time": "20:05",
+          "implicates": {
+            "chen_mubai": 2
+          },
+          "secret": true
+        },
+        {
+          "id": "k_chen_truth",
+          "text": "21:28 我在音控室放上自己的试音唱片，21:34 在化妆间用丝巾勒死了白露，21:40 前回到琴凳上。",
+          "time": "21:28-21:40",
+          "implicates": {
+            "chen_mubai": 5
+          },
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_record",
+          "desc": "不让琴凳里的碎唱片被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "stage",
+          "booth",
+          "dressing_room",
+          "office"
+        ]
+      }
+    },
+    {
+      "id": "du_meiqi",
+      "name": "杜美琪",
+      "color": "#d9534f",
+      "publicBio": "24 岁，金雀的二牌歌女，嗓子不输白露，却总被压在她身后。今晚戴着一对珍珠耳环——不过有人注意到，她只戴了一只。",
+      "personality": "泼辣、好强、嘴上不饶人，心虚时反而声音更大。",
+      "script": "你是杜美琪，金雀的二牌歌女。三年前你才是金雀的头牌，是白露抢走了你的压轴、你的客人，还四处散布你在汉口的旧事。你恨她，但从没想过要她的命。\n\n【当晚经历】\n20:05 排练时你掉了一只珍珠耳环，怎么也找不到。\n20:10 你去舞台监督那儿登记了失物。\n20:50 白露去了老板办公室，化妆间没人。你溜进去，往她的胖大海润喉茶里倒了一包巴豆粉——只想让她今晚唱不成，好让你顶上压轴。20:53 你溜了出来。\n21:20-21:45 你一个人待在自己的化妆间（就在白露隔壁），喝闷酒、补妆。\n21:35 左右，你听见隔壁「咚」的一声闷响，像凳子倒了。你以为白露又在发脾气，没去看。\n21:50 你听见小桃的尖叫。\n\n【你的秘密】你往白露的茶里下了巴豆。说出来，所有人都会以为你是来下毒的。\n【你的说法】今晚我一步都没进过白露的化妆间。\n【你的任务】找出真凶；你的耳环 20:05 就丢了，让「失物登记簿」被公开，证明有人拿你的耳环栽赃。",
+      "coverStory": "今晚我一步都没进过白露的化妆间。21:20 以后我一直在自己化妆间补妆，一个人。",
+      "knowledge": [
+        {
+          "id": "k_du_lost",
+          "text": "20:10 排练时我掉了一只珍珠耳环，当场就去舞台监督那儿登记了失物。",
+          "time": "20:10",
+          "implicates": {
+            "du_meiqi": -1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_du_thud",
+          "text": "21:35 左右我在自己化妆间，听见隔壁白露那边「咚」的一声闷响，像凳子倒了。",
+          "time": "21:35",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_du_cover",
+          "text": "今晚我一步都没进过白露的化妆间。",
+          "time": "",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_du_tea",
+          "text": "20:50 我趁白露不在，溜进她化妆间往润喉茶里倒了巴豆粉，只想让她今晚唱不成。",
+          "time": "20:50",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_public",
+          "clue": "c_lostbook",
+          "desc": "让失物登记簿被公开，证明耳环早就丢了"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "stage",
+          "dressing_room",
+          "booth",
+          "alley"
+        ]
+      }
+    },
+    {
+      "id": "shen_xiaoyun",
+      "name": "沈啸云",
+      "color": "#8e6c3a",
+      "publicBio": "48 岁，金雀舞厅的老板，黑白两道都吃得开。白露是他一手捧红的摇钱树，合约还剩两年。",
+      "personality": "八面玲珑、笑里藏刀，习惯用钱和人情摆平一切；被戳到痛处会突然拍桌子。",
+      "script": "你是沈啸云，金雀的老板。舞厅只是门面，你真正的生意是借舞厅后巷走烟土，巡捕房的马金福收你的钱替你押车。\n\n【当晚经历】\n20:40-20:55 白露来你办公室，甩出一份联华影业的合约，说下个月就走。你不放，她冷笑着拿出一封写给工部局督察长的信，里面写着你走烟土、马金福受贿。你一把夺下了那封信，锁进抽屉。\n21:05 你到化妆间门口，把合约副本撕成两半摔在她面前，留了张便条：「不签续约，就别想活着走出金雀。」——气话而已。\n21:20 你叫音控员老周去后巷帮忙搬货。\n21:25-21:45 你和马金福、老周在后巷，把十二箱烟土装上卡车。\n21:50 你听见尖叫，从后门赶回来。\n\n【你的秘密】烟土生意；那封告密信在你抽屉里。\n【你的说法】21:20 以后我一直在办公室对账，没出过门。\n【你的任务】找出真凶（你确实没杀她）；绝不能让办公室里的暗账被公开。",
+      "coverStory": "21:20 以后我一直在办公室对账，没出过门。白露要走，我是不痛快，但我是生意人，犯不着杀摇钱树。",
+      "knowledge": [
+        {
+          "id": "k_shen_cover",
+          "text": "21:20 以后我一直在办公室对账，没出过门。",
+          "time": "21:20",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_shen_note",
+          "text": "21:05 我去化妆间找白露谈续约，她不肯，我撂下一张便条就走了，那时她好好的。",
+          "time": "21:05",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_shen_alley",
+          "text": "21:25-21:45 我和马金福、老周在后巷，把十二箱烟土装上了卡车。",
+          "time": "21:25-21:45",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_ledger",
+          "desc": "不让办公室里的烟土暗账被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "office",
+          "alley",
+          "dressing_room",
+          "stage"
+        ]
+      }
+    },
+    {
+      "id": "gu_huaian",
+      "name": "顾怀安",
+      "color": "#2e9e6b",
+      "publicBio": "33 岁，小报《沪上春秋》的记者，专写舞厅明星的花边新闻，脖子上总挂着一台带闪光灯的照相机。和白露是旧相识。",
+      "personality": "油滑、健谈、好奇心重，说话爱夸张；被质问时喜欢反问。",
+      "script": "你是顾怀安，小报记者。你和白露是旧相识，前年你赌输了钱，向她借了两千大洋，立了借据。上个月她翻脸要债，说再不还就去报馆揭发你那些编出来的独家新闻——你的饭碗全靠这些。\n\n【当晚经历】\n20:30 起你在舞池边拍照、跟客人搭讪。\n21:30-21:41 熄灯舞，你就站在台下最前排。黑暗里你听得清清楚楚：琴声第二段有一小节一模一样地重复了两遍，像唱片跳了针。你当时还纳闷。\n21:42 你溜进后台，想趁白露上台前跟她再求求情。化妆间门虚掩着——她已经死了。润喉茶满满一杯，一口没动。你鬼使神差地从她手袋里翻出借据揣进兜里，又对着尸体拍了一张照片（这是天大的独家），镁光灯泡烫手，你随手扔进了废纸篓。\n21:45 你溜回舞池。\n\n【你的秘密】你是第一个发现尸体的人，拿走了借据，还拍了照。\n【你的说法】我整晚都在舞池边拍照，从没去过后台。\n【你的任务】找出真凶；别让化妆间里的闪光灯泡被公开。",
+      "coverStory": "我整晚都在舞池边拍照，从没去过后台。熄灯舞的时候我就在台下最前排。",
+      "knowledge": [
+        {
+          "id": "k_gu_cover",
+          "text": "我整晚都在舞池边拍照，从没去过后台。",
+          "time": "",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_gu_skip",
+          "text": "熄灯舞时我就站在台下，琴声第二段有一小节一模一样地重复了两遍，像唱片跳了针。",
+          "time": "21:30-21:40",
+          "implicates": {
+            "chen_mubai": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_gu_found",
+          "text": "21:42 我进白露化妆间时她已经死了，润喉茶满满一杯没动过；我拿走了借据，还拍了一张照片。",
+          "time": "21:42",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_flashbulb",
+          "desc": "不让化妆间里的闪光灯泡被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "dressing_room",
+          "stage",
+          "office",
+          "booth"
+        ]
+      }
+    },
+    {
+      "id": "ma_jinfu",
+      "name": "马金福",
+      "color": "#34495e",
+      "publicBio": "42 岁，公共租界巡捕房的华人探目，金雀的常客。案发后是他封锁了后台，暂时主持搜查。",
+      "personality": "粗中有细、官腔十足，喜欢摆出办案的架子；心虚时爱拿「巡捕房」压人。",
+      "script": "你是马金福，巡捕房华探。你拿沈啸云的黑钱，替他的烟土押车，好几年了。你也一直纠缠白露，被她当众甩过耳光。\n\n【当晚经历】\n20:30 起你在舞池喝酒。\n21:20 你从后台走廊去后巷，路过时看见苏小桃哭着从白露化妆间跑出来。\n21:25-21:45 你在后巷给沈老板押车，看着十二箱烟土装上卡车。\n21:50 听见尖叫，你从后门冲进来，亮出证件封锁了后台。\n\n你不知道的是：白露写了一封告密信，要告你受贿押烟。如果这件事被翻出来，你不光丢饭碗，还会成为头号嫌疑人。\n\n【你的秘密】受贿，替沈啸云押运烟土；21:25-21:45 在后巷。\n【你的说法】熄灯舞的时候我在舞池里跟舞女跳舞。\n【你的任务】找出真凶，在督察面前立一功；无论如何，不能让大家把票投给你。",
+      "coverStory": "熄灯舞的时候我在舞池里跟舞女跳舞。我是巡捕，我比你们谁都想抓住凶手。",
+      "knowledge": [
+        {
+          "id": "k_ma_cover",
+          "text": "熄灯舞的时候我在舞池里跟舞女跳舞。",
+          "time": "21:30-21:40",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_ma_saw_tao",
+          "text": "21:20 我在后台走廊，看见苏小桃哭着从白露化妆间跑出来。",
+          "time": "21:20",
+          "implicates": {
+            "su_xiaotao": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_ma_alley",
+          "text": "21:25-21:45 我在后巷给沈老板的烟土押车。",
+          "time": "21:25-21:45",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "office",
+          "dressing_room",
+          "alley",
+          "booth"
+        ]
+      }
+    },
+    {
+      "id": "su_xiaotao",
+      "name": "苏小桃",
+      "color": "#d4a017",
+      "publicBio": "19 岁，白露的梳头娘姨，替她梳头、化妆、管衣裳。是她发现了白露的尸体。",
+      "personality": "胆小、嘴笨、容易哭，但记性很好，看见过的小事都记得。",
+      "script": "你是苏小桃，白露的梳头娘姨。白露待你刻薄，动辄打骂扣工钱。你弟弟抽大烟欠了债，上周你偷偷把白露的翡翠手镯拿去当了八十块。\n\n【当晚经历】\n20:05 排练刚完，你看见陈先生在台边弯腰，从地板上捡起个小东西揣进兜里。\n20:45 你给白小姐泡好胖大海润喉茶，去服装间拿旗袍。\n21:00-21:20 你给白小姐上妆。她要戴翡翠手镯，发现不见了，骂你是贼，说明天就送你去巡捕房。\n21:05 沈老板到门口摔下一张便条，说「不签就别想走出金雀」。\n21:20 白小姐把你赶出化妆间，那时她还好好的。\n21:25-21:45 你躲在后巷垃圾箱后面，把钱塞给弟弟。21:35 你看见沈老板和马探长在往卡车上搬木箱。\n21:48 你回到后台，21:50 去请白小姐登场，发现她死了。\n\n【你的秘密】当了手镯；21:25-21:45 在后巷。\n【你的说法】21:20 以后我一直在服装间给白小姐熨旗袍。\n【你的任务】找出真凶；别让后巷的当票被公开。",
+      "coverStory": "21:20 白小姐让我出去，我就去服装间给她熨旗袍了，21:50 回来请她登场，才发现……",
+      "knowledge": [
+        {
+          "id": "k_tao_alive",
+          "text": "21:20 白小姐把我赶出化妆间，那时她还好好的。",
+          "time": "21:20",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_tao_pick",
+          "text": "20:05 排练刚完，我看见陈先生在台边弯腰，从地板上捡起个小东西揣进兜里。",
+          "time": "20:05",
+          "implicates": {
+            "chen_mubai": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_tao_note",
+          "text": "21:05 沈老板到化妆间门口摔下一张便条，说「不签就别想走出金雀」。",
+          "time": "21:05",
+          "implicates": {
+            "shen_xiaoyun": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_tao_cover",
+          "text": "21:20 以后我一直在服装间给白小姐熨旗袍。",
+          "time": "21:20-21:50",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_tao_alley",
+          "text": "21:25-21:45 我在后巷给弟弟送钱，21:35 看见沈老板和马探长在往卡车上搬木箱。",
+          "time": "21:25-21:45",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_pawn",
+          "desc": "不让后巷的当票被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "dressing_room",
+          "alley",
+          "stage",
+          "booth"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "du_meiqi",
+      "b": "chen_mubai",
+      "label": "同台多年的歌女与琴师",
+      "public": true
+    },
+    {
+      "a": "shen_xiaoyun",
+      "b": "du_meiqi",
+      "label": "老板与二牌",
+      "public": true
+    },
+    {
+      "a": "su_xiaotao",
+      "b": "chen_mubai",
+      "label": "常帮她说情的陈先生",
+      "public": true
+    },
+    {
+      "a": "gu_huaian",
+      "b": "du_meiqi",
+      "label": "写过她的花边新闻",
+      "public": true
+    },
+    {
+      "a": "shen_xiaoyun",
+      "b": "ma_jinfu",
+      "label": "烟土生意的合伙人",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "chen_mubai",
+      "label": "同台的琴师（暗中恋人）"
+    },
+    {
+      "who": "du_meiqi",
+      "label": "死对头"
+    },
+    {
+      "who": "shen_xiaoyun",
+      "label": "老板与摇钱树"
+    },
+    {
+      "who": "gu_huaian",
+      "label": "旧相识（债主）"
+    },
+    {
+      "who": "ma_jinfu",
+      "label": "纠缠者"
+    },
+    {
+      "who": "su_xiaotao",
+      "label": "主仆"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "dressing_room",
+      "title": "尸体初检",
+      "text": "白露歪倒在梳妆凳边，颈部一道深深的勒痕，凶器是她自己的白丝巾，从背后勒住。尸体尚温，推断死亡时间在 21:20 至 21:50 之间。化妆台上的东西没怎么乱，她很可能是背对着一个不设防的人。",
+      "time": "21:20-21:50",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_earring",
+      "location": "dressing_room",
+      "title": "梳妆台下的珍珠耳环",
+      "text": "梳妆台底下滚着一只珍珠耳环，珠子圆润、银托上刻着小小的「琪」字——正是杜美琪今晚戴的那款。她今晚只戴了一只耳环。",
+      "time": "",
+      "implicates": {
+        "du_meiqi": 3
+      }
+    },
+    {
+      "id": "c_tea",
+      "location": "dressing_room",
+      "title": "一口没动的润喉茶",
+      "text": "梳妆台上一杯胖大海润喉茶，满满一杯、一口没喝。杯底沉着一层白色粉末，凑近了有股辛辣味，像是巴豆粉。有人想在今晚的茶里做手脚。",
+      "time": "",
+      "implicates": {
+        "du_meiqi": 2
+      }
+    },
+    {
+      "id": "c_flashbulb",
+      "location": "dressing_room",
+      "title": "废纸篓里的闪光灯泡",
+      "text": "废纸篓里扔着一只用过的镁光闪光灯泡，玻璃壳被熏得发黑。今晚舞厅里带着闪光照相机的，只有报馆来的记者。",
+      "time": "",
+      "implicates": {
+        "gu_huaian": 3
+      }
+    },
+    {
+      "id": "c_purse",
+      "location": "dressing_room",
+      "title": "被翻过的手袋",
+      "text": "白露的手袋被人翻过，钱夹和首饰都还在，夹层里却只剩一张被撕剩的纸角，依稀能认出「……顾……借大洋贰仟……」几个字。",
+      "time": "",
+      "implicates": {
+        "gu_huaian": 2
+      }
+    },
+    {
+      "id": "c_threat",
+      "location": "dressing_room",
+      "title": "镜框上的便条",
+      "text": "化妆镜框上压着一份撕成两半的联华影业合约副本，旁边一张便条，字迹潦草：「不签续约，就别想活着走出金雀。」落款一个「沈」字。",
+      "time": "21:05",
+      "implicates": {
+        "shen_xiaoyun": 2
+      }
+    },
+    {
+      "id": "c_qipao",
+      "location": "dressing_room",
+      "title": "没熨过的旗袍",
+      "text": "衣架上挂着白露压轴要穿的银色旗袍，胸前和下摆的折痕都还在，根本没有熨过。按规矩，这件旗袍 21:50 之前就该熨好。",
+      "time": "",
+      "implicates": {
+        "su_xiaotao": 1
+      }
+    },
+    {
+      "id": "c_program",
+      "location": "stage",
+      "title": "今晚的节目单",
+      "text": "台侧贴着今晚的节目单：「21:30-21:40 熄灯舞（全场熄灯 · 钢琴独奏《夜来香》）；21:40-22:00 爵士乐队；22:00 白露小姐压轴《夜来香》。」熄灯舞期间按规矩不放唱片。",
+      "time": "21:30-21:40",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_piano",
+      "location": "stage",
+      "title": "落满纸屑的琴键",
+      "text": "熄灯舞高潮时（21:35）从穹顶撒下的金色纸屑，落满了钢琴的键盘和琴凳边。键盘上的纸屑平平整整，没有一处被手指拨开过——之后的爵士乐队演奏里没有钢琴。",
+      "time": "21:35",
+      "implicates": {
+        "chen_mubai": 2
+      },
+      "key": true
+    },
+    {
+      "id": "c_score",
+      "location": "stage",
+      "title": "谱架上的手稿",
+      "text": "钢琴谱架上压着一叠手写曲谱：《夜来香》《雨巷》……每页右下角都有一个小小的「慕」字花押。而唱片公司发行的版本上，词曲一栏写的都是「白露」。",
+      "time": "",
+      "implicates": {
+        "chen_mubai": 1
+      }
+    },
+    {
+      "id": "c_lostbook",
+      "location": "stage",
+      "title": "失物登记簿",
+      "text": "舞台监督的失物登记簿上写着：「20:10 杜美琪小姐报失珍珠耳环一只，排练时掉落于舞台，遍寻未获。」那只耳环早在案发前一个多小时就不在她身上了。",
+      "time": "20:10",
+      "implicates": {
+        "du_meiqi": -2
+      },
+      "requires": [
+        "c_earring"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_record",
+      "location": "stage",
+      "title": "琴凳里的碎唱片",
+      "text": "掀开乐池琴凳的翻盖，曲谱底下压着几块摔碎的黑胶唱片。拼起来能看到百代公司的标签：「试音片 · 夜来香（钢琴独奏）」。",
+      "time": "",
+      "implicates": {
+        "chen_mubai": 3
+      },
+      "requires": [
+        "c_sleeve"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_gramophone",
+      "location": "booth",
+      "title": "空转的电唱机",
+      "text": "音控室的电唱机转盘还在空转，唱臂搁在一边，唱针上有新的磨痕。扩音器的旋钮被拧到了最大——今晚有人用它放过唱片。",
+      "time": "",
+      "implicates": {
+        "chen_mubai": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_sleeve",
+      "location": "booth",
+      "title": "空唱片封套",
+      "text": "电唱机下的抽屉里塞着一只百代公司的唱片封套：「试音片 · 夜来香（钢琴独奏）· 民国二十五年三月灌录」。演奏者一栏被墨水涂掉了，封套里是空的。",
+      "time": "",
+      "implicates": {
+        "chen_mubai": 2
+      },
+      "requires": [
+        "c_gramophone"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_booth_log",
+      "location": "booth",
+      "title": "音控员的留条",
+      "text": "值班表上用铅笔写着：「21:20 沈老板叫我去后巷帮忙搬货，音控室暂时无人。——老周」。21:20 以后，音控室谁都进得去。",
+      "time": "21:20",
+      "implicates": {
+        "shen_xiaoyun": 1
+      }
+    },
+    {
+      "id": "c_ledger",
+      "location": "office",
+      "title": "抽屉里的暗账",
+      "text": "老板办公桌的暗格里有一本暗账，最新一行：「十二月十四日夜 · 21:30 后巷交货 · 土十二箱 · 马探目押车，酬洋五百」。",
+      "time": "21:30",
+      "implicates": {
+        "shen_xiaoyun": 2,
+        "ma_jinfu": 2
+      }
+    },
+    {
+      "id": "c_ma_letter",
+      "location": "office",
+      "title": "没寄出的告密信",
+      "text": "抽屉里一封揉皱又被抚平的信，是白露的字迹，收信人是工部局督察长：「华探马金福收受金雀黑钱，为烟土押车，并屡次对我无礼相逼……」",
+      "time": "",
+      "implicates": {
+        "ma_jinfu": 2,
+        "shen_xiaoyun": 1
+      }
+    },
+    {
+      "id": "c_tire",
+      "location": "alley",
+      "title": "后巷的车辙",
+      "text": "后巷泥地上有新鲜的卡车车辙，几块撒落的黑色烟膏，墙角丢着一地「大前门」烟头。木箱的拖痕从舞厅后门一直通到车辙边。今晚有人在这里装过货。",
+      "time": "",
+      "implicates": {
+        "shen_xiaoyun": 1,
+        "ma_jinfu": 1
+      }
+    },
+    {
+      "id": "c_pawn",
+      "location": "alley",
+      "title": "垃圾箱边的当票",
+      "text": "后巷垃圾箱边掉着一张被踩湿的当票：「翡翠手镯一只，当洋八十元」，当户一栏只写了个「苏」字，日期是上周。纸还没被雨泡烂，掉在这里不久。",
+      "time": "",
+      "implicates": {
+        "su_xiaotao": 2
+      }
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "x_piano",
+      "knowledge": "k_chen_cover",
+      "clue": "c_piano",
+      "text": "陈慕白说熄灯舞一直在弹琴、弹到 21:40，可 21:35 撒下的纸屑落满琴键，没有一处被拨开过。",
+      "implicates": {
+        "chen_mubai": 2
+      }
+    },
+    {
+      "id": "x_du_room",
+      "knowledge": "k_du_cover",
+      "clue": "c_tea",
+      "text": "杜美琪说今晚没进过白露的化妆间，可白露的润喉茶里被人下了巴豆粉。",
+      "implicates": {
+        "du_meiqi": 1
+      }
+    },
+    {
+      "id": "x_shen_office",
+      "knowledge": "k_shen_cover",
+      "clue": "c_booth_log",
+      "text": "沈啸云说 21:20 以后一直在办公室，可音控员留条说 21:20 是沈老板叫他去后巷搬货。",
+      "implicates": {
+        "shen_xiaoyun": 1
+      }
+    },
+    {
+      "id": "x_gu_backstage",
+      "knowledge": "k_gu_cover",
+      "clue": "c_flashbulb",
+      "text": "顾怀安说从没去过后台，可化妆间的废纸篓里有一只用过的闪光灯泡。",
+      "implicates": {
+        "gu_huaian": 1
+      }
+    },
+    {
+      "id": "x_ma_dance",
+      "knowledge": "k_ma_cover",
+      "clue": "c_ledger",
+      "text": "马金福说熄灯舞时在舞池跳舞，可暗账上写着 21:30 后巷交货、由他押车。",
+      "implicates": {
+        "ma_jinfu": 1
+      }
+    },
+    {
+      "id": "x_tao_iron",
+      "knowledge": "k_tao_cover",
+      "clue": "c_qipao",
+      "text": "苏小桃说 21:20 以后一直在熨旗袍，可压轴的旗袍根本没熨过。",
+      "implicates": {
+        "su_xiaotao": 1
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "chen_mubai",
+    "weapon": "白露自己的白丝巾",
+    "summary": "凶手是钢琴师陈慕白。白露唱红的歌都出自他手，两人暗中相恋，她却在今晚抛弃了他，要签联华、嫁给买办。21:28，陈慕白趁音控员被沈啸云叫去后巷，在音控室放上自己上月在百代灌录的《夜来香》钢琴独奏试音片，再经扩音器放出。21:30 全场熄灯，所有人都以为他在台上弹琴，他却摸进后台，21:34 用白露自己的丝巾从背后勒死了她，并把 20:05 排练后捡到的杜美琪的珍珠耳环丢在梳妆台下栽赃。21:38 他回音控室取下唱片，21:40 灯亮时已坐回琴凳。破绽有三：21:35 撒下的纸屑完好地盖着琴键，证明此后没人弹过琴；唱片跳针被台下的顾怀安听出；而杜美琪的耳环早在 20:10 就登记丢失，有人看见陈慕白在台边捡起了它。杜美琪的巴豆、沈啸云的威胁便条、顾怀安的闪光灯泡，都只是这一夜别人的秘密。",
+    "timeline": [
+      {
+        "time": "20:05",
+        "text": "排练结束，杜美琪掉了一只珍珠耳环，陈慕白在台边捡起揣进口袋（苏小桃看见）。"
+      },
+      {
+        "time": "20:10",
+        "text": "杜美琪向舞台监督登记失物。"
+      },
+      {
+        "time": "20:40-20:55",
+        "text": "白露在老板办公室摊牌要去联华，并以告密信相要挟；沈啸云夺下了信。"
+      },
+      {
+        "time": "20:50-20:53",
+        "text": "杜美琪溜进无人的化妆间，往润喉茶里倒了巴豆粉；陈慕白在走廊看见她出来。"
+      },
+      {
+        "time": "21:00-21:20",
+        "text": "苏小桃给白露上妆，白露发现手镯被当，扬言送她去巡捕房。21:05 沈啸云在门口摔下威胁便条。"
+      },
+      {
+        "time": "21:20",
+        "text": "白露赶走苏小桃；沈啸云叫走音控员老周；马金福经过后台走廊去后巷。"
+      },
+      {
+        "time": "21:25-21:45",
+        "text": "沈啸云、马金福、老周在后巷装运烟土；苏小桃躲在垃圾箱后给弟弟送钱。"
+      },
+      {
+        "time": "21:28",
+        "text": "陈慕白溜进无人的音控室，放上自己的钢琴独奏试音片。"
+      },
+      {
+        "time": "21:30",
+        "text": "熄灯舞开始，扩音器里传出「钢琴独奏」，陈慕白摸进后台。"
+      },
+      {
+        "time": "21:34",
+        "text": "陈慕白用白丝巾勒死白露，把杜美琪的耳环丢在梳妆台下。21:35 杜美琪在隔壁听见闷响；同一时刻舞台撒下纸屑。"
+      },
+      {
+        "time": "21:38-21:40",
+        "text": "陈慕白取下唱片，灯亮时坐回琴凳，随后把唱片掰碎藏进琴凳。"
+      },
+      {
+        "time": "21:42-21:45",
+        "text": "顾怀安进化妆间发现尸体，拿走借据、拍下照片后溜走。"
+      },
+      {
+        "time": "21:50",
+        "text": "苏小桃请白露登场，发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "chen_mubai",
+        "text": "凶手；白露的歌都是他写的，两人暗中相恋三年；用试音唱片伪造不在场证明，用杜美琪的耳环栽赃。"
+      },
+      {
+        "who": "du_meiqi",
+        "text": "20:50 往白露的润喉茶里下了巴豆粉，想让她唱不成。"
+      },
+      {
+        "who": "shen_xiaoyun",
+        "text": "借舞厅后巷走私烟土；21:25-21:45 在后巷装货；夺下了白露的告密信。"
+      },
+      {
+        "who": "gu_huaian",
+        "text": "21:42 第一个发现尸体，偷走借据，还拍了照片。"
+      },
+      {
+        "who": "ma_jinfu",
+        "text": "收受沈啸云黑钱，替烟土押车，21:25-21:45 在后巷。"
+      },
+      {
+        "who": "su_xiaotao",
+        "text": "偷当了白露的翡翠手镯；21:25-21:45 在后巷给弟弟送钱。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "Curtain Call at the Golden Sparrow",
+      "subtitle": "Winter 1936, the Golden Sparrow ballroom, Shanghai. For ten minutes of the Lights-Out Dance the piano never stopped — yet the star singer never made it back to the stage.",
+      "background": "Winter of the 25th year of the Republic (1936). Bubbling Well Road, Shanghai — the Golden Sparrow ballroom. Tonight at 22:00 the star singer Bai Lu is to close the show with \"Fragrance of the Night,\" and the dance floor is packed with admirers.\n\nAt 21:30 comes the Golden Sparrow's signature act, the Lights-Out Dance: every lamp in the house goes dark for ten minutes, and only a solo piano playing \"Fragrance of the Night\" drifts through the blackness while couples sway close. At 21:40 the lights come back up and the jazz band takes over.\n\nAt 21:50 the hairdresser-maid Su Xiaotao went to the backstage dressing room to call Bai Lu for her entrance — and found her slumped beside the dressing stool, her own white silk scarf wound around her neck, no longer breathing.\n\nThe owner, Shen Xiaoyun, immediately locked the back door and asked Ma Jinfu, a Chinese detective of the Settlement Police who happened to be present, to seal off backstage. The Municipal Council's inspector won't arrive until midnight — and until then, the killer is one of the six of you.",
+      "intro": "[Host] Welcome to \"Curtain Call at the Golden Sparrow.\" Tonight is a night when everyone is lying: every person backstage has something they cannot let the others know. Remember — a liar is not necessarily the killer, and the one who looks most innocent may not be innocent at all. The killer's goal is to avoid being voted out; everyone else must choose between their secrets and the truth.",
+      "victim": {
+        "name": "Bai Lu",
+        "bio": "26, the Golden Sparrow's star singer, whose \"Fragrance of the Night\" made her the toast of Shanghai. Beautiful, shrewd and ruthless — she had made as many enemies as admirers."
+      },
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. The dressing room, the stage and orchestra pit, the sound booth, the owner's office and the back alley have all been sealed by Detective Ma. Any clue you find is known only to you — whether to reveal it is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal a clue or accuse a suspect. Anyone questioned must answer at once. Start by laying out where everyone was between 21:20 and 21:50.",
+        "investigate_2": "[Host] The jazz has stopped and the guests have been shown to the front lobby. The second round of investigation begins; each of you may search twice more. Some things only catch your eye after you have seen something else first.",
+        "discuss_2": "[Host] The final round of discussion. The inspector is almost here. Think hard: during those ten minutes of the Lights-Out Dance, who in the dark was really where they claim to have been?",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the killer. Whoever receives the most votes will be named (in a tie, the killer escapes)."
+      },
+      "locations": {
+        "dressing_room": {
+          "name": "Bai Lu's Room",
+          "description": "The crime scene. A private room at the end of the backstage corridor: a dressing table, a full-length mirror, and on the rack the qipao she was to wear for the finale. Next door is the dressing room of the second-billed singer, Du Meiqi."
+        },
+        "stage": {
+          "name": "Stage & Pit",
+          "description": "A semicircular stage facing the dance floor, with the orchestra pit and a grand piano to one side. During the Lights-Out Dance it is pitch black here."
+        },
+        "booth": {
+          "name": "Sound Booth",
+          "description": "A small cubicle beside the wings holding the gramophone and the amplifier, usually minded by the sound man, Old Zhou. A little door opens onto the backstage corridor."
+        },
+        "office": {
+          "name": "Owner's Office",
+          "description": "The owner's office upstairs: a rosewood executive desk, a safe, and a window overlooking the back alley."
+        },
+        "alley": {
+          "name": "Back Alley",
+          "description": "A narrow lane outside the ballroom's back door, piled with rubbish bins and empty liquor crates. Normally only delivery trucks come in here."
+        }
+      },
+      "characters": {
+        "chen_mubai": {
+          "name": "Chen Mubai",
+          "publicBio": "31, pianist of the Golden Sparrow band, who always plays the solo for the Lights-Out Dance. Quiet and reserved; rumour has it the piano arrangement of \"Fragrance of the Night\" is his.",
+          "personality": "Gentle and restrained, softly spoken. Pressed hard, he looks wounded — then quietly steers the conversation toward someone else.",
+          "script": "You are Chen Mubai, pianist of the Golden Sparrow band — and the one who murdered Bai Lu. \"Fragrance of the Night\" and \"Rainy Alley,\" the songs that made her famous across Shanghai, were in fact written by you, yet the records bear only her name. The two of you were secret lovers for three years; she promised that once she had saved enough, she would go with you to Hong Kong. But tonight, before the show, she threw the ring you gave her back at you: she had signed with Lianhua Film Company and was marrying a foreign firm's comprador next month, and she laughed at you — \"A piano player? You think you deserve me?\"\n\n[What really happened tonight]\n20:05 Just after rehearsal, you picked up a pearl earring Du Meiqi had dropped by the edge of the stage and slipped it into your pocket.\n20:50 In the backstage corridor you saw Du Meiqi sneaking furtively out of Bai Lu's dressing room.\n21:28 With Old Zhou the sound man away, you slipped into the sound booth, put the test pressing of the \"Fragrance of the Night\" piano solo you had cut at Pathé last month on the gramophone, and switched on the amplifier.\n21:30 The Lights-Out Dance began. In total darkness everyone believed you were playing on stage. You felt your way from the wings into backstage.\n21:34 You argued with her in the dressing room, then strangled her from behind with her own white silk scarf, and dropped Du Meiqi's earring under the dressing table.\n21:38 You went back to the sound booth and took the record off. When the lights came up at 21:40, you were already seated at the piano, bowing to the room. Afterwards you snapped the record into pieces and hid them under the lid of the piano bench.\n\n[Your lie] Through all ten minutes of the Lights-Out Dance I was on stage playing; the whole room heard me.\n[Your goals] Don't get named; don't let the broken record in the piano bench be made public. Seeing Du Meiqi at 20:50 really happened — you can say so.",
+          "coverStory": "From 21:30 to 21:40, during the Lights-Out Dance, I was on stage playing \"Fragrance of the Night\" the whole time — everyone heard the piano. The moment the lights came on I was bowing from the piano bench; plenty of people saw me.",
+          "knowledge": {
+            "k_chen_cover": "21:30-21:40, during the Lights-Out Dance, I was on stage playing \"Fragrance of the Night\" the whole time; everyone heard it.",
+            "k_chen_saw_du": "Around 20:50 I was in the backstage corridor and saw Du Meiqi sneaking furtively out of Bai Lu's dressing room.",
+            "k_chen_earring": "20:05, after rehearsal, I picked up the pearl earring Du Meiqi dropped by the stage and have kept it in my pocket ever since.",
+            "k_chen_truth": "At 21:28 I put my own test record on in the sound booth; at 21:34 I strangled Bai Lu with the scarf in her dressing room; before 21:40 I was back at the piano bench."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep the broken record in the piano bench from being made public"
+          ]
+        },
+        "du_meiqi": {
+          "name": "Du Meiqi",
+          "publicBio": "24, the Golden Sparrow's second-billed singer — a voice every bit as good as Bai Lu's, yet always stuck in her shadow. Tonight she wears a pair of pearl earrings — though someone has noticed she is wearing only one.",
+          "personality": "Fiery, competitive and sharp-tongued; when she feels guilty, she only gets louder.",
+          "script": "You are Du Meiqi, the Golden Sparrow's second-billed singer. Three years ago you were the Golden Sparrow's star — until Bai Lu stole your closing slot and your patrons, and spread stories everywhere about your past in Hankou. You hated her, but you never wanted her dead.\n\n[Tonight]\n20:05 During rehearsal you lost one of your pearl earrings and couldn't find it anywhere.\n20:10 You went to the stage manager and had it entered as lost property.\n20:50 Bai Lu went to the owner's office, leaving her dressing room empty. You slipped in and emptied a packet of croton powder (a harsh purgative) into her boat-fruit throat-soothing tea — you only wanted to stop her singing tonight, so you could take the closing number. At 20:53 you slipped out again.\n21:20-21:45 You were alone in your own dressing room (right next door to Bai Lu's), drinking glumly and touching up your make-up.\nAround 21:35 you heard a dull \"thud\" from next door, like a stool falling over. You assumed Bai Lu was throwing another tantrum and didn't go to look.\n21:50 You heard Xiaotao scream.\n\n[Your secret] You put croton powder in Bai Lu's tea. If it comes out, everyone will think you came to poison her.\n[Your story] I never set foot in Bai Lu's dressing room tonight.\n[Your goals] Find the real killer; your earring went missing at 20:05 — get the \"lost-property register\" made public to prove someone used your earring to frame you.",
+          "coverStory": "I never set foot in Bai Lu's dressing room tonight. After 21:20 I was in my own dressing room fixing my make-up, alone.",
+          "knowledge": {
+            "k_du_lost": "20:10 — I lost a pearl earring during rehearsal and went straight to the stage manager to report it as lost property.",
+            "k_du_thud": "Around 21:35, in my own dressing room, I heard a dull \"thud\" from Bai Lu's room next door, like a stool falling over.",
+            "k_du_cover": "I never set foot in Bai Lu's dressing room tonight.",
+            "k_du_tea": "At 20:50, while Bai Lu was out, I slipped into her dressing room and poured croton powder into her throat tea — I only wanted to stop her singing tonight."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Get the lost-property register made public to prove the earring was lost long before"
+          ]
+        },
+        "shen_xiaoyun": {
+          "name": "Shen Xiaoyun",
+          "publicBio": "48, owner of the Golden Sparrow ballroom, on good terms with both the law and the underworld. Bai Lu was the money-spinner he made into a star, with two years left on her contract.",
+          "personality": "Smooth and worldly, a dagger behind every smile; used to settling everything with money and favours. Touch a nerve and he suddenly slams the table.",
+          "script": "You are Shen Xiaoyun, owner of the Golden Sparrow. The ballroom is only a front: your real business is running opium out through the back alley, and Ma Jinfu of the Settlement Police takes your money to escort the shipments.\n\n[Tonight]\n20:40-20:55 Bai Lu came to your office and slapped down a contract with Lianhua Film Company, saying she would leave next month. You refused to release her; she sneered and produced a letter addressed to the Municipal Council's chief inspector, laying out your opium trade and Ma Jinfu's bribe-taking. You snatched the letter from her and locked it in your drawer.\n21:05 You went to her dressing-room door, tore the copy of her contract in two and threw it down in front of her, leaving a note: \"Don't sign the renewal, and you won't leave the Golden Sparrow alive.\" — Just angry words.\n21:20 You called Old Zhou the sound man out to the back alley to help move goods.\n21:25-21:45 You, Ma Jinfu and Old Zhou were in the back alley, loading twelve crates of opium onto a truck.\n21:50 You heard the scream and hurried back in through the back door.\n\n[Your secret] The opium business; the incriminating letter is in your drawer.\n[Your story] After 21:20 I was in my office going over the accounts and never left.\n[Your goals] Find the real killer (you truly didn't kill her); on no account let the secret ledger in your office be made public.",
+          "coverStory": "After 21:20 I was in my office going over the accounts and never left. Bai Lu leaving didn't please me, but I'm a businessman — I wouldn't kill my own money-spinner.",
+          "knowledge": {
+            "k_shen_cover": "After 21:20 I was in my office going over the accounts and never left.",
+            "k_shen_note": "At 21:05 I went to the dressing room to talk to Bai Lu about renewing; she refused, I left a note and walked off. She was perfectly fine then.",
+            "k_shen_alley": "21:25-21:45 I was in the back alley with Ma Jinfu and Old Zhou, loading twelve crates of opium onto a truck."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the secret opium ledger in the office from being made public"
+          ]
+        },
+        "gu_huaian": {
+          "name": "Gu Huai'an",
+          "publicBio": "33, a reporter for the tabloid \"Shanghai Annals,\" writing gossip about ballroom stars, a flash camera always hanging round his neck. An old acquaintance of Bai Lu.",
+          "personality": "Slick, chatty and nosy, given to exaggeration; when questioned he likes to answer with a question.",
+          "script": "You are Gu Huai'an, a tabloid reporter and an old acquaintance of Bai Lu. The year before last you lost at gambling and borrowed 2,000 silver dollars from her, signing an IOU. Last month she turned on you and demanded repayment, threatening that if you didn't pay she would go to your paper and expose the \"exclusives\" you made up — the very thing your living depends on.\n\n[Tonight]\nFrom 20:30 you were taking photographs by the dance floor and chatting up guests.\n21:30-21:41 During the Lights-Out Dance you stood in the very front row below the stage. In the dark you heard it clearly: in the second section of the piano piece, one bar repeated twice, exactly the same — as if a record had skipped. It puzzled you at the time.\n21:42 You slipped backstage, hoping to plead with Bai Lu once more before she went on. The dressing-room door was ajar — she was already dead. Her throat tea was a full cup, not a sip taken. Without quite knowing why, you dug the IOU out of her handbag and pocketed it, then took a photograph of the body (the scoop of a lifetime). The magnesium flashbulb was scalding, so you tossed it into the wastepaper basket.\n21:45 You slipped back to the dance floor.\n\n[Your secret] You were the first to find the body, you took the IOU, and you took a photograph.\n[Your story] I was by the dance floor taking photos all night and never went backstage.\n[Your goals] Find the real killer; don't let the flashbulb in the dressing room be made public.",
+          "coverStory": "I was by the dance floor taking photos all night and never went backstage. During the Lights-Out Dance I was right in the front row below the stage.",
+          "knowledge": {
+            "k_gu_cover": "I was by the dance floor taking photos all night and never went backstage.",
+            "k_gu_skip": "During the Lights-Out Dance I was standing below the stage; in the second section of the piano, one bar repeated twice exactly the same, as if a record had skipped.",
+            "k_gu_found": "When I entered Bai Lu's dressing room at 21:42 she was already dead, her throat tea a full, untouched cup; I took the IOU and also took a photograph."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the flashbulb in the dressing room from being made public"
+          ]
+        },
+        "ma_jinfu": {
+          "name": "Ma Jinfu",
+          "publicBio": "42, a Chinese detective sergeant of the International Settlement Police and a regular at the Golden Sparrow. After the murder it was he who sealed off backstage and took temporary charge of the search.",
+          "personality": "Rough but sharper than he looks, full of official airs, fond of playing the investigator; when he feels guilty he likes to throw the weight of \"the Police\" around.",
+          "script": "You are Ma Jinfu, a Chinese detective of the Settlement Police. For years you have taken Shen Xiaoyun's dirty money and escorted his opium shipments. You also kept pestering Bai Lu, who once slapped you in front of everyone.\n\n[Tonight]\nFrom 20:30 you were drinking on the dance floor.\n21:20 You went through the backstage corridor toward the back alley, and on the way saw Su Xiaotao run out of Bai Lu's dressing room in tears.\n21:25-21:45 You were in the back alley escorting Boss Shen's shipment, watching twelve crates of opium loaded onto a truck.\n21:50 You heard the scream, charged in through the back door, flashed your badge and sealed off backstage.\n\nWhat you don't know: Bai Lu had written a letter to report you for taking bribes and escorting opium. If this comes out, you won't just lose your job — you'll become the prime suspect.\n\n[Your secret] Bribery, escorting opium for Shen Xiaoyun; in the back alley 21:25-21:45.\n[Your story] During the Lights-Out Dance I was on the dance floor dancing with a taxi dancer.\n[Your goals] Find the real killer and earn some credit with the inspector; whatever happens, don't let everyone vote for you.",
+          "coverStory": "During the Lights-Out Dance I was on the dance floor dancing with a taxi dancer. I'm a policeman — I want to catch the killer more than any of you.",
+          "knowledge": {
+            "k_ma_cover": "During the Lights-Out Dance I was on the dance floor dancing with a taxi dancer.",
+            "k_ma_saw_tao": "At 21:20, in the backstage corridor, I saw Su Xiaotao run out of Bai Lu's dressing room in tears.",
+            "k_ma_alley": "21:25-21:45 I was in the back alley escorting Boss Shen's opium shipment."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Don't be the person with the most votes"
+          ]
+        },
+        "su_xiaotao": {
+          "name": "Su Xiaotao",
+          "publicBio": "19, Bai Lu's hairdresser-maid, who does her hair and make-up and looks after her wardrobe. She is the one who found Bai Lu's body.",
+          "personality": "Timid, tongue-tied and quick to cry, but with an excellent memory — she remembers every little thing she has seen.",
+          "script": "You are Su Xiaotao, Bai Lu's hairdresser-maid. Bai Lu treated you harshly, forever scolding, slapping and docking your wages. Your younger brother smokes opium and has run up debts, so last week you secretly pawned Bai Lu's jade bangle for 80 dollars.\n\n[Tonight]\n20:05 Just after rehearsal, you saw Mr. Chen bend down by the edge of the stage, pick something small up off the floor and slip it into his pocket.\n20:45 You made Miss Bai her boat-fruit throat tea and went to the wardrobe room to fetch her qipao.\n21:00-21:20 You did Miss Bai's make-up. She wanted to wear her jade bangle, found it gone, called you a thief and said she'd hand you over to the police tomorrow.\n21:05 Boss Shen came to the door and threw down a note, saying \"Don't sign, and you won't get out of the Golden Sparrow.\"\n21:20 Miss Bai drove you out of the dressing room. She was perfectly fine then.\n21:25-21:45 You hid behind the rubbish bins in the back alley and pressed the money into your brother's hand. At 21:35 you saw Boss Shen and Detective Ma loading wooden crates onto a truck.\n21:48 You came back backstage; at 21:50 you went to call Miss Bai for her entrance and found her dead.\n\n[Your secret] You pawned the bangle; you were in the back alley 21:25-21:45.\n[Your story] After 21:20 I was in the wardrobe room ironing Miss Bai's qipao the whole time.\n[Your goals] Find the real killer; don't let the pawn ticket in the back alley be made public.",
+          "coverStory": "At 21:20 Miss Bai sent me out, so I went to the wardrobe room to iron her qipao. At 21:50 I came back to call her for her entrance, and that's when I found…",
+          "knowledge": {
+            "k_tao_alive": "At 21:20 Miss Bai drove me out of the dressing room. She was perfectly fine then.",
+            "k_tao_pick": "20:05, just after rehearsal, I saw Mr. Chen bend down by the stage, pick something small up off the floor and slip it into his pocket.",
+            "k_tao_note": "At 21:05 Boss Shen came to the dressing-room door and threw down a note, saying \"Don't sign, and you won't get out of the Golden Sparrow.\"",
+            "k_tao_cover": "After 21:20 I was in the wardrobe room ironing Miss Bai's qipao the whole time.",
+            "k_tao_alley": "21:25-21:45 I was in the back alley giving my brother money; at 21:35 I saw Boss Shen and Detective Ma loading wooden crates onto a truck."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the pawn ticket in the back alley from being made public"
+          ]
+        }
+      },
+      "relationships": [
+        "Singer and pianist, years on one stage",
+        "Owner and second-billed singer",
+        "Mr. Chen, who often speaks up for her",
+        "Wrote gossip pieces about her",
+        "Partners in the opium trade"
+      ],
+      "victimRelationships": [
+        "Her pianist (secret lover)",
+        "Bitter rival",
+        "Owner and his money-spinner",
+        "Old acquaintance (her debtor)",
+        "Unwanted admirer",
+        "Mistress and maid"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "First Look at the Body",
+          "text": "Bai Lu lies slumped beside the dressing stool, a deep ligature mark around her neck. The weapon is her own white silk scarf, pulled tight from behind. The body is still warm; time of death is estimated between 21:20 and 21:50. The things on the dressing table are barely disturbed — she most likely had her back to someone she didn't fear."
+        },
+        "c_earring": {
+          "title": "Pearl Earring Under the Table",
+          "text": "A pearl earring has rolled under the dressing table: a smooth round pearl on a silver setting engraved with the tiny character \"Qi\" (琪) — the very style Du Meiqi is wearing tonight. Tonight she is wearing only one earring."
+        },
+        "c_tea": {
+          "title": "Untouched Throat Tea",
+          "text": "On the dressing table, a cup of boat-fruit throat tea, filled to the brim, not a sip taken. A layer of white powder has settled at the bottom; up close it gives off a pungent, peppery smell, like croton powder. Someone wanted to tamper with her tea tonight."
+        },
+        "c_flashbulb": {
+          "title": "Flashbulb in the Wastebasket",
+          "text": "In the wastepaper basket lies a used magnesium flashbulb, its glass blackened by smoke. The only person in the ballroom tonight with a flash camera is the reporter from the paper."
+        },
+        "c_purse": {
+          "title": "A Rifled Handbag",
+          "text": "Someone has gone through Bai Lu's handbag. Her purse and jewellery are still there, but the inner pocket holds only a torn-off corner of paper, on which you can just make out the words \"…Gu… borrowed 2,000 silver dollars…\"."
+        },
+        "c_threat": {
+          "title": "Note on the Mirror Frame",
+          "text": "Tucked into the frame of the make-up mirror is a copy of a Lianhua Film Company contract, torn in two, and beside it a note in a hasty scrawl: \"Don't sign the renewal, and you won't leave the Golden Sparrow alive.\" It is signed with a single character: \"Shen.\""
+        },
+        "c_qipao": {
+          "title": "The Unironed Qipao",
+          "text": "On the rack hangs the silver qipao Bai Lu was to wear for the finale. The creases across the bodice and hem are all still there — it has not been ironed at all. By the house rules, this qipao should have been ironed before 21:50."
+        },
+        "c_program": {
+          "title": "Tonight's Programme",
+          "text": "Tonight's programme is posted at the side of the stage: \"21:30-21:40 Lights-Out Dance (all lights off · solo piano, 'Fragrance of the Night'); 21:40-22:00 Jazz band; 22:00 Miss Bai Lu closes with 'Fragrance of the Night'.\" By house rules, no records are played during the Lights-Out Dance."
+        },
+        "c_piano": {
+          "title": "Confetti on the Keys",
+          "text": "The gold confetti showered from the dome at the climax of the Lights-Out Dance (21:35) covers the piano keyboard and the edge of the bench. The confetti on the keys lies flat and even — not one spot has been brushed aside by a finger. And there was no piano in the jazz band's set that followed."
+        },
+        "c_score": {
+          "title": "Manuscript on the Music Stand",
+          "text": "On the piano's music stand lies a stack of handwritten scores: \"Fragrance of the Night,\" \"Rainy Alley\"… The bottom right corner of every page bears a tiny monogram of the character \"Mu\" (慕). Yet on the versions released by the record company, the words-and-music credit always reads \"Bai Lu.\""
+        },
+        "c_lostbook": {
+          "title": "Lost-Property Register",
+          "text": "The stage manager's lost-property register reads: \"20:10 Miss Du Meiqi reports one pearl earring lost, dropped on stage during rehearsal; searched for, not found.\" That earring had left her possession more than an hour before the murder."
+        },
+        "c_record": {
+          "title": "Broken Record in the Piano Bench",
+          "text": "Lift the lid of the piano bench in the orchestra pit, and beneath the sheet music lie several pieces of a smashed shellac record. Pieced together, they show a Pathé label: \"Test Pressing · Fragrance of the Night (Piano Solo).\""
+        },
+        "c_gramophone": {
+          "title": "The Spinning Gramophone",
+          "text": "The turntable of the gramophone in the sound booth is still spinning, empty, the tone arm set aside; the needle shows fresh wear. The amplifier knob is turned all the way up — someone played a record on it tonight."
+        },
+        "c_sleeve": {
+          "title": "Empty Record Sleeve",
+          "text": "Stuffed in the drawer beneath the gramophone is a Pathé record sleeve: \"Test Pressing · Fragrance of the Night (Piano Solo) · Recorded March, 25th year of the Republic.\" The performer's name has been blotted out with ink, and the sleeve is empty."
+        },
+        "c_booth_log": {
+          "title": "The Sound Man's Note",
+          "text": "On the duty roster, in pencil: \"21:20 Boss Shen called me to the back alley to help move goods; sound booth unattended for now. — Old Zhou.\" After 21:20, anyone could get into the sound booth."
+        },
+        "c_ledger": {
+          "title": "Secret Ledger in the Drawer",
+          "text": "In a hidden compartment of the owner's desk is a secret ledger. The latest entry: \"Night of Dec. 14 · 21:30 delivery, back alley · twelve crates of opium · escorted by Detective Ma, fee 500 dollars.\""
+        },
+        "c_ma_letter": {
+          "title": "The Unsent Letter",
+          "text": "In the drawer, a letter that was crumpled and then smoothed out again, in Bai Lu's handwriting, addressed to the Municipal Council's chief inspector: \"Chinese Detective Ma Jinfu takes dirty money from the Golden Sparrow, escorts opium shipments, and has repeatedly harassed and pressured me…\""
+        },
+        "c_tire": {
+          "title": "Tyre Tracks in the Alley",
+          "text": "In the mud of the back alley are fresh truck tyre tracks, a few spilled lumps of black opium paste, and a scatter of \"Da Qianmen\" cigarette butts by the wall. Drag marks from wooden crates run from the ballroom's back door to the tyre tracks. Someone loaded goods here tonight."
+        },
+        "c_pawn": {
+          "title": "Pawn Ticket by the Bins",
+          "text": "By the rubbish bins in the back alley lies a trampled, damp pawn ticket: \"One jade bangle, pawned for 80 dollars.\" The customer's name reads only \"Su,\" dated last week. The paper hasn't been soaked through by rain yet — it hasn't been lying here long."
+        }
+      },
+      "contradictions": {
+        "x_piano": "Chen Mubai says he played through the whole Lights-Out Dance until 21:40, yet the confetti that fell at 21:35 covers the keys without a single spot brushed aside.",
+        "x_du_room": "Du Meiqi says she never entered Bai Lu's dressing room tonight, yet someone put croton powder in Bai Lu's throat tea.",
+        "x_shen_office": "Shen Xiaoyun says he was in his office from 21:20 on, yet the sound man's note says that at 21:20 Boss Shen called him to the back alley to move goods.",
+        "x_gu_backstage": "Gu Huai'an says he never went backstage, yet there is a used flashbulb in the dressing-room wastebasket.",
+        "x_ma_dance": "Ma Jinfu says he was dancing on the floor during the Lights-Out Dance, yet the secret ledger records a 21:30 delivery in the back alley, escorted by him.",
+        "x_tao_iron": "Su Xiaotao says she was ironing the qipao from 21:20 on, yet the finale qipao hasn't been ironed at all."
+      },
+      "truth": {
+        "weapon": "Bai Lu's own white silk scarf",
+        "summary": "The killer is the pianist Chen Mubai. Every song that made Bai Lu famous was his; the two were secret lovers, but tonight she cast him aside to sign with Lianhua and marry a comprador. At 21:28, with the sound man called away to the back alley by Shen Xiaoyun, Chen Mubai put on the gramophone in the sound booth the test pressing of the \"Fragrance of the Night\" piano solo he had recorded at Pathé last month, and played it through the amplifier. At 21:30 the lights went out; everyone believed he was playing on stage, but he crept backstage and at 21:34 strangled Bai Lu from behind with her own scarf, dropping under the dressing table the pearl earring of Du Meiqi's he had picked up after rehearsal at 20:05, to frame her. At 21:38 he went back to the booth and took the record off; when the lights came up at 21:40 he was back on the piano bench. Three things gave him away: the confetti that fell at 21:35 lay undisturbed on the keys, proving no one played the piano after that; Gu Huai'an, below the stage, heard the record skip; and Du Meiqi's earring had been registered as lost at 20:10, while someone saw Chen Mubai pick it up by the stage. Du Meiqi's croton powder, Shen Xiaoyun's threatening note and Gu Huai'an's flashbulb were simply other people's secrets on this one night.",
+        "timeline": [
+          "Rehearsal ends; Du Meiqi drops a pearl earring and Chen Mubai picks it up by the stage and pockets it (seen by Su Xiaotao).",
+          "Du Meiqi reports the loss to the stage manager.",
+          "In the owner's office Bai Lu announces she is going to Lianhua and threatens him with the incriminating letter; Shen Xiaoyun snatches it.",
+          "Du Meiqi slips into the empty dressing room and puts croton powder in the throat tea; Chen Mubai sees her come out in the corridor.",
+          "Su Xiaotao does Bai Lu's make-up; Bai Lu discovers the bangle has been pawned and threatens to hand her to the police. At 21:05 Shen Xiaoyun throws down the threatening note at the door.",
+          "Bai Lu drives Su Xiaotao out; Shen Xiaoyun calls away Old Zhou the sound man; Ma Jinfu passes through the backstage corridor to the back alley.",
+          "Shen Xiaoyun, Ma Jinfu and Old Zhou load opium in the back alley; Su Xiaotao hides behind the bins to give her brother money.",
+          "Chen Mubai slips into the empty sound booth and puts on his own piano-solo test record.",
+          "The Lights-Out Dance begins; the \"piano solo\" plays through the amplifier, and Chen Mubai creeps backstage.",
+          "Chen Mubai strangles Bai Lu with the white scarf and drops Du Meiqi's earring under the dressing table. At 21:35 Du Meiqi hears the thud next door; at the same moment the confetti falls on stage.",
+          "Chen Mubai takes the record off and is back at the piano bench when the lights come up, then snaps the record and hides it in the bench.",
+          "Gu Huai'an enters the dressing room, finds the body, takes the IOU, snaps a photograph and slips away.",
+          "Su Xiaotao goes to call Bai Lu for her entrance and finds the body."
+        ],
+        "secrets": [
+          "The killer; Bai Lu's songs were all his, and they had been secret lovers for three years; he faked an alibi with a test record and framed Du Meiqi with her earring.",
+          "At 20:50 she put croton powder in Bai Lu's throat tea to stop her singing.",
+          "Smuggles opium through the ballroom's back alley; was loading goods there 21:25-21:45; snatched Bai Lu's incriminating letter.",
+          "First to find the body at 21:42; stole the IOU and took a photograph.",
+          "Takes Shen Xiaoyun's dirty money and escorts the opium; was in the back alley 21:25-21:45.",
+          "Stole and pawned Bai Lu's jade bangle; was in the back alley 21:25-21:45 giving her brother money."
+        ]
+      }
+    }
+  }
+}

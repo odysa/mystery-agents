@@ -1,0 +1,1159 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "shiku-xiufu",
+  "version": "1.0.0",
+  "title": "石窟修复",
+  "subtitle": "沙尘暴吞没了修复营地，十七窟里的监测仪还在一格一格地记录，项目负责人倒在了脚手架下。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 6,
+  "difficulty": "困难",
+  "estimatedMinutes": 75,
+  "victim": {
+    "id": "he_zhiyuan",
+    "name": "贺知远",
+    "bio": "五十八岁，西北某文物研究院研究员，「鸣沙西崖第十七窟壁画抢救性修复项目」负责人。治学严苛，眼里揉不得沙子，得罪过的人不少。"
+  },
+  "background": "2024 年 5 月，敦煌以西四十公里的鸣沙西崖。一支修复队在崖下扎营三个月，抢救第十七窟东壁正在起甲、酥碱的唐代壁画。项目组半年前在东壁的多光谱影像里「发现」了一段被覆盖的题记，论文已经投出，原定明早十点开线上发布会。\n\n晚饭时，项目负责人贺知远却宣布：「发布会推迟，数据要重新核对。」\n\n入夜后，沙尘暴压了过来。21:30 营地停电，22:00 前后风沙骤然变猛，能见度不到五米。23:10，风势稍缓，后勤主管韩东野和修复师闻溪去十七窟找一直不回对讲机的贺知远，铁栅门却从外面锁着。看窟人马守义拿钥匙开了门——贺知远仰面倒在脚手架下，后脑被重物砸中，已经没了气息。\n\n通往县城的路被沙埋了，救援最早明天中午才能到。凶手就在营地的六个人之中。",
+  "intro": "【主持人】欢迎来到《石窟修复》。这是一个困难难度的剧本：六个人里有好几个整晚都在撒谎，物证也会互相打架。别只盯着凶器，十七窟的监测仪、调度台的录音、地上的沙，都能帮你卡出时间。凶手要藏住自己；其他人要找出真相，同时守住各自的秘密。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。十七窟、栈道与看窟人小屋、数据帐篷、贺知远的帐篷、后勤棚与宿舍区都可以去。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。可以发言、质询、公开线索或指控。提醒一句：窟里冷，尸体判断不出准确的死亡时间。",
+    "investigate_2": "【主持人】风沙又紧了一阵。第二轮搜证开始——有些东西，只有知道该找什么的人才会注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。请把 21:30 到 22:00 之间每个人的位置逐一对清：谁在帐篷，谁在窟里，谁根本不在营地？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "cave17",
+      "name": "第十七窟",
+      "description": "案发现场。窟内搭着修复脚手架，东壁是正在修复的说法图，地上放着环境监测仪。窟口装着铁栅门。",
+      "x": 0.18,
+      "y": 0.25
+    },
+    {
+      "id": "walkway",
+      "name": "栈道与看窟人小屋",
+      "description": "崖壁上的木栈道连接各个洞窟，尽头是看窟人马守义住的土坯石屋。从十七窟走到营地，风沙天要十几分钟。",
+      "x": 0.55,
+      "y": 0.15
+    },
+    {
+      "id": "data_tent",
+      "name": "数据帐篷",
+      "description": "搭在崖脚、离栈道口最近的帆布大帐篷，放着多光谱相机和图像工作站，接着 UPS 不间断电源。",
+      "x": 0.86,
+      "y": 0.42
+    },
+    {
+      "id": "he_tent",
+      "name": "贺知远的帐篷",
+      "description": "营地边上的单人帆布帐篷，贺知远在这里看资料、写邮件。",
+      "x": 0.56,
+      "y": 0.68
+    },
+    {
+      "id": "camp",
+      "name": "后勤棚与宿舍区",
+      "description": "营地中央的后勤棚（发电机、库房、对讲机调度台）和一排宿舍帐篷，祁明澈、唐沐、闻溪、林可各住一顶。",
+      "x": 0.2,
+      "y": 0.75
+    }
+  ],
+  "characters": [
+    {
+      "id": "lin_ke",
+      "name": "林可",
+      "color": "#c0392b",
+      "publicBio": "27 岁，贺知远指导的博士生，十七窟「隐藏题记」论文的第一作者。",
+      "personality": "聪明、礼貌、反应快，说起技术细节头头是道；被逼问时会用大量术语把话题带偏。",
+      "script": "你是林可，二十七岁，贺知远带的博士生。半年前你在十七窟东壁的多光谱影像里「发现」了一段被覆盖的唐代题记，论文已经投出，明早还要开发布会。可你心里清楚：原始波段里根本没有那段题记，是你用别的窟的图像一层层拼上去的。\n\n【当晚经历】\n19:00-20:00 晚饭。贺老师当众说发布会推迟，「数据要重核」。\n21:00 你在数据帐篷启动批量渲染，让工作站看起来一直有人在用。\n21:38 你到了十七窟。贺老师把原始数据摊在你面前：明天撤稿，上报学术不端。\n21:45 韩东野对讲机点名，你没敢回。\n21:52 争执中你抓起唐沐留下的补光灯砸向他后脑。\n21:53 你在窟里回呼韩东野，说自己在数据帐篷。\n21:55 你拿走他的原始数据盘离开，铁栅门没锁。\n22:01 你在数据帐篷把硬盘格式化。\n22:05 你看见祁明澈猫腰钻进贺老师的帐篷，趁机把硬盘塞进了祁的行李包。\n\n【你的说法】整晚在数据帐篷盯渲染，戴着耳机没听见点名。\n【你的任务】不被指认；别让「工作站的操作日志」被公开。",
+      "knowledge": [
+        {
+          "id": "k_lin_cover",
+          "text": "21:00 以后我一直在数据帐篷盯着渲染，戴着耳机，所以 21:45 点名没听见，21:53 才回的话。",
+          "time": "21:00-22:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_lin_qi",
+          "text": "22:05 我从数据帐篷门口往外看，看见祁老师猫着腰钻进了贺老师的帐篷，手电都没开。",
+          "time": "22:05",
+          "implicates": {
+            "qi_mingche": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_lin_truth",
+          "text": "21:38 我去了十七窟，贺老师要撤稿并上报我造假。21:52 我用唐沐的补光灯砸了他，拿走原始数据盘，22:01 格式化后塞进了祁明澈的帐篷。",
+          "time": "21:38-22:05",
+          "implicates": {
+            "lin_ke": 5
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "21:00 以后我一直在数据帐篷盯着渲染，戴着耳机没听见点名，21:53 才回的话。",
+      "isMurderer": true,
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_worklog",
+          "desc": "不让「工作站的操作日志」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "data_tent",
+          "camp",
+          "data_tent",
+          "cave17"
+        ]
+      }
+    },
+    {
+      "id": "qi_mingche",
+      "name": "祁明澈",
+      "color": "#2c7fb8",
+      "publicBio": "44 岁，项目副组长，跟随贺知远十二年，也是那篇论文的作者之一。",
+      "personality": "老成、谨慎、爱讲规矩，说话滴水不漏；被戳到痛处会突然变得很冲。",
+      "script": "你是祁明澈，四十四岁，项目副组长。你跟了贺知远十二年，评研究员两次都被他压了下来。去年采购加固剂，你签单买了便宜的国产替代品，差价进了自己口袋。前几天贺知远私下把加固剂送检，你知道报告一出你就完了。另外，林可那篇轰动的论文你也挂了名，明早发布会你还是发言人之一。\n\n【当晚经历】\n19:00-20:00 晚饭，贺老师宣布发布会推迟。\n21:15 你在营地看见闻溪抱着材料箱往十七窟去。\n21:45 点名时你在自己帐篷，外面风声大作。\n22:05 你趁风沙最大，猫进贺老师的帐篷，翻出《加固材料检测报告》带走，还看到他电脑上一封没写完的撤稿邮件——作者里有你的名字。\n22:20 回帐篷，把报告压在睡袋下。\n23:10 听说贺老师出事了。\n\n【你的秘密】调包加固剂、吃回扣；今晚偷了检测报告。\n【你的说法】22:00 以后一直在自己帐篷睡觉。\n【你的任务】找出真凶；别让「睡袋下的检测报告」被公开。",
+      "knowledge": [
+        {
+          "id": "k_qi_saw",
+          "text": "21:15 我在营地看见闻溪抱着材料箱往十七窟那边去了。",
+          "time": "21:15",
+          "implicates": {
+            "wen_xi": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_qi_cover",
+          "text": "21:45 点名后我就在自己帐篷睡了，22:00 以后再没出过帐篷。",
+          "time": "21:45-23:10",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_qi_secret",
+          "text": "22:05 到 22:20 我在贺老师帐篷里偷拿了加固剂检测报告，还看见他电脑上有封没写完的撤稿邮件。",
+          "time": "22:05-22:20",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "21:45 点名后我就在自己帐篷睡了，22:00 以后再没出过帐篷。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_report",
+          "desc": "不让「睡袋下的检测报告」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "he_tent",
+          "camp",
+          "cave17",
+          "data_tent"
+        ]
+      }
+    },
+    {
+      "id": "tang_mu",
+      "name": "唐沐",
+      "color": "#d68910",
+      "publicBio": "35 岁，纪录片导演兼摄影师，受研究院委托跟拍十七窟修复全过程。",
+      "personality": "热烈、敢说敢做、讨厌被管；被怀疑时会先发火，再讲道理。",
+      "script": "你是唐沐，三十五岁，纪录片导演兼摄影师，受托为十七窟修复拍一部纪录片。贺知远对拍摄限制极严。上周他发现你用闪光灯偷拍壁画，还把素材卖给了海外图库，扬言要终止合同、追究责任。\n\n【当晚经历】\n18:00 你在十七窟收工，把补光灯留给贺老师当工作灯。他又提起图库的事，你们吵了几句，看窟人马守义就在窟口。\n19:00-20:00 晚饭。你看见韩东野和贺老师为柴油的账红了脸。\n21:20 你背着无人机溜出营地，爬上北侧沙丘。这样的沙尘暴可遇不可求，哪怕文保区禁飞。对讲机你关了。\n21:38-22:22 你在沙丘顶上飞了三个起落，摔断了一片螺旋桨。\n22:45 回到帐篷。\n23:10 听说贺老师出事了。\n\n【你的秘密】你在文保区违规飞无人机，整晚不在营地。\n【你的说法】风沙来了我一直在帐篷整理素材，对讲机没电了。\n【你的任务】找出真凶；不要成为得票最多的人。",
+      "knowledge": [
+        {
+          "id": "k_tang_light",
+          "text": "那盏补光灯 18:00 收工时就留在十七窟里给贺老师当工作灯了，他同意的，之后谁进窟都能拿到。",
+          "time": "18:00",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_tang_dinner",
+          "text": "晚饭时韩东野和贺老师为柴油的账吵了起来，贺老师说「上周的油料单对不上」。",
+          "time": "19:30",
+          "implicates": {
+            "han_dongye": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_tang_cover",
+          "text": "风沙来了以后我一直在自己帐篷里整理素材，对讲机没电了，所以没听到点名。",
+          "time": "21:00-23:10",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_tang_secret",
+          "text": "21:20 我偷偷上了北侧沙丘，21:38 到 22:22 一直在沙丘顶上飞无人机拍沙尘暴，22:45 才回营地。",
+          "time": "21:20-22:45",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "风沙来了以后我一直在自己帐篷里整理素材，对讲机没电了，所以没听到点名。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不要成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "cave17",
+          "walkway",
+          "camp",
+          "he_tent"
+        ]
+      }
+    },
+    {
+      "id": "ma_shouyi",
+      "name": "马守义",
+      "color": "#7f8c8d",
+      "publicBio": "63 岁，西崖的看窟人，守了三十年洞窟，住在栈道尽头的小石屋。",
+      "personality": "倔、话少、一口西北方言，喝了酒话会变多；被问急了就说「我守了三十年窟」。",
+      "script": "你是马守义，六十三岁，在西崖看了三十年窟。前年你收了几回钱，偷偷带游客进未开放的洞窟。贺知远知道后上报了研究院，下个月你就得卷铺盖回家。\n\n【当晚经历】\n18:00 你在十七窟口看见唐沐和贺老师吵架，她嚷着「凭什么不让拍」。\n21:00 起风前你把各窟巡了一遍，回小屋喝酒。\n21:45 对讲机点名，你答「在小屋」。\n22:35 你借着酒劲出去巡窟，看见十七窟铁栅门开着，贺老师躺在脚手架下，身边一盏补光灯，人早没气了。你怕被追究喝酒误事、门没看好，鬼使神差地把挂锁按上就跑回小屋，在巡查本上补了一句「22:30 巡查各窟，一切正常」。\n23:10 韩东野他们找来，你拿钥匙开了门，装作第一次看见。\n\n【你的秘密】你 22:35 就发现了尸体，还锁上了门。\n【你的说法】21:00 巡完就没出过小屋，巡查本是习惯性先填的。\n【你的任务】找出真凶；不要让「酒瓶与巡查本」被公开。",
+      "knowledge": [
+        {
+          "id": "k_ma_saw",
+          "text": "18:00 我在十七窟口看见唐沐和贺老师吵架，她嚷着「凭什么不让拍」。",
+          "time": "18:00",
+          "implicates": {
+            "tang_mu": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_ma_cover",
+          "text": "风沙太大，我 21:00 巡完一遍就回了小屋，后来再没出去过。",
+          "time": "21:00-23:10",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_ma_secret",
+          "text": "22:35 我去十七窟，发现贺老师已经死了，身边有盏补光灯。我怕担责任，把挂锁锁上就走了，巡查本上写了「一切正常」。",
+          "time": "22:35",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "风沙太大，我 21:00 巡完一遍就回了小屋，后来再没出去过。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_bottle",
+          "desc": "不让「酒瓶与巡查本」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "walkway",
+          "cave17",
+          "camp",
+          "he_tent"
+        ]
+      }
+    },
+    {
+      "id": "han_dongye",
+      "name": "韩东野",
+      "color": "#27ae60",
+      "publicBio": "47 岁，营地后勤主管兼司机，管发电机、油料、车辆和对讲机调度。",
+      "personality": "豪爽、爱张罗、嗓门大，什么事都说「包在我身上」；一提到账就打哈哈。",
+      "script": "你是韩东野，四十七岁，营地后勤主管兼司机，负责发电机、油料和对讲机调度。这两年你陆续把营地的柴油倒卖给附近的施工队，账上做了手脚。今天晚饭时，贺知远当众问你：「上周的油料单怎么对不上？」你知道他起疑了。\n\n【当晚经历】\n19:00-20:00 晚饭，和贺老师为油料账吵了几句。\n21:30 发电机没油熄火，营地停电。你心里有鬼，没敢去库房拿油。\n21:45 你在后勤棚用调度对讲机点名，调度台自动录音。唐沐和林可没回答，你一直呼叫到 21:55，林可 21:53 才回话。\n22:10 你去发电机边上做样子，往进气口抹了一把沙。\n23:00 贺老师一直不回对讲机，你和闻溪去十七窟找人，发现门锁着，叫来马守义开门。\n23:10 发现尸体。\n\n【你的秘密】倒卖柴油；停电是你造成的。\n【你的说法】发电机是被沙子堵了才停的。\n【你的任务】找出真凶；不要让「空油箱」被公开。",
+      "knowledge": [
+        {
+          "id": "k_han_roll",
+          "text": "21:45 我用对讲机点名，唐沐和林可都没应答。我一直呼到 21:55，林可 21:53 才回话，唐沐始终没回。",
+          "time": "21:45-21:55",
+          "implicates": {
+            "lin_ke": 1,
+            "tang_mu": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_han_cover",
+          "text": "发电机是 21:30 被沙子堵了进气口才停的，风那么大，我也没办法。",
+          "time": "21:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_han_secret",
+          "text": "这两年我一直在倒卖营地的柴油，发电机是没油才停的。22:10 我往进气口抹了把沙做样子。",
+          "time": "21:30-22:10",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "发电机是 21:30 被沙子堵了进气口才停的。21:45 起我一直在后勤棚守着调度台点名。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_generator",
+          "desc": "不让「空油箱」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "camp",
+          "data_tent",
+          "cave17",
+          "walkway"
+        ]
+      }
+    },
+    {
+      "id": "wen_xi",
+      "name": "闻溪",
+      "color": "#8e44ad",
+      "publicBio": "33 岁，壁画修复师，贺知远的老学生，十七窟东壁修复方案的主要执笔人。",
+      "personality": "安静、克制、手很稳，说话慢条斯理；越紧张越冷静，反而显得像在隐瞒什么。",
+      "script": "你是闻溪，三十三岁，修复师，贺知远的老学生。十七窟东壁的修复方案大半出自你手，署名却总是他。一家海外拍卖行开出三倍年薪请你，你偷偷拷了整窟的高清扫描，打算带过去当「见面礼」。今天下午，贺知远调出了 U 盘记录。\n\n【当晚经历】\n19:00-20:00 晚饭。\n21:15 你抱着加固剂材料箱去十七窟。\n21:20-21:30 贺老师当面拆穿你拷数据的事：「你走可以，数据一张都不许带。」你们吵得很凶。\n21:30 突然停电，你摸黑离开。他当时还站在脚手架上，好好的。\n21:32 你在栈道上看见一盏头灯晃晃悠悠往十七窟方向去，风沙太大，看不清是谁。\n21:45 点名时你刚回到帐篷。\n23:00 你和韩东野去十七窟找人。\n\n【你的秘密】拷贝扫描数据、准备跳槽；你是案发前见过他的人之一，还和他吵过架。\n【你的说法】送完材料就走了，没说几句话。\n【你的任务】找出真凶；不要让「贺知远的工作笔记」被公开。",
+      "knowledge": [
+        {
+          "id": "k_wen_alive",
+          "text": "21:30 停电时我离开十七窟，贺老师当时还站在脚手架上，好好的。",
+          "time": "21:30",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_wen_lamp",
+          "text": "21:32 我在栈道上看见一盏头灯往十七窟方向去，风沙太大，看不清是谁。",
+          "time": "21:32",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_wen_cover",
+          "text": "21:20 我把加固剂送到十七窟，放下就走了，跟贺老师没说几句话。",
+          "time": "21:20",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_wen_secret",
+          "text": "21:20 到 21:30 贺老师当面拆穿我偷拷扫描数据、准备跳槽拍卖行，我们吵得很凶。",
+          "time": "21:20-21:30",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "21:20 我把加固剂送到十七窟，放下就走了，21:30 停电时他还好好的。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_wen_note",
+          "desc": "不让「贺知远的工作笔记」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "cave17",
+          "he_tent",
+          "walkway",
+          "data_tent"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "lin_ke",
+      "b": "qi_mingche",
+      "label": "论文合作者",
+      "public": true
+    },
+    {
+      "a": "wen_xi",
+      "b": "lin_ke",
+      "label": "同门师姐妹",
+      "public": true
+    },
+    {
+      "a": "han_dongye",
+      "b": "ma_shouyi",
+      "label": "老乡，常一起喝酒",
+      "public": true
+    },
+    {
+      "a": "tang_mu",
+      "b": "wen_xi",
+      "label": "纪录片的主要拍摄对象",
+      "public": true
+    },
+    {
+      "a": "qi_mingche",
+      "b": "han_dongye",
+      "label": "采购与后勤的经手搭档",
+      "public": true
+    },
+    {
+      "a": "lin_ke",
+      "b": "he_zhiyuan",
+      "label": "论文造假被导师识破",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "lin_ke",
+      "label": "博士生导师"
+    },
+    {
+      "who": "qi_mingche",
+      "label": "上司（十二年）"
+    },
+    {
+      "who": "tang_mu",
+      "label": "拍摄合同的甲方代表"
+    },
+    {
+      "who": "ma_shouyi",
+      "label": "把他上报到研究院的人"
+    },
+    {
+      "who": "han_dongye",
+      "label": "项目负责人与后勤主管"
+    },
+    {
+      "who": "wen_xi",
+      "label": "师生"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "cave17",
+      "title": "尸体初检",
+      "text": "贺知远仰面倒在脚手架下，后脑偏右有一处半圆形的凹陷伤，像是被沉重的圆形器物砸中。他胸前的对讲机还开着。窟里阴冷，尸体只能粗略判断死亡时间在 21:00 到 23:00 之间。",
+      "time": "21:00-23:00",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_light",
+      "location": "cave17",
+      "title": "带血的补光灯",
+      "text": "尸体旁倒着一盏便携式摄影补光灯，圆形的金属底座上沾着血和头发，和伤口的形状吻合。灯杆上贴着标签：「纪录片组·唐沐」。",
+      "time": "",
+      "implicates": {
+        "tang_mu": 3
+      }
+    },
+    {
+      "id": "c_sand",
+      "location": "cave17",
+      "title": "尸体下面的地面",
+      "text": "风沙从铁栅门的缝里灌进来，在窟里积了薄薄一层细沙。尸体身上、身旁都落着沙，可尸体压着的那块地面几乎是干净的——他倒下时，沙子还没开始大量灌进来。营地的人都说，风沙是 22:00 前后突然变猛的。",
+      "time": "22:00",
+      "implicates": {
+        "ma_shouyi": -1
+      },
+      "key": true
+    },
+    {
+      "id": "c_co2",
+      "location": "cave17",
+      "title": "环境监测仪的曲线",
+      "text": "窟内的环境监测仪每 10 分钟记一次二氧化碳读数，停电后转为电池供电。曲线是：20:50 开始上升（窟里有一个人）；21:20、21:30 两个点升得更快（多了一个人）；21:30 后略降；21:40、21:50 又明显升快（又多了一个人）；22:00 起一路下降，22:30 降到接近窟外的水平。",
+      "time": "20:50-22:30",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_co2_late",
+      "location": "cave17",
+      "title": "监测仪的后半段记录",
+      "text": "把监测记录往后翻：22:40 读数又小幅上升了一格，22:50 回落——这时窟里又短暂进过一个人。监测仪的说明书上还写着：转为电池供电后，每隔一分钟会「嘀」一声提示低电量。",
+      "time": "22:40",
+      "implicates": {
+        "ma_shouyi": 2
+      },
+      "requires": [
+        "c_co2"
+      ]
+    },
+    {
+      "id": "c_lock",
+      "location": "cave17",
+      "title": "窟门的挂锁",
+      "text": "发现尸体时，铁栅门是从外面锁上的。这种挂锁一按就能锁住，打开却必须用钥匙。贺知远自己的钥匙还挂在他腰上；营地里另外只有两把：看窟人马守义一把，副组长祁明澈一把。",
+      "time": "",
+      "implicates": {
+        "ma_shouyi": 1,
+        "qi_mingche": 1
+      }
+    },
+    {
+      "id": "c_hut",
+      "location": "walkway",
+      "title": "看窟人小屋",
+      "text": "马守义的小屋半嵌在崖壁里，土坯墙有一尺多厚。关上门窗，外面风沙再大，屋里也几乎听不见风声。",
+      "time": "",
+      "implicates": {
+        "ma_shouyi": -1
+      }
+    },
+    {
+      "id": "c_bottle",
+      "location": "walkway",
+      "title": "酒瓶与巡查本",
+      "text": "小屋桌上有两个空白酒瓶，还有一瓶喝了一半。巡查本上 22:30 那一栏写着「巡查各窟，一切正常」，字迹歪歪扭扭，墨水还很新。",
+      "time": "22:30",
+      "implicates": {
+        "ma_shouyi": 2
+      }
+    },
+    {
+      "id": "c_drone",
+      "location": "walkway",
+      "title": "沙里的螺旋桨",
+      "text": "栈道尽头往北侧沙丘的方向，沙里半埋着一片折断的无人机螺旋桨，断口很新。石窟文保区内严禁无人机飞行，营地里只有纪录片组带了无人机。",
+      "time": "",
+      "implicates": {
+        "tang_mu": 2
+      }
+    },
+    {
+      "id": "c_worklog",
+      "location": "data_tent",
+      "title": "工作站的操作日志",
+      "text": "图像工作站 21:00 由公用账号启动了一个批量渲染任务，预计 23:00 完成，全程不需要人工操作。21:00 之后，键盘和鼠标再没有任何输入记录。21:30 停电后自动切到 UPS 供电——这台 UPS 断电时每 30 秒「嘀」一声。",
+      "time": "21:00",
+      "implicates": {
+        "lin_ke": 2
+      },
+      "key": true
+    },
+    {
+      "id": "c_format",
+      "location": "data_tent",
+      "title": "一条格式化记录",
+      "text": "在工作站的系统日志里搜「HE_RAW」：22:01，一块名为「HE_RAW_2TB」的移动硬盘接到这台工作站上，被快速格式化后拔出。登录的是大家共用的「xiufu」账号。",
+      "time": "22:01",
+      "implicates": {
+        "lin_ke": 2,
+        "qi_mingche": -2
+      },
+      "requires": [
+        "c_harddrive"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_retract",
+      "location": "he_tent",
+      "title": "没写完的撤稿邮件",
+      "text": "贺知远的笔记本电脑上开着一封没写完的邮件，收件人是一家考古期刊的编辑部：「关于我组投稿《十七窟东壁隐藏题记的多光谱发现》，经我复核原始波段数据，图 3 题记区域……我作为通讯作者申请撤稿，并将……」邮件停在这里。论文作者：林可、祁明澈、贺知远。",
+      "time": "",
+      "implicates": {
+        "lin_ke": 1,
+        "qi_mingche": 1
+      }
+    },
+    {
+      "id": "c_ransack",
+      "location": "he_tent",
+      "title": "被翻乱的文件盒",
+      "text": "帐篷里的文件盒被打开过，标着「材料检测」的文件夹空了。门帘拉链没拉严，地上积了一层沙，沙面上有一片被膝盖和手掌压乱的痕迹——有人在风沙变猛之后，蹲在这里翻过东西。",
+      "time": "22:00",
+      "implicates": {
+        "qi_mingche": 1
+      }
+    },
+    {
+      "id": "c_wen_note",
+      "location": "he_tent",
+      "title": "贺知远的工作笔记",
+      "text": "工作笔记上有一行今天下午写的字：「闻溪拷了全窟高清扫描，U 盘记录已调出。听说某海外拍卖行在挖她。今晚谈，数据一张都不能带走。」",
+      "time": "",
+      "implicates": {
+        "wen_xi": 2
+      }
+    },
+    {
+      "id": "c_radio",
+      "location": "camp",
+      "title": "调度台的录音",
+      "text": "后勤棚的调度对讲机会自动录音。21:45 点名：贺知远答「还在十七窟，再弄一会儿」，背景很安静；祁明澈、闻溪答「在帐篷」，背景是呼呼的风声；马守义答「在小屋」，背景安静；唐沐、林可没有应答。21:53 林可回呼：「刚戴着耳机没听见，我在数据帐篷。」背景里风声很小，只有隔一会儿一声的「嘀」。",
+      "time": "21:45",
+      "implicates": {
+        "lin_ke": 2,
+        "tang_mu": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_generator",
+      "location": "camp",
+      "title": "见底的油箱",
+      "text": "发电机的油箱见了底，进气口糊着一层沙。可后勤账本上写着前天刚加满 200 升柴油，库房里也少了四桶油。照账上的油量，发电机本该撑到明天中午——21:30 的停电，不是沙子堵的。",
+      "time": "21:30",
+      "implicates": {
+        "han_dongye": 2
+      }
+    },
+    {
+      "id": "c_harddrive",
+      "location": "camp",
+      "title": "行李包里的硬盘",
+      "text": "祁明澈帐篷里，行李包侧袋塞着一块移动硬盘，标签写着「HE_RAW_2TB·贺」——这是贺知远从不离身的原始数据盘。",
+      "time": "",
+      "implicates": {
+        "qi_mingche": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_report",
+      "location": "camp",
+      "title": "睡袋下的检测报告",
+      "text": "祁明澈的睡袋底下压着一份《加固材料成分检测报告》：项目采购的进口加固剂，实测成分与合同不符，是便宜得多的国产替代品。首页有贺知远的批注：「谁签的采购单？」采购单的签字人是祁明澈。",
+      "time": "",
+      "implicates": {
+        "qi_mingche": 2
+      }
+    },
+    {
+      "id": "c_shootlog",
+      "location": "camp",
+      "title": "纪录片组的场记本",
+      "text": "唐沐帐篷里的场记本写着：「18:00 十七窟收工。补光灯留在窟里给贺老师当工作灯（已征得同意）。」也就是说，补光灯整晚都放在窟里，进过十七窟的人都拿得到。",
+      "time": "18:00",
+      "implicates": {
+        "tang_mu": -1
+      },
+      "requires": [
+        "c_light"
+      ]
+    },
+    {
+      "id": "c_dronecard",
+      "location": "camp",
+      "title": "无人机存储卡",
+      "text": "唐沐相机包的夹层里有一张无人机存储卡。视频带时间水印，从 21:38 拍到 22:22，画面一直是北侧沙丘上空的沙尘暴，起落点就在沙丘顶上，离十七窟走路至少二十分钟。",
+      "time": "21:38-22:22",
+      "implicates": {
+        "tang_mu": -2
+      },
+      "requires": [
+        "c_drone"
+      ]
+    }
+  ],
+  "truth": {
+    "murderer": "lin_ke",
+    "weapon": "唐沐留在窟内的摄影补光灯（金属圆底座）",
+    "summary": "凶手是博士生林可。她论文里的「隐藏题记」是用其他洞窟的图像拼接伪造的。贺知远复核原始数据后决定推迟发布会、撤稿并上报学术不端。21:00 林可在数据帐篷启动无需值守的批量渲染，制造一直在用工作站的假象；21:38 她进入十七窟（监测仪 21:40 起显示窟内再次多出一人），21:45 点名时贺知远还在回话，21:52 她用唐沐留下的补光灯砸死导师，21:53 在窟内回呼调度台谎称在数据帐篷——录音里几乎没有风声，只有监测仪的低电量「嘀」声，而帆布帐篷里人人都是风声。她拿走原始数据盘，22:01 在工作站上格式化，22:05 趁祁明澈潜入贺知远帐篷，把硬盘塞进祁的行李包嫁祸。监测仪 22:00 起的下降与尸体下无积沙都把死亡时间卡在 21:45 到 22:00 之间：闻溪 21:30 已离开、祁明澈与马守义在 21:45 各自回话、唐沐的无人机录像证明她在沙丘上——只剩林可。马守义 22:35 发现尸体后锁门隐瞒，祁明澈偷检测报告，韩东野倒卖柴油导致停电，唐沐违规飞无人机，闻溪隐瞒争吵和拷数据——他们都撒了谎，但都不是凶手。",
+    "timeline": [
+      {
+        "time": "18:00",
+        "text": "唐沐在十七窟收工，补光灯留在窟内；与贺知远争吵，马守义在场。"
+      },
+      {
+        "time": "19:00-20:00",
+        "text": "晚饭。贺知远宣布发布会推迟，并当众追问韩东野的油料账。"
+      },
+      {
+        "time": "20:50",
+        "text": "贺知远独自进入十七窟。"
+      },
+      {
+        "time": "21:00",
+        "text": "林可在数据帐篷启动批量渲染。马守义巡完各窟回小屋喝酒。"
+      },
+      {
+        "time": "21:20-21:30",
+        "text": "闻溪送加固剂到十七窟，与贺知远为拷贝数据激烈争吵。唐沐溜上北侧沙丘。"
+      },
+      {
+        "time": "21:30",
+        "text": "发电机没油熄火，营地停电；闻溪离开十七窟。"
+      },
+      {
+        "time": "21:32",
+        "text": "闻溪在栈道上看见一盏头灯往十七窟方向去。"
+      },
+      {
+        "time": "21:38",
+        "text": "林可进入十七窟，被贺知远当面揭穿造假。唐沐开始在沙丘顶航拍（至 22:22）。"
+      },
+      {
+        "time": "21:45",
+        "text": "韩东野点名：贺知远在窟内回话；林可、唐沐未应答。"
+      },
+      {
+        "time": "21:52",
+        "text": "林可用补光灯击中贺知远后脑，致其死亡。"
+      },
+      {
+        "time": "21:53",
+        "text": "林可在窟内回呼调度台，谎称在数据帐篷。"
+      },
+      {
+        "time": "21:55",
+        "text": "林可带走原始数据盘离开，铁栅门未锁。"
+      },
+      {
+        "time": "22:00",
+        "text": "风沙骤然变猛，沙子大量灌进窟内。"
+      },
+      {
+        "time": "22:01",
+        "text": "林可在数据帐篷格式化硬盘。"
+      },
+      {
+        "time": "22:05-22:20",
+        "text": "祁明澈潜入贺知远帐篷偷走检测报告；林可趁机把硬盘塞进祁的行李包。"
+      },
+      {
+        "time": "22:10",
+        "text": "韩东野往发电机进气口抹沙伪装故障。"
+      },
+      {
+        "time": "22:35-22:45",
+        "text": "马守义巡窟发现尸体，惊慌中锁上挂锁离开，在巡查本上写「一切正常」。"
+      },
+      {
+        "time": "22:45",
+        "text": "唐沐回到营地。"
+      },
+      {
+        "time": "23:10",
+        "text": "韩东野、闻溪找到十七窟，马守义开锁，发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "lin_ke",
+        "text": "凶手；论文中的「隐藏题记」系伪造。"
+      },
+      {
+        "who": "qi_mingche",
+        "text": "调包加固剂吃回扣；22:05-22:20 潜入贺知远帐篷偷走检测报告。"
+      },
+      {
+        "who": "tang_mu",
+        "text": "违规拍摄并出售素材；当晚在文保区违规飞无人机，整晚不在营地。"
+      },
+      {
+        "who": "ma_shouyi",
+        "text": "曾私带游客进窟；22:35 发现尸体后锁门隐瞒。"
+      },
+      {
+        "who": "han_dongye",
+        "text": "倒卖营地柴油，导致发电机断油停电，事后伪装成沙堵。"
+      },
+      {
+        "who": "wen_xi",
+        "text": "偷拷整窟高清扫描准备跳槽拍卖行；21:20-21:30 与贺知远激烈争吵。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_lin_radio",
+      "knowledge": "k_lin_cover",
+      "clue": "c_radio",
+      "text": "林可说她在帆布搭的数据帐篷里，可她 21:53 回话时背景几乎没有风声——那晚在帆布帐篷里回话的人，背景全是风声。",
+      "implicates": {
+        "lin_ke": 2
+      }
+    },
+    {
+      "id": "x_lin_work",
+      "knowledge": "k_lin_cover",
+      "clue": "c_worklog",
+      "text": "林可说自己一直在数据帐篷盯着渲染，可 21:00 以后工作站上没有任何人操作过。",
+      "implicates": {
+        "lin_ke": 1
+      }
+    },
+    {
+      "id": "x_ma_late",
+      "knowledge": "k_ma_cover",
+      "clue": "c_co2_late",
+      "text": "马守义说 21:00 以后再没出过小屋，可 22:40 十七窟里又短暂进过一个人，他的巡查本上还写着 22:30 巡查。",
+      "implicates": {
+        "ma_shouyi": 1
+      }
+    },
+    {
+      "id": "x_tang_drone",
+      "knowledge": "k_tang_cover",
+      "clue": "c_drone",
+      "text": "唐沐说她整晚在帐篷整理素材，可北侧沙丘上有新折断的无人机螺旋桨。",
+      "implicates": {
+        "tang_mu": 1
+      }
+    },
+    {
+      "id": "x_qi_tent",
+      "knowledge": "k_qi_cover",
+      "clue": "c_ransack",
+      "text": "祁明澈说 22:00 以后再没出过帐篷，可风沙变猛之后，有人蹲在贺老师的帐篷里翻过「材料检测」文件夹。",
+      "implicates": {
+        "qi_mingche": 1
+      }
+    },
+    {
+      "id": "x_han_fuel",
+      "knowledge": "k_han_cover",
+      "clue": "c_generator",
+      "text": "韩东野说发电机是被沙子堵停的，可油箱见了底，账上的油本该撑到明天中午。",
+      "implicates": {
+        "han_dongye": 1
+      }
+    },
+    {
+      "id": "x_wen_stay",
+      "knowledge": "k_wen_cover",
+      "clue": "c_co2",
+      "text": "闻溪说放下材料就走了，可监测仪显示 21:20 到 21:30 窟里一直是两个人。",
+      "implicates": {
+        "wen_xi": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Grotto Restoration",
+      "subtitle": "A sandstorm has swallowed the restoration camp. In Cave 17 the monitor keeps ticking off its readings, one line at a time, and the project leader lies dead beneath the scaffolding.",
+      "background": "May 2024, the West Cliff of Mingsha (the “Singing Sands”), forty kilometers west of Dunhuang. For three months a restoration team has been camped below the cliff, racing to save the Tang-dynasty murals on the east wall of Cave 17, which are flaking and crumbling with salt damage. Six months ago the team “discovered” a hidden inscription beneath the east-wall paint in multispectral imaging. The paper has already been submitted, and an online press conference is scheduled for ten o'clock tomorrow morning.\n\nBut at dinner, project leader He Zhiyuan announced: “The press conference is postponed. The data has to be re-checked.”\n\nAfter dark the sandstorm rolled in. At 21:30 the camp lost power; around 22:00 the wind suddenly grew fierce and visibility dropped below five meters. At 23:10, as the wind eased a little, logistics manager Han Dongye and conservator Wen Xi went to Cave 17 to look for He Zhiyuan, who had stopped answering his radio. The iron grille gate was locked from the outside. The cave keeper, Ma Shouyi, opened it with his key — He Zhiyuan lay on his back beneath the scaffolding, the back of his head crushed by a heavy blow. He was already dead.\n\nThe road to the county town is buried in sand; help cannot arrive before noon tomorrow. The killer is one of the six people in this camp.",
+      "intro": "[Host] Welcome to The Grotto Restoration. This is a hard scenario: several of the six of you will be lying all night, and the physical evidence will contradict itself. Don't fixate on the weapon — the monitor in Cave 17, the dispatch radio recordings, and the sand on the floor can all help you pin down the timing. The killer must stay hidden; everyone else must find the truth while guarding their own secrets.",
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. You can go to Cave 17, the Walkway & Keeper's Hut, the Data Tent, He Zhiyuan's Tent, or the Logistics Shed & Dorms. Clues you find are known only to you; whether to reveal them is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question others, reveal clues, or make accusations. A reminder: the cave is cold, so the body alone cannot give a precise time of death.",
+        "investigate_2": "[Host] The wind picks up again. The second round of investigation begins — some things are noticed only by those who know what to look for.",
+        "discuss_2": "[Host] The final round of discussion. Pin down where every person was between 21:30 and 22:00, one by one: who was in a tent, who was in the cave, and who wasn't in camp at all?",
+        "vote": "[Host] Time to vote. Vote for the person you believe is the killer. Whoever receives the most votes will be accused (in a tie, the killer escapes)."
+      },
+      "victim": {
+        "name": "He Zhiyuan",
+        "bio": "58, a research fellow at a cultural heritage institute in the northwest and leader of the “Emergency Restoration of the Murals of Cave 17, Mingsha West Cliff” project. A rigorous, uncompromising scholar who tolerated no sloppiness, and who made plenty of enemies."
+      },
+      "locations": {
+        "cave17": {
+          "name": "Cave 17",
+          "description": "The crime scene. Restoration scaffolding stands inside; the east wall holds the preaching-scene mural under restoration, and an environmental monitor sits on the floor. An iron grille gate guards the cave mouth."
+        },
+        "walkway": {
+          "name": "Walkway & Keeper Hut",
+          "description": "A wooden plank walkway along the cliff face links the caves; at its end stands the adobe-and-stone hut where cave keeper Ma Shouyi lives. In a sandstorm, the walk from Cave 17 to camp takes over ten minutes."
+        },
+        "data_tent": {
+          "name": "Data Tent",
+          "description": "A large canvas tent pitched at the foot of the cliff, closest to the walkway entrance. It holds the multispectral camera and the imaging workstation, which runs off a UPS backup power supply."
+        },
+        "he_tent": {
+          "name": "He Zhiyuan's Tent",
+          "description": "A single canvas tent at the edge of camp, where He Zhiyuan read his papers and wrote his emails."
+        },
+        "camp": {
+          "name": "Logistics & Dorms",
+          "description": "The logistics shed at the center of camp (generator, storeroom, radio dispatch desk) and a row of sleeping tents, one each for Qi Mingche, Tang Mu, Wen Xi and Lin Ke."
+        }
+      },
+      "characters": {
+        "lin_ke": {
+          "name": "Lin Ke",
+          "publicBio": "27, a PhD student supervised by He Zhiyuan and first author of the paper on Cave 17's “hidden inscription.”",
+          "personality": "Clever, polite and quick-witted, fluent in technical detail; when pressed, she buries the question under a flood of jargon.",
+          "coverStory": "After 21:00 I was in the Data Tent the whole time watching the render. I had headphones on and didn't hear the roll call; I only answered at 21:53.",
+          "knowledge": {
+            "k_lin_cover": "After 21:00 I was in the Data Tent the whole time watching the render. I had headphones on, so I didn't hear the 21:45 roll call; I only answered at 21:53.",
+            "k_lin_qi": "At 22:05 I looked out from the Data Tent door and saw Professor Qi crouch and slip into Professor He's tent, without even turning on a flashlight.",
+            "k_lin_truth": "At 21:38 I went to Cave 17. Professor He was going to retract the paper and report me for fraud. At 21:52 I struck him with Tang Mu's fill light, took the raw data drive, formatted it at 22:01, and stuffed it into Qi Mingche's tent."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep “The Workstation Activity Log” from being revealed"
+          ],
+          "script": "You are Lin Ke, twenty-seven, a PhD student under He Zhiyuan. Six months ago you “discovered” a covered-over Tang-dynasty inscription in the multispectral images of Cave 17's east wall. The paper has been submitted, and tomorrow morning there is a press conference. But you know the truth: there is no inscription in the raw spectral bands. You built it up, layer by layer, from images of other caves.\n\n[Tonight]\n19:00-20:00 Dinner. Professor He announces in front of everyone that the press conference is postponed: “The data has to be re-checked.”\n21:00 In the Data Tent you start a batch render, so the workstation looks like someone is using it the whole time.\n21:38 You arrive at Cave 17. Professor He lays out the raw data in front of you: tomorrow he retracts the paper and reports academic misconduct.\n21:45 Han Dongye calls the roll on the radio. You don't dare answer.\n21:52 In the argument you grab the fill light Tang Mu left behind and bring it down on the back of his head.\n21:53 From inside the cave you radio Han Dongye back and say you're in the Data Tent.\n21:55 You take his raw data drive and leave. You don't lock the grille gate.\n22:01 In the Data Tent you format the hard drive.\n22:05 You see Qi Mingche crouch and slip into Professor He's tent, and you seize the chance to stuff the drive into Qi's luggage bag.\n\n[Your story] You were in the Data Tent all night watching the render, with headphones on, and didn't hear the roll call.\n[Your task] Don't get accused; keep “The Workstation Activity Log” from being revealed."
+        },
+        "qi_mingche": {
+          "name": "Qi Mingche",
+          "publicBio": "44, deputy project leader, who has worked under He Zhiyuan for twelve years and is also a co-author of the paper.",
+          "personality": "Seasoned, cautious and a stickler for rules, never letting a word slip; touch a sore spot and he suddenly turns sharp.",
+          "coverStory": "After the 21:45 roll call I went to sleep in my own tent, and after 22:00 I never left it.",
+          "knowledge": {
+            "k_qi_saw": "At 21:15, in camp, I saw Wen Xi carrying a materials case toward Cave 17.",
+            "k_qi_cover": "After the 21:45 roll call I went to sleep in my own tent, and after 22:00 I never left it.",
+            "k_qi_secret": "From 22:05 to 22:20 I was in Professor He's tent stealing the consolidant test report. I also saw an unfinished retraction email on his computer."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep “The Report Under the Sleeping Bag” from being revealed"
+          ],
+          "script": "You are Qi Mingche, forty-four, deputy project leader. You have followed He Zhiyuan for twelve years, and twice he has blocked your promotion to research fellow. Last year, when buying the mural consolidant, you signed off on a cheap domestic substitute and pocketed the difference. A few days ago He Zhiyuan quietly sent the consolidant off for testing, and you know that once the report comes out, you are finished. On top of that, your name is on Lin Ke's sensational paper, and you are one of the speakers at tomorrow's press conference.\n\n[Tonight]\n19:00-20:00 Dinner. Professor He announces the press conference is postponed.\n21:15 In camp you see Wen Xi carrying a materials case toward Cave 17.\n21:45 At the roll call you are in your own tent; the wind is howling outside.\n22:05 With the storm at its worst, you sneak into Professor He's tent, dig out the “Consolidation Materials Test Report” and take it. You also see an unfinished retraction email on his computer — with your name among the authors.\n22:20 Back in your tent, you hide the report under your sleeping bag.\n23:10 You hear that something has happened to Professor He.\n\n[Your secret] You swapped the consolidant and took kickbacks; tonight you stole the test report.\n[Your story] After 22:00 you were asleep in your own tent the whole time.\n[Your task] Find the real killer; keep “The Report Under the Sleeping Bag” from being revealed."
+        },
+        "tang_mu": {
+          "name": "Tang Mu",
+          "publicBio": "35, documentary director and cinematographer, commissioned by the institute to film the entire Cave 17 restoration.",
+          "personality": "Passionate, bold and allergic to being told what to do; when suspected, she flares up first and reasons later.",
+          "coverStory": "After the sandstorm arrived I was in my tent sorting footage the whole time. My radio was dead, so I didn't hear the roll call.",
+          "knowledge": {
+            "k_tang_light": "When I wrapped at 18:00, I left that fill light in Cave 17 as a work lamp for Professor He — he agreed. After that, anyone who went into the cave could have picked it up.",
+            "k_tang_dinner": "At dinner Han Dongye and Professor He argued over the diesel accounts. Professor He said “last week's fuel slips don't add up.”",
+            "k_tang_cover": "After the sandstorm arrived I was in my tent sorting footage the whole time. My radio was dead, so I didn't hear the roll call.",
+            "k_tang_secret": "At 21:20 I sneaked up the north dune. From 21:38 to 22:22 I was on top of the dune flying a drone to film the sandstorm, and I only got back to camp at 22:45."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Don't receive the most votes"
+          ],
+          "script": "You are Tang Mu, thirty-five, documentary director and cinematographer, commissioned to make a film about the Cave 17 restoration. He Zhiyuan kept extremely tight limits on filming. Last week he found out you had been secretly photographing the murals with a flash and selling the footage to an overseas stock library, and he threatened to cancel your contract and hold you liable.\n\n[Tonight]\n18:00 You wrap up in Cave 17 and leave your fill light with Professor He as a work lamp. He brings up the stock-library business again and you trade a few angry words; the cave keeper Ma Shouyi is standing right at the cave mouth.\n19:00-20:00 Dinner. You see Han Dongye and Professor He get heated over the diesel accounts.\n21:20 With the drone on your back, you slip out of camp and climb the north dune. A sandstorm like this is a once-in-a-lifetime shot, no-fly heritage zone or not. You switch off your radio.\n21:38-22:22 On top of the dune you fly three take-offs and landings, and snap off a propeller blade.\n22:45 You get back to your tent.\n23:10 You hear that something has happened to Professor He.\n\n[Your secret] You flew a drone illegally in the heritage zone and were out of camp all night.\n[Your story] Once the sandstorm came, you were in your tent sorting footage; your radio was dead.\n[Your task] Find the real killer; don't receive the most votes."
+        },
+        "ma_shouyi": {
+          "name": "Ma Shouyi",
+          "publicBio": "63, keeper of the West Cliff caves for thirty years, living in the little stone hut at the end of the walkway.",
+          "personality": "Stubborn and taciturn, with a thick northwestern accent; a few drinks loosen his tongue. Pushed too hard, he snaps: “I've kept these caves for thirty years.”",
+          "coverStory": "The wind was too strong. I finished my round at 21:00, went back to the hut, and never went out again.",
+          "knowledge": {
+            "k_ma_saw": "At 18:00, at the mouth of Cave 17, I saw Tang Mu arguing with Professor He. She was shouting, “What gives you the right to stop me filming?”",
+            "k_ma_cover": "The wind was too strong. I finished my round at 21:00, went back to the hut, and never went out again.",
+            "k_ma_secret": "At 22:35 I went to Cave 17 and found Professor He already dead, with a fill light beside him. Afraid of being blamed, I snapped the padlock shut and left, and wrote “all normal” in the patrol log."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep “The Bottles and the Patrol Log” from being revealed"
+          ],
+          "script": "You are Ma Shouyi, sixty-three, keeper of the West Cliff caves for thirty years. The year before last, you took money a few times to sneak tourists into caves closed to the public. He Zhiyuan found out and reported you to the institute; next month you'll have to pack up and go home.\n\n[Tonight]\n18:00 At the mouth of Cave 17 you see Tang Mu arguing with Professor He. She's shouting, “What gives you the right to stop me filming?”\n21:00 Before the wind picks up, you make a round of all the caves, then go back to your hut to drink.\n21:45 At the radio roll call, you answer “In the hut.”\n22:35 Emboldened by the liquor, you go out to check the caves. Cave 17's grille gate is open; Professor He is lying beneath the scaffolding, a fill light beside him, long since dead. Afraid of being blamed for drinking on duty and leaving the gate unwatched, you — without quite knowing why — snap the padlock shut and run back to the hut, where you add a line to the patrol log: “22:30 patrolled all caves, all normal.”\n23:10 Han Dongye and the others come looking. You open the gate with your key and pretend you're seeing it for the first time.\n\n[Your secret] You found the body at 22:35, and you locked the gate.\n[Your story] After your 21:00 round you never left the hut; you filled in the patrol log in advance out of habit.\n[Your task] Find the real killer; keep “The Bottles and the Patrol Log” from being revealed."
+        },
+        "han_dongye": {
+          "name": "Han Dongye",
+          "publicBio": "47, camp logistics manager and driver, in charge of the generator, fuel, vehicles and radio dispatch.",
+          "personality": "Big-hearted, bustling and loud, always saying “leave it to me”; bring up the accounts and he laughs it off.",
+          "coverStory": "The generator stopped at 21:30 because sand clogged its air intake. From 21:45 I was in the logistics shed the whole time, running the roll call at the dispatch desk.",
+          "knowledge": {
+            "k_han_roll": "At 21:45 I called the roll on the radio. Tang Mu and Lin Ke didn't answer. I kept calling until 21:55; Lin Ke only answered at 21:53, and Tang Mu never did.",
+            "k_han_cover": "The generator stopped at 21:30 because sand clogged its air intake. With wind like that, there was nothing I could do.",
+            "k_han_secret": "For two years I've been selling off the camp's diesel. The generator stopped because it ran out of fuel. At 22:10 I smeared a handful of sand on the air intake for show."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep “The Empty Fuel Tank” from being revealed"
+          ],
+          "script": "You are Han Dongye, forty-seven, camp logistics manager and driver, responsible for the generator, the fuel and radio dispatch. For two years you've been quietly selling the camp's diesel to a nearby construction crew and cooking the books. At dinner today He Zhiyuan asked you in front of everyone: “Why don't last week's fuel slips add up?” You know he's on to you.\n\n[Tonight]\n19:00-20:00 Dinner. You trade words with Professor He over the fuel accounts.\n21:30 The generator runs dry and cuts out; the camp loses power. With a guilty conscience, you don't dare fetch fuel from the storeroom.\n21:45 In the logistics shed you call the roll on the dispatch radio, which records automatically. Tang Mu and Lin Ke don't answer. You keep calling until 21:55; Lin Ke only answers at 21:53.\n22:10 You go to the generator for show and smear a handful of sand over the air intake.\n23:00 Professor He still isn't answering his radio. You and Wen Xi go to Cave 17 to find him, find the gate locked, and fetch Ma Shouyi to open it.\n23:10 You find the body.\n\n[Your secret] You've been selling off the diesel; the blackout is your doing.\n[Your story] The generator stopped because sand clogged it.\n[Your task] Find the real killer; keep “The Empty Fuel Tank” from being revealed."
+        },
+        "wen_xi": {
+          "name": "Wen Xi",
+          "publicBio": "33, mural conservator, a longtime student of He Zhiyuan and principal author of the restoration plan for Cave 17's east wall.",
+          "personality": "Quiet, restrained, with steady hands and an unhurried way of speaking; the more nervous she is, the calmer she gets — which only makes her look like she's hiding something.",
+          "coverStory": "At 21:20 I delivered the consolidant to Cave 17, set it down and left. When the power went out at 21:30 he was perfectly fine.",
+          "knowledge": {
+            "k_wen_alive": "When the power went out at 21:30 I left Cave 17. Professor He was still standing on the scaffolding, perfectly fine.",
+            "k_wen_lamp": "At 21:32, on the walkway, I saw a headlamp heading toward Cave 17. The sand was too thick to see who it was.",
+            "k_wen_cover": "At 21:20 I delivered the consolidant to Cave 17, set it down and left. I barely said a word to Professor He.",
+            "k_wen_secret": "From 21:20 to 21:30 Professor He confronted me to my face about secretly copying the scan data and planning to defect to an auction house. We had a bitter fight."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep “He Zhiyuan's Work Notes” from being revealed"
+          ],
+          "script": "You are Wen Xi, thirty-three, conservator and a longtime student of He Zhiyuan. Most of the restoration plan for Cave 17's east wall came from your hand, yet his name always goes on it. An overseas auction house has offered you triple your salary, and you secretly copied the entire cave's high-resolution scans to bring along as a “welcome gift.” This afternoon He Zhiyuan pulled up the USB drive logs.\n\n[Tonight]\n19:00-20:00 Dinner.\n21:15 You carry the consolidant materials case to Cave 17.\n21:20-21:30 Professor He confronts you to your face about copying the data: “You can leave if you want, but not a single image goes with you.” You have a bitter fight.\n21:30 The power suddenly goes out and you feel your way out in the dark. He is still standing on the scaffolding, perfectly fine.\n21:32 On the walkway you see a headlamp bobbing its way toward Cave 17. The sand is too thick to see who it is.\n21:45 At the roll call you've only just got back to your tent.\n23:00 You and Han Dongye go to Cave 17 to look for him.\n\n[Your secret] You copied the scan data and are planning to defect; you are one of the people who saw him before the murder, and you fought with him.\n[Your story] You dropped off the materials and left, barely saying a word.\n[Your task] Find the real killer; keep “He Zhiyuan's Work Notes” from being revealed."
+        }
+      },
+      "relationships": [
+        "Co-authors of the paper",
+        "Fellow students of the same mentor",
+        "From the same hometown; drinking buddies",
+        "Main subject of the documentary",
+        "Partners in purchasing and logistics",
+        "Thesis fraud exposed by her advisor"
+      ],
+      "victimRelationships": [
+        "PhD advisor",
+        "Boss (for twelve years)",
+        "Client rep on her film contract",
+        "Reported him to the institute",
+        "Project leader and logistics manager",
+        "Teacher and student"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "Initial Examination of the Body",
+          "text": "He Zhiyuan lies on his back beneath the scaffolding. On the back of his head, slightly right of center, is a semicircular depressed wound, as if struck by a heavy round object. The radio on his chest is still switched on. The cave is cold and damp, so the time of death can only be roughly placed between 21:00 and 23:00."
+        },
+        "c_light": {
+          "title": "The Bloodstained Fill Light",
+          "text": "Beside the body lies a toppled portable photographic fill light. Its round metal base is smeared with blood and hair and matches the shape of the wound. A label on the light stand reads: “Documentary Crew · Tang Mu.”"
+        },
+        "c_sand": {
+          "title": "The Ground Beneath the Body",
+          "text": "Wind-blown sand has poured in through the gaps in the grille gate and laid a thin layer of fine sand across the cave. Sand lies on the body and all around it — yet the patch of ground under the body is almost clean. When he fell, the sand had not yet started pouring in heavily. Everyone in camp says the storm suddenly grew fierce around 22:00."
+        },
+        "c_co2": {
+          "title": "The Environmental Monitor's Curve",
+          "text": "The cave's environmental monitor records a carbon dioxide reading every 10 minutes, switching to battery power after the blackout. The curve: starting at 20:50 it rises (one person in the cave); at the 21:20 and 21:30 points it rises faster (one more person); after 21:30 it dips slightly; at 21:40 and 21:50 it again rises noticeably faster (another person); from 22:00 it falls steadily, reaching nearly the outside level by 22:30."
+        },
+        "c_co2_late": {
+          "title": "The Monitor's Later Records",
+          "text": "Further on in the log: at 22:40 the reading ticks up by one step, falling back at 22:50 — someone briefly entered the cave again. The monitor's manual also states: after switching to battery power, it gives a “beep” once every minute to warn of low battery."
+        },
+        "c_lock": {
+          "title": "The Cave Gate's Padlock",
+          "text": "When the body was found, the grille gate was locked from the outside. This kind of padlock locks with a simple push, but can only be opened with a key. He Zhiyuan's own key still hangs at his waist; there are only two others in camp: one held by cave keeper Ma Shouyi, one by deputy leader Qi Mingche."
+        },
+        "c_hut": {
+          "title": "The Cave Keeper's Hut",
+          "text": "Ma Shouyi's hut is half built into the cliff face, its adobe walls more than a foot thick. With the door and windows shut, no matter how hard the sandstorm blows outside, you can barely hear the wind inside."
+        },
+        "c_bottle": {
+          "title": "The Bottles and the Patrol Log",
+          "text": "On the hut table are two empty bottles of baijiu (Chinese grain liquor) and a third, half-drunk. In the patrol log, the 22:30 entry reads “patrolled all caves, all normal” in a crooked, wobbly hand, the ink still fresh."
+        },
+        "c_drone": {
+          "title": "The Propeller in the Sand",
+          "text": "At the end of the walkway, toward the north dune, a snapped drone propeller blade lies half buried in the sand. The break is fresh. Drones are strictly banned in the grotto heritage zone, and only the documentary crew brought one to camp."
+        },
+        "c_worklog": {
+          "title": "The Workstation Activity Log",
+          "text": "At 21:00 the shared account started a batch render job on the imaging workstation, expected to finish at 23:00, requiring no human input at all. After 21:00 there is no keyboard or mouse input of any kind. After the 21:30 blackout it automatically switched to UPS power — and this UPS gives a “beep” every 30 seconds during a power cut."
+        },
+        "c_format": {
+          "title": "A Format Record",
+          "text": "Searching the workstation's system log for “HE_RAW”: at 22:01, an external hard drive named “HE_RAW_2TB” was connected to this workstation, quick-formatted, and unplugged. The login was the shared “xiufu” account."
+        },
+        "c_retract": {
+          "title": "The Unfinished Retraction Email",
+          "text": "Open on He Zhiyuan's laptop is an unfinished email addressed to the editorial office of an archaeology journal: “Regarding our group's submission, 'Multispectral Discovery of a Hidden Inscription on the East Wall of Cave 17': having re-examined the raw spectral band data, the inscription region in Figure 3... As corresponding author I request the retraction of this paper, and will...” The email stops there. Authors: Lin Ke, Qi Mingche, He Zhiyuan."
+        },
+        "c_ransack": {
+          "title": "The Rifled File Box",
+          "text": "The file box in the tent has been opened, and the folder marked “Materials Testing” is empty. The door-flap zipper wasn't fully closed, and a layer of sand has built up on the floor; in it is a patch scuffed by knees and palms — someone crouched here and rummaged through things after the storm grew fierce."
+        },
+        "c_wen_note": {
+          "title": "He Zhiyuan's Work Notes",
+          "text": "A line in the work notes, written this afternoon: “Wen Xi copied the whole cave's high-res scans; USB logs pulled. Heard an overseas auction house is poaching her. Talk tonight — not a single image leaves.”"
+        },
+        "c_radio": {
+          "title": "The Dispatch Recordings",
+          "text": "The dispatch radio in the logistics shed records automatically. 21:45 roll call: He Zhiyuan answers “Still in Cave 17, a little longer,” background very quiet; Qi Mingche and Wen Xi answer “In my tent,” background a roaring wind; Ma Shouyi answers “In the hut,” background quiet; Tang Mu and Lin Ke do not answer. 21:53 Lin Ke calls back: “Had my headphones on, didn't hear. I'm in the Data Tent.” Very little wind in the background — only a “beep” every so often."
+        },
+        "c_generator": {
+          "title": "The Empty Fuel Tank",
+          "text": "The generator's fuel tank has run dry, and its air intake is caked with sand. Yet the logistics ledger says it was filled with 200 liters of diesel just the day before yesterday, and four drums are missing from the storeroom. On the recorded fuel, the generator should have lasted until noon tomorrow — the 21:30 blackout was not caused by sand."
+        },
+        "c_harddrive": {
+          "title": "The Drive in the Luggage",
+          "text": "In Qi Mingche's tent, an external hard drive is stuffed into the side pocket of his luggage bag. Its label reads “HE_RAW_2TB · He” — the raw data drive He Zhiyuan never let out of his sight."
+        },
+        "c_report": {
+          "title": "The Report Under the Sleeping Bag",
+          "text": "Under Qi Mingche's sleeping bag is a “Consolidation Materials Composition Test Report”: the imported consolidant the project purchased does not match the contract — it is a far cheaper domestic substitute. On the first page is He Zhiyuan's note: “Who signed the purchase order?” The purchase order is signed by Qi Mingche."
+        },
+        "c_shootlog": {
+          "title": "The Film Crew's Shot Log",
+          "text": "The shot log in Tang Mu's tent reads: “18:00 wrapped in Cave 17. Fill light left in the cave as a work lamp for Prof. He (with his consent).” In other words, the fill light sat in the cave all evening; anyone who entered Cave 17 could have taken it."
+        },
+        "c_dronecard": {
+          "title": "The Drone Memory Card",
+          "text": "In an inner pocket of Tang Mu's camera bag is a drone memory card. The video carries a timestamp watermark and runs from 21:38 to 22:22, showing nothing but the sandstorm over the north dune; the take-off point is on top of the dune, at least twenty minutes' walk from Cave 17."
+        }
+      },
+      "contradictions": {
+        "x_lin_radio": "Lin Ke says she was in the canvas Data Tent, yet when she answered at 21:53 there was almost no wind in the background — that night, everyone who answered from a canvas tent had nothing but wind behind them.",
+        "x_lin_work": "Lin Ke says she was in the Data Tent watching the render the whole time, yet no one touched the workstation after 21:00.",
+        "x_ma_late": "Ma Shouyi says he never left the hut after 21:00, yet someone briefly entered Cave 17 again at 22:40, and his patrol log even records a 22:30 patrol.",
+        "x_tang_drone": "Tang Mu says she was in her tent sorting footage all night, yet there's a freshly snapped drone propeller out toward the north dune.",
+        "x_qi_tent": "Qi Mingche says he never left his tent after 22:00, yet after the storm grew fierce, someone crouched in Professor He's tent and rifled through the “Materials Testing” folder.",
+        "x_han_fuel": "Han Dongye says sand choked the generator, yet the fuel tank is empty, and the recorded fuel should have lasted until noon tomorrow.",
+        "x_wen_stay": "Wen Xi says she set down the materials and left, yet the monitor shows two people in the cave the whole time from 21:20 to 21:30."
+      },
+      "truth": {
+        "weapon": "The photographic fill light Tang Mu left in the cave (round metal base)",
+        "summary": "The killer is the PhD student Lin Ke. The “hidden inscription” in her paper was forged by stitching together images from other caves. After re-examining the raw data, He Zhiyuan decided to postpone the press conference, retract the paper and report academic misconduct. At 21:00 Lin Ke started an unattended batch render in the Data Tent to create the illusion that she was using the workstation all along. At 21:38 she entered Cave 17 (from 21:40 the monitor again shows an extra person in the cave). At the 21:45 roll call He Zhiyuan was still answering; at 21:52 she killed her advisor with the fill light Tang Mu had left behind, and at 21:53 she radioed dispatch from inside the cave, falsely claiming to be in the Data Tent — the recording has almost no wind, only the monitor's low-battery “beep,” while everyone in a canvas tent had wind behind them. She took the raw data drive, formatted it on the workstation at 22:01, and at 22:05, as Qi Mingche sneaked into He Zhiyuan's tent, she stuffed the drive into Qi's luggage bag to frame him. The monitor's fall from 22:00 and the lack of sand beneath the body pin the death between 21:45 and 22:00: Wen Xi had left at 21:30, Qi Mingche and Ma Shouyi each answered at 21:45, and Tang Mu's drone footage proves she was on the dune — leaving only Lin Ke. Ma Shouyi found the body at 22:35 and locked the gate to cover it up; Qi Mingche stole the test report; Han Dongye's diesel selling caused the blackout; Tang Mu flew a drone illegally; Wen Xi hid the argument and the copied data — they all lied, but none of them is the killer.",
+        "timeline": [
+          "Tang Mu wraps in Cave 17, leaving the fill light inside; she argues with He Zhiyuan, with Ma Shouyi present.",
+          "Dinner. He Zhiyuan announces the press conference is postponed and publicly presses Han Dongye about the fuel accounts.",
+          "He Zhiyuan enters Cave 17 alone.",
+          "Lin Ke starts the batch render in the Data Tent. Ma Shouyi finishes his round and returns to the hut to drink.",
+          "Wen Xi delivers the consolidant to Cave 17 and has a bitter fight with He Zhiyuan over the copied data. Tang Mu slips off to the north dune.",
+          "The generator runs dry and cuts out; the camp loses power. Wen Xi leaves Cave 17.",
+          "On the walkway, Wen Xi sees a headlamp heading toward Cave 17.",
+          "Lin Ke enters Cave 17 and is confronted by He Zhiyuan about the forgery. Tang Mu begins aerial filming from the dune top (until 22:22).",
+          "Han Dongye's roll call: He Zhiyuan answers from inside the cave; Lin Ke and Tang Mu do not answer.",
+          "Lin Ke strikes He Zhiyuan on the back of the head with the fill light, killing him.",
+          "Lin Ke radios dispatch from inside the cave, falsely claiming to be in the Data Tent.",
+          "Lin Ke leaves with the raw data drive; the grille gate is left unlocked.",
+          "The storm suddenly grows fierce and sand pours into the cave.",
+          "Lin Ke formats the hard drive in the Data Tent.",
+          "Qi Mingche sneaks into He Zhiyuan's tent and steals the test report; Lin Ke seizes the chance to stuff the drive into Qi's luggage bag.",
+          "Han Dongye smears sand on the generator's air intake to fake a breakdown.",
+          "Ma Shouyi, on patrol, finds the body, panics, snaps the padlock shut and leaves, writing “all normal” in the patrol log.",
+          "Tang Mu returns to camp.",
+          "Han Dongye and Wen Xi reach Cave 17; Ma Shouyi unlocks the gate and the body is found."
+        ],
+        "secrets": [
+          "The killer; the “hidden inscription” in the paper was forged.",
+          "Swapped the consolidant for kickbacks; from 22:05 to 22:20 sneaked into He Zhiyuan's tent and stole the test report.",
+          "Filmed illegally and sold the footage; that night flew a drone illegally in the heritage zone and was out of camp all night.",
+          "Once sneaked tourists into the caves; found the body at 22:35 and locked the gate to cover it up.",
+          "Sold off the camp's diesel, leaving the generator dry and causing the blackout, then faked a sand clog.",
+          "Secretly copied the whole cave's high-res scans to defect to an auction house; had a bitter fight with He Zhiyuan from 21:20 to 21:30."
+        ]
+      }
+    }
+  }
+}

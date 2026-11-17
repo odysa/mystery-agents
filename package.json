@@ -1,0 +1,17 @@
+{
+  "name": "mystery-agents",
+  "version": "0.1.0",
+  "description": "开源剧本杀多智能体平台：和 AI 角色一起玩剧本杀，或观看 AI 全自动对局。",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "sim": "node src/sim.js",
+    "validate": "node src/validate.js",
+    "test": "node --test --test-timeout=120000 test/*.test.js"
+  },
+  "optionalDependencies": {
+    "@anthropic-ai/sdk": "^1.6.0"
+  }
+}

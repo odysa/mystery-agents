@@ -1,0 +1,939 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "dabian-qianye",
+  "version": "1.0.0",
+  "title": "答辩前夜",
+  "subtitle": "博士答辩前一晚，化学楼七楼的灯还亮着，导师伏在办公桌上，再也没有醒来。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 4,
+  "difficulty": "进阶",
+  "estimatedMinutes": 50,
+  "victim": {
+    "id": "zheng_liheng",
+    "name": "郑立衡",
+    "bio": "五十八岁，某大学化学系教授、博士生导师，课题组带头人。治学极严，出了名的「数据洁癖」，晚上习惯泡一杯枸杞茶在办公室工作到深夜。"
+  },
+  "background": "十一月的一个周四，某大学化学实验楼。明天上午九点，郑立衡课题组的博士生许嘉禾就要进行博士学位论文答辩。18:00 到 19:30，课题组在七楼小会议室做了最后一次答辩预演，郑立衡全程皱着眉头，散会时一句话也没说。\n\n夜里，七楼的几间屋子都还亮着灯。22:45，许嘉禾推开 712 办公室的门，发现郑立衡伏在办公桌上，口唇发绀，已经没有了呼吸。桌上的保温杯里还剩半杯枸杞茶。\n\n警方和校方已经赶来，整栋楼被封锁，所有人被要求在七楼等候问询。在正式笔录开始前，你们四个人被留在同一间会议室里——而你们都清楚：今晚进出过七楼的，只有你们。",
+  "intro": "【主持人】欢迎来到《答辩前夜》。这是一个进阶剧本：每个人都有秘密，每个人都有理由说谎，而说谎的人未必是凶手。请仔细阅读你的剧本，留意每一条记录上的时间——手环、电梯、门磁、日志，它们拼起来，才是这一夜的真相。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查三次。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。",
+    "investigate_2": "【主持人】第二轮搜证开始，每人还可以搜查两次。有些记录，只有在你知道该查什么时间之后才会被注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。毒是什么时候下进杯子的？那段时间里，谁和郑老师单独在一起？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "office712",
+      "name": "712 办公室",
+      "description": "案发现场。郑立衡的办公室，书桌、电脑、台历和他的保温杯都在这里。",
+      "x": 0.2,
+      "y": 0.25
+    },
+    {
+      "id": "lab703",
+      "name": "703 合成实验室",
+      "description": "课题组的合成实验室，每个学生有自己的通风橱和实验台。许嘉禾的通风橱在最里面。",
+      "x": 0.8,
+      "y": 0.25
+    },
+    {
+      "id": "corridor",
+      "name": "七楼走廊",
+      "description": "连接各房间的走廊，包括茶水间、打印机、小会议室、电梯厅和楼梯间。",
+      "x": 0.5,
+      "y": 0.52
+    },
+    {
+      "id": "reagent",
+      "name": "试剂间与仪器室",
+      "description": "七楼东头的试剂间和仪器室，剧毒品柜双人双锁，由罗一鸣负责登记。",
+      "x": 0.2,
+      "y": 0.8
+    },
+    {
+      "id": "tang513",
+      "name": "513 唐蔚办公室",
+      "description": "五楼唐蔚副教授的办公室，乘电梯或走楼梯都能到七楼。",
+      "x": 0.8,
+      "y": 0.8
+    }
+  ],
+  "characters": [
+    {
+      "id": "xu_jiahe",
+      "name": "许嘉禾",
+      "color": "#5b7fbf",
+      "publicBio": "29岁，郑立衡的博士生，明天上午九点答辩。读博六年，只差最后一步。",
+      "personality": "内向、谨慎，说话前总要想很久；被逼急了会语速飞快地辩解。",
+      "script": "你是许嘉禾，郑立衡的博士生，明天上午九点答辩。你熬了六年，只差这最后一步。\n\n两个月前你复测时发现，唐蔚老师交给你的那组 2022 批次数据，和你自己测出来的对不上。你犹豫过，最终什么也没说——你太想毕业了。\n\n【当晚经历】\n18:00-19:30 答辩预演。\n20:00-20:25 导师把你叫进 712：「第四章我对过原始记录了，对不上。」20:31 他发邮件通知你：答辩暂停。\n21:00 你在茶水间看见老师续了一杯枸杞茶，端回了办公室。\n21:05 你又去 712 求他，他只摆摆手：「等我先问清楚一个人。」21:10 你出门时，在走廊上和唐老师擦肩而过。\n21:16 你回到小会议室，开着录屏一遍遍预演，直到 22:38。\n22:45 你想再去求一次，推开门，老师伏在桌上，已经没有了呼吸。\n\n【你的秘密】答辩已被暂停；你早就知道数据有问题；21:05 你又进过办公室。\n【你的说法】「导师今晚说一切顺利，明天照常答辩。」\n\n【你的任务】\n1. 找出真凶。\n2. 不要让导师那封「答辩暂停」的邮件被公开。",
+      "knowledge": [
+        {
+          "id": "k_xu_cover",
+          "text": "导师今晚跟我说一切顺利，明天照常答辩，我没有任何理由害他。",
+          "time": "20:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_xu_tea",
+          "text": "21:00 我在茶水间看见老师续了一杯枸杞茶，端回了办公室。",
+          "time": "21:00",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_xu_rehearse",
+          "text": "21:16 以后我一直在小会议室开着录屏预演，22:45 去办公室才发现老师出事了。",
+          "time": "21:16-22:45",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_xu_return",
+          "text": "21:05 我又进 712 求过老师，21:10 出来时在走廊上和唐老师擦肩而过。",
+          "time": "21:05-21:10",
+          "implicates": {
+            "tang_wei": 2
+          },
+          "secret": true
+        },
+        {
+          "id": "k_xu_data",
+          "text": "两个月前我就发现唐老师给的 2022 数据和我复测的对不上，但我没说。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "导师今晚说一切顺利，明天照常答辩。21:16 以后我一直在小会议室预演。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_email",
+          "desc": "不让「答辩暂停」的邮件被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "corridor",
+          "office712",
+          "lab703",
+          "tang513"
+        ]
+      }
+    },
+    {
+      "id": "luo_yiming",
+      "name": "罗一鸣",
+      "color": "#2e9e6b",
+      "publicBio": "26岁，郑立衡组的硕士生，兼管课题组的试剂间、剧毒品柜和仪器室，正在申请转博。",
+      "personality": "热心、嘴快，爱打圆场；一提到规章制度就格外紧张。",
+      "script": "你是罗一鸣，郑立衡组的硕士生，兼管试剂间和仪器室。\n\n你家里条件不好，一年多来偷偷用组里的仪器给校外公司做代测赚钱。上周郑老师发现了仪器的使用记录，警告你：「再让我发现一次，你就别想毕业。」你还想转博，前途全攥在他手里。\n\n【当晚经历】\n18:00-19:30 答辩预演。\n19:45 唐老师说要领一瓶剧毒试剂做明早的演示实验。按规定你必须全程陪同、用完当面称量，可你急着回去跑代测样品，开了柜就把瓶子交给了她。\n20:00-22:30 你一直在仪器室盯外单。\n21:28 唐老师把瓶子拿回来，说了句「用完了，你登记一下」。21:30 你在登记本上补签了「已核对」，根本没称。\n21:37 你去开水间打水路过 712，听见周芷在里面提高声音：「你会后悔的！」\n22:45 听见许嘉禾的喊声。\n\n【你的秘密】违规接外单代测；剧毒品没核对就补签了记录。\n【你的说法】「剧毒品的取用和归还都是我亲自全程核对的。」\n\n【你的任务】\n1. 找出真凶。\n2. 不要成为得票最多的人。",
+      "knowledge": [
+        {
+          "id": "k_luo_cover",
+          "text": "剧毒品柜的取用和归还都是我亲自全程核对的，绝对没有问题。",
+          "time": "19:45-21:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_luo_quarrel",
+          "text": "21:37 我路过 712，听见周芷在里面提高声音说：「你会后悔的！」",
+          "time": "21:37",
+          "implicates": {
+            "zhou_zhi": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_luo_backfill",
+          "text": "19:45 我把剧毒试剂直接交给了唐老师，21:28 她拿回来，我 21:30 补签了「已核对」，根本没称。",
+          "time": "19:45-21:30",
+          "implicates": {
+            "tang_wei": 2
+          },
+          "secret": true
+        },
+        {
+          "id": "k_luo_side",
+          "text": "我一直偷偷用组里的仪器接校外代测赚钱，郑老师上周警告过我。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "我整晚都在仪器室；剧毒品的取用和归还都是我亲自全程核对的。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不要成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "reagent",
+          "office712",
+          "corridor",
+          "lab703"
+        ]
+      }
+    },
+    {
+      "id": "tang_wei",
+      "name": "唐蔚",
+      "color": "#9b59b6",
+      "publicBio": "34岁，化学系副教授，郑立衡带出的第一个博士，许嘉禾的副导师，办公室在五楼。",
+      "personality": "干练、条理清楚，说话像在做学术报告；习惯把问题拆成「第一、第二、第三」。",
+      "script": "你是唐蔚，化学系副教授，郑立衡带出的第一个博士，也是许嘉禾的副导师。你也是杀害郑立衡的凶手。\n\n三年前为了赶基金结题，你编造了一组 2022 批次的数据，写进结题报告和一篇高水平论文；后来又把这组数据交给许嘉禾，让他写进博士论文第四章。今天 17:30，郑老师突然问你要这批数据的原始记录——你知道，瞒不住了。\n\n【当晚真实经历】\n18:00-19:30 答辩预演。\n19:45 你以「明早演示实验」为由，让罗一鸣从剧毒品柜领出一瓶试剂交给你，又从 703 样品架上拿了一只许嘉禾用过的空瓶，分装了一点。\n21:10 你到 712。郑老师把比对材料摔在桌上：明早答辩一结束就报学术委员会，撤你的论文。\n21:19 他去走廊打印，你把毒加进了他的保温杯。\n21:25 离开，21:28 把试剂瓶还给仪器室的罗一鸣，21:31 走楼梯回五楼。\n21:58 再走楼梯上七楼，22:02 把空瓶藏进许嘉禾的通风橱，22:05 下楼。\n\n【你的谎言】「20:00 以后我一直在五楼办公室改结题报告，没上过七楼。」\n\n【你的任务】不被指认；不要让台历上的约定被公开。把怀疑引向许嘉禾和罗一鸣。",
+      "knowledge": [
+        {
+          "id": "k_tang_cover",
+          "text": "20:00 以后我一直在五楼自己的办公室改结题报告，一次都没上过七楼。",
+          "time": "20:00-22:45",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_tang_truth",
+          "text": "21:10-21:25 我在 712，趁郑老师去打印时下了毒；22:02 把空瓶藏进了许嘉禾的通风橱。",
+          "time": "21:10-22:05",
+          "implicates": {
+            "tang_wei": 5
+          },
+          "secret": true
+        },
+        {
+          "id": "k_tang_fraud",
+          "text": "2022 批次的数据是我编造的，许嘉禾论文第四章用的就是它。",
+          "time": "",
+          "implicates": {
+            "tang_wei": 2
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "20:00 以后我一直在五楼办公室改结题报告，没上过七楼。",
+      "isMurderer": true,
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_planner",
+          "desc": "不让台历上「21:10 唐」的约定被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "office712",
+          "tang513",
+          "corridor",
+          "office712"
+        ]
+      }
+    },
+    {
+      "id": "zhou_zhi",
+      "name": "周芷",
+      "color": "#d9534f",
+      "publicBio": "31岁，郑立衡组的博士后，下个月出站，办公室在六楼。",
+      "personality": "冷静、骄傲，说话直来直去，不愿意解释自己。",
+      "script": "你是周芷，郑立衡组的博士后，下个月出站。\n\n出站考核需要郑老师签字，可他一直压着不签，还暗示要把你的课题交给唐蔚。另一所高校的课题组许诺给你副教授职位，条件是你带去郑老师那条还没发表的合成路线。\n\n【当晚经历】\n18:00-19:30 答辩预演。19:40 你看见唐老师把罗一鸣叫去了试剂间。\n19:45-21:30 你在六楼博后办公室改出站报告。\n21:33 你坐电梯上七楼，21:35 进 712 求他签字。他脸色发白、额头冒汗，嘟囔着茶怎么有点苦，然后当着你的面把考核表撕了。你脱口而出：「你会后悔的！」\n21:38 他捂着胃去了洗手间，你鬼使神差地插上 U 盘，拷走了那条合成路线。\n21:41 他回来时你已经拔了 U 盘。21:42 你捡起碎纸离开，顺手扔进茶水间的垃圾桶，21:43 坐电梯下楼，一直待在六楼。\n\n【你的秘密】拷走了未发表数据；你是最后见到他活着的人之一。\n【你的说法】「九点以后我一直在六楼博后办公室，没上过七楼。」\n\n【你的任务】\n1. 找出真凶——他喝茶喊苦的时候，你还什么都没碰过。\n2. 不要让电脑的 U 盘记录被公开。",
+      "knowledge": [
+        {
+          "id": "k_zhou_cover",
+          "text": "九点以后我一直在六楼博后办公室改出站报告，没上过七楼。",
+          "time": "21:00-22:45",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_zhou_tang",
+          "text": "19:40 预演散了以后，我看见唐老师把罗一鸣叫去了试剂间。",
+          "time": "19:40",
+          "implicates": {
+            "tang_wei": 1,
+            "luo_yiming": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_zhou_visit",
+          "text": "21:35 我进 712 时老师已经脸色发白，说茶有点苦；21:38 他去洗手间，我拷了他电脑里的合成路线。",
+          "time": "21:35-21:42",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_zhou_job",
+          "text": "别的学校许诺给我副教授职位，条件是带去郑老师未发表的合成路线。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "九点以后我一直在六楼博后办公室改出站报告，没上过七楼。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_usb",
+          "desc": "不让电脑的 U 盘记录被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "office712",
+          "corridor",
+          "reagent",
+          "tang513"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "tang_wei",
+      "b": "xu_jiahe",
+      "label": "副导师与学生",
+      "public": true
+    },
+    {
+      "a": "luo_yiming",
+      "b": "xu_jiahe",
+      "label": "同组师兄弟",
+      "public": true
+    },
+    {
+      "a": "zhou_zhi",
+      "b": "tang_wei",
+      "label": "同门·课题之争",
+      "public": true
+    },
+    {
+      "a": "luo_yiming",
+      "b": "tang_wei",
+      "label": "常替她跑腿领试剂",
+      "public": true
+    },
+    {
+      "a": "zhou_zhi",
+      "b": "xu_jiahe",
+      "label": "同组博后与博士生",
+      "public": true
+    },
+    {
+      "a": "tang_wei",
+      "b": "luo_yiming",
+      "label": "利用了他的疏忽",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "xu_jiahe",
+      "label": "博士导师·六年"
+    },
+    {
+      "who": "luo_yiming",
+      "label": "硕士导师·握着他的转博推荐"
+    },
+    {
+      "who": "tang_wei",
+      "label": "昔日恩师·合作者"
+    },
+    {
+      "who": "zhou_zhi",
+      "label": "博士后合作导师"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "office712",
+      "title": "尸体与保温杯",
+      "text": "郑立衡伏在办公桌上，口唇发绀，像是急性中毒。保温杯里剩下的半杯枸杞茶气味异样，而旁边茶壶里的茶却很正常——毒是直接加进杯子里的。初步判断死亡时间约在 21:40 到 22:10 之间。",
+      "time": "21:40-22:10",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_watch",
+      "location": "office712",
+      "title": "运动手环的数据",
+      "text": "郑立衡手腕上的运动手环记录：21:32 起心率骤然升高、持续紊乱，21:50 之后再无有效数据。这类毒物发作不算慢——它进到杯子里的时间，应该在 21:32 之前不久。",
+      "time": "21:32-21:50",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_planner",
+      "location": "office712",
+      "title": "台历上的约定",
+      "text": "知道了毒发的时间，你翻看桌上的台历：今天的格子里用红笔写着「21:10 唐——四章原始数据」。",
+      "time": "21:10",
+      "implicates": {
+        "tang_wei": 2
+      },
+      "requires": [
+        "c_watch"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_printout",
+      "location": "office712",
+      "title": "打印的比对材料",
+      "text": "桌上一份 21:19 打印的比对材料：《许嘉禾论文第四章 vs 2022 批次结题数据》，两列数字一模一样。页边是郑立衡的字：「源头在哪？明早报学术委员会。」",
+      "time": "21:19",
+      "implicates": {
+        "tang_wei": 1,
+        "xu_jiahe": 1
+      }
+    },
+    {
+      "id": "c_email",
+      "location": "office712",
+      "title": "已发送的邮件",
+      "text": "电脑里一封 20:31 发出的邮件，收件人许嘉禾：「第四章数据与原始记录对不上，明天的答辩暂停，等我查清楚再说。」",
+      "time": "20:31",
+      "implicates": {
+        "xu_jiahe": 2
+      }
+    },
+    {
+      "id": "c_usb",
+      "location": "office712",
+      "title": "电脑的 U 盘记录",
+      "text": "电脑系统日志显示：21:38 插入一个外部 U 盘，21:41 拔出，期间复制了名为「未发表·合成路线」的文件夹。",
+      "time": "21:38-21:41",
+      "implicates": {
+        "zhou_zhi": 3
+      }
+    },
+    {
+      "id": "c_vial",
+      "location": "lab703",
+      "title": "通风橱里的空瓶",
+      "text": "许嘉禾通风橱的角落里藏着一只空的小试剂瓶，瓶壁残留少量液体，贴着剧毒标识。标签是许嘉禾惯用的「XJH-」编号格式。",
+      "time": "",
+      "implicates": {
+        "xu_jiahe": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_hood",
+      "location": "lab703",
+      "title": "通风橱的操作日志",
+      "text": "既然瓶子藏在通风橱里，你调出控制面板的操作日志：今晚 19:30 之后，这台通风橱只被打开过一次——22:02，开了不到一分钟。",
+      "time": "22:02",
+      "implicates": {
+        "xu_jiahe": -1
+      },
+      "requires": [
+        "c_vial"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_notes",
+      "location": "lab703",
+      "title": "许嘉禾的实验记录本",
+      "text": "许嘉禾的实验记录本里，第四章那一页旁边写着一行小字：「原始数据来自唐老师组 2022 批次，和我复测的对不上？？」日期是两个月前。",
+      "time": "",
+      "implicates": {
+        "xu_jiahe": 1,
+        "tang_wei": 1
+      }
+    },
+    {
+      "id": "c_toxlog",
+      "location": "reagent",
+      "title": "剧毒品领用登记",
+      "text": "剧毒品柜的纸质登记本：19:45 领用一瓶，领用人「罗一鸣」，用途「唐蔚课题组演示实验」；归还栏写着 21:30，签名「罗一鸣·已核对」。",
+      "time": "19:45-21:30",
+      "implicates": {
+        "luo_yiming": 2,
+        "tang_wei": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_bottle",
+      "location": "reagent",
+      "title": "对不上的余量",
+      "text": "对照登记本查看柜里那瓶试剂：登记的余量刻线明显高于瓶中实际液面，少了一截。所谓「已核对」，显然没有人真正核过。",
+      "time": "",
+      "implicates": {
+        "luo_yiming": 2
+      },
+      "requires": [
+        "c_toxlog"
+      ]
+    },
+    {
+      "id": "c_side",
+      "location": "reagent",
+      "title": "仪器室的外单",
+      "text": "仪器室电脑里有一份代测接单表，客户是校外公司，收款人是罗一鸣。今晚仪器上还排着一批外单样品，排程从 20:00 到 22:30。",
+      "time": "20:00-22:30",
+      "implicates": {
+        "luo_yiming": 2
+      }
+    },
+    {
+      "id": "c_recording",
+      "location": "corridor",
+      "title": "会议室里的录屏",
+      "text": "小会议室里许嘉禾的笔记本电脑还开着。答辩预演录屏从 21:16 一直录到 22:38，没有中断，画面里始终是他对着幻灯片讲解的声音和翻页操作。",
+      "time": "21:16-22:38",
+      "implicates": {
+        "xu_jiahe": -2
+      }
+    },
+    {
+      "id": "c_trash",
+      "location": "corridor",
+      "title": "茶水间的碎纸",
+      "text": "茶水间垃圾桶里有一份被撕碎的博士后出站考核表，拼起来能看到周芷的名字，郑立衡在签字栏写着「不予通过」。",
+      "time": "",
+      "implicates": {
+        "zhou_zhi": 2
+      }
+    },
+    {
+      "id": "c_elevator",
+      "location": "corridor",
+      "title": "电梯监控",
+      "text": "电梯厅监控显示：20:00 之后只有一个人乘电梯上下过七楼——周芷，21:33 上楼，21:43 下楼。",
+      "time": "21:33-21:43",
+      "implicates": {
+        "zhou_zhi": 2
+      }
+    },
+    {
+      "id": "c_stairs",
+      "location": "corridor",
+      "title": "楼梯间的门磁记录",
+      "text": "既然电梯里没别人，你查了楼梯间七楼防火门的门磁记录：今晚 21:31、21:58、22:05 各被打开过一次，楼梯间里没有摄像头。",
+      "time": "21:31-22:05",
+      "implicates": {
+        "tang_wei": 1
+      },
+      "requires": [
+        "c_elevator"
+      ]
+    },
+    {
+      "id": "c_report",
+      "location": "tang513",
+      "title": "结题报告与论文",
+      "text": "唐蔚电脑里的基金结题报告和一篇已发表论文，用的正是那组 2022 批次数据。原始记录一栏写着「见附件」，可附件文件夹是空的。",
+      "time": "",
+      "implicates": {
+        "tang_wei": 2
+      }
+    },
+    {
+      "id": "c_idle",
+      "location": "tang513",
+      "title": "文档的保存记录",
+      "text": "唐蔚正在修改的结题报告，自动保存记录停在 21:04，之后一直到 22:12 才再次有修改。桌上的茶早就凉透了。",
+      "time": "21:04-22:12",
+      "implicates": {
+        "tang_wei": 1
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "tang_wei",
+    "weapon": "实验室管控的剧毒试剂（下在保温杯中）",
+    "summary": "凶手是副教授唐蔚。三年前她编造了一组 2022 批次数据用于基金结题和论文，又让许嘉禾写进博士论文第四章。郑立衡比对后发现数据源头有问题，约她 21:10 到办公室，准备明早报学术委员会。唐蔚事先借「演示实验」之名让罗一鸣领出剧毒试剂，分装进许嘉禾用过的旧瓶。21:19 郑立衡出门打印，她把毒下进保温杯，21:28 还瓶、21:31 走楼梯离开；22:02 又从楼梯上来，把空瓶藏进许嘉禾的通风橱嫁祸。破绽在于：手环显示毒发始于 21:32，周芷 21:33 才乘电梯上楼，下毒只可能发生在此前；台历显示 21:10 来访的是唐蔚，她却谎称没上过七楼，文档记录也停在 21:04；通风橱只在 22:02 开过一次，而许嘉禾那时正在会议室录屏，楼梯门磁 21:58 与 22:05 的记录正好夹住这次开启。",
+    "timeline": [
+      {
+        "time": "18:00-19:30",
+        "text": "课题组在小会议室进行答辩预演。"
+      },
+      {
+        "time": "19:45",
+        "text": "唐蔚让罗一鸣领出剧毒试剂，罗一鸣违规直接交给她，回仪器室跑外单。"
+      },
+      {
+        "time": "20:00-20:31",
+        "text": "郑立衡告诉许嘉禾第四章数据有问题，并发邮件暂停答辩。"
+      },
+      {
+        "time": "21:00",
+        "text": "郑立衡在茶水间续了一杯枸杞茶，许嘉禾看见。"
+      },
+      {
+        "time": "21:05-21:10",
+        "text": "许嘉禾再次到 712 求情，离开时与唐蔚擦肩而过。"
+      },
+      {
+        "time": "21:10-21:25",
+        "text": "唐蔚在 712 被质问；21:19 郑立衡出门打印，唐蔚下毒。"
+      },
+      {
+        "time": "21:16",
+        "text": "许嘉禾开始在小会议室录屏预演（至 22:38）。"
+      },
+      {
+        "time": "21:28-21:31",
+        "text": "唐蔚把试剂瓶还给罗一鸣，罗一鸣 21:30 补签「已核对」；唐蔚走楼梯回五楼。"
+      },
+      {
+        "time": "21:32",
+        "text": "郑立衡开始毒发。"
+      },
+      {
+        "time": "21:33-21:43",
+        "text": "周芷乘电梯上七楼求签字，争吵中说「你会后悔的」，21:38 趁郑立衡去洗手间拷走未发表数据。"
+      },
+      {
+        "time": "21:50",
+        "text": "郑立衡死亡，手环不再有有效数据。"
+      },
+      {
+        "time": "21:58-22:05",
+        "text": "唐蔚从楼梯上七楼，22:02 把空瓶藏进许嘉禾的通风橱后离开。"
+      },
+      {
+        "time": "22:45",
+        "text": "许嘉禾推开 712 的门，发现郑立衡死亡。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "xu_jiahe",
+        "text": "答辩已被暂停；早知道第四章数据有问题却隐瞒；21:05 再次进过办公室。"
+      },
+      {
+        "who": "luo_yiming",
+        "text": "违规接外单代测；剧毒品领用未全程陪同，归还记录是补签的。"
+      },
+      {
+        "who": "tang_wei",
+        "text": "凶手；编造了 2022 批次数据。"
+      },
+      {
+        "who": "zhou_zhi",
+        "text": "21:35-21:42 去过 712 并拷走了未发表的合成路线；已被外校许以职位。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 3,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_tang_planner",
+      "knowledge": "k_tang_cover",
+      "clue": "c_planner",
+      "text": "唐蔚说自己一次都没上过七楼，可郑老师的台历上写着「21:10 唐」。",
+      "implicates": {
+        "tang_wei": 2
+      }
+    },
+    {
+      "id": "x_tang_idle",
+      "knowledge": "k_tang_cover",
+      "clue": "c_idle",
+      "text": "唐蔚说整晚在五楼改报告，可她的文档从 21:04 到 22:12 一个字都没改过。",
+      "implicates": {
+        "tang_wei": 1
+      }
+    },
+    {
+      "id": "x_xu_email",
+      "knowledge": "k_xu_cover",
+      "clue": "c_email",
+      "text": "许嘉禾说导师认为一切顺利，可导师 20:31 就发邮件暂停了他的答辩——他撒了谎，但这不等于他下了毒。",
+      "implicates": {
+        "xu_jiahe": 1
+      }
+    },
+    {
+      "id": "x_zhou_elevator",
+      "knowledge": "k_zhou_cover",
+      "clue": "c_elevator",
+      "text": "周芷说九点后没上过七楼，电梯监控却拍到她 21:33 上楼、21:43 下楼。",
+      "implicates": {
+        "zhou_zhi": 1
+      }
+    },
+    {
+      "id": "x_luo_bottle",
+      "knowledge": "k_luo_cover",
+      "clue": "c_bottle",
+      "text": "罗一鸣说剧毒品都亲自核对过，可柜里那瓶试剂的余量和登记对不上。",
+      "implicates": {
+        "luo_yiming": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Night Before the Defense",
+      "subtitle": "On the eve of a PhD defense, the lights are still on on the seventh floor of the chemistry building. The supervisor is slumped over his desk, and he will never wake again.",
+      "background": "A Thursday in November, in a university's chemistry building. At nine tomorrow morning, Xu Jiahe, a doctoral student in Zheng Liheng's research group, is due to defend his PhD thesis. From 18:00 to 19:30 the group held a final mock defense in the small meeting room on the seventh floor. Zheng Liheng frowned the entire time and left without a word when it broke up.\n\nLate that night, lights are still burning in several rooms on the seventh floor. At 22:45, Xu Jiahe pushes open the door of Office 712 and finds Zheng Liheng slumped over his desk, lips blue, no longer breathing. Half a cup of goji berry tea remains in the thermos mug on the desk.\n\nThe police and university officials have arrived, the building is sealed, and everyone has been told to wait on the seventh floor for questioning. Before formal statements begin, the four of you are kept together in one meeting room. And you all know this: the only people who came and went on the seventh floor tonight were you.",
+      "intro": "[Host] Welcome to \"The Night Before the Defense.\" This is an advanced scenario: everyone has secrets, everyone has reasons to lie, and the liars are not necessarily the killer. Read your script carefully and pay attention to the time on every record. Fitness band, elevator, door sensors, logs: only when they are pieced together will the truth of this night emerge.",
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search three times. Any clue you find is known only to you, and it is your choice whether to reveal it.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal clues or accuse a suspect. Anyone who is questioned must answer at once.",
+        "investigate_2": "[Host] The second round of investigation begins. Each of you may search twice more. Some records will only be noticed once you know which time to look for.",
+        "discuss_2": "[Host] The final round of discussion. When was the poison put into the cup? And during that time, who was alone with Professor Zheng?",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the murderer. Whoever receives the most votes will be named (in a tie, the murderer escapes)."
+      },
+      "victim": {
+        "name": "Zheng Liheng",
+        "bio": "Fifty-eight, professor of chemistry, doctoral supervisor and head of his research group. Exacting in his scholarship and famous for his \"data fastidiousness,\" he likes to brew a cup of goji berry tea in the evening and work in his office late into the night."
+      },
+      "locations": {
+        "office712": {
+          "name": "Office 712",
+          "description": "The crime scene. Zheng Liheng's office, with his desk, computer, desk calendar and thermos mug."
+        },
+        "lab703": {
+          "name": "Synthesis Lab 703",
+          "description": "The group's synthesis lab. Every student has their own fume hood and bench. Xu Jiahe's fume hood is at the very back."
+        },
+        "corridor": {
+          "name": "7th-Floor Corridor",
+          "description": "The corridor linking the rooms, including the tea room, the printer, the small meeting room, the elevator lobby and the stairwell."
+        },
+        "reagent": {
+          "name": "Reagent & Equipment",
+          "description": "The reagent room and instrument room at the east end of the seventh floor. The highly toxic chemicals cabinet needs two people and two keys, and Luo Yiming keeps its register."
+        },
+        "tang513": {
+          "name": "Office 513 (Tang)",
+          "description": "Associate Professor Tang Wei's office on the fifth floor. The seventh floor can be reached by elevator or by the stairs."
+        }
+      },
+      "characters": {
+        "xu_jiahe": {
+          "name": "Xu Jiahe",
+          "publicBio": "29, Zheng Liheng's PhD student, defending at nine tomorrow morning. Six years into the doctorate, with only the final step left.",
+          "personality": "Introverted and cautious, he always thinks for a long time before speaking; when pushed, he defends himself in a rapid rush of words.",
+          "script": "You are Xu Jiahe, Zheng Liheng's PhD student, defending at nine tomorrow morning. You have endured six years, and only this final step remains.\n\nTwo months ago, when you repeated your measurements, you found that the 2022 batch of data Dr. Tang Wei gave you didn't match what you measured yourself. You hesitated, and in the end said nothing. You wanted to graduate too badly.\n\n[Tonight]\n18:00-19:30 Mock defense.\n20:00-20:25 Your supervisor calls you into 712: \"I checked Chapter 4 against the raw records. It doesn't match.\" At 20:31 he emails you: the defense is suspended.\n21:00 In the tea room you see the professor top up a cup of goji berry tea and carry it back to his office.\n21:05 You go back to 712 to plead with him again. He just waves you off: \"Let me get some answers from someone first.\" As you leave at 21:10, you pass Dr. Tang in the corridor.\n21:16 You return to the small meeting room, start a screen recording and rehearse over and over until 22:38.\n22:45 You want to plead with him one more time. You push the door open and find the professor slumped over his desk, no longer breathing.\n\n[Your Secret] Your defense has been suspended; you knew long ago the data was flawed; and you went into the office again at 21:05.\n[Your Story] \"My supervisor said tonight that everything was fine, and the defense would go ahead tomorrow as planned.\"\n\n[Your Objectives]\n1. Find the real murderer.\n2. Do not let your supervisor's \"defense suspended\" email be revealed.",
+          "coverStory": "My supervisor said tonight that everything was fine and the defense would go ahead tomorrow as planned. After 21:16 I was rehearsing in the small meeting room the whole time.",
+          "knowledge": {
+            "k_xu_cover": "My supervisor told me tonight that everything was fine and the defense would go ahead tomorrow as planned. I had no reason at all to hurt him.",
+            "k_xu_tea": "At 21:00 I saw the professor top up a cup of goji berry tea in the tea room and carry it back to his office.",
+            "k_xu_rehearse": "After 21:16 I was in the small meeting room rehearsing with a screen recording running the whole time. I only found out what had happened when I went to his office at 22:45.",
+            "k_xu_return": "At 21:05 I went into 712 again to plead with the professor. When I came out at 21:10, I passed Dr. Tang in the corridor.",
+            "k_xu_data": "Two months ago I discovered that the 2022 data Dr. Tang gave me didn't match my repeat measurements, but I kept quiet."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the \"defense suspended\" email from being revealed"
+          ]
+        },
+        "luo_yiming": {
+          "name": "Luo Yiming",
+          "publicBio": "26, a master's student in Zheng Liheng's group who also manages the group's reagent room, toxic chemicals cabinet and instrument room. He is applying to transfer into the PhD program.",
+          "personality": "Warm-hearted, talkative and quick to smooth things over; he gets especially nervous whenever rules and regulations come up.",
+          "script": "You are Luo Yiming, a master's student in Zheng Liheng's group, who also manages the reagent room and instrument room.\n\nYour family is not well off, and for over a year you have been secretly using the group's instruments to run paid testing for outside companies. Last week Professor Zheng found the instrument usage records and warned you: \"If I catch you once more, you can forget about graduating.\" You still want to transfer into the PhD program, and your whole future is in his hands.\n\n[Tonight]\n18:00-19:30 Mock defense.\n19:45 Dr. Tang says she needs a bottle of a highly toxic reagent for a demonstration experiment tomorrow morning. The rules say you must accompany her the whole time and weigh it in front of her after use, but you are in a hurry to get back to your outside samples, so you unlock the cabinet and simply hand her the bottle.\n20:00-22:30 You are in the instrument room the whole time, watching the outside jobs run.\n21:28 Dr. Tang brings the bottle back and says, \"Done with it. Log it, would you?\" At 21:30 you sign \"Checked\" in the register after the fact without weighing anything.\n21:37 On your way to the hot-water room you pass 712 and hear Zhou Zhi inside, raising her voice: \"You'll regret this!\"\n22:45 You hear Xu Jiahe shout.\n\n[Your Secret] You take outside testing jobs against the rules, and you signed off the toxic chemical record without checking it.\n[Your Story] \"I personally checked the toxic chemical out and back in, every step of the way.\"\n\n[Your Objectives]\n1. Find the real murderer.\n2. Do not receive the most votes.",
+          "coverStory": "I was in the instrument room all night. I personally checked the toxic chemical out and back in, every step of the way.",
+          "knowledge": {
+            "k_luo_cover": "I personally checked the toxic chemicals cabinet out and back in, every step of the way. There was absolutely no problem.",
+            "k_luo_quarrel": "At 21:37 I passed 712 and heard Zhou Zhi inside, raising her voice: \"You'll regret this!\"",
+            "k_luo_backfill": "At 19:45 I handed the toxic reagent straight to Dr. Tang. She brought it back at 21:28, and at 21:30 I signed \"Checked\" after the fact without weighing it at all.",
+            "k_luo_side": "I've been secretly using the group's instruments for paid outside testing. Professor Zheng warned me last week."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Do not receive the most votes"
+          ]
+        },
+        "tang_wei": {
+          "name": "Tang Wei",
+          "publicBio": "34, associate professor of chemistry, the first PhD Zheng Liheng ever trained, and Xu Jiahe's co-supervisor. Her office is on the fifth floor.",
+          "personality": "Capable and orderly, she talks as though giving an academic lecture and habitually breaks problems into \"first, second, third.\"",
+          "script": "You are Tang Wei, associate professor of chemistry, the first PhD Zheng Liheng ever trained, and Xu Jiahe's co-supervisor. You are also the one who killed Zheng Liheng.\n\nThree years ago, rushing to close out a research grant, you fabricated a 2022 batch of data and put it into the final grant report and a high-profile paper. Later you gave the same data to Xu Jiahe for Chapter 4 of his thesis. Today at 17:30, Professor Zheng suddenly asked you for the raw records for that batch. You knew it could not stay hidden.\n\n[Tonight: What Really Happened]\n18:00-19:30 Mock defense.\n19:45 Claiming you need it for a demonstration tomorrow morning, you have Luo Yiming take a bottle of reagent out of the toxic chemicals cabinet and hand it to you. You also take an empty vial Xu Jiahe has used from the sample rack in 703 and decant a little into it.\n21:10 You arrive at 712. Professor Zheng slaps the comparison materials down on the desk: right after the defense tomorrow morning he will report you to the academic committee and have your paper retracted.\n21:19 He steps out to the corridor to print something, and you put the poison into his thermos mug.\n21:25 You leave. At 21:28 you return the reagent bottle to Luo Yiming in the instrument room, and at 21:31 you take the stairs back to the fifth floor.\n21:58 You take the stairs back up to the seventh floor. At 22:02 you hide the empty vial in Xu Jiahe's fume hood, and at 22:05 you go back down.\n\n[Your Lie] \"After 20:00 I was in my fifth-floor office revising the grant report the whole time. I never went up to the seventh floor.\"\n\n[Your Objectives] Do not get named; do not let the appointment on the desk calendar be revealed. Steer suspicion toward Xu Jiahe and Luo Yiming.",
+          "coverStory": "After 20:00 I was in my fifth-floor office revising the grant report the whole time. I never went up to the seventh floor.",
+          "knowledge": {
+            "k_tang_cover": "After 20:00 I was in my own fifth-floor office revising the grant report the whole time. I never went up to the seventh floor once.",
+            "k_tang_truth": "From 21:10 to 21:25 I was in 712, and I poisoned him while Professor Zheng went out to print. At 22:02 I hid the empty vial in Xu Jiahe's fume hood.",
+            "k_tang_fraud": "I fabricated the 2022 batch of data. It is exactly what Chapter 4 of Xu Jiahe's thesis uses."
+          },
+          "objectives": [
+            "Avoid being voted out as the murderer",
+            "Keep the \"21:10 Tang\" appointment on the desk calendar from being revealed"
+          ]
+        },
+        "zhou_zhi": {
+          "name": "Zhou Zhi",
+          "publicBio": "31, a postdoc in Zheng Liheng's group who finishes her postdoc next month. Her office is on the sixth floor.",
+          "personality": "Calm and proud, she speaks bluntly and refuses to explain herself.",
+          "script": "You are Zhou Zhi, a postdoc in Zheng Liheng's group, finishing next month.\n\nYour exit evaluation needs Professor Zheng's signature, but he keeps sitting on it, and has hinted that he will hand your project to Tang Wei. A research group at another university has promised you an associate professorship, on condition that you bring along Professor Zheng's unpublished synthesis route.\n\n[Tonight]\n18:00-19:30 Mock defense. At 19:40 you see Dr. Tang call Luo Yiming over to the reagent room.\n19:45-21:30 You are in the sixth-floor postdoc office revising your exit report.\n21:33 You take the elevator up to the seventh floor, and at 21:35 you go into 712 to beg for his signature. He is pale and sweating, mutters something about the tea tasting a little bitter, and then tears up your evaluation form in front of you. You blurt out: \"You'll regret this!\"\n21:38 He clutches his stomach and goes to the restroom. On an impulse you can't explain, you plug in a USB drive and copy that synthesis route.\n21:41 By the time he returns, you have already pulled the drive out. At 21:42 you gather up the torn pieces and leave, dropping them in the tea room bin on the way. At 21:43 you take the elevator down and stay on the sixth floor.\n\n[Your Secret] You copied unpublished data, and you are one of the last people to see him alive.\n[Your Story] \"After nine o'clock I was in the sixth-floor postdoc office the whole time. I never went up to the seventh floor.\"\n\n[Your Objectives]\n1. Find the real murderer. When he complained the tea was bitter, you hadn't touched anything yet.\n2. Do not let the computer's USB log be revealed.",
+          "coverStory": "After nine o'clock I was in the sixth-floor postdoc office revising my exit report the whole time. I never went up to the seventh floor.",
+          "knowledge": {
+            "k_zhou_cover": "After nine o'clock I was in the sixth-floor postdoc office revising my exit report the whole time. I never went up to the seventh floor.",
+            "k_zhou_tang": "At 19:40, after the mock defense broke up, I saw Dr. Tang call Luo Yiming over to the reagent room.",
+            "k_zhou_visit": "When I went into 712 at 21:35, the professor was already pale and said the tea was a little bitter. At 21:38 he went to the restroom, and I copied the synthesis route off his computer.",
+            "k_zhou_job": "Another university has promised me an associate professorship, on condition that I bring Professor Zheng's unpublished synthesis route with me."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the computer's USB log from being revealed"
+          ]
+        }
+      },
+      "relationships": [
+        "Co-supervisor and student",
+        "Labmates in the same group",
+        "Same mentor, rival projects",
+        "Often runs reagent errands for her",
+        "Group postdoc and PhD student",
+        "Exploited his carelessness"
+      ],
+      "victimRelationships": [
+        "PhD supervisor, six years",
+        "Master's supervisor; holds his PhD referral",
+        "Former mentor and collaborator",
+        "Postdoctoral supervisor"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "The Body and the Thermos Mug",
+          "text": "Zheng Liheng is slumped over his desk, lips blue, as if from acute poisoning. The half cup of goji berry tea left in his thermos mug smells strange, yet the tea in the teapot beside it is perfectly normal. The poison was put directly into the cup. Preliminary time of death is roughly between 21:40 and 22:10."
+        },
+        "c_watch": {
+          "title": "Fitness Band Data",
+          "text": "The fitness band on Zheng Liheng's wrist recorded his heart rate spiking sharply from 21:32 and staying erratic, with no valid data after 21:50. This kind of poison acts fairly quickly: it must have gone into the cup not long before 21:32."
+        },
+        "c_planner": {
+          "title": "Appointment on the Desk Calendar",
+          "text": "Now that you know when the poison took effect, you check the desk calendar. In today's square, written in red pen: \"21:10 Tang: Ch. 4 raw data.\""
+        },
+        "c_printout": {
+          "title": "Printed Comparison",
+          "text": "On the desk is a comparison printed at 21:19: \"Xu Jiahe Thesis Chapter 4 vs. 2022 Batch Grant Report Data.\" The two columns of numbers are identical. In the margin, in Zheng Liheng's hand: \"Where is the source? Report to academic committee tomorrow morning.\""
+        },
+        "c_email": {
+          "title": "Sent Email",
+          "text": "An email on the computer, sent at 20:31 to Xu Jiahe: \"The Chapter 4 data does not match the raw records. Tomorrow's defense is suspended until I get to the bottom of this.\""
+        },
+        "c_usb": {
+          "title": "Computer's USB Log",
+          "text": "The computer's system log shows an external USB drive inserted at 21:38 and removed at 21:41. In between, a folder named \"Unpublished - Synthesis Route\" was copied."
+        },
+        "c_vial": {
+          "title": "Empty Vial in the Fume Hood",
+          "text": "Hidden in a corner of Xu Jiahe's fume hood is a small empty reagent vial with a little liquid left on the inside and a toxic hazard label. The label uses Xu Jiahe's usual \"XJH-\" numbering format."
+        },
+        "c_hood": {
+          "title": "Fume Hood Operation Log",
+          "text": "Since the vial was hidden in the fume hood, you pull up the control panel's operation log. After 19:30 tonight, this fume hood was opened only once: at 22:02, for less than a minute."
+        },
+        "c_notes": {
+          "title": "Xu Jiahe's Lab Notebook",
+          "text": "In Xu Jiahe's lab notebook, beside the Chapter 4 page, is a line in small writing: \"Raw data from Dr. Tang's group, 2022 batch. Doesn't match my repeat measurements??\" It is dated two months ago."
+        },
+        "c_toxlog": {
+          "title": "Toxic Chemicals Register",
+          "text": "The paper register for the toxic chemicals cabinet: one bottle checked out at 19:45, by \"Luo Yiming,\" purpose \"Tang Wei group demonstration experiment.\" The return column reads 21:30, signed \"Luo Yiming - Checked.\""
+        },
+        "c_bottle": {
+          "title": "Quantity That Doesn't Add Up",
+          "text": "Comparing the bottle in the cabinet against the register: the logged remaining-quantity mark is clearly higher than the actual liquid level in the bottle. A chunk is missing. Whatever \"Checked\" means, nobody really checked it."
+        },
+        "c_side": {
+          "title": "Outside Jobs in the Instrument Room",
+          "text": "On the instrument room computer is an order sheet for paid testing. The client is an outside company and the payee is Luo Yiming. Tonight a batch of outside samples is still queued on the instrument, scheduled from 20:00 to 22:30."
+        },
+        "c_recording": {
+          "title": "Screen Recording in the Meeting Room",
+          "text": "Xu Jiahe's laptop is still open in the small meeting room. The mock defense screen recording runs from 21:16 to 22:38 without a break, with his voice explaining the slides and the slides advancing throughout."
+        },
+        "c_trash": {
+          "title": "Torn Paper in the Tea Room",
+          "text": "In the tea room bin is a torn-up postdoc exit evaluation form. Pieced together, it shows Zhou Zhi's name, and in the signature box Zheng Liheng has written \"Not approved.\""
+        },
+        "c_elevator": {
+          "title": "Elevator CCTV",
+          "text": "The elevator lobby camera shows that after 20:00 only one person rode the elevator to or from the seventh floor: Zhou Zhi, up at 21:33 and down at 21:43."
+        },
+        "c_stairs": {
+          "title": "Stairwell Door Sensor Log",
+          "text": "Since no one else used the elevator, you check the door sensor log on the stairwell fire door on the seventh floor. Tonight it was opened once each at 21:31, 21:58 and 22:05. There is no camera in the stairwell."
+        },
+        "c_report": {
+          "title": "Grant Report and Paper",
+          "text": "On Tang Wei's computer, the final grant report and a published paper both use that same 2022 batch of data. The raw records field says \"See attachment,\" but the attachment folder is empty."
+        },
+        "c_idle": {
+          "title": "Document Save History",
+          "text": "The grant report Tang Wei is revising shows its last autosave at 21:04, and no further edits until 22:12. The tea on her desk has long since gone cold."
+        }
+      },
+      "contradictions": {
+        "x_tang_planner": "Tang Wei says she never went up to the seventh floor once, yet Professor Zheng's desk calendar says \"21:10 Tang.\"",
+        "x_tang_idle": "Tang Wei says she spent all night on the fifth floor revising her report, yet her document wasn't touched from 21:04 to 22:12.",
+        "x_xu_email": "Xu Jiahe says his supervisor thought everything was fine, yet his supervisor emailed at 20:31 to suspend his defense. He lied, but that doesn't mean he poisoned anyone.",
+        "x_zhou_elevator": "Zhou Zhi says she never went up to the seventh floor after nine, yet the elevator camera caught her going up at 21:33 and down at 21:43.",
+        "x_luo_bottle": "Luo Yiming says he personally checked the toxic chemical, yet the quantity left in the bottle doesn't match the register."
+      },
+      "truth": {
+        "summary": "The murderer is Associate Professor Tang Wei. Three years ago she fabricated a 2022 batch of data for a final grant report and a paper, then had Xu Jiahe put it into Chapter 4 of his thesis. After his comparison, Zheng Liheng realized the source of the data was suspect, asked her to come to his office at 21:10, and planned to report her to the academic committee the next morning. Beforehand, on the pretext of a \"demonstration experiment,\" Tang Wei had Luo Yiming check out the toxic reagent, and she decanted some into an old vial Xu Jiahe had used. At 21:19 Zheng Liheng went out to print, and she put the poison into his thermos mug. She returned the bottle at 21:28 and left by the stairs at 21:31. At 22:02 she came back up the stairs and hid the empty vial in Xu Jiahe's fume hood to frame him. The holes in her story: the fitness band shows the poisoning began at 21:32, and Zhou Zhi only came up by elevator at 21:33, so the poison could only have been added before then; the desk calendar shows the 21:10 visitor was Tang Wei, yet she claims she never came to the seventh floor, and her document history also stops at 21:04; the fume hood was opened only once, at 22:02, while Xu Jiahe was recording in the meeting room, and the stairwell door sensor entries at 21:58 and 22:05 neatly bracket that opening.",
+        "weapon": "A lab-controlled toxic reagent (put into the thermos mug)",
+        "timeline": [
+          "The group holds a mock defense in the small meeting room.",
+          "Tang Wei has Luo Yiming check out the toxic reagent. Against the rules, he hands it straight to her and returns to the instrument room to run outside jobs.",
+          "Zheng Liheng tells Xu Jiahe the Chapter 4 data is flawed and emails to suspend the defense.",
+          "Zheng Liheng tops up a cup of goji berry tea in the tea room. Xu Jiahe sees him.",
+          "Xu Jiahe goes back to 712 to plead again, and passes Tang Wei as he leaves.",
+          "Tang Wei is confronted in 712. At 21:19 Zheng Liheng steps out to print, and Tang Wei adds the poison.",
+          "Xu Jiahe starts a screen-recorded rehearsal in the small meeting room (until 22:38).",
+          "Tang Wei returns the reagent bottle to Luo Yiming, who signs \"Checked\" after the fact at 21:30. Tang Wei takes the stairs back to the fifth floor.",
+          "The poison begins to take effect on Zheng Liheng.",
+          "Zhou Zhi takes the elevator up to the seventh floor to beg for a signature, says \"You'll regret this!\" in the argument, and at 21:38 copies unpublished data while Zheng Liheng is in the restroom.",
+          "Zheng Liheng dies. The fitness band records no further valid data.",
+          "Tang Wei comes up the stairs to the seventh floor, hides the empty vial in Xu Jiahe's fume hood at 22:02, and leaves.",
+          "Xu Jiahe pushes open the door of 712 and finds Zheng Liheng dead."
+        ],
+        "secrets": [
+          "His defense was suspended; he knew the Chapter 4 data was flawed and hid it; he went into the office again at 21:05.",
+          "Takes outside testing jobs against the rules; didn't accompany the toxic chemical checkout, and signed the return record after the fact.",
+          "The murderer; fabricated the 2022 batch of data.",
+          "Was in 712 from 21:35 to 21:42 and copied the unpublished synthesis route; has been promised a job by another university."
+        ]
+      }
+    }
+  }
+}

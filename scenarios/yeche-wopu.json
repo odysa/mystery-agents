@@ -1,0 +1,1103 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "yeche-wopu",
+  "version": "1.0.0",
+  "title": "夜车卧铺",
+  "subtitle": "北京开往昆明的直达夜车穿行在山区隧道群里，软卧 3 号包厢的投资人再也没有醒来。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 5,
+  "difficulty": "进阶",
+  "estimatedMinutes": 60,
+  "victim": {
+    "id": "he_dongsheng",
+    "name": "贺东升",
+    "bio": "54岁，东升资本创始合伙人，投资圈的风云人物。几年前做过一个叫「东升宝」的理财平台，平台爆雷，他却全身而退。有严重的飞行恐惧症，出差从不坐飞机。"
+  },
+  "background": "2023年冬，一趟从北京西开往昆明的直达列车。第二天夜里，列车驶入湘黔交界的山区隧道群。投资人贺东升一个人包下了软卧 3 号包厢，同行的还有他的助理唐蔚，以及他投资的创业者林知夏。\n\n22:50，列车员秦建国巡视时发现 3 号包厢的门虚掩着。贺东升面朝墙躺在下铺，盖着被子，像是睡着了——但他已经没有了呼吸，脖子上有一道勒痕。\n\n乘警正在前部车厢处理一起醉酒斗殴，列车在隧道群里不能临时停车，下一个停靠站在凌晨两点。软卧车厢两端的门已经锁上。在那之前，凶手就在你们五个人之中。",
+  "intro": "【主持人】欢迎来到《夜车卧铺》。列车在黑暗的山腹里一路向南，车轮声盖过了一切。请仔细阅读你的角色剧本——每个人今晚都靠近过那间包厢，或者有理由希望贺东升永远别到昆明。凶手只有一个，但说谎的人不止一个。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。",
+    "investigate_2": "【主持人】列车又钻进了一条长隧道，灯光忽明忽暗。第二轮搜证开始——有些东西，只有当你知道该找什么时才会注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。离停靠站只剩一个小时，请把每个人的时间线对齐：谁在说谎，谁的谎言只是为了藏住别的秘密？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "compartment3",
+      "name": "3号软卧包厢",
+      "description": "案发现场。贺东升包下的四人包厢，小桌上摆着威士忌和公文包，床头的阅读灯还亮着。",
+      "x": 0.18,
+      "y": 0.28
+    },
+    {
+      "id": "berths",
+      "name": "5、6号包厢",
+      "description": "同一节软卧车厢的另外两间包厢。5 号住着林知夏和唐蔚，6 号住着宋怀瑾和邵一鸣。",
+      "x": 0.52,
+      "y": 0.22
+    },
+    {
+      "id": "dining",
+      "name": "餐车",
+      "description": "紧挨着软卧车厢的餐车，晚饭后只供应茶水和啤酒，夜里几乎没人。",
+      "x": 0.85,
+      "y": 0.35
+    },
+    {
+      "id": "duty",
+      "name": "乘务员室",
+      "description": "软卧车厢一端的列车员值班室，放着巡视日志、清洁用品和秦建国的私人物品。",
+      "x": 0.22,
+      "y": 0.76
+    },
+    {
+      "id": "vestibule",
+      "name": "车厢连接处",
+      "description": "软卧车厢通往餐车的连接处，是旅客抽烟、打电话的地方，有一个垃圾桶。",
+      "x": 0.66,
+      "y": 0.74
+    }
+  ],
+  "characters": [
+    {
+      "id": "lin_zhixia",
+      "name": "林知夏",
+      "color": "#d9534f",
+      "publicBio": "30岁，云南咖啡品牌「云岭咖啡」的创始人，贺东升是她的投资人。住 5 号包厢下铺。",
+      "personality": "要强、语速快、习惯用数据说话；被逼到墙角时会情绪失控。",
+      "script": "你是林知夏，「云岭咖啡」的创始人。三年前贺东升投了你两千万，附带一份对赌协议：业绩不达标，你必须原价回购股份——那意味着倾家荡产。为了撑住估值，你去年让团队刷了三成销量。这次贺东升亲自坐车去昆明「查账」，一查就全完了。\n\n【当晚经历】\n19:30-20:30 在餐车和贺东升、唐蔚同桌吃饭。贺东升当众说：「到了昆明先查账，账不对就按协议回购。」你气得提前离席，把帆布托特包落在了座位上。邻桌坐着 6 号包厢的宋医生和邵记者。\n20:30-21:05 你在车厢另一头（靠硬卧那端）的连接处给合伙人打电话。\n21:10 回餐车找包，服务员说被人拿走了。21:15 回到 5 号包厢，包已经挂在你铺位上，你没细看。\n21:15-21:55 你在包厢里改表格，上铺的唐蔚一直没回来。\n21:52 贺东升发来微信：「十点来我包厢，回购的事可以再谈。」\n22:00 你去了 3 号，门没锁。他面朝墙躺着，你叫了两声没反应，以为他喝多睡了，22:03 退了出来。\n\n【你的秘密】刷单造假；22:00 你进过 3 号。而凶器，竟是你包上的肩带。\n【任务】找出真凶；别让电脑里的「两套销量」被公开。",
+      "knowledge": [
+        {
+          "id": "k_lin_dinner",
+          "text": "晚饭时贺东升当众说，到昆明先查账，账不对就按对赌协议让我回购。我承认我很生气。",
+          "time": "19:30",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_lin_bag",
+          "text": "我 20:30 把帆布包落在餐车，21:10 回去找已经没了，回包厢才发现它挂在我铺位上，不知道是谁送回来的。",
+          "time": "20:30",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_lin_tang",
+          "text": "21:15 到 22:00 我在 5 号包厢，上铺的唐蔚一直没回来。",
+          "time": "21:15",
+          "implicates": {
+            "tang_wei": 1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_lin_visit",
+          "text": "21:52 我收到贺东升的微信，22:00 去了 3 号包厢。门没锁，他面朝墙躺着叫不醒，我以为他睡着了，三分钟后就走了。",
+          "time": "22:00",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_lin_fraud",
+          "text": "云岭咖啡去年的销量有三成是刷单刷出来的。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_lin_cover",
+          "text": "21:15 以后我一直在 5 号包厢改材料，没出去过。",
+          "time": "21:15",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "21:15 以后我一直在 5 号包厢改材料，没出去过。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_laptop",
+          "desc": "不让笔记本电脑里的「两套销量」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "berths",
+          "compartment3",
+          "dining",
+          "vestibule"
+        ]
+      }
+    },
+    {
+      "id": "tang_wei",
+      "name": "唐蔚",
+      "color": "#9b59b6",
+      "publicBio": "32岁，贺东升的特别助理，跟了他六年，此行负责安排行程。住 5 号包厢上铺。",
+      "personality": "干练、克制，习惯替老板说话；情绪崩溃时会突然沉默。",
+      "script": "你是唐蔚，贺东升的特别助理，跟了他六年，挨过无数次骂。半年前，你把东升资本的投资计划卖给了竞争对手鼎岳资本，收了三十万。今天下午，贺东升发现了。\n\n【当晚经历】\n19:30-20:30 在餐车陪贺东升吃饭，他和林知夏吵得很凶。他还提过：这趟车上约了一位「老朋友」谈事，不让你插手。\n20:30-21:20 在 3 号包厢陪他整理文件。21:05 他把一份打印好的辞退通知摔在你面前，说要起诉你泄密，让你在这行混不下去。吵到 21:20，他把通知撕了扔进垃圾桶：「明天律师联系你。」\n21:20 你哭着跑出包厢，看见列车员秦师傅在走廊那头。\n21:22-22:20 你躲在通往餐车的连接处抽烟，给鼎岳的周总打电话求救。\n21:56 左右，列车在隧道里，灯一闪一闪，一个男人从软卧那边快步走过，往垃圾桶里扔了点什么，进了餐车。你背对着他打电话，没看清脸。\n22:20 回到 5 号，林知夏对着电脑发呆。\n\n【你的秘密】泄密、被辞退；连接处的那一个小时。说出来，你就是最有动机的人。\n【任务】找出真凶；别让那份撕碎的辞退通知被公开。",
+      "knowledge": [
+        {
+          "id": "k_tang_phone",
+          "text": "贺总的手机是面容解锁，他习惯把手机放在枕头边。",
+          "time": "",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_tang_friend",
+          "text": "晚饭时贺总说，这趟车上约了一位「老朋友」谈事，不让我插手，也没说是谁。",
+          "time": "19:30",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_tang_fired",
+          "text": "21:05 贺总在 3 号包厢当面辞退我，说要起诉我泄密；21:20 我才出来。",
+          "time": "21:05",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_tang_leak",
+          "text": "半年前我把东升资本的投资计划卖给了鼎岳资本，收了三十万。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_tang_man",
+          "text": "21:56 左右我在车厢连接处，看见一个男人从软卧那边快步走向餐车，顺手往垃圾桶里扔了点东西。隧道里灯一直闪，我没看清脸。",
+          "time": "21:56",
+          "implicates": {
+            "song_huaijin": 1,
+            "shao_yiming": 1
+          },
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_tang_cover",
+          "text": "21:20 从贺总那出来以后，我就回 5 号包厢上铺睡觉了。",
+          "time": "21:20",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "21:20 从贺总那出来以后，我就回 5 号包厢上铺睡觉了。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_dismissal",
+          "desc": "不让撕碎的辞退通知被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "compartment3",
+          "vestibule",
+          "berths",
+          "duty"
+        ]
+      }
+    },
+    {
+      "id": "qin_jianguo",
+      "name": "秦建国",
+      "color": "#d4a017",
+      "publicBio": "52岁，本趟列车软卧车厢的列车员，跑这条线十几年，话不多。",
+      "personality": "老实、倔，说话带口音；被冤枉时嗓门会一下子变大。",
+      "script": "你是秦建国，这节软卧车厢的列车员。2018 年，你把老伴治病的四十万存进了「东升宝」，平台爆雷，老板贺东升全身而退，你老伴没等到手术。昨天他上车时，你一眼就认出了他。\n\n【当晚经历】\n19:30-21:20 正常巡视、打扫，在乘务员室和走廊之间来回。\n21:20 你看见唐蔚哭着从 3 号包厢出来，往餐车方向去了。\n21:30 左右你在走廊另一头，看见一个男乘客敲 3 号的门，贺东升开门让他进去了。你只看到背影。\n21:30-22:15 你在乘务员室填表，喝了两口酒，越想越气。\n22:20 你去敲 3 号的门，没人应，门没锁，你推门进去。他面朝墙躺着，你对着他的背说：「东升宝的四十万，你还记得吗？」他不吭声，你以为他装睡，站了一分钟就出来了。你在巡视日志上写了「22:20 3号查看」，出事后又用笔涂黑了。\n22:50 再次巡视，发现 3 号门虚掩，进去一碰，人已经凉了。\n\n【你的秘密】东升宝的仇；22:20 你进过 3 号。你最怕的，是被当成替老伴报仇的凶手。\n【任务】找出真凶；自己不要成为得票最多的人。",
+      "knowledge": [
+        {
+          "id": "k_qin_tang",
+          "text": "21:20 我看见唐蔚哭着从 3 号包厢出来，往餐车那头走了。",
+          "time": "21:20",
+          "implicates": {
+            "tang_wei": 1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_qin_man",
+          "text": "21:30 左右有个男乘客敲 3 号的门，贺东升开门让他进去了，我在走廊另一头，只看到背影。",
+          "time": "21:30",
+          "implicates": {
+            "song_huaijin": 1,
+            "shao_yiming": 1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_qin_visit",
+          "text": "22:20 我推开过 3 号的门，他面朝墙躺着不吭声，我以为他装睡，一分钟后就出来了。",
+          "time": "22:20",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_qin_money",
+          "text": "2018 年我把老伴治病的四十万存进了东升宝，全赔光了。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_qin_cover",
+          "text": "21:30 以后我一直在乘务员室，22:50 巡视才发现 3 号出事。",
+          "time": "21:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "21:30 以后我一直在乘务员室，22:50 巡视才发现 3 号出事。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不要成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "duty",
+          "compartment3",
+          "vestibule",
+          "berths"
+        ]
+      }
+    },
+    {
+      "id": "shao_yiming",
+      "name": "邵一鸣",
+      "color": "#2e9e6b",
+      "publicBio": "34岁，自由财经记者，常写投资圈的深度报道，追踪「东升宝」事件多年。住 6 号包厢上铺。",
+      "personality": "圆滑、爱追问，喜欢把别人的话引向自己想要的方向。",
+      "script": "你是邵一鸣，自由财经记者。你追查「东升宝」爆雷一年多，手里有不少料。去年贺东升托人给了你五十万，你撤了稿——这是你最不能见光的事。这次你特意买了同一趟车，想再跟他「谈谈」：这次至少一百万。\n\n【当晚经历】\n19:30-20:30 在餐车和宋医生同桌吃饭，邻桌贺东升和林知夏吵得很凶。\n20:30-20:40 你在通往餐车的连接处抽烟，在稿纸上算了算这次要开多少价。\n20:40 回到 6 号写稿。下铺的宋医生 21:00 回来，21:25 说去餐车喝茶，又出去了。\n21:25-22:10 你一个人在 6 号。\n22:16 你在餐车买了两罐啤酒，宋医生坐在那儿喝茶。\n22:30 你回来路过 3 号，推门进去——门没锁。贺东升面朝墙躺着，你碰了碰他的手，冰凉。你吓坏了，却看见桌上那个印着「东升资本」的牛皮文件袋——里面有你收钱的回单。你把它塞进外套，22:35 逃回 6 号，门都没关严。\n\n【你的秘密】五十万封口费；你发现了尸体却没报告，还拿走了文件袋。\n【任务】找出真凶；别让连接处那张稿纸被公开。",
+      "knowledge": [
+        {
+          "id": "k_shao_song",
+          "text": "宋医生 21:25 出了 6 号包厢，说去餐车喝茶；22:16 我去餐车买啤酒，他确实坐在那儿。",
+          "time": "21:25",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_shao_alone",
+          "text": "21:25 到 22:10 我一个人在 6 号包厢写稿，没人能作证，这我承认。",
+          "time": "21:25",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_shao_body",
+          "text": "22:30 我进过 3 号包厢，他手已经凉了。我拿走了桌上的文件袋，没有报告。",
+          "time": "22:30",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_shao_hush",
+          "text": "去年贺东升给过我五十万封口费，我撤掉了东升宝的稿子。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_shao_cover",
+          "text": "22:16 买完啤酒我就直接回 6 号包厢了，没靠近过 3 号。",
+          "time": "22:16",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "22:16 买完啤酒我就直接回 6 号包厢了，没靠近过 3 号。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_draft",
+          "desc": "不让连接处那张算价的稿纸被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "berths",
+          "vestibule",
+          "compartment3",
+          "dining"
+        ]
+      }
+    },
+    {
+      "id": "song_huaijin",
+      "name": "宋怀瑾",
+      "color": "#5b7fbf",
+      "isMurderer": true,
+      "publicBio": "46岁，昆明一家三甲医院的心内科主任，刚在北京开完学术会议。住 6 号包厢下铺。案发后由他为死者做了初步检查。",
+      "personality": "温和、有条理，说话像在给病人解释病情；从不主动指控谁，只「提供专业意见」。",
+      "script": "你是宋怀瑾，心内科主任，也是杀死贺东升的凶手。三年来你收了康衡医疗两百多万回扣，而康衡背后的投资人正是贺东升。他手里有你收钱的录音，约你在车上谈：月底前把康衡的支架送进医院集采，否则录音送纪委。\n\n【当晚真实经历】\n19:30-20:30 和邵一鸣同桌吃饭，邻桌贺东升和林知夏在吵。你看见林知夏把帆布包落在了座位上。\n20:40 你对服务员说「我和失主同一节软卧」，拿走了包，在厕所拆下肩带，20:50 把包挂回 5 号她的铺位。\n21:00-21:25 在 6 号。21:30 敲开 3 号，和贺东升喝威士忌。21:44 列车进隧道，轰鸣声里你戴上手套，用肩带勒死了他。\n21:46-21:54 擦净你的杯子，搜走录音笔；用他的脸解锁手机，给林知夏发「十点来我包厢」；把肩带塞在枕下，把他翻成面朝墙、盖好被子。\n21:56 在连接处扔掉手套。21:58 在餐车点了一壶普洱；22:30 前后把掰断的录音笔扔进洗手池下的垃圾桶，存储卡冲进了厕所。\n22:40 回 6 号。出事后你验尸，说死亡时间在 22:00-22:30。\n\n【任务】不被指认；别让死者手环的心率记录被公开。把怀疑引向林知夏。",
+      "knowledge": [
+        {
+          "id": "k_song_cover",
+          "text": "21:25 我出了 6 号包厢就去了餐车，一直喝茶看书，22:40 才回来。",
+          "time": "21:25",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_song_exam",
+          "text": "我检查过尸体，从体温和尸僵看，死亡时间应该在 22:00 到 22:30 之间。",
+          "time": "22:00-22:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_song_truth",
+          "text": "21:30-21:54 我在 3 号包厢，用林知夏的包带勒死了贺东升，又用他的手机约林知夏十点过去。",
+          "time": "21:30",
+          "implicates": {
+            "song_huaijin": 5
+          },
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_song_motive",
+          "text": "我收了康衡医疗的回扣，贺东升握着录音，逼我把康衡的支架送进医院集采。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        }
+      ],
+      "coverStory": "21:25 我出了 6 号包厢就去了餐车，一直喝茶看书，22:40 才回来。",
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_band",
+          "desc": "不让死者手环的心率记录被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "compartment3",
+          "dining",
+          "vestibule",
+          "berths"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "lin_zhixia",
+      "b": "tang_wei",
+      "label": "5号包厢上下铺·工作上常打交道",
+      "public": true
+    },
+    {
+      "a": "song_huaijin",
+      "b": "shao_yiming",
+      "label": "6号包厢上下铺·晚饭同桌",
+      "public": true
+    },
+    {
+      "a": "qin_jianguo",
+      "b": "tang_wei",
+      "label": "列车员与乘客",
+      "public": true
+    },
+    {
+      "a": "shao_yiming",
+      "b": "lin_zhixia",
+      "label": "邵曾想采访她的融资故事",
+      "public": true
+    },
+    {
+      "a": "song_huaijin",
+      "b": "lin_zhixia",
+      "label": "宋怀瑾拿走并「送还」了她的帆布包",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "lin_zhixia",
+      "label": "投资人与创业者（对赌协议）"
+    },
+    {
+      "who": "tang_wei",
+      "label": "老板与助理（六年）"
+    },
+    {
+      "who": "qin_jianguo",
+      "label": "列车员与乘客"
+    },
+    {
+      "who": "shao_yiming",
+      "label": "记者与报道对象"
+    },
+    {
+      "who": "song_huaijin",
+      "label": "同车乘客（自称素不相识）"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "compartment3",
+      "title": "尸体初检",
+      "text": "贺东升面朝墙侧卧在下铺，被子一直盖到肩膀，乍看像睡着了。颈部有一道宽约三厘米、几乎水平的勒痕，指甲缝里嵌着几根蓝色纤维。",
+      "time": "",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_strap",
+      "location": "compartment3",
+      "title": "枕下的帆布肩带",
+      "text": "枕头底下露出一截蓝色帆布肩带，宽约三厘米，两端是金属搭扣，上面印着「云岭咖啡」的 logo。宽度和颈部勒痕吻合。",
+      "time": "",
+      "implicates": {
+        "lin_zhixia": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_band",
+      "location": "compartment3",
+      "title": "死者的运动手环",
+      "text": "死者左腕上的运动手环可以直接翻看当天心率：21:30 起心率偏快，21:44 骤然飙升，随后迅速跌落，21:47 起显示「未佩戴/无信号」。此后再没有任何心跳记录。",
+      "time": "21:44",
+      "implicates": {
+        "lin_zhixia": -1,
+        "qin_jianguo": -1,
+        "shao_yiming": -1
+      },
+      "key": true
+    },
+    {
+      "id": "c_phone",
+      "location": "compartment3",
+      "title": "枕边的手机",
+      "text": "死者的手机（面容解锁）就在枕边。最后一条操作是 21:52 发给林知夏的微信：「十点来我包厢，回购的事可以再谈。」对方已读。",
+      "time": "21:52",
+      "implicates": {
+        "lin_zhixia": 1
+      },
+      "requires": [
+        "c_band"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_glasses",
+      "location": "compartment3",
+      "title": "两只威士忌杯",
+      "text": "小桌上两只威士忌杯：一只有死者的唇印和残酒；另一只被擦得干干净净，连一枚指纹都没有。今晚有人和他对饮过，离开前还特意处理了杯子。",
+      "time": "",
+      "implicates": {
+        "song_huaijin": 1
+      }
+    },
+    {
+      "id": "c_plan",
+      "location": "compartment3",
+      "title": "公文包里的推进计划",
+      "text": "有人翻过的公文包夹层里，还剩一份《康衡医疗心脏支架入院推进计划》，最后一页是贺东升的手写批注：「宋：月底前办妥，录音的事一笔勾销。」",
+      "time": "",
+      "implicates": {
+        "song_huaijin": 2
+      },
+      "requires": [
+        "c_glasses"
+      ]
+    },
+    {
+      "id": "c_dismissal",
+      "location": "compartment3",
+      "title": "撕碎的辞退通知",
+      "text": "垃圾桶里有几片撕碎的打印纸，拼起来是一份《解除劳动合同通知书》，抬头写着「唐蔚」，背面是贺东升的笔迹：「泄密，起诉。」",
+      "time": "21:05",
+      "implicates": {
+        "tang_wei": 2
+      }
+    },
+    {
+      "id": "c_bag",
+      "location": "berths",
+      "title": "没有肩带的托特包",
+      "text": "5 号包厢下铺挂着一只「云岭咖啡」帆布托特包，肩带不见了，两个金属扣环上有新鲜的划痕，像是被人匆忙拆下。",
+      "time": "",
+      "implicates": {
+        "lin_zhixia": 1
+      }
+    },
+    {
+      "id": "c_laptop",
+      "location": "berths",
+      "title": "两套销量",
+      "text": "5 号包厢小桌上的笔记本电脑没锁屏，打开的表格有两列：「真实销量」和「报投资方销量」，后者比前者多出三成。文件最后修改时间 21:53。",
+      "time": "21:53",
+      "implicates": {
+        "lin_zhixia": 2
+      }
+    },
+    {
+      "id": "c_folder",
+      "location": "berths",
+      "title": "双肩包里的文件袋",
+      "text": "6 号包厢上铺的双肩包里塞着一只印有「东升资本」的牛皮文件袋，装着东升宝的内部资金流水，还有一张贺东升手写的便条：「录音在我身上，他跑不掉。」",
+      "time": "",
+      "implicates": {
+        "shao_yiming": 3
+      }
+    },
+    {
+      "id": "c_receipt",
+      "location": "dining",
+      "title": "餐车收银记录",
+      "text": "收银机记录：21:20 到 21:57 没有任何点单；21:58 普洱茶一壶（软卧 6 号下铺）；22:16 啤酒两罐（软卧 6 号上铺）。服务员说九点半前后餐车空无一人，她趴着打了个盹，是被来点茶的客人叫醒的。",
+      "time": "21:58",
+      "implicates": {
+        "song_huaijin": 2
+      },
+      "key": true
+    },
+    {
+      "id": "c_pickup",
+      "location": "dining",
+      "title": "被「送还」的帆布包",
+      "text": "服务员回忆：20:40 左右，一位男乘客拿走了座位上落下的帆布包，说「我和失主同一节软卧，帮她带回去」。她在收桌子，没看清脸，只记得晚饭时那人就坐在失主邻桌。21:10 林知夏回来找包，扑了个空。",
+      "time": "20:40",
+      "implicates": {
+        "lin_zhixia": -2,
+        "song_huaijin": 1,
+        "shao_yiming": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_recorder",
+      "location": "dining",
+      "title": "掰断的录音笔",
+      "text": "餐车洗手池下的垃圾桶里，有一支被掰成两截的录音笔，存储卡槽是空的。今晚 21:58 以后，在餐车停留过的乘客并不多。",
+      "time": "",
+      "implicates": {
+        "song_huaijin": 2,
+        "shao_yiming": 1
+      },
+      "requires": [
+        "c_folder"
+      ]
+    },
+    {
+      "id": "c_patrol",
+      "location": "duty",
+      "title": "涂黑的巡视日志",
+      "text": "秦建国的巡视日志上，有一行被圆珠笔反复涂黑，对着灯还能辨认出：「22:20  3号  查看  旅客已休息」。",
+      "time": "22:20",
+      "implicates": {
+        "qin_jianguo": 3
+      }
+    },
+    {
+      "id": "c_contract",
+      "location": "duty",
+      "title": "东升宝合同",
+      "text": "乘务员室抽屉里有一份泛黄的「东升宝」理财合同，投资人秦建国，金额 40 万元。背面用圆珠笔写着：「贺东升，你欠我老伴一条命。」",
+      "time": "",
+      "implicates": {
+        "qin_jianguo": 2
+      }
+    },
+    {
+      "id": "c_tunnel",
+      "location": "duty",
+      "title": "列车运行记录",
+      "text": "列车运行记录显示：21:43 到 21:58，列车连续通过三座长隧道，车厢内轰鸣极大、灯光闪烁。这段时间里，包厢里就算有挣扎声，隔壁也很难听见。",
+      "time": "21:43-21:58",
+      "implicates": {}
+    },
+    {
+      "id": "c_gloves",
+      "location": "vestibule",
+      "title": "揉成团的手套",
+      "text": "连接处垃圾桶里有一副揉成团的一次性丁腈手套，指尖挂着几根蓝色帆布纤维，和那条肩带的颜色一样。乘务员室有整盒这种手套，医生的随身药包里通常也有。",
+      "time": "",
+      "implicates": {
+        "song_huaijin": 1,
+        "qin_jianguo": 1
+      },
+      "requires": [
+        "c_strap"
+      ]
+    },
+    {
+      "id": "c_lipstick",
+      "location": "vestibule",
+      "title": "带口红的烟头",
+      "text": "窗台上有五六个沾着豆沙色口红的烟头，旁边掉着一张便签：「鼎岳 周总 138****2617」。有个女人在这里待了不短的时间。",
+      "time": "",
+      "implicates": {
+        "tang_wei": 1
+      }
+    },
+    {
+      "id": "c_draft",
+      "location": "vestibule",
+      "title": "窗缝里的稿纸",
+      "text": "车窗缝里塞着一张揉皱的稿纸，是潦草的提纲：「东升宝——贺——去年 50 → 这次至少 100」，右下角签着缩写「S.Y.M」。",
+      "time": "",
+      "implicates": {
+        "shao_yiming": 2
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "song_huaijin",
+    "weapon": "林知夏帆布包的肩带",
+    "summary": "凶手是心内科医生宋怀瑾。他多年收受康衡医疗的回扣，贺东升握有录音，以此逼他把康衡的支架送进医院集采。晚饭时宋怀瑾看见林知夏落下帆布包，便以「同车厢」为由拿走，拆下肩带后把包送回她的铺位。21:30 他进入 3 号包厢与贺东升对饮，21:44 趁列车进入隧道、噪音巨大时用肩带勒死了他，随后擦净酒杯、搜走录音笔，用死者的脸解锁手机，给林知夏发消息约她十点过来，再把肩带塞在枕下，让尸体面朝墙「睡着」。他 21:58 才到餐车，却声称 21:25 起就在那里；验尸时又故意把死亡时间说成 22:00-22:30，让之后进过包厢的林知夏、秦建国、邵一鸣背锅。手环的心率记录显示贺东升 21:44 就已死亡——那条 21:52 的微信，是死人「发」的。",
+    "timeline": [
+      {
+        "time": "19:30-20:30",
+        "text": "众人在餐车吃晚饭，贺东升当众威胁要让林知夏按对赌协议回购。林知夏离席时落下帆布包。"
+      },
+      {
+        "time": "20:40",
+        "text": "宋怀瑾以「同车厢」为由从餐车拿走林知夏的包，拆下肩带后于 20:50 送回 5 号包厢。"
+      },
+      {
+        "time": "21:05-21:20",
+        "text": "贺东升在 3 号包厢辞退唐蔚。21:20 唐蔚哭着离开，躲到车厢连接处打电话。"
+      },
+      {
+        "time": "21:30",
+        "text": "宋怀瑾敲开 3 号包厢的门，与贺东升对饮。秦建国远远看见一个男人的背影。"
+      },
+      {
+        "time": "21:44",
+        "text": "列车进入隧道群，宋怀瑾用肩带勒死贺东升。"
+      },
+      {
+        "time": "21:52",
+        "text": "宋怀瑾用死者的脸解锁手机，给林知夏发消息约她十点过来，布置好现场后离开。"
+      },
+      {
+        "time": "21:56-21:58",
+        "text": "宋怀瑾在连接处扔掉手套，21:58 才在餐车点了第一壶茶。"
+      },
+      {
+        "time": "22:00-22:03",
+        "text": "林知夏应约来到 3 号，以为贺东升睡着了，悄悄离开。"
+      },
+      {
+        "time": "22:20",
+        "text": "秦建国推门进入 3 号质问东升宝的事，没有得到回应，以为对方装睡。"
+      },
+      {
+        "time": "22:30-22:35",
+        "text": "邵一鸣进入 3 号发现贺东升已死，拿走装有自己收款回单的文件袋后离开，门没关严。"
+      },
+      {
+        "time": "22:50",
+        "text": "秦建国巡视时发现尸体。宋怀瑾验尸，谎称死亡时间在 22:00-22:30。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "lin_zhixia",
+        "text": "云岭咖啡刷单造假；22:00 应「贺东升」的微信进过 3 号包厢。"
+      },
+      {
+        "who": "tang_wei",
+        "text": "把东升资本的投资计划卖给对手，当晚被辞退；21:22-22:20 躲在车厢连接处。"
+      },
+      {
+        "who": "qin_jianguo",
+        "text": "东升宝的受害者；22:20 进过 3 号包厢，事后涂掉了巡视日志。"
+      },
+      {
+        "who": "shao_yiming",
+        "text": "收过贺东升五十万封口费；22:30 发现尸体却没有报告，还拿走了文件袋。"
+      },
+      {
+        "who": "song_huaijin",
+        "text": "凶手；收受康衡医疗回扣，被贺东升用录音要挟。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_song_exam",
+      "knowledge": "k_song_exam",
+      "clue": "c_band",
+      "text": "宋医生说死亡时间在 22:00 到 22:30 之间，可手环显示贺东升 21:44 心跳就停了。",
+      "implicates": {
+        "song_huaijin": 2
+      }
+    },
+    {
+      "id": "x_song_cover",
+      "knowledge": "k_song_cover",
+      "clue": "c_receipt",
+      "text": "宋医生说 21:25 起就在餐车喝茶，可餐车 21:20 到 21:57 一单都没有，服务员说那段时间车厢里空无一人。",
+      "implicates": {
+        "song_huaijin": 2
+      }
+    },
+    {
+      "id": "x_lin_cover",
+      "knowledge": "k_lin_cover",
+      "clue": "c_phone",
+      "text": "林知夏说 21:15 以后没出过 5 号包厢，可贺东升的手机 21:52 约她十点过去，消息显示已读。",
+      "implicates": {
+        "lin_zhixia": 1
+      }
+    },
+    {
+      "id": "x_qin_cover",
+      "knowledge": "k_qin_cover",
+      "clue": "c_patrol",
+      "text": "秦建国说 21:30 以后一直在乘务员室，可他的巡视日志上涂掉了一行「22:20 3号查看」。",
+      "implicates": {
+        "qin_jianguo": 1
+      }
+    },
+    {
+      "id": "x_shao_cover",
+      "knowledge": "k_shao_cover",
+      "clue": "c_folder",
+      "text": "邵一鸣说没靠近过 3 号，可死者的「东升资本」文件袋在他的双肩包里。",
+      "implicates": {
+        "shao_yiming": 1
+      }
+    },
+    {
+      "id": "x_tang_cover",
+      "knowledge": "k_tang_cover",
+      "clue": "c_lipstick",
+      "text": "唐蔚说 21:20 以后就回包厢睡了，可连接处满是她口红颜色的烟头，还有她联系鼎岳的便签。",
+      "implicates": {
+        "tang_wei": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "Night Train Sleeper",
+      "subtitle": "A direct overnight train from Beijing to Kunming threads through a chain of mountain tunnels, and the investor in soft-sleeper Compartment 3 never wakes up.",
+      "background": "Winter, 2023. A direct train from Beijing West to Kunming. On the second night, the train enters a chain of mountain tunnels on the Hunan-Guizhou border. The investor He Dongsheng has booked soft-sleeper Compartment 3 all to himself. Traveling with him are his assistant, Tang Wei, and Lin Zhixia, an entrepreneur he has invested in.\n\nAt 22:50, attendant Qin Jianguo, on his rounds, finds the door of Compartment 3 ajar. He Dongsheng is lying on the lower berth facing the wall, covered with a quilt, as if asleep. But he is no longer breathing, and there is a ligature mark on his neck.\n\nThe train police are busy with a drunken brawl in the front cars, the train cannot make an unscheduled stop inside the tunnels, and the next station is at two in the morning. The doors at both ends of the soft-sleeper car have been locked. Until then, the killer is one of the five of you.",
+      "intro": "[Host] Welcome to Night Train Sleeper. The train runs south through the dark belly of the mountains, its wheels drowning out everything else. Read your character script carefully: every one of you went near that compartment tonight, or had reason to hope He Dongsheng would never reach Kunming. There is only one killer, but more than one liar.",
+      "victim": {
+        "name": "He Dongsheng",
+        "bio": "54, founding partner of Dongsheng Capital and a big name in investment circles. A few years ago he ran a wealth-management platform called Dongsheng Bao; the platform collapsed, but he walked away unscathed. He has a severe fear of flying and never takes planes on business trips."
+      },
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. The clues you find are known only to you, and whether to reveal them is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal a clue or accuse a suspect. Whoever is questioned must answer at once.",
+        "investigate_2": "[Host] The train plunges into another long tunnel, and the lights flicker. The second round of investigation begins. Some things you only notice once you know what to look for.",
+        "discuss_2": "[Host] The final round of discussion. Only an hour until the next station. Line up everyone's timeline: who is lying, and whose lie is only hiding some other secret?",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the killer. Whoever receives the most votes will be named (in a tie, the killer escapes)."
+      },
+      "locations": {
+        "compartment3": {
+          "name": "Compartment 3",
+          "description": "The crime scene. The four-berth soft-sleeper compartment He Dongsheng booked for himself. Whiskey and a briefcase sit on the little table, and the reading lamp by the berth is still on."
+        },
+        "berths": {
+          "name": "Compartments 5 and 6",
+          "description": "The other two compartments in the same soft-sleeper car. Lin Zhixia and Tang Wei are in No. 5; Song Huaijin and Shao Yiming are in No. 6."
+        },
+        "dining": {
+          "name": "Dining Car",
+          "description": "The dining car right next to the soft-sleeper car. After dinner it serves only tea and beer, and at night it is nearly empty."
+        },
+        "duty": {
+          "name": "Attendant's Room",
+          "description": "The attendant's duty room at one end of the soft-sleeper car, holding the patrol log, cleaning supplies and Qin Jianguo's personal belongings."
+        },
+        "vestibule": {
+          "name": "Vestibule",
+          "description": "The connecting passage between the soft-sleeper car and the dining car, where passengers smoke and make phone calls. There is a trash bin."
+        }
+      },
+      "characters": {
+        "lin_zhixia": {
+          "name": "Lin Zhixia",
+          "publicBio": "30, founder of the Yunnan coffee brand Yunling Coffee; He Dongsheng is her investor. She has the lower berth in Compartment 5.",
+          "personality": "Driven, fast-talking, used to arguing with data; loses control of her emotions when backed into a corner.",
+          "script": "You are Lin Zhixia, founder of Yunling Coffee. Three years ago He Dongsheng invested 20 million yuan in you, with a valuation-adjustment (performance-guarantee) agreement attached: if you miss your targets, you must buy back his shares at the original price, which would ruin you completely. To prop up your valuation, last year you had your team fake thirty percent of your sales. This time He Dongsheng is taking the train to Kunming in person to “audit the books,” and one look will finish you.\n\n[Tonight]\n19:30-20:30 Dinner in the dining car at the same table as He Dongsheng and Tang Wei. He Dongsheng says in front of everyone: “When we get to Kunming, first we audit the books. If they don't add up, you buy back the shares per the agreement.” Furious, you leave the table early and forget your canvas tote bag on the seat. At the next table are Dr. Song and the journalist Shao from Compartment 6.\n20:30-21:05 You're on the phone with your business partner in the vestibule at the other end of the car (the hard-sleeper end).\n21:10 You go back to the dining car for your bag; the server says someone took it. 21:15 Back in Compartment 5, the bag is already hanging on your berth. You don't look at it closely.\n21:15-21:55 You're in the compartment working on spreadsheets. Tang Wei, in the upper berth, never comes back.\n21:52 He Dongsheng sends you a WeChat message: “Come to my compartment at ten. We can talk about the buyback again.”\n22:00 You go to No. 3; the door is unlocked. He's lying facing the wall. You call his name twice with no response and assume he's drunk and asleep. At 22:03 you back out.\n\n[Your secrets] The faked sales; you entered No. 3 at 22:00. And the murder weapon turns out to be the shoulder strap from your bag.\n[Objectives] Find the real killer; don't let the “two sets of sales figures” on your laptop be made public.",
+          "coverStory": "After 21:15 I was in Compartment 5 working on my documents the whole time. I never went out.",
+          "knowledge": {
+            "k_lin_dinner": "At dinner He Dongsheng said in front of everyone that when we got to Kunming he'd audit the books first, and if they didn't add up he'd make me buy back the shares under the performance-guarantee agreement. I admit I was furious.",
+            "k_lin_bag": "At 20:30 I left my canvas bag in the dining car. At 21:10 I went back for it and it was gone. Back in my compartment I found it hanging on my berth. I don't know who brought it back.",
+            "k_lin_tang": "From 21:15 to 22:00 I was in Compartment 5, and Tang Wei, in the upper berth, never came back.",
+            "k_lin_visit": "At 21:52 I got a WeChat message from He Dongsheng, and at 22:00 I went to Compartment 3. The door was unlocked; he was lying facing the wall and wouldn't wake up. I thought he was asleep and left after three minutes.",
+            "k_lin_fraud": "Thirty percent of Yunling Coffee's sales last year were faked with fake orders.",
+            "k_lin_cover": "After 21:15 I was in Compartment 5 working on my documents the whole time. I never went out."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the “two sets of sales figures” on your laptop from being made public"
+          ]
+        },
+        "tang_wei": {
+          "name": "Tang Wei",
+          "publicBio": "32, He Dongsheng's special assistant for six years, in charge of arranging this trip. She has the upper berth in Compartment 5.",
+          "personality": "Capable and restrained, used to speaking up for her boss; when she breaks down, she goes suddenly silent.",
+          "script": "You are Tang Wei, He Dongsheng's special assistant. You've been with him for six years and have taken countless tongue-lashings. Six months ago you sold Dongsheng Capital's investment plans to its rival, Dingyue Capital, for 300,000 yuan. This afternoon, He Dongsheng found out.\n\n[Tonight]\n19:30-20:30 You accompany He Dongsheng to dinner in the dining car; he and Lin Zhixia have a fierce argument. He also mentions he has arranged to talk business with an “old friend” on this train and tells you to stay out of it.\n20:30-21:20 You help him sort documents in Compartment 3. At 21:05 he throws a printed dismissal notice in your face and says he'll sue you for leaking secrets and make sure you never work in this industry again. The argument goes on until 21:20, when he tears up the notice and throws it in the trash: “My lawyer will contact you tomorrow.”\n21:20 You run out of the compartment in tears and see the attendant, Master Qin, at the far end of the corridor.\n21:22-22:20 You hide in the vestibule leading to the dining car, smoking and calling Mr. Zhou at Dingyue to beg for help.\nAround 21:56, the train is in a tunnel and the lights are flickering. A man walks quickly past from the soft-sleeper side, tosses something into the trash bin and goes into the dining car. You have your back to him while on the phone and don't see his face.\n22:20 Back in No. 5, Lin Zhixia is staring blankly at her computer.\n\n[Your secrets] The leak and your dismissal; that hour in the vestibule. If it comes out, you'll be the one with the strongest motive.\n[Objectives] Find the real killer; don't let the torn-up dismissal notice be made public.",
+          "coverStory": "After I left Mr. He's compartment at 21:20, I went back to my upper berth in Compartment 5 and went to sleep.",
+          "knowledge": {
+            "k_tang_phone": "Mr. He's phone uses face unlock, and he always keeps it by his pillow.",
+            "k_tang_friend": "At dinner Mr. He said he'd arranged to talk business with an “old friend” on this train. He told me to stay out of it and didn't say who.",
+            "k_tang_fired": "At 21:05 Mr. He fired me to my face in Compartment 3 and said he'd sue me for leaking secrets. I didn't come out until 21:20.",
+            "k_tang_leak": "Six months ago I sold Dongsheng Capital's investment plans to Dingyue Capital for 300,000 yuan.",
+            "k_tang_man": "Around 21:56 I was in the vestibule and saw a man walk quickly from the soft-sleeper side toward the dining car, tossing something into the trash bin on the way. The lights kept flickering in the tunnel, so I didn't see his face.",
+            "k_tang_cover": "After I left Mr. He's compartment at 21:20, I went back to my upper berth in Compartment 5 and went to sleep."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the torn-up dismissal notice from being made public"
+          ]
+        },
+        "qin_jianguo": {
+          "name": "Qin Jianguo",
+          "publicBio": "52, the soft-sleeper car attendant on this train. He has worked this line for over ten years and doesn't say much.",
+          "personality": "Honest and stubborn, speaks with a regional accent; when wrongly accused, his voice suddenly gets loud.",
+          "script": "You are Qin Jianguo, the attendant for this soft-sleeper car. In 2018 you put the 400,000 yuan meant for your wife's medical treatment into Dongsheng Bao. The platform collapsed, its boss He Dongsheng walked away unscathed, and your wife died before she could have her operation. When he boarded yesterday, you recognized him at a glance.\n\n[Tonight]\n19:30-21:20 Routine rounds and cleaning, back and forth between the attendant's room and the corridor.\n21:20 You see Tang Wei come out of Compartment 3 in tears and head toward the dining car.\nAround 21:30, from the far end of the corridor, you see a male passenger knock on No. 3's door, and He Dongsheng let him in. You only see his back.\n21:30-22:15 You fill in forms in the attendant's room, take a couple of swigs of liquor, and get angrier the more you think about it.\n22:20 You knock on No. 3's door. No answer; the door is unlocked, so you push it open and go in. He's lying facing the wall. You say to his back: “The 400,000 from Dongsheng Bao, do you remember it?” He doesn't make a sound. You think he's pretending to sleep, stand there for a minute and leave. You wrote “22:20 checked No. 3” in your patrol log, and after the death you blacked it out with your pen.\n22:50 On your next round you find No. 3's door ajar. You go in and touch him: he's already cold.\n\n[Your secrets] Your grudge over Dongsheng Bao; you entered No. 3 at 22:20. What you fear most is being taken for a killer avenging his wife.\n[Objectives] Find the real killer; do not be the person with the most votes yourself.",
+          "coverStory": "After 21:30 I was in the attendant's room the whole time. I only found out about No. 3 on my 22:50 round.",
+          "knowledge": {
+            "k_qin_tang": "At 21:20 I saw Tang Wei come out of Compartment 3 in tears and walk off toward the dining car.",
+            "k_qin_man": "Around 21:30 a male passenger knocked on No. 3's door and He Dongsheng let him in. I was at the far end of the corridor and only saw his back.",
+            "k_qin_visit": "At 22:20 I pushed open No. 3's door. He was lying facing the wall and didn't make a sound. I thought he was pretending to sleep and left after a minute.",
+            "k_qin_money": "In 2018 I put the 400,000 yuan for my wife's treatment into Dongsheng Bao and lost every cent.",
+            "k_qin_cover": "After 21:30 I was in the attendant's room the whole time. I only found out about No. 3 on my 22:50 round."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Do not be the person with the most votes"
+          ]
+        },
+        "shao_yiming": {
+          "name": "Shao Yiming",
+          "publicBio": "34, a freelance financial journalist who writes in-depth pieces on the investment world and has been tracking the Dongsheng Bao affair for years. He has the upper berth in Compartment 6.",
+          "personality": "Slippery and inquisitive, likes steering what others say in the direction he wants.",
+          "script": "You are Shao Yiming, a freelance financial journalist. You've spent over a year digging into the Dongsheng Bao collapse and have plenty of material. Last year He Dongsheng had someone pass you 500,000 yuan, and you killed the story. That's the thing you can least afford to have come to light. This time you deliberately booked the same train to “have another talk” with him: at least a million this time.\n\n[Tonight]\n19:30-20:30 Dinner in the dining car at the same table as Dr. Song; at the next table, He Dongsheng and Lin Zhixia are arguing fiercely.\n20:30-20:40 You smoke in the vestibule leading to the dining car and work out on a sheet of draft paper how much to ask for this time.\n20:40 Back in No. 6, writing. Dr. Song, in the lower berth, comes back at 21:00, and at 21:25 says he's going to the dining car for tea and goes out again.\n21:25-22:10 You're alone in No. 6.\n22:16 You buy two cans of beer in the dining car; Dr. Song is sitting there drinking tea.\n22:30 On your way back you pass No. 3 and push the door open; it's unlocked. He Dongsheng is lying facing the wall. You touch his hand: ice cold. You're terrified, but then you see the kraft-paper document folder printed with “Dongsheng Capital” on the table, and inside it is the receipt for the money you took. You stuff it into your jacket and flee back to No. 6 at 22:35, without even shutting the door properly.\n\n[Your secrets] The 500,000 in hush money; you found the body without reporting it, and took the document folder.\n[Objectives] Find the real killer; don't let the sheet of draft paper in the vestibule be made public.",
+          "coverStory": "After buying beer at 22:16 I went straight back to Compartment 6. I never went near No. 3.",
+          "knowledge": {
+            "k_shao_song": "Dr. Song left Compartment 6 at 21:25, saying he was going to the dining car for tea. When I went to buy beer at 22:16, he was indeed sitting there.",
+            "k_shao_alone": "From 21:25 to 22:10 I was alone in Compartment 6 writing. Nobody can vouch for me, I admit that.",
+            "k_shao_body": "At 22:30 I went into Compartment 3, and his hand was already cold. I took the document folder from the table and didn't report it.",
+            "k_shao_hush": "Last year He Dongsheng paid me 500,000 yuan in hush money, and I killed my Dongsheng Bao story.",
+            "k_shao_cover": "After buying beer at 22:16 I went straight back to Compartment 6. I never went near No. 3."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the draft paper with your price calculations in the vestibule from being made public"
+          ]
+        },
+        "song_huaijin": {
+          "name": "Song Huaijin",
+          "publicBio": "46, head of cardiology at a top-tier hospital in Kunming, just back from an academic conference in Beijing. He has the lower berth in Compartment 6. After the death, he performed the preliminary examination of the body.",
+          "personality": "Mild and methodical, talks as if explaining a diagnosis to a patient; never accuses anyone himself, only “offers a professional opinion.”",
+          "script": "You are Song Huaijin, head of cardiology, and you are the one who killed He Dongsheng. Over three years you took more than two million yuan in kickbacks from Kangheng Medical, and the investor behind Kangheng is none other than He Dongsheng. He has a recording of you taking the money and arranged to talk with you on the train: get Kangheng's stents into the hospital's centralized procurement by the end of the month, or the recording goes to the discipline inspection commission.\n\n[What really happened tonight]\n19:30-20:30 Dinner at the same table as Shao Yiming; at the next table He Dongsheng and Lin Zhixia are arguing. You see Lin Zhixia leave her canvas bag on her seat.\n20:40 You tell the server, “I'm in the same soft-sleeper car as the owner,” and take the bag. In the restroom you remove the shoulder strap, and at 20:50 you hang the bag back on her berth in No. 5.\n21:00-21:25 In No. 6. At 21:30 you knock on No. 3 and drink whiskey with He Dongsheng. At 21:44 the train enters a tunnel, and under the roar you put on gloves and strangle him with the shoulder strap.\n21:46-21:54 You wipe your glass clean and take the voice recorder; you unlock his phone with his face and send Lin Zhixia “Come to my compartment at ten”; you tuck the shoulder strap under the pillow, roll him over to face the wall and tuck the quilt around him.\n21:56 You throw away the gloves in the vestibule. 21:58 You order a pot of pu'er tea in the dining car; around 22:30 you throw the snapped voice recorder into the trash bin under the sink and flush the memory card down the toilet.\n22:40 Back to No. 6. After the death is discovered you examine the body and say the time of death was 22:00-22:30.\n\n[Objectives] Avoid being named; don't let the heart-rate record on the victim's fitness band be made public. Steer suspicion toward Lin Zhixia.",
+          "coverStory": "After leaving Compartment 6 at 21:25 I went to the dining car and drank tea and read the whole time. I didn't come back until 22:40.",
+          "knowledge": {
+            "k_song_cover": "After leaving Compartment 6 at 21:25 I went to the dining car and drank tea and read the whole time. I didn't come back until 22:40.",
+            "k_song_exam": "I examined the body. Judging by body temperature and rigor mortis, the time of death should be between 22:00 and 22:30.",
+            "k_song_truth": "From 21:30 to 21:54 I was in Compartment 3. I strangled He Dongsheng with the strap from Lin Zhixia's bag, then used his phone to ask Lin Zhixia to come over at ten.",
+            "k_song_motive": "I took kickbacks from Kangheng Medical. He Dongsheng held a recording and was forcing me to get Kangheng's stents into the hospital's centralized procurement."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep the heart-rate record on the victim's fitness band from being made public"
+          ]
+        }
+      },
+      "relationships": [
+        "No. 5 bunkmates, work together often",
+        "No. 6 bunkmates, shared dinner table",
+        "Attendant and passenger",
+        "Shao once wanted to profile her startup",
+        "Song took and “returned” her canvas bag"
+      ],
+      "victimRelationships": [
+        "Investor and founder (buyback deal)",
+        "Boss and assistant (six years)",
+        "Attendant and passenger",
+        "Journalist and story subject",
+        "Fellow passenger (claims strangers)"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "Preliminary Examination of the Body",
+          "text": "He Dongsheng is lying on his side on the lower berth facing the wall, the quilt pulled up to his shoulders; at a glance he looks asleep. His neck bears an almost horizontal ligature mark about 3 cm wide, and a few blue fibers are lodged under his fingernails."
+        },
+        "c_strap": {
+          "title": "Canvas Strap Under the Pillow",
+          "text": "A length of blue canvas shoulder strap pokes out from under the pillow, about 3 cm wide, with metal clasps at both ends and printed with the Yunling Coffee logo. Its width matches the ligature mark on the neck."
+        },
+        "c_band": {
+          "title": "The Victim's Fitness Band",
+          "text": "The fitness band on the victim's left wrist lets you scroll straight through the day's heart rate: from 21:30 it runs fast, at 21:44 it spikes sharply, then plummets, and from 21:47 it shows “Not worn / No signal.” There is no heartbeat recorded after that."
+        },
+        "c_phone": {
+          "title": "The Phone by the Pillow",
+          "text": "The victim's phone (face unlock) is right by the pillow. The last action was a WeChat message to Lin Zhixia at 21:52: “Come to my compartment at ten. We can talk about the buyback again.” It shows as read."
+        },
+        "c_glasses": {
+          "title": "Two Whiskey Glasses",
+          "text": "Two whiskey glasses on the little table: one bears the victim's lip marks and the dregs of his drink; the other has been wiped spotless, without a single fingerprint. Someone drank with him tonight and made a point of dealing with the glass before leaving."
+        },
+        "c_plan": {
+          "title": "Plan in the Briefcase",
+          "text": "In an inner pocket of the briefcase, which someone has rifled through, one document remains: “Kangheng Medical Cardiac Stent Hospital Adoption Plan.” On the last page is He Dongsheng's handwritten note: “Song: get it done by month's end and the recording matter is wiped clean.”"
+        },
+        "c_dismissal": {
+          "title": "Torn-up Dismissal Notice",
+          "text": "In the trash bin are several scraps of torn printer paper. Pieced together, they form a “Notice of Termination of Employment Contract” addressed to “Tang Wei.” On the back, in He Dongsheng's handwriting: “Leaked secrets. Sue.”"
+        },
+        "c_bag": {
+          "title": "Tote Bag Without a Strap",
+          "text": "Hanging on the lower berth of Compartment 5 is a Yunling Coffee canvas tote bag. The shoulder strap is missing, and the two metal rings show fresh scratches, as if the strap was removed in a hurry."
+        },
+        "c_laptop": {
+          "title": "Two Sets of Sales Figures",
+          "text": "The laptop on the little table in Compartment 5 isn't locked. The open spreadsheet has two columns: “Actual Sales” and “Sales Reported to Investors,” the latter thirty percent higher than the former. The file was last modified at 21:53."
+        },
+        "c_folder": {
+          "title": "Folder in the Backpack",
+          "text": "Stuffed in the backpack on the upper berth of Compartment 6 is a kraft-paper document folder printed with “Dongsheng Capital,” holding Dongsheng Bao's internal fund-flow records and a note in He Dongsheng's handwriting: “The recording is on me. He can't get away.”"
+        },
+        "c_receipt": {
+          "title": "Dining Car Till Records",
+          "text": "Till records: no orders at all from 21:20 to 21:57; 21:58, one pot of pu'er tea (soft sleeper No. 6, lower berth); 22:16, two cans of beer (soft sleeper No. 6, upper berth). The server says the dining car was completely empty around half past nine; she dozed off with her head on the counter and was woken by the customer who came to order tea."
+        },
+        "c_pickup": {
+          "title": "The “Returned” Canvas Bag",
+          "text": "The server recalls: around 20:40, a male passenger took the canvas bag left on the seat, saying, “I'm in the same soft-sleeper car as the owner. I'll take it back for her.” She was clearing tables and didn't see his face, but remembers he was sitting at the table next to the owner's at dinner. At 21:10 Lin Zhixia came back for the bag and found it gone."
+        },
+        "c_recorder": {
+          "title": "Snapped Voice Recorder",
+          "text": "In the trash bin under the dining car sink is a voice recorder snapped in two; the memory card slot is empty. Not many passengers spent time in the dining car after 21:58 tonight."
+        },
+        "c_patrol": {
+          "title": "Blacked-out Patrol Log",
+          "text": "In Qin Jianguo's patrol log, one line has been scribbled over repeatedly with ballpoint pen. Held up to the light, it can still be made out: “22:20  No. 3  checked  passenger resting.”"
+        },
+        "c_contract": {
+          "title": "Dongsheng Bao Contract",
+          "text": "In the attendant's room drawer is a yellowed Dongsheng Bao wealth-management contract: investor Qin Jianguo, amount 400,000 yuan. On the back, in ballpoint pen: “He Dongsheng, you owe my wife a life.”"
+        },
+        "c_tunnel": {
+          "title": "Train Operation Log",
+          "text": "The train operation log shows that from 21:43 to 21:58 the train passed through three long tunnels in a row, with a tremendous roar inside the cars and flickering lights. During that time, even if there were sounds of a struggle in a compartment, it would be hard to hear them next door."
+        },
+        "c_gloves": {
+          "title": "Crumpled Gloves",
+          "text": "In the vestibule trash bin is a crumpled pair of disposable nitrile gloves, with a few blue canvas fibers caught on the fingertips, the same color as the shoulder strap. The attendant's room has a whole box of these gloves, and a doctor's travel medical kit usually has them too."
+        },
+        "c_lipstick": {
+          "title": "Lipstick-stained Cigarette Butts",
+          "text": "On the windowsill are five or six cigarette butts stained with dusty-rose lipstick, and beside them a dropped note: “Dingyue, Mr. Zhou, 138****2617.” A woman spent quite a while here."
+        },
+        "c_draft": {
+          "title": "Draft Paper in the Window Gap",
+          "text": "Stuffed into the gap of the train window is a crumpled sheet of draft paper with a scrawled outline: “Dongsheng Bao — He — last year 50 → this time at least 100,” signed in the bottom right corner with the initials “S.Y.M.”"
+        }
+      },
+      "contradictions": {
+        "x_song_exam": "Dr. Song says the time of death was between 22:00 and 22:30, but the fitness band shows He Dongsheng's heart stopped at 21:44.",
+        "x_song_cover": "Dr. Song says he was drinking tea in the dining car from 21:25, but the dining car had no orders at all from 21:20 to 21:57, and the server says the car was completely empty during that time.",
+        "x_lin_cover": "Lin Zhixia says she never left Compartment 5 after 21:15, but He Dongsheng's phone asked her over at ten at 21:52, and the message shows as read.",
+        "x_qin_cover": "Qin Jianguo says he was in the attendant's room the whole time after 21:30, but in his patrol log a line reading “22:20 checked No. 3” has been blacked out.",
+        "x_shao_cover": "Shao Yiming says he never went near No. 3, but the victim's Dongsheng Capital document folder is in his backpack.",
+        "x_tang_cover": "Tang Wei says she went back to her compartment to sleep after 21:20, but the vestibule is full of cigarette butts in her lipstick shade, along with her note for contacting Dingyue."
+      },
+      "truth": {
+        "weapon": "The shoulder strap from Lin Zhixia's canvas bag",
+        "summary": "The killer is the cardiologist Song Huaijin. For years he took kickbacks from Kangheng Medical, and He Dongsheng held a recording of it, which he used to force Song to get Kangheng's stents into the hospital's centralized procurement. At dinner Song Huaijin saw Lin Zhixia leave her canvas bag behind, took it on the pretext of being “in the same car,” removed the shoulder strap and returned the bag to her berth. At 21:30 he entered Compartment 3 and drank with He Dongsheng; at 21:44, as the train entered the tunnels and the noise was deafening, he strangled him with the strap. He then wiped his glass clean, took the voice recorder, unlocked the victim's phone with his face and messaged Lin Zhixia to come over at ten, tucked the strap under the pillow and left the body facing the wall, “asleep.” He only reached the dining car at 21:58, yet claimed he had been there since 21:25; and when he examined the body he deliberately put the time of death at 22:00-22:30, so that Lin Zhixia, Qin Jianguo and Shao Yiming, who entered the compartment later, would take the blame. The heart-rate record on the fitness band shows He Dongsheng was already dead at 21:44. The 21:52 WeChat message was “sent” by a dead man.",
+        "timeline": [
+          "Everyone eats dinner in the dining car; He Dongsheng publicly threatens to make Lin Zhixia buy back the shares under the performance-guarantee agreement. Lin Zhixia leaves her canvas bag behind when she storms off.",
+          "Song Huaijin takes Lin Zhixia's bag from the dining car, claiming to be “in the same car,” removes the shoulder strap, and at 20:50 returns the bag to Compartment 5.",
+          "He Dongsheng fires Tang Wei in Compartment 3. At 21:20 Tang Wei leaves in tears and hides in the vestibule to make phone calls.",
+          "Song Huaijin knocks on the door of Compartment 3 and drinks with He Dongsheng. Qin Jianguo glimpses a man's back from a distance.",
+          "The train enters the tunnels; Song Huaijin strangles He Dongsheng with the shoulder strap.",
+          "Song Huaijin unlocks the phone with the victim's face, messages Lin Zhixia to come over at ten, stages the scene and leaves.",
+          "Song Huaijin throws away the gloves in the vestibule, and only at 21:58 orders his first pot of tea in the dining car.",
+          "Lin Zhixia comes to No. 3 as asked, thinks He Dongsheng is asleep, and quietly leaves.",
+          "Qin Jianguo pushes open No. 3's door to confront him about Dongsheng Bao, gets no response, and assumes he is pretending to sleep.",
+          "Shao Yiming enters No. 3, finds He Dongsheng dead, takes the folder containing the receipt for his own payment and leaves without shutting the door properly.",
+          "Qin Jianguo finds the body on his rounds. Song Huaijin examines it and falsely claims the time of death was 22:00-22:30."
+        ],
+        "secrets": [
+          "Faked Yunling Coffee's sales; entered Compartment 3 at 22:00 in response to “He Dongsheng's” WeChat message.",
+          "Sold Dongsheng Capital's investment plans to a rival and was fired that night; hid in the vestibule from 21:22 to 22:20.",
+          "A victim of Dongsheng Bao; entered Compartment 3 at 22:20 and blacked out the patrol log afterward.",
+          "Took 500,000 yuan in hush money from He Dongsheng; found the body at 22:30 without reporting it, and took the document folder.",
+          "The killer; took kickbacks from Kangheng Medical and was being blackmailed by He Dongsheng with a recording."
+        ]
+      }
+    }
+  }
+}

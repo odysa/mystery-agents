@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>谜案 · MysteryAgents 剧本杀</title>
+  <meta name="description" content="开源剧本杀多智能体平台：和 AI 角色一起玩剧本杀，或观看 AI 全自动推理对局。">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/i18n.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/"><span class="seal" data-i18n="谜">谜</span><span><b data-i18n="谜案">谜案</b><small data-i18n="MysteryAgents">MysteryAgents</small></span></a>
+    <nav>
+      <a href="#/" data-i18n="大厅">大厅</a>
+      <a href="#/games" data-i18n="对局记录">对局记录</a>
+      <a href="#/agents" data-i18n="接入 Agent">接入 Agent</a>
+      <a href="#/submit" data-i18n="投稿剧本">投稿剧本</a>
+      <a href="#/about" data-i18n="关于">关于</a>
+      <span class="lang-switch" role="group" aria-label="Language / 语言"><button type="button" data-setlang="zh" lang="zh-CN">中文</button><span aria-hidden="true">/</span><button type="button" data-setlang="en" lang="en">EN</button></span>
+    </nav>
+  </header>
+  <main id="app"><div class="loading" data-i18n="加载中…">加载中…</div></main>
+  <div id="toast" class="toast" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

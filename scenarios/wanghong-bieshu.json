@@ -1,0 +1,1051 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "wanghong-bieshu",
+  "version": "1.0.0",
+  "title": "断播之夜",
+  "subtitle": "MCN 公司郊外团建，千万粉丝主播死在直播间——可镜头里的她，一直笑到了 22:10。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 5,
+  "difficulty": "进阶",
+  "estimatedMinutes": 60,
+  "victim": {
+    "id": "lin_lu",
+    "name": "林鹿",
+    "bio": "26岁，星耀传媒的头部带货主播，艺名「鹿鹿」，全网粉丝八百万。镜头前甜美亲切，镜头后要求严苛、说一不二。"
+  },
+  "background": "2024年6月12日，星耀传媒包下京郊的云栖别墅搞周年团建。头部主播林鹿坚持当晚照常开播，把二楼主卧改成了临时直播间，20:00 准时开播；楼下的同事一边烧烤、玩狼人杀，一边把她的直播投在客厅的投影上。\n\n22:10，直播画面突然中断，弹幕瞬间炸了锅。林鹿的电话无人接听，敲门也没有回应。22:27，老板赵启明用管理员密码打开直播间的门——林鹿仰靠在直播椅上，脖子上缠着补光灯的电源线，已经没有了呼吸。\n\n别墅在山脚下，最近的派出所赶过来至少要一个多小时。投影上的她明明一直在说话、在笑，凶手又是什么时候动的手？",
+  "intro": "【主持人】欢迎来到《断播之夜》。这是一场进阶难度的推理：每个人都有不想被揭开的秘密，也都有让自己看起来很可疑的行踪。请注意——你亲眼看到的，未必就是真实发生的。凶手的目标是不被投票指认，其他人要找出真相。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询、公开线索或指控嫌疑人。被质询的人必须立刻回答。",
+    "investigate_2": "【主持人】警笛声还很远。第二轮搜证开始——有些线索，只有在你看懂了另一条线索之后才会注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。直播画面、门锁记录、每个人的行踪……请把时间线对齐。",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "livestream",
+      "name": "二楼直播间",
+      "description": "案发现场。主卧改成的直播间，隔音棉、补光灯、推流电脑一应俱全，门上装着智能密码锁。",
+      "x": 0.15,
+      "y": 0.25
+    },
+    {
+      "id": "corridor",
+      "name": "二楼走廊与客房",
+      "description": "连接直播间和几间客房的走廊，有一台定时清扫的扫地机器人和一个放杂物的储物柜。",
+      "x": 0.6,
+      "y": 0.12
+    },
+    {
+      "id": "living",
+      "name": "一楼客厅与厨房",
+      "description": "大家玩狼人杀、看直播投影的地方，开放式厨房连着通往院门的玄关。",
+      "x": 0.3,
+      "y": 0.8
+    },
+    {
+      "id": "equipment",
+      "name": "车库设备间",
+      "description": "陈屿临时搭起来的技术间：路由器、团队网盘 NAS 和直播后台的数据大屏都在这里。",
+      "x": 0.88,
+      "y": 0.5
+    },
+    {
+      "id": "pool",
+      "name": "泳池花园",
+      "description": "别墅后院的泳池和躺椅，夜里灯光昏暗，从客厅后门出去就是。",
+      "x": 0.68,
+      "y": 0.88
+    }
+  ],
+  "characters": [
+    {
+      "id": "zhao_qiming",
+      "name": "赵启明",
+      "color": "#c0392b",
+      "publicBio": "42岁，星耀传媒创始人兼CEO。林鹿是他一手捧红的，也是公司七成营收的来源。",
+      "personality": "圆滑强势，习惯用「大局」压人；被戳到痛处会突然沉默，然后转移话题。",
+      "script": "你是赵启明，星耀传媒的老板。公司和投资人签了对赌协议，月底业绩不达标就要巨额赔偿，而林鹿撑着公司七成的营收。可她的合约年底到期，已经在和竞争对手「青橙」接触。走投无路的你，偷偷伪造了林鹿的签名，做了一份把合约延长五年、违约金五千万的《补充协议》。前几天，林鹿发现了。\n\n【当晚经历】\n19:00-19:40 院子里烧烤。\n19:41 你用管理员密码进了直播间，求林鹿别把事情闹到律师那一步。她冷冷地说：「播完我就让律师发函。」19:56 你离开。\n20:00-21:55 你一直在客厅看投影、给投资人回消息。21:30 何雯说去厨房弄夜宵，21:33 周小糖也出去了，客厅只剩你一个。21:50 前后，你觉得林鹿讲面霜的那几句话好像之前讲过一遍，以为她累了。\n21:55 何雯才进客厅，额头上全是汗，说外卖刚到。\n22:00 开始玩狼人杀；22:10 直播中断；22:27 你用管理员密码开门，发现了尸体。\n\n【你的秘密】伪造签名，以及开播前和林鹿的争执。\n\n【你的任务】找出真凶；不要让那份《补充协议》被公开。",
+      "knowledge": [
+        {
+          "id": "k_zhao_cover",
+          "text": "今晚我没单独见过林鹿，续约的事早就谈妥了。",
+          "time": "19:00-22:27",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_zhao_hewen",
+          "text": "21:55 何雯才进客厅，额头上全是汗，说外卖刚到。",
+          "time": "21:55",
+          "implicates": {
+            "he_wen": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_zhao_repeat",
+          "text": "21:50 前后我看投影，总觉得林鹿讲面霜的那几句话之前讲过一遍。",
+          "time": "21:50",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_zhao_visit",
+          "text": "19:41-19:56 我用管理员密码进了直播间，求林鹿别发律师函，她不肯。",
+          "time": "19:41",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_zhao_forge",
+          "text": "那份延长五年的补充协议上，林鹿的签名是我伪造的。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "今晚我没单独见过林鹿，续约的事早就谈妥了。开播以后我一直在客厅看投影。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_contract",
+          "desc": "不让伪造签名的《补充协议》被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "living",
+          "livestream",
+          "corridor",
+          "equipment"
+        ]
+      }
+    },
+    {
+      "id": "he_wen",
+      "name": "何雯",
+      "color": "#8e44ad",
+      "publicBio": "34岁，林鹿的经纪人，从她还是个小主播时就跟着她，一起熬了五年。",
+      "personality": "干练周到、八面玲珑，永远在替别人安排；紧张时会不停整理头发和袖口。",
+      "script": "你是何雯，林鹿的经纪人，也是杀死她的凶手。\n\n两年来，你借表妹挂名的空壳公司「鹿鸣文化」挪走了林鹿三百多万。21:00 她发来微信：「会计把账对完了。播完我们谈。」\n\n【当晚真实经历】\n21:05 你点了外卖。21:28 你照例把 21:12 起的一段直播切片传到团队网盘。\n21:30 你对赵启明说去厨房弄夜宵，其实从后楼梯上了二楼，21:35 从走廊储物柜的工具箱里拿了一副 S 码布线手套。\n21:36 趁林鹿放宣传片休息，你用访客密码进门。她把查账结果摔在你面前，说明天报警。21:42 你用补光灯电源线勒死了她。\n21:45 你让直播电脑下载那段 23 分钟的切片，21:47 把推流源切过去——观众会以为她播到了 22:10。你又用她的手机约陈屿「十点零五上来」，把一只手套丢在床下。21:48 离开，门自动上锁。\n21:52 你在院门口签收外卖（手机静音，骑手打了三遍没接），21:55 进客厅，之后一直和大家在一起。\n\n【你的谎言】「21:30 到 21:52 我一直在厨房等外卖。」\n\n【你的任务】不被指认；不让推流日志被公开。把矛头引向敲过门的陈屿，或懂「挂播」的许婧。",
+      "knowledge": [
+        {
+          "id": "k_he_cover",
+          "text": "21:30 到 21:52 我一直在一楼厨房备夜宵、等外卖，签收后就去了客厅。",
+          "time": "21:30-21:52",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_he_alibi",
+          "text": "22:00 到 22:10 林鹿还在直播的时候，我一直在客厅玩狼人杀，大家都看见了。",
+          "time": "22:00-22:10",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_he_truth",
+          "text": "21:36 我用访客密码进了直播间，21:42 勒死了林鹿，21:47 把推流源换成切片，用她的手机给陈屿发了消息，还把一只手套丢在床下。",
+          "time": "21:36-21:48",
+          "implicates": {
+            "he_wen": 5
+          },
+          "secret": true
+        },
+        {
+          "id": "k_he_money",
+          "text": "我通过「鹿鸣文化」挪用了林鹿三百多万。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "21:30 到 21:52 我一直在一楼厨房备夜宵、等外卖，签收后就去客厅了。林鹿出事的时候我在玩狼人杀。",
+      "isMurderer": true,
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_pushlog",
+          "desc": "不让推流软件日志被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "livestream",
+          "living",
+          "livestream",
+          "equipment"
+        ]
+      }
+    },
+    {
+      "id": "chen_yu",
+      "name": "陈屿",
+      "color": "#2980b9",
+      "publicBio": "29岁，星耀传媒的技术运营，负责推流、网络和直播设备。话不多，常年一件黑色连帽卫衣。",
+      "personality": "内向、较真，说话直来直去；被逼问私事时会明显慌乱。",
+      "script": "你是陈屿，公司的技术运营。没人知道，你和林鹿偷偷谈了两年恋爱。上个月她为了「单身人设」把你甩了，你一时气急，回了一句「你会后悔的」，至今后悔。分手后她换了直播间的访客密码，没再告诉你。\n\n【当晚经历】\n下午你调试网络时拔了泳池边监控的电源，忘了插回去。\n20:00-22:03 你一直在车库设备间盯推流和后台数据。21:45 后台显示直播电脑从团队网盘下载了一个大文件，你以为她要放宣传片。21:52 起弹幕里很多人在问「鹿鹿怎么不回弹幕了」，你没太在意。\n22:00 你才看到林鹿 21:47 发来的微信：「十点零五上来一趟，门密码没换。别让别人看见。」你心跳得厉害，以为她想复合。\n22:05 你到直播间门口，用你们的旧密码 0214 试了两次，都错了；敲门也没人应，隔音太好什么都听不见。22:08 你失望地下楼，22:10 进客厅时，直播正好断了。\n\n【你的秘密】你和林鹿的恋情、那句威胁一样的话，以及 22:05 你去过直播间门口。\n\n【你的说法】「我一直在设备间，没上过二楼。」\n\n【你的任务】找出真凶；让储物柜工具箱的线索被公开——那只手套根本不是你的尺码。",
+      "knowledge": [
+        {
+          "id": "k_chen_cover",
+          "text": "开播以后我一直在车库设备间盯网络，没上过二楼。",
+          "time": "20:00-22:10",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_chen_download",
+          "text": "21:45 后台显示直播电脑从团队网盘下载了一个大文件，我还以为她要放宣传片。",
+          "time": "21:45",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_chen_visit",
+          "text": "22:05 我收到林鹿的消息上楼，用旧密码开门两次都错了，敲门没人应，22:08 就下楼了。",
+          "time": "22:05",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_chen_ex",
+          "text": "我和林鹿谈过两年恋爱，上个月被她甩了。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "开播以后我一直在车库设备间盯网络，没上过二楼。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_public",
+          "clue": "c_glovebox",
+          "desc": "让储物柜工具箱的线索被公开，证明手套不是你的"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "equipment",
+          "corridor",
+          "livestream",
+          "pool"
+        ]
+      }
+    },
+    {
+      "id": "zhou_xiaotang",
+      "name": "周小糖",
+      "color": "#e67e22",
+      "publicBio": "22岁，公司新签的主播，一直跟在林鹿身边学带货，被称作「鹿鹿的小徒弟」。",
+      "personality": "嘴甜、反应快，表面天真；被揭穿时会立刻哭着装委屈。",
+      "script": "你是周小糖，公司的新人主播。林鹿嘴上叫你「小徒弟」，实际处处压你：抢你谈好的品牌，还在直播里拿你开玩笑。你忍了一年，开始偷偷用一部备用手机，把她的素颜照、她和陈屿的恋情卖给营销号「老K」。你上周给她当过助播，所以知道直播间的访客密码。\n\n【当晚经历】\n19:40 你在二楼走廊看见许婧从直播间出来，眼睛通红，手里攥着一张纸。\n21:00-21:33 在客厅看投影。21:33 你借口透气，溜到泳池边，21:35-21:49 和老K打电话，把价格谈到了二十万。\n21:49 你从后门回屋，经过门厅时看见何雯从二楼楼梯上下来，攥着手机，脸色发白。你怕暴露自己出去过，什么都没问。\n21:50 回到客厅；22:00 一起玩狼人杀；22:27 跟着上楼，看见了尸体。\n\n【你的秘密】你在卖林鹿的黑料，案发时段你在泳池边打电话。\n\n【你的说法】「今晚我一直在客厅，没出去过。」\n\n【你的任务】找出真凶；不要让泳池边那部备用手机被公开。",
+      "knowledge": [
+        {
+          "id": "k_zhou_cover",
+          "text": "今晚我一直在客厅，没出过门。",
+          "time": "20:00-22:27",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_zhou_xu",
+          "text": "19:40 我在二楼走廊看见许婧从直播间出来，眼睛通红，手里攥着一张纸。",
+          "time": "19:40",
+          "implicates": {
+            "xu_jing": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_zhou_stairs",
+          "text": "21:49 我从泳池回屋，在门厅看见何雯从二楼楼梯上下来，攥着手机，脸色发白。",
+          "time": "21:49",
+          "implicates": {
+            "he_wen": 2
+          },
+          "secret": true
+        },
+        {
+          "id": "k_zhou_leak",
+          "text": "21:35-21:49 我在泳池边用备用手机和营销号谈卖林鹿黑料的价钱。",
+          "time": "21:35-21:49",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "今晚我一直在客厅，没出过门。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_poolphone",
+          "desc": "不让泳池边的备用手机被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "pool",
+          "livestream",
+          "living",
+          "corridor"
+        ]
+      }
+    },
+    {
+      "id": "xu_jing",
+      "name": "许婧",
+      "color": "#16a085",
+      "publicBio": "25岁，林鹿的私人助理兼化妆师，负责她的妆造和直播间里的杂事。",
+      "personality": "温顺、胆小，习惯把委屈往肚子里咽；说话轻声细语，常常欲言又止。",
+      "script": "你是许婧，林鹿的助理兼化妆师。两年来，林鹿熬不动凌晨场时，就让你用前一晚的切片「挂播」冒充直播——这事只有你们俩知道，你甚至记了一本操作步骤。上周平台发来警告，林鹿立刻翻脸，打印了一份《情况说明》让你签字，承认是你「擅自」用录播冒充直播，否则就开除你，让你在行业里混不下去。\n\n【当晚经历】\n19:28 你用访客密码进直播间给林鹿化妆。她把《情况说明》拍在桌上：「播完之前签好。」19:40 你红着眼出来。\n19:40-22:15 你一直待在二楼自己的房间里哭，没签字。21:20 林鹿发微信催：「签了没？」\n21:36 左右，你听见走廊有拖鞋声走到直播间门口，门锁「滴」了一声，以为是有人去找她。\n22:06 你听见敲门声，从门缝看见陈屿在直播间门口按密码、敲门，一会儿就走了。\n22:15 你下楼；22:27 大家开门时，你吓得腿都软了。\n\n【你的秘密】代播造假，以及那份逼你背锅的《情况说明》。你知道「挂播」怎么操作，这会让你成为头号嫌疑人。\n\n【你的任务】找出真凶；不要让你的挂播笔记本被公开。",
+      "knowledge": [
+        {
+          "id": "k_xu_cover",
+          "text": "化完妆以后，19:40 到 22:15 我一直在二楼自己的房间里。",
+          "time": "19:40-22:15",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_xu_saw_chen",
+          "text": "22:06 我从门缝看见陈屿在直播间门口按密码、敲门，一会儿就走了。",
+          "time": "22:06",
+          "implicates": {
+            "chen_yu": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_xu_heard",
+          "text": "21:36 左右走廊有拖鞋声走到直播间门口，门锁「滴」了一声。",
+          "time": "21:36",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_xu_ghost",
+          "text": "林鹿的凌晨场很多是我用切片挂播冒充的，她要我签字一个人背锅。",
+          "time": "",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "化完妆以后，19:40 到 22:15 我一直在二楼自己的房间里。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_xu_notebook",
+          "desc": "不让记着挂播步骤的笔记本被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "corridor",
+          "livestream",
+          "equipment",
+          "living"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "zhao_qiming",
+      "b": "he_wen",
+      "label": "老板与经纪人·合作多年",
+      "public": true
+    },
+    {
+      "a": "he_wen",
+      "b": "xu_jing",
+      "label": "同属林鹿团队",
+      "public": true
+    },
+    {
+      "a": "zhou_xiaotang",
+      "b": "xu_jing",
+      "label": "同期入职·关系一般",
+      "public": true
+    },
+    {
+      "a": "chen_yu",
+      "b": "zhao_qiming",
+      "label": "老板与技术骨干",
+      "public": true
+    },
+    {
+      "a": "zhou_xiaotang",
+      "b": "chen_yu",
+      "label": "她偷拍过他和林鹿的合影",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "zhao_qiming",
+      "label": "老板（一手捧红）"
+    },
+    {
+      "who": "he_wen",
+      "label": "经纪人（五年）"
+    },
+    {
+      "who": "chen_yu",
+      "label": "同事（秘密前男友）"
+    },
+    {
+      "who": "zhou_xiaotang",
+      "label": "师徒（名义上）"
+    },
+    {
+      "who": "xu_jing",
+      "label": "助理兼化妆师"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "livestream",
+      "title": "尸体初检",
+      "text": "林鹿仰靠在直播椅上，颈部有一道细而深的勒痕，补光灯的电源线被拔下来缠在椅背上。房间空调开在 18℃，尸温很难精确判断，大致死亡时间在 21:30 到 22:30 之间。",
+      "time": "21:30-22:30",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_lock",
+      "location": "livestream",
+      "title": "智能门锁记录",
+      "text": "直播间门锁的开锁记录：19:28 访客密码开锁；19:40 室内开门；19:41 管理员密码开锁；19:56 室内开门；21:36 访客密码开锁；21:48 室内开门；22:05 密码错误；22:05 密码错误；22:27 管理员密码开锁。门锁说明：管理员密码只有别墅承租方（公司）掌握，访客密码今晚只发给了林鹿的团队。",
+      "time": "19:28-22:27",
+      "implicates": {
+        "zhao_qiming": 1,
+        "he_wen": 1,
+        "xu_jing": 1,
+        "zhou_xiaotang": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_glove",
+      "location": "livestream",
+      "title": "床下的黑色手套",
+      "text": "床底下有一只黑色的防滑布线手套，和设备间常用的那种一模一样，掌心有被电线勒出来的一道压痕。",
+      "time": "",
+      "implicates": {
+        "chen_yu": 2
+      }
+    },
+    {
+      "id": "c_phone",
+      "location": "livestream",
+      "title": "林鹿的手机",
+      "text": "林鹿的手机扣在桌上，没有锁屏。最后一条发出的微信是 21:47 发给陈屿的：「十点零五上来一趟，门密码没换。别让别人看见。」",
+      "time": "21:47",
+      "implicates": {
+        "chen_yu": 2
+      }
+    },
+    {
+      "id": "c_statement",
+      "location": "livestream",
+      "title": "没签字的《情况说明》",
+      "text": "桌上压着一份打印好的《情况说明》：「本人许婧，承认在未经主播同意的情况下，多次使用录播冒充直播……」签名处空着。旁边一张便利贴是林鹿的字：「今晚必须签，不签就走人。」",
+      "time": "",
+      "implicates": {
+        "xu_jing": 2
+      }
+    },
+    {
+      "id": "c_audit",
+      "location": "livestream",
+      "title": "查账邮件打印件",
+      "text": "抽屉里有一份会计事务所的核对邮件：近两年打赏分成与商务款项差额 312 万元，资金流向一家叫「鹿鸣文化」的公司。林鹿在旁边用红笔写着：「谁签批的？谁经手的？今晚问清楚。」",
+      "time": "",
+      "implicates": {
+        "he_wen": 2,
+        "zhao_qiming": 1
+      }
+    },
+    {
+      "id": "c_pushlog",
+      "location": "livestream",
+      "title": "推流软件日志",
+      "text": "既然投影上的画面有问题，你仔细翻了推流电脑的直播软件日志：21:35 推流源切换为「新品宣传片.mp4」；21:47 推流源切换为本地文件「0612_2112切片.mp4」（时长 23 分 04 秒）；22:10 本地素材播放完毕，推流自动结束。两次切换都是在这台电脑上用键鼠直接操作的。",
+      "time": "21:35-22:10",
+      "implicates": {
+        "he_wen": 2,
+        "xu_jing": 1,
+        "zhou_xiaotang": 1,
+        "chen_yu": -2
+      },
+      "requires": [
+        "c_replay"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_robot",
+      "location": "corridor",
+      "title": "扫地机器人的障碍物照片",
+      "text": "二楼的扫地机器人按计划 21:30-22:30 清扫走廊，App 里存着两张「障碍物照片」：21:36，直播间门口站着一双别墅统一发的白色一次性拖鞋；22:06，一个穿黑色连帽卫衣的男人背对镜头，站在直播间门口。",
+      "time": "21:36",
+      "implicates": {
+        "chen_yu": 1
+      }
+    },
+    {
+      "id": "c_glovebox",
+      "location": "corridor",
+      "title": "储物柜里的工具箱",
+      "text": "看到床下那只手套后，你翻开走廊储物柜里的布线工具箱。登记卡上写着「陈屿 XL」，那副 XL 手套还挂在原处，干干净净；倒是两副 S 码手套只剩下了一副。",
+      "time": "",
+      "implicates": {
+        "chen_yu": -3,
+        "he_wen": 1,
+        "xu_jing": 1,
+        "zhou_xiaotang": 1
+      },
+      "requires": [
+        "c_glove"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_xu_notebook",
+      "location": "corridor",
+      "title": "化妆包里的小本子",
+      "text": "许婧房间的化妆包夹层里有一个小本子：「凌晨场挂播：①导出前一晚切片 ②推流源切本地文件 ③关掉弹幕助手 ④算好结束时间」。最后一页写着：「凭什么都让我背？」",
+      "time": "",
+      "implicates": {
+        "xu_jing": 2
+      }
+    },
+    {
+      "id": "c_replay",
+      "location": "living",
+      "title": "投影上的直播回放",
+      "text": "客厅投影一直在投林鹿的直播。回放显示：21:35 林鹿说「休息一下，先给大家放新品宣传片」；21:47 她回到镜头前继续讲面霜；22:01 她笑着说「谢谢橘子汽水送的嘉年华！」；22:10 画面突然中断。",
+      "time": "21:35-22:10",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_receipt",
+      "location": "living",
+      "title": "厨房台面上的外卖小票",
+      "text": "外卖小票：下单人「何女士」，21:05 下单，预计 21:40 送达，实际签收 21:52。骑手备注：「在门口等了十二分钟，电话打了三遍都没人接。」厨房的砧板和水果刀都是干的，看不出有人用过。",
+      "time": "21:40-21:52",
+      "implicates": {
+        "he_wen": 3
+      }
+    },
+    {
+      "id": "c_zhao_phone",
+      "location": "living",
+      "title": "茶几上的手机",
+      "text": "茶几上赵启明的手机亮着，投资人发来微信：「对赌月底到期。林鹿要是走了，你知道后果。」赵启明回复：「她走不了，我有办法。」",
+      "time": "",
+      "implicates": {
+        "zhao_qiming": 2
+      }
+    },
+    {
+      "id": "c_contract",
+      "location": "living",
+      "title": "公文包里的补充协议",
+      "text": "沙发上的公文包里有一份《独家经纪补充协议》，把林鹿的合约延长五年、违约金 5000 万。乙方签名「林鹿」的笔迹和她平时的签名明显不同。协议背面有一行红笔字：「伪造签名？律师函见。——鹿」",
+      "time": "",
+      "implicates": {
+        "zhao_qiming": 3
+      }
+    },
+    {
+      "id": "c_gift",
+      "location": "equipment",
+      "title": "后台礼物流水",
+      "text": "设备间的数据大屏上，礼物流水显示「橘子汽水」送出嘉年华的时间是 21:12。21:47 以后，主播没有再回应任何一条新弹幕或礼物；21:52 起弹幕开始刷屏：「鹿鹿怎么不回弹幕了？」",
+      "time": "21:12",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_threat",
+      "location": "equipment",
+      "title": "笔记本电脑上的聊天记录",
+      "text": "陈屿的笔记本电脑上开着聊天记录：上个月林鹿发来「我们到此为止，别再找我，也别让任何人知道」，陈屿回了一句「你会后悔的」。键盘边贴着一张便签：「鹿 0214」。",
+      "time": "",
+      "implicates": {
+        "chen_yu": 2
+      }
+    },
+    {
+      "id": "c_slicefile",
+      "location": "equipment",
+      "title": "团队网盘的传输记录",
+      "text": "知道推流用的是本地切片后，你查了 NAS 的传输记录：21:28 何雯的账号上传了「0612_2112切片.mp4」（备注：今晚短视频素材，按惯例由经纪人上传）；21:45「鹿鹿直播电脑」下载了这个文件。团队网盘的账号何雯、许婧、陈屿、周小糖都有。",
+      "time": "21:28-21:45",
+      "implicates": {
+        "he_wen": 2,
+        "xu_jing": 1,
+        "chen_yu": 1
+      },
+      "requires": [
+        "c_pushlog"
+      ]
+    },
+    {
+      "id": "c_poolphone",
+      "location": "pool",
+      "title": "躺椅下的备用手机",
+      "text": "躺椅坐垫下塞着一部贴着草莓贴纸的旧手机。通话记录：21:35-21:49 与「老K爆料」通话 14 分钟。相册里有十几张林鹿的素颜照和她与陈屿的亲密合影，还有一条没发出去的消息：「20 万，独家，明早发。」",
+      "time": "21:35-21:49",
+      "implicates": {
+        "zhou_xiaotang": 1
+      }
+    },
+    {
+      "id": "c_poolcam",
+      "location": "pool",
+      "title": "被拔掉电源的监控",
+      "text": "泳池边的监控摄像头被拔了电源，插头上缠着一张标签：「调试中，勿动——陈」。今晚别墅外围没有留下任何监控画面。",
+      "time": "",
+      "implicates": {
+        "chen_yu": 1
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "he_wen",
+    "weapon": "补光灯电源线",
+    "summary": "凶手是经纪人何雯。她两年来通过空壳公司「鹿鸣文化」挪用了林鹿三百多万，当晚林鹿查清了账，要在下播后摊牌、报警。何雯先点了外卖给自己做不在场证明，21:36 趁林鹿放宣传片休息，用访客密码进入直播间，21:42 用补光灯电源线勒死了她。随后她让直播电脑下载自己 21:28 上传的 23 分钟切片，21:47 把推流源切了过去——楼下投影里的林鹿看上去一直播到 22:10，而 22:00 以后何雯一直在客厅玩狼人杀。她还用林鹿的手机约陈屿 22:05 上楼，并丢下一只 S 码布线手套，嫁祸给陈屿。破绽在于：投影里 22:01 林鹿感谢的礼物，其实是 21:12 送出的；门锁记录显示 21:48 之后再也没人进过门；而那只手套根本不是陈屿的尺码。",
+    "timeline": [
+      {
+        "time": "19:28-19:40",
+        "text": "许婧在直播间给林鹿化妆，林鹿逼她在《情况说明》上签字。"
+      },
+      {
+        "time": "19:41-19:56",
+        "text": "赵启明用管理员密码进入直播间，为伪造签名的补充协议求情，被拒。"
+      },
+      {
+        "time": "20:00",
+        "text": "林鹿开播，客厅投影同步播放。"
+      },
+      {
+        "time": "21:00",
+        "text": "林鹿发微信给何雯，说查账完毕，播完要谈。"
+      },
+      {
+        "time": "21:12",
+        "text": "「橘子汽水」送出嘉年华，林鹿口播感谢——这段画面后来被做成了切片。"
+      },
+      {
+        "time": "21:28",
+        "text": "何雯把 21:12 起的切片上传到团队网盘。"
+      },
+      {
+        "time": "21:35-21:49",
+        "text": "林鹿下播休息放宣传片；周小糖在泳池边与营销号通话。"
+      },
+      {
+        "time": "21:36",
+        "text": "何雯用访客密码进入直播间。"
+      },
+      {
+        "time": "21:42",
+        "text": "何雯用补光灯电源线勒死林鹿。"
+      },
+      {
+        "time": "21:45-21:47",
+        "text": "直播电脑下载切片，推流源被切换；何雯用林鹿的手机给陈屿发消息，丢下手套。"
+      },
+      {
+        "time": "21:48",
+        "text": "何雯离开直播间，21:49 下楼时被周小糖看见。"
+      },
+      {
+        "time": "21:52",
+        "text": "何雯在院门口签收外卖，21:55 进入客厅。"
+      },
+      {
+        "time": "22:05-22:08",
+        "text": "陈屿用旧密码开门失败，敲门无人应，离开。许婧从门缝看见了他。"
+      },
+      {
+        "time": "22:10",
+        "text": "切片播完，推流自动结束，直播「断播」。"
+      },
+      {
+        "time": "22:27",
+        "text": "赵启明用管理员密码开门，发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "zhao_qiming",
+        "text": "伪造了林鹿的续约签名；19:41 去直播间求情。"
+      },
+      {
+        "who": "he_wen",
+        "text": "凶手；挪用林鹿三百多万。"
+      },
+      {
+        "who": "chen_yu",
+        "text": "林鹿的秘密前男友；22:05 去直播间门口敲过门。"
+      },
+      {
+        "who": "zhou_xiaotang",
+        "text": "偷卖林鹿的黑料给营销号；21:35-21:49 在泳池边打电话，还看见何雯从二楼下来。"
+      },
+      {
+        "who": "xu_jing",
+        "text": "长期替林鹿用切片挂播冒充直播，被逼签字背锅。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_he_kitchen",
+      "knowledge": "k_he_cover",
+      "clue": "c_receipt",
+      "text": "何雯说自己 21:30 起一直在厨房等外卖，可骑手在门口等了十二分钟、打了三遍电话都没人接，砧板也是干的。",
+      "implicates": {
+        "he_wen": 2
+      }
+    },
+    {
+      "id": "x_he_alibi",
+      "knowledge": "k_he_alibi",
+      "clue": "c_pushlog",
+      "text": "何雯拿 22:00 以后在客厅当不在场证明，可 21:47 之后的直播画面其实是切片，22:00 的不在场证明根本不算数。",
+      "implicates": {
+        "he_wen": 1
+      }
+    },
+    {
+      "id": "x_zhao_lock",
+      "knowledge": "k_zhao_cover",
+      "clue": "c_lock",
+      "text": "赵启明说今晚没单独见过林鹿，可门锁记录显示 19:41 有人用只有公司才有的管理员密码进过直播间。",
+      "implicates": {
+        "zhao_qiming": 1
+      }
+    },
+    {
+      "id": "x_chen_robot",
+      "knowledge": "k_chen_cover",
+      "clue": "c_robot",
+      "text": "陈屿说自己没上过二楼，可扫地机器人 22:06 拍到一个穿黑色连帽卫衣的男人站在直播间门口。",
+      "implicates": {
+        "chen_yu": 1
+      }
+    },
+    {
+      "id": "x_zhou_pool",
+      "knowledge": "k_zhou_cover",
+      "clue": "c_poolphone",
+      "text": "周小糖说自己一直在客厅，可泳池边那部手机 21:35 到 21:49 一直在通话。",
+      "implicates": {
+        "zhou_xiaotang": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Night the Stream Died",
+      "subtitle": "At an MCN agency's retreat outside the city, a streamer with tens of millions of fans dies in her livestream room. Yet on camera, she kept smiling right up until 22:10.",
+      "background": "June 12, 2024. Xingyao Media has rented Yunqi Villa on the outskirts of Beijing for its anniversary team-building retreat. Top streamer Lin Lu insists on going live as usual that night, turns the second-floor master bedroom into a temporary livestream room, and starts broadcasting at 20:00 sharp. Downstairs, her colleagues barbecue and play Werewolf while her stream plays on the living-room projector.\n\nAt 22:10 the stream suddenly cuts out, and the live comments explode. Lin Lu doesn't answer her phone, and no one answers the door. At 22:27, the boss, Zhao Qiming, opens the livestream room door with the administrator code. Lin Lu is slumped back in her streaming chair, the power cord of a ring light wrapped around her neck. She is no longer breathing.\n\nThe villa sits at the foot of a mountain; the nearest police station is over an hour away. On the projector she was talking and laughing the whole time, so when did the killer strike?",
+      "intro": "[Host] Welcome to The Night the Stream Died. This is an intermediate-level mystery: everyone has a secret they don't want uncovered, and everyone's movements make them look suspicious. Be warned: what you saw with your own eyes may not be what actually happened. The killer's goal is to avoid being voted out; everyone else must find the truth.",
+      "victim": {
+        "name": "Lin Lu",
+        "bio": "26, Xingyao Media's top live-commerce streamer, known online as “Lulu,” with eight million followers across platforms. Sweet and warm on camera; exacting and domineering off it."
+      },
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. The clues you find are known only to you, and whether to reveal them is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal a clue or accuse a suspect. Whoever is questioned must answer at once.",
+        "investigate_2": "[Host] The sirens are still far away. The second round of investigation begins. Some clues only get noticed once you understand another clue.",
+        "discuss_2": "[Host] The final round of discussion. The stream footage, the door-lock records, everyone's movements... line up the timeline.",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the killer. Whoever receives the most votes will be named (in a tie, the killer escapes)."
+      },
+      "locations": {
+        "livestream": {
+          "name": "Livestream Room (2F)",
+          "description": "The crime scene. The master bedroom converted into a livestream room, fully kitted out with acoustic foam, ring lights and a streaming computer. The door has a smart code lock."
+        },
+        "corridor": {
+          "name": "Upstairs Corridor",
+          "description": "The corridor connecting the livestream room to several guest rooms, with a robot vacuum on a cleaning schedule and a storage cabinet for odds and ends."
+        },
+        "living": {
+          "name": "Lounge and Kitchen",
+          "description": "Where everyone played Werewolf and watched the stream on the projector. The open kitchen connects to the entryway leading to the front gate."
+        },
+        "equipment": {
+          "name": "Garage Tech Room",
+          "description": "Chen Yu's makeshift tech room: the router, the team's NAS cloud drive and the big dashboard screen for the stream backend are all here."
+        },
+        "pool": {
+          "name": "Pool Garden",
+          "description": "The pool and loungers in the villa's back garden, dimly lit at night, just outside the living room's back door."
+        }
+      },
+      "characters": {
+        "zhao_qiming": {
+          "name": "Zhao Qiming",
+          "publicBio": "42, founder and CEO of Xingyao Media. He made Lin Lu a star single-handedly, and she brings in seventy percent of the company's revenue.",
+          "personality": "Slick and forceful, used to pressuring people with talk of “the bigger picture”; when someone hits a sore spot he goes suddenly quiet, then changes the subject.",
+          "script": "You are Zhao Qiming, the boss of Xingyao Media. The company has signed a valuation-adjustment (performance-guarantee) agreement with its investors: if results fall short by the end of the month, you owe them a fortune, and Lin Lu carries seventy percent of the company's revenue. But her contract expires at year's end, and she is already talking to your rival, Qingcheng. Backed into a corner, you secretly forged Lin Lu's signature on a “Supplementary Agreement” extending her contract by five years with a 50-million-yuan penalty for breach. A few days ago, Lin Lu found out.\n\n[Tonight]\n19:00-19:40 Barbecue in the courtyard.\n19:41 You use the administrator code to enter the livestream room and beg Lin Lu not to take this as far as lawyers. She says coldly: “The moment I'm done streaming, my lawyer sends the letter.” 19:56 You leave.\n20:00-21:55 You stay in the living room the whole time, watching the projector and replying to investors. At 21:30 He Wen says she's going to the kitchen to make a late-night snack; at 21:33 Zhou Xiaotang goes out too, leaving you alone in the living room. Around 21:50, you get the feeling that a few lines Lin Lu says about the face cream are ones she has already said once before; you assume she's tired.\n21:55 He Wen finally comes into the living room, her forehead covered in sweat, saying the delivery just arrived.\n22:00 Werewolf begins; 22:10 the stream cuts out; 22:27 you open the door with the administrator code and find the body.\n\n[Your secrets] The forged signature, and your argument with Lin Lu before the stream.\n\n[Your objectives] Find the real killer; do not let the “Supplementary Agreement” be made public.",
+          "coverStory": "I didn't see Lin Lu alone tonight; the contract renewal was settled long ago. After the stream started, I was in the living room watching the projector the whole time.",
+          "knowledge": {
+            "k_zhao_cover": "I didn't see Lin Lu alone tonight. The contract renewal was settled long ago.",
+            "k_zhao_hewen": "He Wen only came into the living room at 21:55, her forehead covered in sweat, saying the delivery had just arrived.",
+            "k_zhao_repeat": "Around 21:50, watching the projector, I kept feeling that a few lines Lin Lu said about the face cream were ones she'd already said once before.",
+            "k_zhao_visit": "From 19:41 to 19:56 I used the administrator code to enter the livestream room and begged Lin Lu not to send a lawyer's letter. She refused.",
+            "k_zhao_forge": "On that five-year supplementary agreement, I forged Lin Lu's signature."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the “Supplementary Agreement” with the forged signature from being made public"
+          ]
+        },
+        "he_wen": {
+          "name": "He Wen",
+          "publicBio": "34, Lin Lu's agent. She has been with her since Lin Lu was a small-time streamer, five long years of grinding together.",
+          "personality": "Capable, thoughtful and socially adept, always arranging things for others; when nervous she keeps fixing her hair and cuffs.",
+          "script": "You are He Wen, Lin Lu's agent, and you are the one who killed her.\n\nOver two years, through Luming Culture, a shell company registered in your cousin's name, you siphoned off more than three million yuan of Lin Lu's money. At 21:00 she messaged you: “The accountant has finished going through the books. We'll talk after I'm done streaming.”\n\n[What really happened tonight]\n21:05 You order food delivery. 21:28 As usual, you upload a stream clip starting from 21:12 to the team's cloud drive.\n21:30 You tell Zhao Qiming you're going to the kitchen to make a late-night snack, but actually go up the back stairs to the second floor. At 21:35 you take a pair of size S cabling gloves from the toolbox in the corridor storage cabinet.\n21:36 While Lin Lu takes a break and plays the promo video, you enter with the guest code. She throws the audit results in your face and says she'll call the police tomorrow. At 21:42 you strangle her with the ring light's power cord.\n21:45 You have the streaming computer download the 23-minute clip, and at 21:47 switch the stream source over to it; viewers will think she streamed until 22:10. You also use her phone to ask Chen Yu to “come up at five past ten,” and drop one glove under the bed. 21:48 You leave, and the door locks automatically.\n21:52 You sign for the delivery at the front gate (your phone was on silent; the rider called three times with no answer). 21:55 You enter the living room and stay with everyone from then on.\n\n[Your lie] “From 21:30 to 21:52 I was in the kitchen waiting for the delivery the whole time.”\n\n[Your objectives] Avoid being named; do not let the streaming software log be made public. Point the finger at Chen Yu, who knocked on the door, or at Xu Jing, who knows how to “ghost-stream.”",
+          "coverStory": "From 21:30 to 21:52 I was in the downstairs kitchen making a snack and waiting for the delivery; after signing for it I went to the living room. When Lin Lu died I was playing Werewolf.",
+          "knowledge": {
+            "k_he_cover": "From 21:30 to 21:52 I was in the downstairs kitchen making a snack and waiting for the delivery the whole time; after signing for it I went to the living room.",
+            "k_he_alibi": "From 22:00 to 22:10, while Lin Lu was still streaming, I was in the living room playing Werewolf the whole time. Everyone saw me.",
+            "k_he_truth": "At 21:36 I entered the livestream room with the guest code, at 21:42 I strangled Lin Lu, and at 21:47 I switched the stream source to the clip. I used her phone to message Chen Yu and dropped a glove under the bed.",
+            "k_he_money": "Through Luming Culture, I embezzled more than three million yuan from Lin Lu."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep the streaming software log from being made public"
+          ]
+        },
+        "chen_yu": {
+          "name": "Chen Yu",
+          "publicBio": "29, Xingyao Media's technical operations specialist, in charge of streaming, networking and broadcast equipment. A man of few words who lives in a black hoodie.",
+          "personality": "Introverted and pedantic, blunt in speech; visibly flustered when pressed about his private life.",
+          "script": "You are Chen Yu, the company's technical operations specialist. Nobody knows that you and Lin Lu secretly dated for two years. Last month she dumped you to protect her “single” image, and in a flash of anger you replied, “You'll regret this,” which you have regretted ever since. After the breakup she changed the livestream room's guest code and never told you the new one.\n\n[Tonight]\nThis afternoon, while tuning the network, you unplugged the camera by the pool and forgot to plug it back in.\n20:00-22:03 You stay in the garage tech room the whole time monitoring the stream and backend data. At 21:45 the backend shows the streaming computer downloading a large file from the team cloud drive; you assume she's about to play the promo video. From 21:52 lots of viewers in the comments are asking “Why isn't Lulu answering comments?” You don't pay it much attention.\n22:00 You only now see the WeChat message Lin Lu sent at 21:47: “Come up at five past ten. The door code hasn't changed. Don't let anyone see you.” Your heart pounds; you think she wants to get back together.\n22:05 You reach the livestream room door and try your old code, 0214, twice. Both fail. You knock, but no one answers; the soundproofing is so good you can't hear a thing. 22:08 Disappointed, you go downstairs, and at 22:10, just as you walk into the living room, the stream cuts out.\n\n[Your secrets] Your relationship with Lin Lu, that threat-like remark, and the fact that you went to the livestream room door at 22:05.\n\n[Your story] “I was in the tech room the whole time. I never went upstairs.”\n\n[Your objectives] Find the real killer; get the clue about the toolbox in the storage cabinet made public. That glove isn't even your size.",
+          "coverStory": "After the stream started I was in the garage tech room monitoring the network the whole time. I never went upstairs.",
+          "knowledge": {
+            "k_chen_cover": "After the stream started I was in the garage tech room monitoring the network the whole time. I never went upstairs.",
+            "k_chen_download": "At 21:45 the backend showed the streaming computer downloading a large file from the team cloud drive. I thought she was about to play the promo video.",
+            "k_chen_visit": "At 22:05, after getting Lin Lu's message, I went upstairs and tried the old code twice. Both were wrong, no one answered my knock, and at 22:08 I went back down.",
+            "k_chen_ex": "Lin Lu and I dated for two years. Last month she dumped me."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Get the storage-cabinet toolbox clue made public, proving the glove isn't yours"
+          ]
+        },
+        "zhou_xiaotang": {
+          "name": "Zhou Xiaotang",
+          "publicBio": "22, a streamer the company recently signed. She has been shadowing Lin Lu to learn live commerce and is known as “Lulu's little apprentice.”",
+          "personality": "Sweet-talking and quick-witted, outwardly naive; when exposed, she instantly bursts into tears and plays the victim.",
+          "script": "You are Zhou Xiaotang, a new streamer at the company. Lin Lu calls you her “little apprentice,” but in reality she keeps you down at every turn: she steals brand deals you negotiated and makes jokes at your expense on stream. After putting up with it for a year, you started secretly using a spare phone to sell her makeup-free photos and her romance with Chen Yu to a gossip account called “Old K.” Last week you co-hosted her stream, so you know the livestream room's guest code.\n\n[Tonight]\n19:40 In the second-floor corridor you see Xu Jing come out of the livestream room, eyes red, clutching a sheet of paper.\n21:00-21:33 Watching the projector in the living room. At 21:33 you say you need some air and slip out to the pool. From 21:35 to 21:49 you're on the phone with Old K and talk the price up to 200,000 yuan.\n21:49 You come back in through the back door. Passing the entry hall, you see He Wen coming down the stairs from the second floor, gripping her phone, pale as a sheet. Afraid of revealing that you'd been outside, you don't ask anything.\n21:50 Back in the living room; 22:00 Werewolf with everyone; 22:27 you follow the others upstairs and see the body.\n\n[Your secrets] You've been selling dirt on Lin Lu, and during the time of the murder you were on the phone by the pool.\n\n[Your story] “I was in the living room all night. I never went out.”\n\n[Your objectives] Find the real killer; do not let the spare phone by the pool be made public.",
+          "coverStory": "I was in the living room all night. I never went out.",
+          "knowledge": {
+            "k_zhou_cover": "I was in the living room all night. I never went out.",
+            "k_zhou_xu": "At 19:40 in the second-floor corridor I saw Xu Jing come out of the livestream room, eyes red, clutching a sheet of paper.",
+            "k_zhou_stairs": "At 21:49, coming back in from the pool, I saw He Wen in the entry hall coming down the stairs from the second floor, gripping her phone, pale as a sheet.",
+            "k_zhou_leak": "From 21:35 to 21:49 I was by the pool on my spare phone, haggling with a gossip account over the price of dirt on Lin Lu."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the spare phone by the pool from being made public"
+          ]
+        },
+        "xu_jing": {
+          "name": "Xu Jing",
+          "publicBio": "25, Lin Lu's personal assistant and makeup artist, in charge of her styling and the odd jobs in the livestream room.",
+          "personality": "Meek and timid, used to swallowing her grievances; speaks softly and often stops herself mid-sentence.",
+          "script": "You are Xu Jing, Lin Lu's assistant and makeup artist. For two years, whenever Lin Lu couldn't face the small-hours streams, she had you “ghost-stream” them, playing clips from the previous night as if they were live. Only the two of you know about it; you even kept a notebook of the steps. Last week the platform sent a warning, and Lin Lu immediately turned on you. She printed out a “Statement of Facts” for you to sign, admitting that you had passed off recordings as live streams “on your own initiative.” If you don't sign, she'll fire you and make sure you never work in the industry again.\n\n[Tonight]\n19:28 You enter the livestream room with the guest code to do Lin Lu's makeup. She slaps the “Statement of Facts” on the table: “Have it signed before I finish streaming.” 19:40 You come out with red eyes.\n19:40-22:15 You stay in your own room on the second floor the whole time, crying. You don't sign. At 21:20 Lin Lu messages to hurry you: “Signed it yet?”\nAround 21:36, you hear slippers shuffle down the corridor to the livestream room door, and the lock gives a “beep”; you assume someone has gone in to see her.\n22:06 You hear knocking, and through the crack of your door you see Chen Yu at the livestream room door entering a code and knocking. After a moment he leaves.\n22:15 You go downstairs; at 22:27 when everyone opens the door, your legs give way with fright.\n\n[Your secrets] The faked streams, and the “Statement of Facts” meant to make you take the blame. You know how ghost-streaming works, which would make you the prime suspect.\n\n[Your objectives] Find the real killer; do not let your ghost-streaming notebook be made public.",
+          "coverStory": "After doing her makeup, from 19:40 to 22:15 I was in my own room on the second floor the whole time.",
+          "knowledge": {
+            "k_xu_cover": "After doing her makeup, from 19:40 to 22:15 I was in my own room on the second floor the whole time.",
+            "k_xu_saw_chen": "At 22:06, through the crack of my door, I saw Chen Yu at the livestream room door entering a code and knocking. After a moment he left.",
+            "k_xu_heard": "Around 21:36 I heard slippers shuffle down the corridor to the livestream room door, and the lock gave a “beep.”",
+            "k_xu_ghost": "Many of Lin Lu's small-hours streams were me ghost-streaming clips. She wanted me to sign and take all the blame alone."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the notebook with the ghost-streaming steps from being made public"
+          ]
+        }
+      },
+      "relationships": [
+        "Boss and agent, longtime partners",
+        "Both on Lin Lu's team",
+        "Joined together, not close",
+        "Boss and key tech staffer",
+        "She snapped him with Lin Lu in secret"
+      ],
+      "victimRelationships": [
+        "Boss (made her a star)",
+        "Agent (five years)",
+        "Colleague (secret ex-boyfriend)",
+        "Mentor and apprentice (in name only)",
+        "Assistant and makeup artist"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "Preliminary Examination of the Body",
+          "text": "Lin Lu is slumped back in her streaming chair, with a thin, deep ligature mark on her neck. The ring light's power cord has been unplugged and wound around the back of the chair. The room's air conditioning is set to 18℃, making body temperature hard to read precisely; the approximate time of death is between 21:30 and 22:30."
+        },
+        "c_lock": {
+          "title": "Smart Lock Records",
+          "text": "Unlock records for the livestream room door: 19:28 unlocked with guest code; 19:40 opened from inside; 19:41 unlocked with administrator code; 19:56 opened from inside; 21:36 unlocked with guest code; 21:48 opened from inside; 22:05 wrong code; 22:05 wrong code; 22:27 unlocked with administrator code. Lock notes: only the villa's tenant (the company) has the administrator code; tonight the guest code was given only to Lin Lu's team."
+        },
+        "c_glove": {
+          "title": "Black Glove Under the Bed",
+          "text": "Under the bed is a single black anti-slip cabling glove, identical to the kind used in the tech room, with a crease across the palm where a cable was pulled tight."
+        },
+        "c_phone": {
+          "title": "Lin Lu's Phone",
+          "text": "Lin Lu's phone lies face down on the desk, unlocked. The last WeChat message sent was to Chen Yu at 21:47: “Come up at five past ten. The door code hasn't changed. Don't let anyone see you.”"
+        },
+        "c_statement": {
+          "title": "Unsigned “Statement of Facts”",
+          "text": "Pinned under something on the desk is a printed “Statement of Facts”: “I, Xu Jing, admit that on multiple occasions, without the streamer's consent, I passed off recorded broadcasts as live streams...” The signature line is blank. Beside it is a sticky note in Lin Lu's handwriting: “Must be signed tonight. Sign it or you're out.”"
+        },
+        "c_audit": {
+          "title": "Printed Audit Email",
+          "text": "In the drawer is a reconciliation email from an accounting firm: over the past two years there is a 3.12-million-yuan gap between tip revenue shares and commercial payments, with the money flowing to a company called Luming Culture. Beside it Lin Lu has written in red pen: “Who signed off? Who handled it? Getting answers tonight.”"
+        },
+        "c_pushlog": {
+          "title": "Streaming Software Log",
+          "text": "Since something is off about the footage on the projector, you go carefully through the streaming software log on the streaming computer: 21:35 stream source switched to “new_product_promo.mp4”; 21:47 stream source switched to local file “0612_2112_clip.mp4” (duration 23 min 04 s); 22:10 local file finished playing, stream ended automatically. Both switches were made directly on this computer with the keyboard and mouse."
+        },
+        "c_robot": {
+          "title": "Robot Vacuum Obstacle Photos",
+          "text": "The second-floor robot vacuum was scheduled to clean the corridor from 21:30 to 22:30. Its app has saved two “obstacle photos”: at 21:36, a pair of the villa's standard white disposable slippers standing at the livestream room door; at 22:06, a man in a black hoodie with his back to the camera, standing at the livestream room door."
+        },
+        "c_glovebox": {
+          "title": "Toolbox in the Storage Cabinet",
+          "text": "Having seen the glove under the bed, you open the cabling toolbox in the corridor storage cabinet. The sign-out card reads “Chen Yu XL,” and that pair of XL gloves is still hanging in its place, perfectly clean. Of the two pairs of size S gloves, however, only one pair is left."
+        },
+        "c_xu_notebook": {
+          "title": "Notebook in the Makeup Bag",
+          "text": "In the inner pocket of the makeup bag in Xu Jing's room is a small notebook: “Ghost-streaming the small-hours show: (1) export the previous night's clip (2) switch stream source to local file (3) turn off the comment bot (4) calculate the end time.” The last page reads: “Why do I have to take the fall for everything?”"
+        },
+        "c_replay": {
+          "title": "Stream Replay on the Projector",
+          "text": "The living-room projector showed Lin Lu's stream the whole time. The replay shows: at 21:35 Lin Lu says, “Time for a little break, let me play you the new product promo first”; at 21:47 she is back on camera talking about the face cream; at 22:01 she laughs and says, “Thank you, Orange Soda, for the Carnival!”; at 22:10 the picture suddenly cuts out."
+        },
+        "c_receipt": {
+          "title": "Delivery Receipt on the Counter",
+          "text": "Food delivery receipt: ordered by “Ms. He,” placed at 21:05, estimated arrival 21:40, actually signed for at 21:52. Rider's note: “Waited at the door twelve minutes, called three times, no one picked up.” The kitchen cutting board and fruit knife are both dry; there's no sign anyone used them."
+        },
+        "c_zhao_phone": {
+          "title": "Phone on the Coffee Table",
+          "text": "Zhao Qiming's phone is lit up on the coffee table with a WeChat message from an investor: “The performance guarantee comes due at month's end. If Lin Lu leaves, you know what happens.” Zhao Qiming replied: “She can't leave. I've got it handled.”"
+        },
+        "c_contract": {
+          "title": "Agreement in the Briefcase",
+          "text": "In the briefcase on the sofa is an “Exclusive Management Supplementary Agreement” extending Lin Lu's contract by five years with a 50-million-yuan penalty for breach. The handwriting of the Party B signature, “Lin Lu,” is clearly different from her usual signature. On the back is a line in red pen: “Forged signature? See you in court. —Lu”"
+        },
+        "c_gift": {
+          "title": "Backend Gift Log",
+          "text": "On the tech room's big dashboard screen, the gift log shows “Orange Soda” sent the Carnival at 21:12. After 21:47, the streamer did not respond to a single new comment or gift; from 21:52, the comments start flooding with: “Why isn't Lulu answering comments?”"
+        },
+        "c_threat": {
+          "title": "Chat History on the Laptop",
+          "text": "Chen Yu's laptop has a chat history open: last month Lin Lu wrote, “We're done. Don't contact me again, and don't let anyone know,” and Chen Yu replied, “You'll regret this.” A sticky note beside the keyboard reads: “Lu 0214.”"
+        },
+        "c_slicefile": {
+          "title": "Team Cloud Drive Transfer Log",
+          "text": "Knowing the stream used a local clip, you check the NAS transfer log: at 21:28 He Wen's account uploaded “0612_2112_clip.mp4” (note: tonight's short-video material, uploaded by the agent as usual); at 21:45 “Lulu Stream PC” downloaded this file. He Wen, Xu Jing, Chen Yu and Zhou Xiaotang all have accounts on the team cloud drive."
+        },
+        "c_poolphone": {
+          "title": "Spare Phone Under the Lounger",
+          "text": "Stuffed under a lounger cushion is an old phone with a strawberry sticker. Call log: 21:35-21:49, a 14-minute call with “Old K Gossip.” The photo album holds a dozen or so makeup-free photos of Lin Lu and intimate photos of her with Chen Yu, plus an unsent message: “200k, exclusive, posts tomorrow morning.”"
+        },
+        "c_poolcam": {
+          "title": "Unplugged Security Camera",
+          "text": "The camera by the pool has been unplugged, with a label wrapped around the plug: “Being tested, do not touch —Chen.” No camera footage of the villa's exterior was recorded tonight."
+        }
+      },
+      "contradictions": {
+        "x_he_kitchen": "He Wen says she was in the kitchen waiting for the delivery from 21:30 on, yet the rider waited at the door for twelve minutes and called three times with no answer, and the cutting board is dry.",
+        "x_he_alibi": "He Wen uses her time in the living room after 22:00 as an alibi, but the stream footage after 21:47 was actually a clip, so her 22:00 alibi counts for nothing.",
+        "x_zhao_lock": "Zhao Qiming says he didn't see Lin Lu alone tonight, but the lock records show someone entered the livestream room at 19:41 using the administrator code, which only the company has.",
+        "x_chen_robot": "Chen Yu says he never went upstairs, but at 22:06 the robot vacuum photographed a man in a black hoodie standing at the livestream room door.",
+        "x_zhou_pool": "Zhou Xiaotang says she was in the living room the whole time, but the phone by the pool was on a call from 21:35 to 21:49."
+      },
+      "truth": {
+        "weapon": "The ring light's power cord",
+        "summary": "The killer is He Wen, the agent. Over two years she embezzled more than three million yuan of Lin Lu's money through the shell company Luming Culture. That night Lin Lu had gotten to the bottom of the accounts and planned to confront her and call the police after the stream. He Wen first ordered food delivery to give herself an alibi. At 21:36, while Lin Lu was on a break playing the promo video, she entered the livestream room with the guest code, and at 21:42 strangled her with the ring light's power cord. She then had the streaming computer download the 23-minute clip she had uploaded at 21:28, and at 21:47 switched the stream source to it, so that on the projector downstairs Lin Lu appeared to stream until 22:10, while after 22:00 He Wen was in the living room playing Werewolf the whole time. She also used Lin Lu's phone to ask Chen Yu up at 22:05 and dropped a size S cabling glove to frame him. The flaws: the gift Lin Lu thanks on the projector at 22:01 was actually sent at 21:12; the lock records show no one entered the room after 21:48; and the glove isn't even Chen Yu's size.",
+        "timeline": [
+          "Xu Jing does Lin Lu's makeup in the livestream room; Lin Lu pressures her to sign the “Statement of Facts.”",
+          "Zhao Qiming enters the livestream room with the administrator code to plead over the forged supplementary agreement, and is refused.",
+          "Lin Lu goes live; the living-room projector shows the stream.",
+          "Lin Lu messages He Wen: the audit is finished, and they'll talk after the stream.",
+          "“Orange Soda” sends a Carnival and Lin Lu thanks them on air. This footage is later made into the clip.",
+          "He Wen uploads the clip starting from 21:12 to the team cloud drive.",
+          "Lin Lu goes on break and plays the promo video; Zhou Xiaotang is on the phone with the gossip account by the pool.",
+          "He Wen enters the livestream room with the guest code.",
+          "He Wen strangles Lin Lu with the ring light's power cord.",
+          "The streaming computer downloads the clip and the stream source is switched; He Wen messages Chen Yu from Lin Lu's phone and drops the glove.",
+          "He Wen leaves the livestream room; at 21:49 Zhou Xiaotang sees her coming downstairs.",
+          "He Wen signs for the delivery at the front gate and enters the living room at 21:55.",
+          "Chen Yu fails to open the door with the old code, knocks with no answer, and leaves. Xu Jing sees him through the crack of her door.",
+          "The clip finishes, the stream ends automatically, and the broadcast “dies.”",
+          "Zhao Qiming opens the door with the administrator code and finds the body."
+        ],
+        "secrets": [
+          "Forged Lin Lu's signature on the contract renewal; went to the livestream room at 19:41 to plead.",
+          "The killer; embezzled more than three million yuan from Lin Lu.",
+          "Lin Lu's secret ex-boyfriend; went to the livestream room door and knocked at 22:05.",
+          "Secretly sold dirt on Lin Lu to a gossip account; was on the phone by the pool from 21:35 to 21:49 and saw He Wen coming down from the second floor.",
+          "Had long been ghost-streaming clips as fake live streams for Lin Lu, and was being forced to sign and take the blame."
+        ]
+      }
+    }
+  }
+}

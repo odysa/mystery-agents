@@ -1,0 +1,1086 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "xueshan-kaozhan",
+  "version": "1.0.0",
+  "title": "雪山孤站",
+  "subtitle": "海拔五千二百米的冰川科考站，暴风雪切断了电和网，站长倒在了发电机旁。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 5,
+  "difficulty": "困难",
+  "estimatedMinutes": 75,
+  "victim": {
+    "id": "cheng_yuanshan",
+    "name": "程远山",
+    "bio": "58岁，央拉冰川科考站站长，冰川学家，在这座站守了二十年。为人严厉，眼里揉不得沙子。"
+  },
+  "background": "2024年初冬，青藏高原，央拉冰川脚下海拔 5200 米的科考站。站里只有六个人：站长程远山、副站长何思源、博士生苏晓棠、队医叶芸、后勤机修达瓦次仁，以及来拍宣传片的赞助方代表郑凯。\n\n晚饭时程远山说：「等风雪停了，我有件事要向所里汇报，关系到站里的一个项目。」19:40，卫星天线结冰，网络中断。程远山有个全站皆知的习惯：每晚八点四十五左右去独立的设备间记一次发电机油耗。21:32，柴油发电机突然熄火，全站断电。\n\n22:20，达瓦去设备间修发电机，发现程远山俯卧在发电机旁，后脑被重物击碎。最近的乡镇在一百二十公里外，风雪不停，谁也来不了。凶手就在你们五个人之中。",
+  "intro": "【主持人】欢迎来到《雪山孤站》。零下三十度的夜里，五个人围着一盏应急灯。请仔细阅读你的剧本：每个人今晚都有不想说的事，有人说谎是为了自保，只有一个人说谎是为了杀人。注意——断电的时间，未必就是出事的时间。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。打着手电，小心脚下的冰。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。",
+    "investigate_2": "【主持人】风小了一些，应急灯的电量只剩一半。第二轮搜证开始——有些东西，只有当你知道该找什么时才会注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。请把每个人在 20:30 到 22:20 之间的行踪逐一对齐：凶器指向谁，不等于谁就是凶手。",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "equipment",
+      "name": "设备间",
+      "description": "案发现场。主楼外三十米的独立集装箱，放着柴油发电机和配电柜，没有暖气。",
+      "x": 0.16,
+      "y": 0.25
+    },
+    {
+      "id": "lab",
+      "name": "冰芯实验室",
+      "description": "实验室外间是更衣柜和工作台，里间是刷卡进出的零下二十度冷库，存放冰芯样品。",
+      "x": 0.5,
+      "y": 0.18
+    },
+    {
+      "id": "office",
+      "name": "站长办公室",
+      "description": "程远山的办公室兼通讯室，有他的电脑、文件和一部已经断网的卫星终端。",
+      "x": 0.84,
+      "y": 0.3
+    },
+    {
+      "id": "living",
+      "name": "生活区",
+      "description": "宿舍、医务室、锅炉房和物资仓连成一排，是大家睡觉、看病和存放物资的地方。",
+      "x": 0.3,
+      "y": 0.76
+    },
+    {
+      "id": "canteen",
+      "name": "食堂",
+      "description": "全站最暖和的地方，晚饭后大家常在这里打牌。门边挂着一本交接本。",
+      "x": 0.72,
+      "y": 0.74
+    }
+  ],
+  "characters": [
+    {
+      "id": "he_siyuan",
+      "name": "何思源",
+      "color": "#5b7fbf",
+      "isMurderer": true,
+      "publicBio": "45岁，副站长，冰川学家，主持「央拉冰芯」YL 系列项目，被视为程远山的接班人。",
+      "personality": "稳重、周到，总是第一个出来张罗大家；说话温和，却会不动声色地替别人「回忆」细节。",
+      "script": "你是何思源，副站长，也是杀死程远山的凶手。八年前，「央拉冰芯」YL 系列的年代数据是你一手「调」出来的——靠它你拿下了三千万的项目，明年要评杰青。最近程远山偷偷复测了 YL-07，差了八百年。晚饭后他低声对你说：「八点四十五，设备间，单独谈。」\n\n【当晚真实经历】\n20:20 你从食堂水池下拿走了达瓦落下的红柄管钳。\n20:31-20:38 去冷库刷卡做样子。\n20:44 进设备间。程远山刚记完油耗，要你主动撤稿、退经费。20:50 你用管钳砸中他的后脑。\n20:53 你拧死主油路阀门——日用油箱只够烧四十分钟，断电会发生在你打牌时，大家会以为站长是停电后才去的设备间。管钳就扔在尸体旁。\n20:58 把溅了血的红色站服塞进实验室更衣柜，换了一件。\n21:02-21:31 在食堂和叶芸、郑凯斗地主。21:32 断电，你说去拿应急灯。\n21:45 达瓦要去修发电机，你拦住他：「站长十分钟前打着头灯过去了。」22:15 你才让他去看看。\n\n【你的说法】「20:30 到 21:00 我在冷库整理样品」；「21:35 我看见站长打着头灯往设备间去了」。\n【任务】不被指认；别让站长的头灯被公开。",
+      "knowledge": [
+        {
+          "id": "k_he_cover",
+          "text": "20:30 到 21:00 我一直在冷库整理冰芯样品，然后直接去食堂打牌。",
+          "time": "20:30-21:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_he_saw",
+          "text": "21:35 停电后我去走廊拿应急灯，看见站长打着头灯往设备间去了，说要看看发电机。",
+          "time": "21:35",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_he_truth",
+          "text": "20:44-20:56 我在设备间，用达瓦的管钳杀了站长，又关掉了主油路阀门。",
+          "time": "20:50",
+          "implicates": {
+            "he_siyuan": 5
+          },
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_he_fraud",
+          "text": "YL 系列冰芯的年代数据是我改过的，站长复测发现差了八百年。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        }
+      ],
+      "coverStory": "20:30 到 21:00 我一直在冷库整理冰芯样品，然后直接去食堂打牌。",
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c2_headlamp",
+          "desc": "不让站长的头灯被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "equipment",
+          "lab",
+          "office",
+          "canteen"
+        ]
+      }
+    },
+    {
+      "id": "su_xiaotang",
+      "name": "苏晓棠",
+      "color": "#d9534f",
+      "publicBio": "27岁，程远山的博士生，读到第五年，论文建立在 YL 系列冰芯数据上。",
+      "personality": "敏感、聪明，说话小心翼翼；一旦认定真相就会变得异常固执。",
+      "script": "你是苏晓棠，程远山的博士生，读到第五年。你的论文建立在 YL 系列冰芯数据上。今晚饭后，程远山把你叫到一边：「你的论文数据有问题，至少再做两年。」奖学金早停了，家里等着你毕业，你几乎崩溃。\n\n【当晚经历】\n18:30-19:30 晚饭，站长说风雪停了要向所里汇报「一个项目的问题」。\n19:30-20:40 在宿舍写论文，越写越绝望。\n20:43 你知道站长这时要去设备间记油耗，便溜进他的办公室，用 U 盘拷走了整个「央拉冰芯」文件夹，想看看他凭什么否定你。20:58 离开。\n21:00-21:10 在宿舍翻文件，看到站长的复测记录：YL-07 的年代差了八百年——问题不在你，而在数据本身。\n21:12-21:26 你去冷库看了 YL-07，确实被重新切过。\n21:26 回宿舍。21:32 停电，你在黑暗里坐到 21:50 才去食堂。\n\n【你的说法】「晚饭后我一直在宿舍写论文，停电后才出来。」\n【你的秘密】私拷站长的数据；你怀疑 YL 数据造假，可那是何副站长的项目，你不敢乱说。\n【任务】找出真凶；别让枕头下的 U 盘被公开。",
+      "knowledge": [
+        {
+          "id": "k_su_thesis",
+          "text": "晚饭后站长跟我说，我的论文数据有问题，至少还要再做两年。",
+          "time": "19:30",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_su_copy",
+          "text": "20:43-20:58 我趁站长去设备间，溜进他办公室用 U 盘拷走了「央拉冰芯」文件夹。那时办公室里没人。",
+          "time": "20:43",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_su_core",
+          "text": "站长的复测记录说 YL-07 的年代和发表数据差了八百年。YL 系列是何副站长负责的。",
+          "time": "21:00",
+          "implicates": {
+            "he_siyuan": 1
+          },
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_su_cover",
+          "text": "晚饭后我一直在宿舍写论文，停电后才出来。",
+          "time": "19:30-21:50",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "晚饭后我一直在宿舍写论文，停电后才出来。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c2_usb",
+          "desc": "不让枕头下的 U 盘被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "lab",
+          "office",
+          "living",
+          "equipment"
+        ]
+      }
+    },
+    {
+      "id": "ye_yun",
+      "name": "叶芸",
+      "color": "#9b59b6",
+      "publicBio": "38岁，科考站队医，在站里待了六年，几次申请调回内地都没成。",
+      "personality": "冷静、专业，说话简短；被问到过去时会明显回避。",
+      "script": "你是叶芸，科考站的队医，在这里待了六年。五年前，队员扎西高烧咳嗽，你当成感冒处理，第二天他死于高原肺水肿。是程远山帮你把病历改成「急性高原病」压了下来。从那以后，他每次都用这件事把你留在站里。\n\n【当晚经历】\n18:30-19:30 晚饭。站长说风雪一停要向所里汇报一个项目的问题——说这话时，他看了何副站长一眼。\n20:00-20:20 你去站长办公室递辞职信。他把信撕成两半：「扎西的事，你想清楚。」你们吵得很大声。\n20:20-21:00 你一个人在医务室，气得发抖。\n21:02-21:31 在食堂和何思源、郑凯斗地主。\n21:32 停电，你回医务室拿头灯、检查制氧机，21:45 回到食堂。\n22:25 达瓦跑回来，说站长死了。\n\n【你的说法】「晚饭后我一直在医务室，九点去食堂打牌，没见过站长。」\n【你的秘密】扎西的死；今晚和站长大吵。20:20 到 21:00 没有任何人能为你作证。\n【任务】找出真凶；别让医务室里那份旧病历被公开。",
+      "knowledge": [
+        {
+          "id": "k_ye_glance",
+          "text": "晚饭时站长说风雪停了要向所里汇报一个项目的问题，说这话时他看了何副站长一眼。",
+          "time": "19:00",
+          "implicates": {
+            "he_siyuan": 1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_ye_cards",
+          "text": "21:02 开始我和何副站长、郑凯在食堂斗地主，一直打到 21:31 停电。",
+          "time": "21:02-21:31",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_ye_quarrel",
+          "text": "20:00-20:20 我在站长办公室递辞职信，他撕了信，拿扎西的事威胁我，我们大吵一架。",
+          "time": "20:00",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_ye_zhaxi",
+          "text": "五年前扎西的死是我误诊，站长帮我改了病历。",
+          "time": "",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_ye_cover",
+          "text": "晚饭后我一直在医务室，九点去食堂打牌，没见过站长。",
+          "time": "19:30-21:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "晚饭后我一直在医务室，九点去食堂打牌，没见过站长。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c2_medfile",
+          "desc": "不让五年前的旧病历被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "living",
+          "office",
+          "equipment",
+          "canteen"
+        ]
+      }
+    },
+    {
+      "id": "dawa_ciren",
+      "name": "达瓦次仁",
+      "color": "#d4a017",
+      "publicBio": "40岁，藏族，站里的后勤与机修，发电机、锅炉、雪地车都归他管。",
+      "personality": "憨厚、话少，汉语说得慢；着急时会反复说「不是我」。",
+      "script": "你是达瓦次仁，站里的后勤和机修。女儿在拉萨上中学，学费一直凑不够。两周前，你把两桶柴油偷偷卖给了附近矿上的老板，换了三千块。暴风雪里柴油就是命，站长要是知道，你一定会被开除。\n\n【当晚经历】\n18:10 下午修食堂水管时，你的红柄管钳落在了食堂，你在交接本上写了一句，请大家看到帮忙放回工具间。\n20:35-20:50 在锅炉房修暖气，郑凯一直举着摄像机拍你。管钳找不到，你只好用活扳手。\n20:50-21:40 你溜进物资仓，用涂改液把柴油台账上的「出库两桶」改成「损耗」。21:32 断电，你打着手电改完。\n21:45 到食堂，说要去修发电机。何副站长拦住你：「站长十分钟前打着头灯过去了，你先帮我装应急灯。」\n22:15 何副站长让你去设备间看看。22:20 你看到站长倒在发电机旁，身边是你那把管钳——你下意识捡起来又扔下。22:25 跑回食堂报信。\n\n【你的说法】「晚上我一直在锅炉房修暖气，停电后才去食堂。」\n【你的秘密】偷卖柴油、今晚改账；你碰过凶器。\n【任务】找出真凶；别让柴油台账被公开。",
+      "knowledge": [
+        {
+          "id": "k_dawa_wrench",
+          "text": "下午修食堂水管时，我把红柄管钳落在食堂了，18:10 还在交接本上写了，请大家帮忙放回工具间。",
+          "time": "18:10",
+          "implicates": {
+            "dawa_ciren": -1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_dawa_stop",
+          "text": "21:45 我说要去修发电机，何副站长拦住我，说站长十分钟前已经打着头灯过去了，让我先装应急灯。",
+          "time": "21:45",
+          "implicates": {
+            "he_siyuan": 1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_dawa_diesel",
+          "text": "两周前我偷偷卖了两桶柴油给矿上的老板，今晚 20:50 以后在物资仓改了台账。",
+          "time": "20:50-21:40",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_dawa_touch",
+          "text": "22:20 我发现站长时，下意识把那把管钳捡起来又扔下了。",
+          "time": "22:20",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_dawa_cover",
+          "text": "晚上我一直在锅炉房修暖气，停电后才去食堂。",
+          "time": "20:30-21:45",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "晚上我一直在锅炉房修暖气，停电后才去食堂。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c2_ledger",
+          "desc": "不让涂改过的柴油台账被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "living",
+          "equipment",
+          "canteen",
+          "lab"
+        ]
+      }
+    },
+    {
+      "id": "zheng_kai",
+      "name": "郑凯",
+      "color": "#2e9e6b",
+      "publicBio": "36岁，赞助方「北辰新能源」的品牌经理，带着摄像机来站里拍宣传片。",
+      "personality": "外向、会来事，爱用镜头记录一切；一被追问就开始讲大道理。",
+      "script": "你是郑凯，赞助方「北辰新能源」的品牌经理，带着摄像机来拍宣传片。公司正靠「冰川碳汇」概念拿一个三亿的项目，需要程远山签一份数据授权。他不但不签，还写了公开信要揭穿你们——信一发，项目黄了，你也完了。\n\n【当晚经历】\n18:30-19:30 晚饭。\n20:25-20:30 你去站长办公室，他当着你的面把授权协议撕成两半：「你们拿冰川当广告牌。」\n20:35-20:50 在锅炉房拍达瓦修暖气，想拍点「坚守」的镜头。\n20:50 你知道站长这时在设备间，想追过去再求一次。20:53 你在设备间外，透过结霜的小窗看到一个穿红色站服的人影蹲在发电机旁，好像在拧什么——你以为是站长在忙，风雪太大，就回去了。\n21:02-21:31 在食堂和何思源、叶芸斗地主。\n21:32 停电，你回宿舍拿备用电池，21:45 回食堂。\n22:25 跟大家冲到设备间，你下意识先拍了一张门口的雪地。\n\n【你的说法】「20:50 以后我一直在宿舍整理素材，九点去食堂打牌。」\n【你的秘密】公司的造假；你 20:53 到过设备间外。\n【任务】找出真凶；不要成为得票最多的人。",
+      "knowledge": [
+        {
+          "id": "k_zheng_boiler",
+          "text": "20:35 到 20:50 我在锅炉房拍达瓦修暖气，他一直在镜头里，还念叨管钳找不到了。",
+          "time": "20:35-20:50",
+          "implicates": {
+            "dawa_ciren": -1
+          },
+          "secret": false,
+          "lie": false
+        },
+        {
+          "id": "k_zheng_window",
+          "text": "20:53 我在设备间外，透过结霜的小窗看到一个穿红色站服的人影蹲在发电机旁，好像在拧什么，我没进去。",
+          "time": "20:53",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_zheng_deal",
+          "text": "公司的「冰川碳汇」宣传是夸大的，站长撕了我的授权协议，还要写公开信揭穿我们。",
+          "time": "20:25",
+          "implicates": {},
+          "secret": true,
+          "lie": false
+        },
+        {
+          "id": "k_zheng_cover",
+          "text": "20:50 以后我一直在宿舍整理素材，九点去食堂打牌。",
+          "time": "20:50-21:02",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "20:50 以后我一直在宿舍整理素材，九点去食堂打牌。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不要成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "office",
+          "living",
+          "equipment",
+          "canteen"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "he_siyuan",
+      "b": "su_xiaotang",
+      "label": "她的论文用的是他的 YL 系列数据",
+      "public": true
+    },
+    {
+      "a": "ye_yun",
+      "b": "dawa_ciren",
+      "label": "共事六年的老同事",
+      "public": true
+    },
+    {
+      "a": "zheng_kai",
+      "b": "dawa_ciren",
+      "label": "宣传片的拍摄对象",
+      "public": true
+    },
+    {
+      "a": "he_siyuan",
+      "b": "ye_yun",
+      "label": "牌友",
+      "public": true
+    },
+    {
+      "a": "su_xiaotang",
+      "b": "he_siyuan",
+      "label": "她已经怀疑 YL 数据造假",
+      "public": false
+    },
+    {
+      "a": "zheng_kai",
+      "b": "he_siyuan",
+      "label": "20:53 窗外看到的人影就是他",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "he_siyuan",
+      "label": "共事二十年·副站长"
+    },
+    {
+      "who": "su_xiaotang",
+      "label": "导师与博士生"
+    },
+    {
+      "who": "ye_yun",
+      "label": "站长与队医（六年）"
+    },
+    {
+      "who": "dawa_ciren",
+      "label": "站长与后勤机修"
+    },
+    {
+      "who": "zheng_kai",
+      "label": "赞助方代表"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c2_body",
+      "location": "equipment",
+      "title": "尸体初检",
+      "text": "程远山俯卧在发电机旁，后脑有钝器重击的凹陷伤。设备间没有暖气，室温零下二十多度，尸体已冻得发硬——在这种温度下，无法从尸温判断死亡时间。",
+      "time": "",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c2_wrench",
+      "location": "equipment",
+      "title": "带血的红柄管钳",
+      "text": "发电机旁扔着一把红柄管钳，钳口沾着血和头发。手柄上用记号笔写着「达瓦」。",
+      "time": "",
+      "implicates": {
+        "dawa_ciren": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c2_headlamp",
+      "location": "equipment",
+      "title": "没开的头灯",
+      "text": "程远山额头上还戴着头灯，开关拨在「关」，电池满格。设备间顶灯的拉线开关处在「开」的位置——只是现在没电了。",
+      "time": "",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c2_logbook",
+      "location": "equipment",
+      "title": "油耗记录本",
+      "text": "发电机旁的油耗记录本，最后一行是程远山工整的笔迹：「20:45 油位 35%，运行正常。」之后再没有记录。",
+      "time": "20:45",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c2_valve",
+      "location": "equipment",
+      "title": "被关死的阀门",
+      "text": "发电机的主油路阀门被人拧到了「关」，日用油箱已经见底。发电机不是坏了，是被「饿」停的。平时会去动这个阀门的，只有管设备的人。",
+      "time": "",
+      "implicates": {
+        "dawa_ciren": 1
+      }
+    },
+    {
+      "id": "c2_plate",
+      "location": "equipment",
+      "title": "发电机铭牌",
+      "text": "发电机侧面贴着一张塑封的维护卡：「主油路关闭后，日用油箱可维持满负荷运行约 40 分钟。」",
+      "time": "",
+      "implicates": {},
+      "requires": [
+        "c2_valve"
+      ]
+    },
+    {
+      "id": "c2_snow",
+      "location": "equipment",
+      "title": "门口雪地的照片",
+      "text": "众人赶到设备间时，郑凯下意识拍了一张门口的雪地：新雪上只有一行来回的大号防寒靴印，和达瓦的靴子一样大。降雪大约在 22:05 才停，更早的脚印都会被雪盖住。",
+      "time": "22:05",
+      "implicates": {
+        "dawa_ciren": 2
+      }
+    },
+    {
+      "id": "c2_coldlog",
+      "location": "lab",
+      "title": "冷库门禁记录",
+      "text": "冷库电子门禁（断电前）：20:31 何思源 进；20:38 何思源 出；21:12 苏晓棠 进；21:26 苏晓棠 出；21:32 断电，记录中止。",
+      "time": "20:31-21:26",
+      "implicates": {
+        "he_siyuan": 1,
+        "su_xiaotang": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c2_core",
+      "location": "lab",
+      "title": "被重新切过的冰芯",
+      "text": "冷库里，YL-07 号冰芯被重新切过一段，旁边压着程远山的手写复测记录：「同位素定年与已发表数据相差约 800 年，原始记录需核查。」",
+      "time": "",
+      "implicates": {
+        "he_siyuan": 2
+      }
+    },
+    {
+      "id": "c2_parka",
+      "location": "lab",
+      "title": "更衣柜里的红色站服",
+      "text": "实验室外间的更衣柜里塞着一件红色站服（全站人手一件，款式相同），右袖口有几点被雪水晕开的暗红色斑点，口袋里有一副沾着机油的薄手套。",
+      "time": "",
+      "implicates": {
+        "he_siyuan": 2,
+        "su_xiaotang": 1
+      },
+      "requires": [
+        "c2_coldlog"
+      ]
+    },
+    {
+      "id": "c2_footage",
+      "location": "living",
+      "title": "郑凯的摄像机素材",
+      "text": "摄像机里今晚的素材：20:35-20:50 在锅炉房拍达瓦修暖气，达瓦念叨「红柄管钳不知道丢哪儿了，只好用活扳手」。最后一段 20:53 拍于室外：风雪中设备间的小窗透着灯光，画面晃得厉害，几秒后中断。",
+      "time": "20:35-20:53",
+      "implicates": {
+        "zheng_kai": 2,
+        "dawa_ciren": -1
+      },
+      "key": true
+    },
+    {
+      "id": "c2_usb",
+      "location": "living",
+      "title": "枕头下的 U 盘",
+      "text": "苏晓棠的枕头下藏着一个 U 盘，里面是完整的「央拉冰芯」文件夹，包括程远山的私人工作文档和复测记录。",
+      "time": "",
+      "implicates": {
+        "su_xiaotang": 2
+      }
+    },
+    {
+      "id": "c2_medfile",
+      "location": "living",
+      "title": "医务室的旧病历",
+      "text": "医务室上锁的抽屉里，一份五年前的病历：队员扎西，死于高原肺水肿。诊断栏原写「感冒」，后被改成「急性高原病」，改动处签着叶芸的名字。",
+      "time": "",
+      "implicates": {
+        "ye_yun": 2
+      }
+    },
+    {
+      "id": "c2_ledger",
+      "location": "living",
+      "title": "涂改过的柴油台账",
+      "text": "物资仓的柴油台账上，两周前那条「出库两桶」被涂改液盖住，改成了「损耗」。涂改液还没干透——有人今晚刚改过。",
+      "time": "",
+      "implicates": {
+        "dawa_ciren": 2
+      }
+    },
+    {
+      "id": "c2_report",
+      "location": "office",
+      "title": "电脑里的情况说明",
+      "text": "站长电脑里一份草稿：《关于央拉冰芯 YL 系列年代数据异常的情况说明》：「……YL 系列由副站长何思源负责采样与定年……建议暂停相关经费，待复核……」",
+      "time": "",
+      "implicates": {
+        "he_siyuan": 2
+      },
+      "requires": [
+        "c2_core"
+      ]
+    },
+    {
+      "id": "c2_resign",
+      "location": "office",
+      "title": "撕成两半的辞职信",
+      "text": "废纸篓里有一封撕成两半的辞职信，落款叶芸，日期是今天。背面是程远山的字：「扎西的事，你想清楚。」",
+      "time": "",
+      "implicates": {
+        "ye_yun": 2
+      }
+    },
+    {
+      "id": "c2_openletter",
+      "location": "office",
+      "title": "公开信与授权协议",
+      "text": "桌上一封手写的公开信草稿：《北辰新能源「冰川碳汇」宣传严重失实》。旁边是一份撕成两半的《数据使用授权协议》，乙方签字栏已签好「郑凯」。",
+      "time": "",
+      "implicates": {
+        "zheng_kai": 2
+      }
+    },
+    {
+      "id": "c2_syslog",
+      "location": "office",
+      "title": "电脑系统日志",
+      "text": "站长电脑的系统日志：最后一次键盘操作 20:41；20:43-20:58 插入过一个 U 盘，「央拉冰芯」文件夹被整体拷贝。",
+      "time": "20:41-20:58",
+      "implicates": {
+        "su_xiaotang": 1
+      }
+    },
+    {
+      "id": "c2_notebook",
+      "location": "canteen",
+      "title": "食堂交接本",
+      "text": "门边的交接本上有一行 18:10 的留言：「下午修水管，红柄管钳好像落在食堂了，谁看到帮忙放回工具间。——达瓦」后面没人回复。晚饭后，谁都可能顺手拿走它。",
+      "time": "18:10",
+      "implicates": {
+        "dawa_ciren": -1
+      }
+    },
+    {
+      "id": "c2_scores",
+      "location": "canteen",
+      "title": "斗地主记分纸",
+      "text": "桌上的记分纸：「21:02 开局，何 / 叶 / 郑」，一共记了七局，21:31 之后没有了——停电了。",
+      "time": "21:02-21:31",
+      "implicates": {}
+    }
+  ],
+  "truth": {
+    "murderer": "he_siyuan",
+    "weapon": "达瓦的红柄管钳",
+    "summary": "凶手是副站长何思源。他多年前篡改了 YL 系列冰芯的年代数据，靠此拿下大项目；程远山复测发现了问题，约他 20:45 在设备间单独谈。何思源事先从食堂拿走了达瓦落下的管钳，20:50 在设备间将程远山击杀，随后关闭发电机的主油路阀门——日用油箱只够运行约四十分钟，于是 21:32 断电时，他正坐在食堂打牌。他谎称 21:35 看见站长「打着头灯」去修发电机，让大家以为站长死于停电之后，并拖延发现尸体的时间，把嫌疑引向管设备、留下脚印、又握着凶器的达瓦。可站长的头灯是关着的，顶灯开关却开着——他死时设备间还有电；而冷库门禁显示何思源 20:38 就离开了冷库，他所谓「在冷库待到九点」是假的。",
+    "timeline": [
+      {
+        "time": "18:10",
+        "text": "达瓦在交接本上留言：红柄管钳落在了食堂。"
+      },
+      {
+        "time": "19:30",
+        "text": "晚饭结束。程远山约何思源 20:45 在设备间单独谈，又告诉苏晓棠她的论文要重做。"
+      },
+      {
+        "time": "20:00-20:30",
+        "text": "叶芸、郑凯先后到站长办公室，辞职信和授权协议都被撕掉。"
+      },
+      {
+        "time": "20:20",
+        "text": "何思源从食堂拿走管钳；20:31-20:38 在冷库刷卡做样子。"
+      },
+      {
+        "time": "20:41-20:45",
+        "text": "程远山离开办公室去设备间，20:45 记下最后一次油耗。"
+      },
+      {
+        "time": "20:43-20:58",
+        "text": "苏晓棠溜进站长办公室拷贝数据。"
+      },
+      {
+        "time": "20:50",
+        "text": "何思源在设备间用管钳击杀程远山。"
+      },
+      {
+        "time": "20:53",
+        "text": "何思源关闭主油路阀门。郑凯在窗外看到一个红色人影蹲在发电机旁。"
+      },
+      {
+        "time": "20:58-21:02",
+        "text": "何思源把带血的站服塞进实验室更衣柜，赶到食堂开始斗地主。"
+      },
+      {
+        "time": "20:50-21:40",
+        "text": "达瓦在物资仓涂改柴油台账。"
+      },
+      {
+        "time": "21:32",
+        "text": "日用油箱耗尽，发电机熄火，全站断电。"
+      },
+      {
+        "time": "21:45",
+        "text": "何思源拦住要去修发电机的达瓦，谎称站长已经去了。"
+      },
+      {
+        "time": "22:20",
+        "text": "达瓦被派去设备间，发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "su_xiaotang",
+        "text": "私自拷贝了站长电脑里的数据，并且去冷库看过 YL-07。"
+      },
+      {
+        "who": "ye_yun",
+        "text": "五年前误诊致队员死亡，被站长掩盖并以此要挟；当晚和站长大吵。"
+      },
+      {
+        "who": "dawa_ciren",
+        "text": "偷卖站里的柴油，当晚在物资仓改账；发现尸体时碰过凶器。"
+      },
+      {
+        "who": "zheng_kai",
+        "text": "公司「冰川碳汇」宣传造假；20:53 到过设备间外，看到了凶手的背影却没说。"
+      },
+      {
+        "who": "he_siyuan",
+        "text": "凶手；篡改 YL 系列冰芯年代数据。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_he_lamp",
+      "knowledge": "k_he_saw",
+      "clue": "c2_headlamp",
+      "text": "何思源说 21:35 停电后看见站长打着头灯去设备间，可站长的头灯是关着的、顶灯开关却开着——他死的时候设备间还有电。",
+      "implicates": {
+        "he_siyuan": 2
+      }
+    },
+    {
+      "id": "x_he_cold",
+      "knowledge": "k_he_cover",
+      "clue": "c2_coldlog",
+      "text": "何思源说 20:30 到 21:00 一直在冷库，可门禁显示他 20:38 就出来了。",
+      "implicates": {
+        "he_siyuan": 2
+      }
+    },
+    {
+      "id": "x_su_cold",
+      "knowledge": "k_su_cover",
+      "clue": "c2_coldlog",
+      "text": "苏晓棠说晚饭后一直在宿舍，可冷库门禁记录了她 21:12 到 21:26 在冷库。",
+      "implicates": {
+        "su_xiaotang": 1
+      }
+    },
+    {
+      "id": "x_ye_resign",
+      "knowledge": "k_ye_cover",
+      "clue": "c2_resign",
+      "text": "叶芸说今晚没见过站长，可站长办公室的废纸篓里有她今天写的辞职信，背面还有站长的批语。",
+      "implicates": {
+        "ye_yun": 1
+      }
+    },
+    {
+      "id": "x_zheng_film",
+      "knowledge": "k_zheng_cover",
+      "clue": "c2_footage",
+      "text": "郑凯说 20:50 以后一直在宿舍，可他的摄像机 20:53 在设备间外拍过一段。",
+      "implicates": {
+        "zheng_kai": 1
+      }
+    },
+    {
+      "id": "x_dawa_ledger",
+      "knowledge": "k_dawa_cover",
+      "clue": "c2_ledger",
+      "text": "达瓦说一直在锅炉房修暖气，可物资仓的柴油台账今晚刚被涂改过，涂改液还没干。",
+      "implicates": {
+        "dawa_ciren": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Lonely Station",
+      "subtitle": "A glacier research station 5,200 metres up. A blizzard has cut the power and the network — and the station chief lies dead beside the generator.",
+      "background": "Early winter 2024, the Qinghai-Tibet Plateau: a research station at 5,200 metres, at the foot of the Yangla Glacier. There are only six people at the station: station chief Cheng Yuanshan, deputy chief He Siyuan, PhD student Su Xiaotang, team doctor Ye Yun, logistics mechanic Dawa Tsering, and Zheng Kai, a sponsor's representative who has come to film a promotional video.\n\nAt dinner, Cheng Yuanshan said: \"Once the storm passes, there's something I need to report to the institute — it concerns one of the station's projects.\" At 19:40 the satellite dish iced over and the network went down. Cheng Yuanshan had a habit the whole station knew about: every evening at around 20:45 he went to the separate equipment room to log the generator's fuel consumption. At 21:32 the diesel generator suddenly cut out, and the whole station lost power.\n\nAt 22:20, Dawa went to the equipment room to fix the generator and found Cheng Yuanshan face-down beside it, the back of his head smashed by a heavy blow. The nearest township is 120 kilometres away, the storm shows no sign of stopping, and no one can get through. The killer is one of the five of you.",
+      "intro": "[Host] Welcome to \"The Lonely Station.\" On a night of thirty below, five people huddle around a single emergency lamp. Read your script carefully: everyone has something they don't want to say tonight. Some lie to protect themselves; only one lied in order to kill. Take note — the time the power failed is not necessarily the time it happened.",
+      "victim": {
+        "name": "Cheng Yuanshan",
+        "bio": "58, chief of the Yangla Glacier Research Station, a glaciologist who has manned this station for twenty years. Stern, and utterly intolerant of dishonesty."
+      },
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. Keep your torch on and mind the ice underfoot. Any clue you find is known only to you — whether to reveal it is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal a clue or accuse a suspect. Anyone questioned must answer at once.",
+        "investigate_2": "[Host] The wind has eased a little, and the emergency lamp is down to half its charge. The second round of investigation begins — some things only catch your eye once you know what to look for.",
+        "discuss_2": "[Host] The final round of discussion. Line up everyone's movements between 20:30 and 22:20, one by one: the person the weapon points to is not necessarily the killer.",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the killer. Whoever receives the most votes will be named (in a tie, the killer escapes)."
+      },
+      "locations": {
+        "equipment": {
+          "name": "Equipment Room",
+          "description": "The crime scene. A separate shipping container thirty metres from the main building, housing the diesel generator and the switchboard. No heating."
+        },
+        "lab": {
+          "name": "Ice-Core Lab",
+          "description": "The lab's outer room has lockers and workbenches; the inner room is a minus-twenty-degree cold store, entered by keycard, where the ice-core samples are kept."
+        },
+        "office": {
+          "name": "Chief's Office",
+          "description": "Cheng Yuanshan's office and comms room, with his computer, his files, and a satellite terminal that has lost its connection."
+        },
+        "living": {
+          "name": "Living Quarters",
+          "description": "The dormitory, infirmary, boiler room and supply store in one row — where everyone sleeps, sees the doctor and keeps supplies."
+        },
+        "canteen": {
+          "name": "Canteen",
+          "description": "The warmest place in the station, where people often play cards after dinner. A handover logbook hangs by the door."
+        }
+      },
+      "characters": {
+        "he_siyuan": {
+          "name": "He Siyuan",
+          "publicBio": "45, deputy station chief and glaciologist, head of the \"Yangla Ice Core\" YL-series project, seen as Cheng Yuanshan's successor.",
+          "personality": "Steady and considerate, always the first to step up and organise everyone; mild-spoken, yet quietly \"remembers\" details on other people's behalf.",
+          "script": "You are He Siyuan, deputy station chief — and the one who killed Cheng Yuanshan. Eight years ago you single-handedly \"adjusted\" the dating data for the \"Yangla Ice Core\" YL series. It won you a 30-million-yuan project, and next year you're up for the national Distinguished Young Scholars award. Recently Cheng Yuanshan secretly re-measured YL-07 — the dates were off by 800 years. After dinner he said to you quietly: \"20:45, the equipment room. Just the two of us.\"\n\n[What really happened tonight]\n20:20 You took the red-handled pipe wrench Dawa had left under the canteen sink.\n20:31-20:38 You swiped into the cold store for show.\n20:44 You entered the equipment room. Cheng Yuanshan had just logged the fuel consumption, and he demanded you withdraw the paper and return the funding yourself. At 20:50 you struck the back of his head with the pipe wrench.\n20:53 You shut the main fuel-line valve tight — the day tank only holds enough for forty minutes, so the power would fail while you were playing cards, and everyone would think the chief went to the equipment room after the blackout. You dropped the pipe wrench beside the body.\n20:58 You stuffed your blood-spattered red station parka into a locker in the lab and changed into another.\n21:02-21:31 You played Dou Dizhu (\"Fight the Landlord,\" a card game) in the canteen with Ye Yun and Zheng Kai. At 21:32 the power failed, and you said you'd go and fetch the emergency lamp.\n21:45 Dawa wanted to go and fix the generator; you stopped him: \"The chief went over with his headlamp ten minutes ago.\" Only at 22:15 did you let him go and take a look.\n\n[Your story] \"From 20:30 to 21:00 I was in the cold store sorting samples\"; \"At 21:35 I saw the chief heading to the equipment room with his headlamp on.\"\n[Goals] Don't get named; don't let the chief's headlamp be made public.",
+          "coverStory": "From 20:30 to 21:00 I was in the cold store sorting ice-core samples the whole time, then I went straight to the canteen to play cards.",
+          "knowledge": {
+            "k_he_cover": "From 20:30 to 21:00 I was in the cold store sorting ice-core samples the whole time, then I went straight to the canteen to play cards.",
+            "k_he_saw": "At 21:35, after the blackout, I went to the corridor to fetch the emergency lamp and saw the chief heading to the equipment room with his headlamp on, saying he'd take a look at the generator.",
+            "k_he_truth": "From 20:44 to 20:56 I was in the equipment room. I killed the chief with Dawa's pipe wrench, then shut off the main fuel-line valve.",
+            "k_he_fraud": "I altered the dating data for the YL-series ice cores; the chief re-measured and found it was off by 800 years."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep the chief's headlamp from being made public"
+          ]
+        },
+        "su_xiaotang": {
+          "name": "Su Xiaotang",
+          "publicBio": "27, Cheng Yuanshan's PhD student, in her fifth year; her thesis is built on the YL-series ice-core data.",
+          "personality": "Sensitive and clever, careful with her words; once she is sure of the truth she becomes unusually stubborn.",
+          "script": "You are Su Xiaotang, Cheng Yuanshan's PhD student, in your fifth year. Your thesis is built on the YL-series ice-core data. After dinner tonight, Cheng Yuanshan took you aside: \"There's a problem with your thesis data. At least two more years.\" Your stipend stopped long ago and your family is waiting for you to graduate; you nearly fell apart.\n\n[Tonight]\n18:30-19:30 Dinner. The chief said that when the storm passed he'd report \"a problem with a project\" to the institute.\n19:30-20:40 You wrote your thesis in the dormitory, growing more desperate with every line.\n20:43 Knowing the chief would be going to the equipment room to log the fuel about now, you slipped into his office and copied the entire \"Yangla Ice Core\" folder onto a USB drive — you wanted to see what grounds he had for rejecting your work. You left at 20:58.\n21:00-21:10 In the dormitory you went through the files and found the chief's re-measurement notes: the dates for YL-07 were off by 800 years — the problem wasn't you, it was the data itself.\n21:12-21:26 You went to the cold store to look at YL-07. It had indeed been re-cut.\n21:26 Back to the dormitory. At 21:32 the power failed, and you sat in the dark until 21:50 before going to the canteen.\n\n[Your story] \"After dinner I was in the dormitory writing my thesis the whole time; I only came out after the blackout.\"\n[Your secret] You secretly copied the chief's data; you suspect the YL data is faked, but it's Deputy He's project, and you don't dare say anything rashly.\n[Goals] Find the real killer; don't let the USB drive under your pillow be made public.",
+          "coverStory": "After dinner I was in the dormitory writing my thesis the whole time; I only came out after the blackout.",
+          "knowledge": {
+            "k_su_thesis": "After dinner the chief told me there was a problem with my thesis data and I'd need at least two more years.",
+            "k_su_copy": "From 20:43 to 20:58, while the chief was at the equipment room, I slipped into his office and copied the \"Yangla Ice Core\" folder onto a USB drive. There was no one in the office then.",
+            "k_su_core": "The chief's re-measurement notes say the dates for YL-07 differ from the published data by 800 years. The YL series is Deputy He's responsibility.",
+            "k_su_cover": "After dinner I was in the dormitory writing my thesis the whole time; I only came out after the blackout."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the USB drive under the pillow from being made public"
+          ]
+        },
+        "ye_yun": {
+          "name": "Ye Yun",
+          "publicBio": "38, the station's team doctor, six years at the station; several requests for a transfer back to the lowlands have all failed.",
+          "personality": "Calm and professional, speaks briefly; visibly evasive when asked about the past.",
+          "script": "You are Ye Yun, the station's team doctor, here for six years. Five years ago, team member Tashi had a high fever and a cough; you treated it as a cold, and the next day he died of high-altitude pulmonary oedema. It was Cheng Yuanshan who helped you change the medical record to \"acute mountain sickness\" and hush it up. Ever since, he has used it to keep you at the station.\n\n[Tonight]\n18:30-19:30 Dinner. The chief said that as soon as the storm passed he'd report a problem with a project to the institute — and as he said it, he glanced at Deputy He.\n20:00-20:20 You went to the chief's office to hand in your resignation letter. He tore it in two: \"Think carefully about the Tashi business.\" You had a loud row.\n20:20-21:00 You were alone in the infirmary, shaking with anger.\n21:02-21:31 You played Dou Dizhu in the canteen with He Siyuan and Zheng Kai.\n21:32 The power failed; you went back to the infirmary to fetch a headlamp and check the oxygen concentrator, returning to the canteen at 21:45.\n22:25 Dawa ran back and said the chief was dead.\n\n[Your story] \"After dinner I was in the infirmary the whole time, went to the canteen at nine to play cards, and never saw the chief.\"\n[Your secret] Tashi's death; your row with the chief tonight. From 20:20 to 21:00 no one can vouch for you.\n[Goals] Find the real killer; don't let the old medical record in the infirmary be made public.",
+          "coverStory": "After dinner I was in the infirmary the whole time, went to the canteen at nine to play cards, and never saw the chief.",
+          "knowledge": {
+            "k_ye_glance": "At dinner the chief said that when the storm passed he'd report a problem with a project to the institute, and as he said it he glanced at Deputy He.",
+            "k_ye_cards": "From 21:02 I was playing Dou Dizhu in the canteen with Deputy He and Zheng Kai, right up until the blackout at 21:31.",
+            "k_ye_quarrel": "From 20:00 to 20:20 I was in the chief's office handing in my resignation. He tore up the letter and threatened me with the Tashi business, and we had a huge row.",
+            "k_ye_zhaxi": "Five years ago Tashi died because I misdiagnosed him; the chief helped me alter the medical record.",
+            "k_ye_cover": "After dinner I was in the infirmary the whole time, went to the canteen at nine to play cards, and never saw the chief."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the five-year-old medical record from being made public"
+          ]
+        },
+        "dawa_ciren": {
+          "name": "Dawa Tsering",
+          "publicBio": "40, Tibetan, the station's logistics man and mechanic, in charge of the generator, the boiler and the snowcat.",
+          "personality": "Honest and simple, a man of few words who speaks Mandarin slowly; when flustered he keeps repeating, \"It wasn't me.\"",
+          "script": "You are Dawa Tsering, the station's logistics man and mechanic. Your daughter is at secondary school in Lhasa, and you can never scrape together her fees. Two weeks ago you secretly sold two drums of diesel to the boss of a nearby mine for 3,000 yuan. In a blizzard, diesel is life itself; if the chief found out, you'd certainly be fired.\n\n[Tonight]\n18:10 While fixing the canteen water pipes in the afternoon, you left your red-handled pipe wrench in the canteen; you wrote a line in the handover logbook asking whoever saw it to put it back in the tool room.\n20:35-20:50 You were in the boiler room fixing the heating, with Zheng Kai filming you the whole time. You couldn't find the pipe wrench, so you had to make do with an adjustable spanner.\n20:50-21:40 You slipped into the supply store and used correction fluid to change \"two drums issued\" in the diesel ledger to \"wastage.\" At 21:32 the power failed, and you finished by torchlight.\n21:45 You came to the canteen and said you'd go and fix the generator. Deputy He stopped you: \"The chief went over with his headlamp ten minutes ago. Help me set up the emergency lamp first.\"\n22:15 Deputy He told you to go and check the equipment room. At 22:20 you found the chief collapsed beside the generator, your pipe wrench next to him — without thinking you picked it up, then dropped it. At 22:25 you ran back to the canteen to raise the alarm.\n\n[Your story] \"I was in the boiler room fixing the heating all evening and only went to the canteen after the blackout.\"\n[Your secret] Selling the diesel, changing the ledger tonight; you touched the murder weapon.\n[Goals] Find the real killer; don't let the diesel ledger be made public.",
+          "coverStory": "I was in the boiler room fixing the heating all evening and only went to the canteen after the blackout.",
+          "knowledge": {
+            "k_dawa_wrench": "While fixing the canteen water pipes this afternoon I left my red-handled pipe wrench in the canteen; at 18:10 I even wrote in the handover logbook asking people to put it back in the tool room.",
+            "k_dawa_stop": "At 21:45 I said I'd go and fix the generator, but Deputy He stopped me, saying the chief had already gone over with his headlamp ten minutes earlier, and told me to set up the emergency lamp first.",
+            "k_dawa_diesel": "Two weeks ago I secretly sold two drums of diesel to the mine boss; tonight after 20:50 I altered the ledger in the supply store.",
+            "k_dawa_touch": "When I found the chief at 22:20, without thinking I picked up that pipe wrench and then dropped it.",
+            "k_dawa_cover": "I was in the boiler room fixing the heating all evening and only went to the canteen after the blackout."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep the altered diesel ledger from being made public"
+          ]
+        },
+        "zheng_kai": {
+          "name": "Zheng Kai",
+          "publicBio": "36, brand manager for the sponsor, \"Beichen New Energy,\" who has brought a camera to the station to shoot a promotional video.",
+          "personality": "Outgoing and socially savvy, loves recording everything on camera; as soon as he is pressed he starts lecturing about the bigger picture.",
+          "script": "You are Zheng Kai, brand manager for the sponsor, \"Beichen New Energy,\" here with a camera to shoot a promotional video. Your company is chasing a 300-million-yuan project on the strength of its \"glacier carbon sink\" concept and needs Cheng Yuanshan to sign a data licence. Not only did he refuse, he wrote an open letter to expose you — once it goes out, the project is dead, and so are you.\n\n[Tonight]\n18:30-19:30 Dinner.\n20:25-20:30 You went to the chief's office, and he tore the licence agreement in half in front of you: \"You're using the glacier as a billboard.\"\n20:35-20:50 You filmed Dawa fixing the heating in the boiler room, hoping for some \"standing guard at the frontier\" shots.\n20:50 Knowing the chief was in the equipment room about now, you thought you'd go after him and plead once more. At 20:53, outside the equipment room, through the small frosted window you saw a figure in a red station parka crouching by the generator, apparently turning something — you assumed it was the chief busy at work, and with the storm so fierce you went back.\n21:02-21:31 You played Dou Dizhu in the canteen with He Siyuan and Ye Yun.\n21:32 The power failed; you went back to the dormitory for spare batteries and returned to the canteen at 21:45.\n22:25 You rushed to the equipment room with everyone, and without thinking you first took a photo of the snow at the door.\n\n[Your story] \"After 20:50 I was in the dormitory sorting footage the whole time, and went to the canteen at nine to play cards.\"\n[Your secret] Your company's fakery; you were outside the equipment room at 20:53.\n[Goals] Find the real killer; don't be the person with the most votes.",
+          "coverStory": "After 20:50 I was in the dormitory sorting footage the whole time, and went to the canteen at nine to play cards.",
+          "knowledge": {
+            "k_zheng_boiler": "From 20:35 to 20:50 I was filming Dawa fixing the heating in the boiler room; he was in shot the whole time, grumbling that he couldn't find his pipe wrench.",
+            "k_zheng_window": "At 20:53, outside the equipment room, through the small frosted window I saw a figure in a red station parka crouching by the generator, apparently turning something. I didn't go in.",
+            "k_zheng_deal": "My company's \"glacier carbon sink\" publicity is exaggerated; the chief tore up my licence agreement and was going to write an open letter exposing us.",
+            "k_zheng_cover": "After 20:50 I was in the dormitory sorting footage the whole time, and went to the canteen at nine to play cards."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Don't be the person with the most votes"
+          ]
+        }
+      },
+      "relationships": [
+        "Her thesis uses his YL-series data",
+        "Colleagues of six years",
+        "Subject of his promo video",
+        "Card partners",
+        "She already suspects the YL data is fake",
+        "He was the figure seen at 20:53"
+      ],
+      "victimRelationships": [
+        "Deputy chief, colleagues for 20 years",
+        "Supervisor and PhD student",
+        "Chief and team doctor (six years)",
+        "Chief and logistics mechanic",
+        "Sponsor's representative"
+      ],
+      "clues": {
+        "c2_body": {
+          "title": "First Look at the Body",
+          "text": "Cheng Yuanshan lies face-down beside the generator, a depressed wound from a heavy blunt blow to the back of his head. The equipment room has no heating; at more than twenty degrees below zero, the body has frozen stiff — at this temperature, the time of death cannot be judged from body temperature."
+        },
+        "c2_wrench": {
+          "title": "Bloody Red-Handled Wrench",
+          "text": "A red-handled pipe wrench lies discarded beside the generator, blood and hair on its jaws. \"Dawa\" is written on the handle in marker pen."
+        },
+        "c2_headlamp": {
+          "title": "The Headlamp That Was Off",
+          "text": "Cheng Yuanshan is still wearing his headlamp on his forehead; its switch is set to \"off\" and the battery is full. The pull-cord switch of the equipment room's ceiling light is in the \"on\" position — there's just no power now."
+        },
+        "c2_logbook": {
+          "title": "Fuel Consumption Log",
+          "text": "In the fuel consumption log beside the generator, the last line is in Cheng Yuanshan's neat hand: \"20:45 fuel level 35%, running normally.\" There are no entries after that."
+        },
+        "c2_valve": {
+          "title": "The Valve Shut Tight",
+          "text": "The generator's main fuel-line valve has been turned to \"closed,\" and the day tank has run dry. The generator didn't break down — it was \"starved\" to a stop. Normally the only person who touches this valve is whoever looks after the equipment."
+        },
+        "c2_plate": {
+          "title": "Generator Maintenance Card",
+          "text": "A laminated maintenance card is stuck to the side of the generator: \"With the main fuel line closed, the day tank sustains full-load operation for approx. 40 minutes.\""
+        },
+        "c2_snow": {
+          "title": "Photo of the Snow at the Door",
+          "text": "When everyone reached the equipment room, Zheng Kai instinctively took a photo of the snow at the door: in the fresh snow there is only one line of large insulated-boot prints, going and coming back, the same size as Dawa's boots. The snow only stopped at around 22:05; any earlier footprints would have been covered."
+        },
+        "c2_coldlog": {
+          "title": "Cold Store Access Log",
+          "text": "Cold store electronic access log (before the blackout): 20:31 He Siyuan IN; 20:38 He Siyuan OUT; 21:12 Su Xiaotang IN; 21:26 Su Xiaotang OUT; 21:32 power failure, log stops."
+        },
+        "c2_core": {
+          "title": "The Re-Cut Ice Core",
+          "text": "In the cold store, a section of ice core YL-07 has been re-cut, and beside it, weighted down, are Cheng Yuanshan's handwritten re-measurement notes: \"Isotope dating differs from published data by approx. 800 years. Original records must be checked.\""
+        },
+        "c2_parka": {
+          "title": "Red Parka in the Locker",
+          "text": "Stuffed in a locker in the lab's outer room is a red station parka (everyone at the station has one, all identical). On the right cuff are a few dark red spots blurred by snowmelt, and in the pocket is a pair of thin, oil-stained gloves."
+        },
+        "c2_footage": {
+          "title": "Zheng Kai's Camera Footage",
+          "text": "Tonight's footage on the camera: 20:35-20:50, filming Dawa fixing the heating in the boiler room, Dawa grumbling, \"No idea where my red-handled pipe wrench has got to, I'll have to use the adjustable spanner.\" The last clip, 20:53, is shot outdoors: through the storm, light shows in the equipment room's small window; the picture shakes badly and cuts out after a few seconds."
+        },
+        "c2_usb": {
+          "title": "USB Drive Under the Pillow",
+          "text": "Hidden under Su Xiaotang's pillow is a USB drive containing the complete \"Yangla Ice Core\" folder, including Cheng Yuanshan's private working documents and re-measurement notes."
+        },
+        "c2_medfile": {
+          "title": "Old Infirmary Medical Record",
+          "text": "In a locked drawer in the infirmary, a medical record from five years ago: team member Tashi, died of high-altitude pulmonary oedema. The diagnosis field originally read \"common cold\" and was later changed to \"acute mountain sickness\"; the alteration is signed by Ye Yun."
+        },
+        "c2_ledger": {
+          "title": "The Altered Diesel Ledger",
+          "text": "In the supply store's diesel ledger, the entry from two weeks ago reading \"two drums issued\" has been covered with correction fluid and changed to \"wastage.\" The correction fluid isn't fully dry — someone altered it just tonight."
+        },
+        "c2_report": {
+          "title": "Draft Report on the Computer",
+          "text": "A draft on the chief's computer: \"Report on Anomalies in the Dating Data of the Yangla Ice Core YL Series\": \"…sampling and dating for the YL series were the responsibility of deputy chief He Siyuan… recommend suspending related funding pending review…\""
+        },
+        "c2_resign": {
+          "title": "Resignation Letter Torn in Two",
+          "text": "In the wastebasket is a resignation letter torn in two, signed Ye Yun and dated today. On the back, in Cheng Yuanshan's hand: \"Think carefully about the Tashi business.\""
+        },
+        "c2_openletter": {
+          "title": "Open Letter & Licence",
+          "text": "On the desk, a handwritten draft of an open letter: \"Beichen New Energy's 'Glacier Carbon Sink' Publicity Is Seriously Misleading.\" Beside it lies a \"Data Use Licence Agreement,\" torn in two, the licensee's signature line already signed \"Zheng Kai.\""
+        },
+        "c2_syslog": {
+          "title": "Computer System Log",
+          "text": "The chief's computer system log: last keyboard input at 20:41; a USB drive was inserted 20:43-20:58, and the whole \"Yangla Ice Core\" folder was copied."
+        },
+        "c2_notebook": {
+          "title": "Canteen Handover Logbook",
+          "text": "In the handover logbook by the door is a note from 18:10: \"Fixed the water pipes this afternoon, think I left my red-handled pipe wrench in the canteen — whoever sees it, please put it back in the tool room. — Dawa.\" No one replied. After dinner, anyone could have picked it up."
+        },
+        "c2_scores": {
+          "title": "Dou Dizhu Score Sheet",
+          "text": "The score sheet on the table: \"21:02 start, He / Ye / Zheng.\" Seven hands recorded in all, nothing after 21:31 — the power went out."
+        }
+      },
+      "contradictions": {
+        "x_he_lamp": "He Siyuan says that at 21:35, after the blackout, he saw the chief going to the equipment room with his headlamp on, yet the chief's headlamp is switched off while the ceiling-light switch is on — there was still power in the equipment room when he died.",
+        "x_he_cold": "He Siyuan says he was in the cold store from 20:30 to 21:00, yet the access log shows he came out at 20:38.",
+        "x_su_cold": "Su Xiaotang says she was in the dormitory the whole time after dinner, yet the cold store access log records her inside from 21:12 to 21:26.",
+        "x_ye_resign": "Ye Yun says she didn't see the chief tonight, yet the wastebasket in his office holds her resignation letter written today, with the chief's comment on the back.",
+        "x_zheng_film": "Zheng Kai says he was in the dormitory from 20:50 on, yet his camera shot a clip outside the equipment room at 20:53.",
+        "x_dawa_ledger": "Dawa says he was in the boiler room fixing the heating the whole time, yet the diesel ledger in the supply store was altered just tonight, the correction fluid still wet."
+      },
+      "truth": {
+        "weapon": "Dawa's red-handled pipe wrench",
+        "summary": "The killer is deputy chief He Siyuan. Years ago he falsified the dating data for the YL-series ice cores and used it to win a major project. Cheng Yuanshan re-measured and found the problem, and asked him to meet alone in the equipment room at 20:45. He Siyuan had already taken the pipe wrench Dawa left in the canteen; at 20:50 he struck Cheng Yuanshan dead in the equipment room, then closed the generator's main fuel-line valve — the day tank could only run for about forty minutes, so when the power failed at 21:32 he was sitting in the canteen playing cards. He falsely claimed that at 21:35 he saw the chief going to fix the generator \"with his headlamp on,\" to make everyone think the chief died after the blackout, delayed the discovery of the body, and steered suspicion toward Dawa, who looks after the equipment, left the footprints and handled the weapon. But the chief's headlamp was switched off while the ceiling-light switch was on — there was still power in the equipment room when he died. And the cold store access log shows He Siyuan left the cold store at 20:38, so his claim to have \"stayed in the cold store until nine\" is false.",
+        "timeline": [
+          "Dawa leaves a note in the handover logbook: the red-handled pipe wrench was left in the canteen.",
+          "Dinner ends. Cheng Yuanshan asks He Siyuan to meet alone in the equipment room at 20:45, and tells Su Xiaotang her thesis must be redone.",
+          "Ye Yun and then Zheng Kai visit the chief's office; the resignation letter and the licence agreement are both torn up.",
+          "He Siyuan takes the pipe wrench from the canteen; 20:31-20:38 he swipes into the cold store for show.",
+          "Cheng Yuanshan leaves his office for the equipment room and logs the fuel for the last time at 20:45.",
+          "Su Xiaotang slips into the chief's office and copies the data.",
+          "He Siyuan kills Cheng Yuanshan with the pipe wrench in the equipment room.",
+          "He Siyuan closes the main fuel-line valve. Zheng Kai, outside the window, sees a red figure crouching by the generator.",
+          "He Siyuan stuffs the bloodied parka into a lab locker and hurries to the canteen to start the card game.",
+          "Dawa alters the diesel ledger in the supply store.",
+          "The day tank runs dry, the generator cuts out, and the whole station loses power.",
+          "He Siyuan stops Dawa from going to fix the generator, falsely claiming the chief has already gone.",
+          "Dawa is sent to the equipment room and finds the body."
+        ],
+        "secrets": [
+          "Secretly copied the data from the chief's computer, and went to the cold store to look at YL-07.",
+          "Five years ago her misdiagnosis killed a team member; the chief covered it up and used it to blackmail her; she had a row with the chief tonight.",
+          "Sold the station's diesel on the sly and altered the ledger in the supply store tonight; touched the murder weapon when he found the body.",
+          "His company's \"glacier carbon sink\" publicity is fake; he was outside the equipment room at 20:53 and saw the killer's back, but kept quiet.",
+          "The killer; falsified the dating data for the YL-series ice cores."
+        ]
+      }
+    }
+  }
+}

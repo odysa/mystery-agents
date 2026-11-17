@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+// 校验 scenarios/ 下所有剧本的结构、可解性与翻译覆盖率。
+// 用法: node src/validate.js [剧本id…] [--missing]   （--missing 列出缺失的翻译字段）
+import { readdirSync } from 'node:fs';
+import { SCENARIO_DIR, loadScenario, translationCoverage, LANGS, baseLang } from './engine/scenario.js';
+const args = process.argv.slice(2);
+const only = args.filter((a) => !a.startsWith('--'));
+const showMissing = args.includes('--missing');
+let bad = 0;
+for (const f of readdirSync(SCENARIO_DIR).filter((x) => x.endsWith('.json')).sort()) {
+  const id = f.replace(/\.json$/, '');
+  if (only.length && !only.includes(id)) continue;
+  try {
+    const s = loadScenario(id);
+    const cov = LANGS.filter((l) => l !== baseLang(s)).map((l) => translationCoverage(s, l));
+    console.log(`✔ ${f}  《${s.title}》 ${s.characters.length} 角色 / ${s.locations.length} 地点 / ${s.clues.length} 线索  翻译: ${cov.map((c) => `${c.lang} ${Math.round(c.ratio * 100)}%`).join(' ')}`);
+    if (showMissing) for (const c of cov) if (c.missing.length) console.log(`   缺少 ${c.lang}: ${c.missing.join(', ')}`);
+  } catch (e) { bad++; console.error(`✘ ${f}\n${e.message}`); }
+}
+process.exit(bad ? 1 : 0);

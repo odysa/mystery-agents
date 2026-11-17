@@ -1,0 +1,1067 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "chashan-shougou",
+  "version": "1.0.0",
+  "title": "茶山收购",
+  "subtitle": "普洱老茶庄签约前夜，炭火回焙的老茶还没出笼，庄主倒在了焙茶房里。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 5,
+  "difficulty": "困难",
+  "estimatedMinutes": 60,
+  "victim": {
+    "id": "duan_shoushan",
+    "name": "段守山",
+    "bio": "六十八岁，普洱勐岚山「勐岚茶庄」的庄主，守着东坡三百多株古茶树过了大半辈子。脾气倔，认茶不认人，一口茶就能喝出年份和山头。"
+  },
+  "background": "2024 年 4 月，春茶季的尾巴。普洱勐岚山上的勐岚茶庄，今晚灯火通明：广州的鸿川资本要收购茶庄和东坡古茶园，合同明天上午十点签字。\n\n晚饭桌上，庄主段守山却忽然放下筷子：「签不签，明早品完茶再定。」说完便去了晒青场边的焙茶房，用炭火回焙明早品鉴要用的老茶。\n\n22:20，收购方代表郑启明去焙茶房找他，发现段守山倒在焙笼旁，后脑被重物击中，早已没了气息。炭盆已经熄了，屋里弥漫着一股焦糊味。\n\n山路夜里不通车，镇上的派出所最早天亮才能上山。今夜还留在茶庄的五个人，每个人都和这份合同有关，每个人都有不想说的事。",
+  "intro": "【主持人】欢迎来到《茶山收购》。这是一个困难难度的剧本：几乎每个人都在今晚撒了谎，但撒谎不等于杀人。请仔细阅读你的剧本，留意时间——焙茶房里的炭火、墙上的记录和焙笼里的茶叶，都在替死者说话。凶手的目标是不被投票指认，其他人要找出真相，同时守住自己的秘密。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。焙茶房、晒青场、茶仓、账房和客院都可以去。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。可以发言、质询、公开线索或指控。提醒一句：尸体降温不可靠，死亡时间要靠别的东西去卡。",
+    "investigate_2": "【主持人】夜深了，山上起了雾。第二轮搜证开始——有些细节，只有在看懂了前面的线索之后才会被注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。请把每个人 21:00 到 22:00 的行踪逐一对一遍：谁的说法和物证对不上？谁只是在掩饰别的事？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "beicha",
+      "name": "焙茶房",
+      "description": "案发现场。晒青场边一间木板房，里间是炭盆、焙笼和茶台，外间挂着衣物杂物；前门对着晒青场，后门有一条石板路通往账房。",
+      "x": 0.28,
+      "y": 0.28
+    },
+    {
+      "id": "shaiqing",
+      "name": "晒青场",
+      "description": "焙茶房前的一大片晒青场，傍晚洒过水压尘。场边搭着晒青架和竹棚，下面是通往寨子的土路。",
+      "x": 0.72,
+      "y": 0.2
+    },
+    {
+      "id": "chacang",
+      "name": "茶仓",
+      "description": "存放历年老茶的石砌茶仓，供着茶祖神龛。门锁只有三把钥匙。",
+      "x": 0.84,
+      "y": 0.62
+    },
+    {
+      "id": "zhangfang",
+      "name": "账房",
+      "description": "主屋旁的小账房，会计苏蔓平日在这里记账、打印单据。门不上锁。",
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "id": "keyuan",
+      "name": "客院",
+      "description": "主屋后面的小院，段云舒和郑启明今晚都住在这里的客房。",
+      "x": 0.14,
+      "y": 0.7
+    }
+  ],
+  "characters": [
+    {
+      "id": "su_man",
+      "name": "苏蔓",
+      "color": "#c0392b",
+      "publicBio": "31 岁，勐岚茶庄的会计兼仓管，来茶庄六年，账本和茶仓钥匙都归她管。",
+      "personality": "温和、细致、说话轻声细语，被追问时会显得委屈，习惯用具体的数字和时间让自己的话显得可信。",
+      "script": "你是苏蔓，勐岚茶庄的会计兼仓管，庄主待你像半个女儿。两年前母亲重病，你开始把茶仓里 2009 年的古树老茶寄给广州买家「陈先生」，再用新压的台地茶套上原包装放回去。你原想等茶庄易主，这笔账就再没人查得出来。\n\n【当晚经历】\n19:00-20:20 晚宴。\n20:58 庄主发微信让你「现在」把 09 年的盘点表拿去焙茶房。\n21:00 你从后门进了焙茶房。庄主把一杯 0917 号的茶推到你面前：「这不是我的茶。明早当着鸿川的人开仓，再报警。」\n21:05 求他不成，你抄起炭盆边的铁火钳砸了下去。\n21:10 你想起岩恩的茶刀挂在晒青架上，取来放在尸体旁的血泊里。你把剩下的茶饼丢进炭盆，撕下品鉴本一页练庄主的字，在记录板上补了「21:20 翻」「21:40 翻」。\n21:15 有人进了外间，你躲在里间，没被发现。\n21:25 你从后门沿石板路回账房，把那页纸扔进了废纸篓。\n21:45-22:10 你和郑启明视频核对盘点数字。\n\n【你的说法】21:35 才去送盘点表，庄主还在翻茶。\n【你的任务】不被指认；别让「焙笼底层的焦茶」被公开——你忘了真的去翻茶。\n【策略】把怀疑引向茶刀的主人。",
+      "knowledge": [
+        {
+          "id": "k_su_cover",
+          "text": "庄主 20:58 叫我送盘点表，我手上的账没对完，21:35 才送过去。那时庄主还在焙笼边翻茶，好好的，让我明早再来。",
+          "time": "21:35",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_su_room",
+          "text": "晚饭后我一直在账房对账，除了 21:35 去送盘点表，没离开过，也没见有人进账房。",
+          "time": "20:30-22:10",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_su_luo",
+          "text": "18:30 罗文斌在茶庄门口跟庄主吵过，说「你把茶园卖给外人，寨子里的人不会答应」。",
+          "time": "18:30",
+          "implicates": {
+            "luo_wenbin": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_su_truth",
+          "text": "21:00 我到焙茶房，庄主拿 0917 的茶质问我调包老茶的事。21:05 我用火钳打死了他，放了岩恩的茶刀，补写了焙茶记录，21:25 才离开。",
+          "time": "21:00-21:25",
+          "implicates": {
+            "su_man": 5
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "庄主 20:58 叫我送盘点表，我 21:35 才送过去，那时他还在翻茶，好好的。其余时间我一直在账房对账。",
+      "isMurderer": true,
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_scorched",
+          "desc": "不让「焙笼底层的焦茶」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "beicha",
+          "zhangfang",
+          "beicha",
+          "chacang"
+        ]
+      }
+    },
+    {
+      "id": "duan_yunshu",
+      "name": "段云舒",
+      "color": "#8e44ad",
+      "publicBio": "32 岁，段守山的独生女，在昆明经营一家茶空间，这次专程回来见证签约。",
+      "personality": "精明、要强、语速快，习惯先发制人；心虚时会显得格外理直气壮。",
+      "script": "你是段云舒，段守山的独生女。你在昆明开的茶空间去年亏得一塌糊涂，还背着四十多万网贷。父亲答应卖茶园，你以为终于能拿到救命钱，可他前几天来信说，六成卖地款要捐给古茶树保护基金。今晚饭桌上他又说「签不签，明早品完茶再定」，你彻底慌了。\n\n【当晚经历】\n19:00-20:20 晚宴。岩恩当场摔了碗，骂父亲「卖古树就是卖祖宗」。\n20:30 你回客院房间，越想越怕父亲反悔。\n21:15 你溜进焙茶房外间，从父亲挂着的外套内袋里拿走了公章。里间门关着、灯亮着，却一点翻茶的动静都没有——父亲焙茶时总是哗啦哗啦地翻。你怕被他发现，没敢出声就走了。\n21:27 你在账房打印了一份授权委托书，描着父亲的签名签了字、盖了章。那时账房里一个人都没有。\n21:30 回到客院。\n22:20 听到郑启明的喊声。\n\n【你的秘密】你偷拿公章、伪造了授权书，而且案发时段去过焙茶房。\n【你的说法】晚饭后一直在房间，没出过门。\n【你的任务】找出真凶；不要让「包里的公章」被公开。",
+      "knowledge": [
+        {
+          "id": "k_duan_dinner",
+          "text": "晚饭上父亲说签不签要明早品完茶再定，岩恩当场摔了碗，说「卖古树就是卖祖宗」。",
+          "time": "19:30",
+          "implicates": {
+            "yan_en": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_duan_cover",
+          "text": "晚饭后我一直在客院自己的房间里，没出过门。",
+          "time": "20:30-22:20",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_duan_secret",
+          "text": "21:15 我进焙茶房外间拿了父亲的公章，里间门关着、灯亮着，却听不到一点翻茶的声音。21:27 我在账房打印授权书，那时账房里没有人。",
+          "time": "21:15-21:27",
+          "implicates": {
+            "su_man": 1
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "晚饭后我一直在客院自己的房间里，没出过门。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_seal",
+          "desc": "不让「包里的公章」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "keyuan",
+          "beicha",
+          "zhangfang",
+          "chacang"
+        ]
+      }
+    },
+    {
+      "id": "yan_en",
+      "name": "岩恩",
+      "color": "#27ae60",
+      "publicBio": "54 岁，布朗族制茶师傅，在勐岚茶庄做了三十年，是庄主最信得过的老伙计。",
+      "personality": "话少、直、认死理，喝了酒嗓门就大；紧张时会反复说「我没做亏心事」。",
+      "script": "你是岩恩，布朗族，在勐岚茶庄做了三十年制茶师傅。东坡那十株老茶树是你阿爸那辈人守下来的，1996 年庄主亲笔写过「由岩家永久采摘」。可你今天才知道，收购合同的转让清单里，这十株也在其中。\n\n【当晚经历】\n18:40 你在晒青场收完毛茶，把茶刀连鞘挂在晒青架上，去吃晚饭。\n19:00-20:20 晚宴上庄主说明早再定，你忍不住摔了碗：「卖古树就是卖祖宗！」郑老板一直在劝庄主今晚就签。\n20:30 你回寨子火塘边喝闷酒。\n21:50 你借着酒劲上茶庄，想再求庄主一次。焙茶房前门虚掩着，你一推开就看见庄主趴在地上，身子已经不热了，焙笼里一股焦糊味，你的茶刀就躺在他手边。你吓得魂都没了，转身就往寨子跑。\n22:30 寨子里有人喊你回茶庄。\n\n【你的秘密】你 21:50 到过现场，看见了尸体却跑了。\n【你的说法】饭后一直在寨子喝酒，没上过茶庄。\n【你的任务】找出真凶；让「茶刀下面的血」被公开，证明刀是别人放的。",
+      "knowledge": [
+        {
+          "id": "k_yan_knife",
+          "text": "我 18:40 在晒青场收完茶，把茶刀连鞘挂在晒青架上就去吃饭了，之后再没碰过它。那个架子谁路过都能拿到。",
+          "time": "18:40",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_yan_dinner",
+          "text": "晚饭时郑老板一个劲劝庄主今晚就把字签了，庄主没理他，郑老板脸色很难看。",
+          "time": "19:30",
+          "implicates": {
+            "zheng_qiming": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_yan_cover",
+          "text": "吃完饭我就回寨子火塘边喝酒了，一直到 22:30 才被叫回来，没上过茶庄。",
+          "time": "20:30-22:30",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_yan_secret",
+          "text": "21:50 我去焙茶房想再求庄主，推门就看见他倒在地上，身子已经不热了，我的茶刀在他手边，焙笼里一股焦味。我吓坏了，转身就跑。",
+          "time": "21:50",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "吃完饭我就回寨子火塘边喝酒了，一直到 22:30 才被叫回来，没上过茶庄。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_public",
+          "clue": "c_knife_blood",
+          "desc": "让「茶刀下面的血」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "beicha",
+          "shaiqing",
+          "chacang",
+          "zhangfang"
+        ]
+      }
+    },
+    {
+      "id": "zheng_qiming",
+      "name": "郑启明",
+      "color": "#2c7fb8",
+      "publicBio": "45 岁，广州鸿川资本的投资总监，这次收购的收购方代表。",
+      "personality": "圆滑、客气、爱讲数据和「双赢」，压力大时会不停地看表、抽雪茄。",
+      "script": "你是郑启明，广州鸿川资本的投资总监。这单收购你跑了一年，签成了有一大笔奖金，签不成你在公司就没位置了。你一直瞒着庄主：鸿川买茶园，是要在古茶园核心区盖度假酒店，部分古树要移栽。你还私下许了合作社理事长罗文斌五万块「协调费」，让他说服寨子签同意书。\n\n【当晚经历】\n19:00-20:20 晚宴。庄主说签不签明早再定，你一直劝他今晚就签。\n20:30-20:50 你在焙茶房后窗外打电话向老板汇报，抽了三支雪茄，顺手把给罗文斌的三万余款压在晒青场角落的竹匾下。隔着窗，你听见庄主喝了口茶，自言自语：「不对……这不是 09 年的茶。」\n20:55 回客房。\n21:45-22:10 你和苏蔓视频，核对明天交割的库存数字，她在账房。\n22:20 你去焙茶房想再劝庄主，发现他倒在地上，炭盆已经灭了。你大喊叫人。\n\n【你的秘密】酒店规划和给罗文斌的钱；你 20:30 到过焙茶房后窗。\n【你的说法】晚饭后到 21:45 一直在客房处理邮件。\n【你的任务】找出真凶；不要让「酒店规划图」被公开。",
+      "knowledge": [
+        {
+          "id": "k_zheng_call",
+          "text": "21:45 到 22:10，我和苏会计在视频通话核对盘点数字，她那段时间一直在账房。",
+          "time": "21:45-22:10",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_zheng_found",
+          "text": "22:20 我去焙茶房找庄主，发现他倒在地上。炭盆已经灭了，屋里一股焦糊味。",
+          "time": "22:20",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_zheng_cover",
+          "text": "晚饭后到 21:45 我一直在客房处理邮件，没出过门。",
+          "time": "20:30-21:45",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_zheng_secret",
+          "text": "20:30 到 20:50 我在焙茶房后窗外打电话、抽雪茄，把给罗文斌的三万块压在竹匾下。我听见庄主在屋里自言自语：「不对……这不是 09 年的茶。」",
+          "time": "20:30-20:50",
+          "implicates": {
+            "su_man": 1
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "晚饭后到 21:45 我一直在客房处理邮件，然后和苏会计视频对账，22:20 去找庄主才发现出事了。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_blueprint",
+          "desc": "不让「酒店规划图」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "zhangfang",
+          "shaiqing",
+          "beicha",
+          "keyuan"
+        ]
+      }
+    },
+    {
+      "id": "luo_wenbin",
+      "name": "罗文斌",
+      "color": "#d68910",
+      "publicBio": "56 岁，山下勐岚寨茶叶合作社的理事长，和段家为东坡古茶园的边界争了十几年。",
+      "personality": "嗓门大、讲义气、爱拍胸脯，说到钱就含糊其辞。",
+      "script": "你是罗文斌，山下勐岚寨茶叶合作社的理事长。东坡古茶园的边界，寨子和茶庄争了十几年。茶园一旦卖给外地老板，寨子就永远别想要回那几十棵树。可郑启明许了你五万块「协调费」，你已经收了两万定金，答应帮他让寨子里的人在同意书上签字。\n\n【当晚经历】\n18:30 你到茶庄门口找庄主谈边界，吵了起来，撂下一句：「你卖给外人，寨子里的人不会答应！」苏会计当时就在旁边。\n19:00-21:00 你回合作社开会。\n21:20 你骑摩托到茶庄后面，摸进晒青场，找郑启明说好压在竹匾下的余款。经过焙茶房时，你看见窗纸上映着一个人影，身形像个女人，正对着墙低头写着什么。\n21:20-21:40 你摸黑找了二十分钟也没找到钱，钥匙扣什么时候掉的都不知道。\n21:40 骑车回家。\n22:40 寨子里有人来报信，你赶回茶庄。\n\n【你的秘密】收了郑启明的钱；今晚进过晒青场。\n【你的说法】只是骑车从茶庄外的土路经过，没停车。\n【你的任务】找出真凶；不要让「竹匾下的信封」被公开。",
+      "knowledge": [
+        {
+          "id": "k_luo_shadow",
+          "text": "21:20 我骑车从晒青场边经过，看见焙茶房窗纸上映着一个人影，身形像个女人，正对着墙低头写着什么。",
+          "time": "21:20",
+          "implicates": {
+            "su_man": 1,
+            "duan_yunshu": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_luo_cover",
+          "text": "我晚上在合作社开会，散会后骑车从茶庄外面的土路经过，没停车，更没进晒青场。",
+          "time": "19:00-21:40",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_luo_secret",
+          "text": "郑启明许了我五万块「协调费」让寨子签同意书。今晚 21:20 到 21:40 我在晒青场找他压在竹匾下的余款，黑灯瞎火没找到。",
+          "time": "21:20-21:40",
+          "implicates": {
+            "zheng_qiming": 1
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "我晚上在合作社开会，散会后骑车从茶庄外面的土路经过，没停车，更没进晒青场。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_envelope",
+          "desc": "不让「竹匾下的信封」被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "shaiqing",
+          "chacang",
+          "beicha",
+          "zhangfang"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "duan_yunshu",
+      "b": "su_man",
+      "label": "以姐妹相称",
+      "public": true
+    },
+    {
+      "a": "yan_en",
+      "b": "duan_yunshu",
+      "label": "看着她长大",
+      "public": true
+    },
+    {
+      "a": "zheng_qiming",
+      "b": "duan_yunshu",
+      "label": "收购谈判的对接人",
+      "public": true
+    },
+    {
+      "a": "luo_wenbin",
+      "b": "yan_en",
+      "label": "同寨乡亲",
+      "public": true
+    },
+    {
+      "a": "su_man",
+      "b": "zheng_qiming",
+      "label": "核对交割库存",
+      "public": true
+    },
+    {
+      "a": "zheng_qiming",
+      "b": "luo_wenbin",
+      "label": "私下交易（协调费）",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "su_man",
+      "label": "雇主（六年），视如半个女儿"
+    },
+    {
+      "who": "duan_yunshu",
+      "label": "父女"
+    },
+    {
+      "who": "yan_en",
+      "label": "老伙计（三十年）"
+    },
+    {
+      "who": "zheng_qiming",
+      "label": "收购谈判对手"
+    },
+    {
+      "who": "luo_wenbin",
+      "label": "边界纠纷的老对头"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "beicha",
+      "title": "尸体初检",
+      "text": "段守山俯卧在焙笼旁，后脑有一处凹陷的钝器伤。炭盆边的铁火钳被人擦过，但钳头的缝隙里还卡着血和几根白发——这就是凶器。焙茶房里炭火烘了一晚，屋里很暖，尸体降温比平常慢得多，只能粗略判断死亡时间在 20:30 到 22:30 之间。",
+      "time": "20:30-22:30",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_roastlog",
+      "location": "beicha",
+      "title": "墙上的焙茶记录",
+      "text": "门边墙上挂着焙茶记录板，庄主习惯每 20 分钟翻一次茶，用铅笔记一笔。今晚的记录是：20:20 起焙、20:40 翻、21:00 翻、21:20 翻、21:40 翻，之后就没有了。仔细看，最后两行的字比前面几行更工整，一笔一画，像是描出来的。",
+      "time": "20:20-21:40",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_scorched",
+      "location": "beicha",
+      "title": "焙笼底层的焦茶",
+      "text": "把焙笼里的茶整个倒出来：上层还是好茶，贴着竹匾的最底层却已经焦黑发苦。按这盆炭的火力，二十分钟翻一次绝不会焦成这样——底层至少一个钟头没人动过。炭盆里的灰还有余温，估计 22:10 前后才燃尽。也就是说，最后一次真正的翻茶大约就在 21:00。",
+      "time": "21:00",
+      "implicates": {
+        "yan_en": -1
+      },
+      "requires": [
+        "c_roastlog"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_knife",
+      "location": "beicha",
+      "title": "尸体旁的茶刀",
+      "text": "尸体右手边的地上躺着一把牛角柄的普洱茶刀，刀柄上刻着一个「岩」字。茶庄的人都认得，这是制茶师傅岩恩用了二十多年的刀。",
+      "time": "",
+      "implicates": {
+        "yan_en": 3
+      }
+    },
+    {
+      "id": "c_knife_blood",
+      "location": "beicha",
+      "title": "茶刀下面的血",
+      "text": "把茶刀拿起来细看：刀身干干净净，没有一点血；死者身上也没有任何刀伤。更奇怪的是，刀下面的地面同样有已经干掉的血迹——这把刀是在血流开之后，才被人放上去的。",
+      "time": "",
+      "implicates": {
+        "yan_en": -2
+      },
+      "requires": [
+        "c_knife"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_teatable",
+      "location": "beicha",
+      "title": "茶台上的残茶",
+      "text": "茶台上摊着一张撕开的「2009 勐岚古树」茶饼包装纸，编号 0917，茶饼本身却不见了。公道杯里还剩小半杯冷茶。庄主的品鉴本翻在最新一页：「09 年 0917，汤薄，无陈韵，这不是我的茶。明早开仓。」这一页后面的一页被整齐地撕掉了。",
+      "time": "",
+      "implicates": {
+        "su_man": 1
+      }
+    },
+    {
+      "id": "c_phone",
+      "location": "beicha",
+      "title": "庄主的手机",
+      "text": "手机掉在焙笼脚下，屏幕没锁。最后一条微信是 20:58 发给「小苏会计」的：「把 09 年的盘点表拿来焙茶房，现在。」对方回了一个「好」。之后再没有任何通话和消息。",
+      "time": "20:58",
+      "implicates": {
+        "su_man": 2
+      }
+    },
+    {
+      "id": "c_footprint",
+      "location": "shaiqing",
+      "title": "前门口的解放鞋印",
+      "text": "傍晚晒青场洒过水压尘，焙茶房前门口的泥地上留着一串解放鞋印：朝门口走了几步，在门槛前停住，然后急转身，步子拉得很大，朝寨子的方向跑了。茶庄里常年穿解放鞋的，只有岩恩师傅。后门那边是石板路，留不下脚印。",
+      "time": "",
+      "implicates": {
+        "yan_en": 2
+      }
+    },
+    {
+      "id": "c_cigar",
+      "location": "shaiqing",
+      "title": "后窗下的雪茄头",
+      "text": "焙茶房后窗外的竹棚下有三截雪茄烟头，旁边一小片草被踩平了。从这扇窗户望进去，能看见焙笼和茶台。今晚茶庄里抽雪茄的，只有从广州来的郑启明。",
+      "time": "",
+      "implicates": {
+        "zheng_qiming": 2
+      }
+    },
+    {
+      "id": "c_envelope",
+      "location": "shaiqing",
+      "title": "竹匾下的信封",
+      "text": "晒青场角落一摞竹匾下面压着一个牛皮纸信封，里面是三万元现金，封口写着「罗·余款」。竹匾边的地上还掉着一个钥匙扣，挂牌上印着「勐岚茶叶专业合作社」。",
+      "time": "",
+      "implicates": {
+        "luo_wenbin": 2,
+        "zheng_qiming": 1
+      }
+    },
+    {
+      "id": "c_fakecake",
+      "location": "chacang",
+      "title": "被调包的老茶",
+      "text": "茶仓里码着「2009 勐岚古树」整整二十提。随手拆开几饼：包装纸、内飞都是真的，饼却压得松散，叶底细碎，是最多两三年的台地茶。茶仓的门锁只有三把钥匙：庄主、岩恩和会计苏蔓各一把。",
+      "time": "",
+      "implicates": {
+        "su_man": 1,
+        "yan_en": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_oldcontract",
+      "location": "chacang",
+      "title": "神龛下的老约定",
+      "text": "茶祖神龛下压着一张发黄的手写约定，落款 1996 年：「东坡古茶园十株老树，由岩家永久采摘，子孙不改。段守山。」旁边却放着一份收购合同附件的复印件，这十株树赫然在转让清单里，被人用指甲狠狠划了好几道。",
+      "time": "",
+      "implicates": {
+        "yan_en": 2
+      }
+    },
+    {
+      "id": "c_inventory",
+      "location": "zhangfang",
+      "title": "下午的盘点表",
+      "text": "账房桌上放着今天下午做好的盘点表：「2009 勐岚古树，二十提，计 140 饼，已逐饼核对，无误。」核对人签名：苏蔓。",
+      "time": "",
+      "implicates": {
+        "su_man": 1
+      }
+    },
+    {
+      "id": "c_express",
+      "location": "zhangfang",
+      "title": "寄往广州的快递底单",
+      "text": "账房一本旧账夹里夹着七张快递底单，最早一张是两年前的。收件人都是广州芳村茶叶市场的同一位「陈先生」，品名一律写「茶叶样品」，每次三到七件。寄件电话填的是茶庄座机，经手人一栏空着。",
+      "time": "",
+      "implicates": {
+        "su_man": 2
+      },
+      "requires": [
+        "c_fakecake"
+      ]
+    },
+    {
+      "id": "c_pencil",
+      "location": "zhangfang",
+      "title": "废纸篓里的一页纸",
+      "text": "账房废纸篓底下压着一张揉皱的纸，撕口的毛边和庄主品鉴本里被撕掉的那页正好吻合。纸上用铅笔反复写着「21:20 翻」「21:40 翻」，一遍比一遍更像庄主的字。",
+      "time": "",
+      "implicates": {
+        "su_man": 2,
+        "duan_yunshu": 1
+      },
+      "requires": [
+        "c_scorched"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_printer",
+      "location": "zhangfang",
+      "title": "打印机的记录",
+      "text": "账房打印机的屏幕上显示最近一次任务：21:27，「授权委托书.docx」，1 份。账房平时只有苏蔓在用，但门不上锁，谁都能进来。",
+      "time": "21:27",
+      "implicates": {
+        "duan_yunshu": 1
+      }
+    },
+    {
+      "id": "c_blueprint",
+      "location": "zhangfang",
+      "title": "收购附件里的规划图",
+      "text": "收购合同的附件里夹着一张鸿川资本的内部规划图：古茶园核心区规划为「高端茶旅度假酒店」，标注「部分古树移栽至景观区」。图上有庄主用红笔写的四个大字：「骗子，不签」。",
+      "time": "",
+      "implicates": {
+        "zheng_qiming": 2,
+        "duan_yunshu": 1,
+        "luo_wenbin": 1
+      }
+    },
+    {
+      "id": "c_seal",
+      "location": "keyuan",
+      "title": "手提包里的公章",
+      "text": "段云舒房间的手提包里放着茶庄的公章，和一份《授权委托书》：庄主授权段云舒全权代表茶庄签署收购合同。公章是新盖的，印泥还没全干；庄主的签名明显是一笔一笔描出来的。",
+      "time": "",
+      "implicates": {
+        "duan_yunshu": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_letter",
+      "location": "keyuan",
+      "title": "写给云舒的信",
+      "text": "云舒房间的桌上有一封拆开的信，是庄主前几天写给她的：「卖茶园的钱，我打算拿六成出来成立古茶树保护基金，你拿两成，够你在昆明重新开始了。」信下面压着几张网贷平台的逾期通知，合计四十多万。",
+      "time": "",
+      "implicates": {
+        "duan_yunshu": 2
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "su_man",
+    "weapon": "焙茶房炭盆边的铁火钳",
+    "summary": "凶手是会计苏蔓。两年来她把茶仓里的 2009 年古树老茶寄给广州买家，再用台地茶套上原包装调包。签约前夜，段守山回焙品鉴用茶时喝出 0917 号茶饼是假的，20:58 微信叫她带盘点表到焙茶房。21:05 她用铁火钳击打庄主后脑致死，随后从晒青架取来岩恩的茶刀放进血泊嫁祸，把剩下的茶饼丢进炭盆，撕下品鉴本一页练习庄主笔迹，在焙茶记录上伪造了「21:20 翻」「21:40 翻」两行，让人以为庄主 21:40 还活着，再以「21:35 送盘点表时庄主还好好的」配合 21:45 起与郑启明的视频通话制造不在场。但她没有真的去翻茶：焙笼底层焦糊说明 21:00 之后再没人翻过，伪造的记录与她的证词同时被戳穿；茶刀压在血迹之上，说明刀是事后摆放的。岩恩 21:50 发现尸体后逃走，段云舒 21:15 偷拿公章、21:27 在空无一人的账房伪造授权书，郑启明和罗文斌各自掩盖了私下交易——他们都撒了谎，但都不是凶手。",
+    "timeline": [
+      {
+        "time": "18:30",
+        "text": "罗文斌在茶庄门口与段守山为古茶园边界争吵，苏蔓在场。"
+      },
+      {
+        "time": "18:40",
+        "text": "岩恩收完毛茶，把茶刀连鞘挂在晒青架上。"
+      },
+      {
+        "time": "19:00-20:20",
+        "text": "晚宴。段守山说「签不签，明早品完茶再定」，岩恩摔碗。"
+      },
+      {
+        "time": "20:20",
+        "text": "段守山进焙茶房起焙，每 20 分钟翻茶记录一次（20:40、21:00 为真实记录）。"
+      },
+      {
+        "time": "20:30-20:50",
+        "text": "郑启明在焙茶房后窗外打电话抽雪茄，把三万元压在竹匾下；听见庄主说「这不是 09 年的茶」。"
+      },
+      {
+        "time": "20:58",
+        "text": "段守山微信叫苏蔓带盘点表来焙茶房。"
+      },
+      {
+        "time": "21:00",
+        "text": "段守山最后一次翻茶。苏蔓从后门进入焙茶房，被当面质问。"
+      },
+      {
+        "time": "21:05",
+        "text": "苏蔓用铁火钳击中段守山后脑，致其死亡。"
+      },
+      {
+        "time": "21:10",
+        "text": "苏蔓取来岩恩的茶刀放进血泊，烧掉剩余茶饼，撕下品鉴本一页练字。"
+      },
+      {
+        "time": "21:15",
+        "text": "段云舒进焙茶房外间偷拿公章，未进里间；苏蔓躲在里间。"
+      },
+      {
+        "time": "21:20",
+        "text": "苏蔓在记录板上伪造「21:20 翻」「21:40 翻」；罗文斌在晒青场看见窗上女人身影。"
+      },
+      {
+        "time": "21:25",
+        "text": "苏蔓从后门离开，回账房途中把练字纸扔进账房废纸篓（约 21:32 到达）。"
+      },
+      {
+        "time": "21:27",
+        "text": "段云舒在无人的账房打印授权委托书并伪造签名。"
+      },
+      {
+        "time": "21:20-21:40",
+        "text": "罗文斌在晒青场摸黑找钱未果，遗落钥匙扣。"
+      },
+      {
+        "time": "21:45-22:10",
+        "text": "苏蔓与郑启明视频核对库存。"
+      },
+      {
+        "time": "21:50",
+        "text": "岩恩到焙茶房发现尸体和自己的茶刀，惊慌逃回寨子。"
+      },
+      {
+        "time": "22:10",
+        "text": "炭盆燃尽。"
+      },
+      {
+        "time": "22:20",
+        "text": "郑启明发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "su_man",
+        "text": "凶手；两年来调包并私卖茶仓的 2009 年古树老茶。"
+      },
+      {
+        "who": "duan_yunshu",
+        "text": "背负四十多万网贷；21:15 从焙茶房外间偷拿公章，21:27 伪造授权委托书。"
+      },
+      {
+        "who": "yan_en",
+        "text": "21:50 到过焙茶房，发现尸体后逃走，未报告。"
+      },
+      {
+        "who": "zheng_qiming",
+        "text": "隐瞒在古茶园建酒店、移栽古树的规划；私下许给罗文斌五万元协调费；20:30-20:50 在焙茶房后窗外。"
+      },
+      {
+        "who": "luo_wenbin",
+        "text": "收受郑启明的协调费；21:20-21:40 进过晒青场找钱。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_su_time",
+      "knowledge": "k_su_cover",
+      "clue": "c_scorched",
+      "text": "苏蔓说 21:35 她去焙茶房时庄主还在翻茶，可焙笼底层的茶一个多钟头没人翻过——21:00 以后，庄主就再没动过茶。",
+      "implicates": {
+        "su_man": 3
+      }
+    },
+    {
+      "id": "x_su_delay",
+      "knowledge": "k_su_cover",
+      "clue": "c_phone",
+      "text": "庄主 20:58 催苏蔓「现在」就来，她回了「好」，却说自己拖到 21:35 才去。",
+      "implicates": {
+        "su_man": 1
+      }
+    },
+    {
+      "id": "x_yan_shoe",
+      "knowledge": "k_yan_cover",
+      "clue": "c_footprint",
+      "text": "岩恩说饭后再没上过茶庄，可焙茶房门口有他的解放鞋印，还是一路跑走的。",
+      "implicates": {
+        "yan_en": 1
+      }
+    },
+    {
+      "id": "x_duan_seal",
+      "knowledge": "k_duan_cover",
+      "clue": "c_seal",
+      "text": "段云舒说饭后一直没出房门，可庄主外套里的公章却到了她包里，授权书上的印泥都还没干。",
+      "implicates": {
+        "duan_yunshu": 1
+      }
+    },
+    {
+      "id": "x_zheng_cigar",
+      "knowledge": "k_zheng_cover",
+      "clue": "c_cigar",
+      "text": "郑启明说饭后一直在客房，可焙茶房后窗下有他的雪茄头。",
+      "implicates": {
+        "zheng_qiming": 1
+      }
+    },
+    {
+      "id": "x_luo_envelope",
+      "knowledge": "k_luo_cover",
+      "clue": "c_envelope",
+      "text": "罗文斌说只是路过、没进晒青场，可合作社的钥匙扣就掉在晒青场的竹匾边。",
+      "implicates": {
+        "luo_wenbin": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Tea Mountain Buyout",
+      "subtitle": "On the eve of signing at an old Pu'er tea estate, the aged tea re-roasting over charcoal has yet to come out of the basket — and the estate's master lies dead in the roasting house.",
+      "background": "April 2024, the tail end of the spring tea season. Up on Menglan Mountain in Pu'er, the lights are blazing at the Menglan Tea Estate tonight: Hongchuan Capital of Guangzhou is buying the estate and its ancient tea garden on the East Slope, and the contract is to be signed at 10:00 tomorrow morning.\n\nBut at dinner, the estate's master, Duan Shoushan, suddenly set down his chopsticks: \"Whether I sign or not, I'll decide tomorrow morning after tasting the tea.\" With that he went off to the roasting house beside the sun-drying yard to re-roast over charcoal the aged tea for tomorrow morning's tasting.\n\nAt 22:20, the buyer's representative Zheng Qiming went to the roasting house to find him, and found Duan Shoushan collapsed beside the roasting basket, struck on the back of the head with something heavy, long dead. The charcoal brazier had gone out, and a burnt smell hung in the room.\n\nThe mountain road is closed to traffic at night; the earliest the town police station can get up the mountain is daybreak. Each of the five people still at the estate tonight has a stake in this contract — and each has something they would rather not say.",
+      "intro": "[Host] Welcome to \"The Tea Mountain Buyout.\" This is a hard-difficulty scenario: almost everyone has lied tonight, but lying is not the same as killing. Read your script carefully and watch the times — the charcoal in the roasting house, the log on the wall and the tea leaves in the basket are all speaking for the dead. The killer's goal is to avoid being voted out; everyone else must find the truth while guarding their own secrets.",
+      "victim": {
+        "name": "Duan Shoushan",
+        "bio": "68, master of the Menglan Tea Estate on Menglan Mountain in Pu'er, who spent most of his life guarding the 300-odd ancient tea trees on the East Slope. Stubborn, loyal to the tea rather than to people — a single sip told him the year and the mountain."
+      },
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. You may go to the roasting house, the sun-drying yard, the tea storehouse, the accounts office and the guest courtyard. Any clue you find is known only to you — whether to reveal it is your choice.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question, reveal clues or accuse. A reminder: body cooling is unreliable here — the time of death must be pinned down by other means.",
+        "investigate_2": "[Host] The night grows late and mist rises on the mountain. The second round of investigation begins — some details only catch your eye once you understand the clues that came before.",
+        "discuss_2": "[Host] The final round of discussion. Go through everyone's movements from 21:00 to 22:00, one by one: whose story fails to match the physical evidence? And who is merely covering up something else?",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the killer. Whoever receives the most votes will be named (in a tie, the killer escapes)."
+      },
+      "locations": {
+        "beicha": {
+          "name": "Roasting House",
+          "description": "The crime scene. A wooden shed beside the sun-drying yard: the inner room holds the charcoal brazier, the roasting basket and the tea table; the outer room has clothes and odds and ends hanging up. The front door faces the sun-drying yard; from the back door a flagstone path leads to the accounts office."
+        },
+        "shaiqing": {
+          "name": "Sun-Drying Yard",
+          "description": "A broad sun-drying yard in front of the roasting house, sprinkled with water at dusk to lay the dust. Drying racks and a bamboo shelter stand at its edge, and below runs the dirt road to the village."
+        },
+        "chacang": {
+          "name": "Tea Storehouse",
+          "description": "A stone storehouse holding aged tea from years past, with a shrine to the Tea Ancestor. There are only three keys to its lock."
+        },
+        "zhangfang": {
+          "name": "Accounts Office",
+          "description": "A small office beside the main house where the bookkeeper Su Man keeps the accounts and prints receipts. The door is never locked."
+        },
+        "keyuan": {
+          "name": "Guest Courtyard",
+          "description": "A small courtyard behind the main house; Duan Yunshu and Zheng Qiming are both staying in its guest rooms tonight."
+        }
+      },
+      "characters": {
+        "su_man": {
+          "name": "Su Man",
+          "publicBio": "31, bookkeeper and storekeeper of the Menglan Tea Estate. Six years at the estate; the ledgers and the storehouse keys are both in her charge.",
+          "personality": "Mild, meticulous and softly spoken. Pressed with questions she looks hurt, and she habitually uses precise numbers and times to make her words sound credible.",
+          "script": "You are Su Man, bookkeeper and storekeeper of the Menglan Tea Estate; the master treats you almost like a daughter. Two years ago your mother fell gravely ill, and you began mailing the estate's 2009 ancient-tree aged tea from the storehouse to a buyer in Guangzhou, a \"Mr. Chen,\" then wrapping freshly pressed terrace-plantation tea in the original wrappers and putting it back. You had thought that once the estate changed hands, no one would ever be able to trace these accounts.\n\n[Tonight]\n19:00-20:20 Dinner.\n20:58 The master sent you a WeChat message telling you to bring the 2009 stock-take sheet to the roasting house \"now.\"\n21:00 You entered the roasting house by the back door. The master pushed a cup of tea from cake No. 0917 in front of you: \"This is not my tea. Tomorrow morning I open the storehouse in front of the Hongchuan people, and then I call the police.\"\n21:05 When your pleading failed, you snatched up the iron fire tongs beside the brazier and brought them down on him.\n21:10 You remembered Yan En's tea knife hanging on the drying rack, fetched it and laid it in the pool of blood beside the body. You threw the remaining tea cakes into the brazier, tore a page out of the tasting notebook to practise the master's handwriting, and added \"21:20 turned\" and \"21:40 turned\" to the log board.\n21:15 Someone came into the outer room. You hid in the inner room and weren't discovered.\n21:25 You left by the back door along the flagstone path to the accounts office and threw that page into the wastepaper basket.\n21:45-22:10 You were on a video call with Zheng Qiming checking stock-take figures.\n\n[Your story] I only went to deliver the stock-take sheet at 21:35, and the master was still turning the tea.\n[Your goals] Don't get named; don't let \"the scorched tea at the bottom of the basket\" be made public — you forgot to actually turn the tea.\n[Strategy] Steer suspicion toward the owner of the tea knife.",
+          "coverStory": "The master called me at 20:58 to bring the stock-take sheet; I didn't take it over until 21:35, and he was still turning the tea then, perfectly fine. The rest of the time I was in the accounts office doing the books.",
+          "knowledge": {
+            "k_su_cover": "The master called me at 20:58 to bring the stock-take sheet, but I hadn't finished balancing the accounts, so I didn't take it over until 21:35. He was still by the basket turning the tea, perfectly fine, and told me to come back in the morning.",
+            "k_su_room": "After dinner I was in the accounts office doing the books the whole time. Apart from delivering the stock-take sheet at 21:35, I never left, and I didn't see anyone come into the office.",
+            "k_su_luo": "At 18:30 Luo Wenbin argued with the master at the estate gate, saying \"If you sell the tea garden to outsiders, the village won't stand for it.\"",
+            "k_su_truth": "At 21:00 I reached the roasting house, and the master confronted me with the 0917 tea about the swapped aged tea. At 21:05 I killed him with the fire tongs, planted Yan En's tea knife, forged entries in the roasting log, and only left at 21:25."
+          },
+          "objectives": [
+            "Avoid being voted out as the killer",
+            "Keep \"the scorched tea at the bottom of the basket\" from being made public"
+          ]
+        },
+        "duan_yunshu": {
+          "name": "Duan Yunshu",
+          "publicBio": "32, Duan Shoushan's only daughter, who runs a tea house in Kunming and has come back specially to witness the signing.",
+          "personality": "Shrewd, driven and fast-talking, used to striking first; when she feels guilty she becomes especially self-righteous.",
+          "script": "You are Duan Yunshu, Duan Shoushan's only daughter. The tea house you run in Kunming lost a fortune last year, and you are carrying over 400,000 yuan in online loans. When your father agreed to sell the tea garden you thought the lifeline money had finally come — but a few days ago he wrote to say that 60% of the sale money would be donated to an ancient-tea-tree conservation fund. Then at dinner tonight he said, \"Whether I sign or not, I'll decide tomorrow morning after tasting the tea,\" and you were thrown into a panic.\n\n[Tonight]\n19:00-20:20 Dinner. Yan En smashed his bowl right there and cursed your father: \"Selling the ancient trees is selling our ancestors!\"\n20:30 You went back to your room in the guest courtyard, growing more and more afraid your father would back out.\n21:15 You slipped into the outer room of the roasting house and took the estate's official seal from the inside pocket of your father's hanging jacket. The inner door was shut and the light was on, yet there wasn't the slightest sound of tea being turned — when your father roasts, he is always turning it with a rustle and clatter. Afraid he'd catch you, you left without a sound.\n21:27 In the accounts office you printed a power of attorney, traced your father's signature onto it and stamped it with the seal. There was no one at all in the accounts office then.\n21:30 Back in the guest courtyard.\n22:20 You heard Zheng Qiming shouting.\n\n[Your secret] You stole the seal and forged a power of attorney — and you were in the roasting house during the time of the murder.\n[Your story] After dinner I stayed in my room and never went out.\n[Your goals] Find the real killer; don't let \"the seal in the handbag\" be made public.",
+          "coverStory": "After dinner I was in my own room in the guest courtyard and never went out.",
+          "knowledge": {
+            "k_duan_dinner": "At dinner Father said he would decide whether to sign after tasting the tea in the morning, and Yan En smashed his bowl right there, saying \"Selling the ancient trees is selling our ancestors.\"",
+            "k_duan_cover": "After dinner I was in my own room in the guest courtyard and never went out.",
+            "k_duan_secret": "At 21:15 I went into the outer room of the roasting house and took Father's seal. The inner door was shut and the light on, but I couldn't hear a single sound of tea being turned. At 21:27 I printed the power of attorney in the accounts office, and there was nobody in the office then."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep \"the seal in the handbag\" from being made public"
+          ]
+        },
+        "yan_en": {
+          "name": "Yan En",
+          "publicBio": "54, a Blang tea master who has worked at the Menglan Tea Estate for thirty years — the master's most trusted old hand.",
+          "personality": "Taciturn, blunt and stubborn; loud once he has had a drink. When nervous he keeps repeating, \"I've done nothing to be ashamed of.\"",
+          "script": "You are Yan En, of the Blang people, tea master at the Menglan Tea Estate for thirty years. The ten old tea trees on the East Slope were guarded by your father's generation, and in 1996 the master wrote in his own hand that they would be \"picked by the Yan family in perpetuity.\" Yet only today did you learn that those ten trees are on the transfer list in the buyout contract.\n\n[Tonight]\n18:40 You finished gathering the raw tea in the sun-drying yard, hung your tea knife, in its sheath, on the drying rack, and went to dinner.\n19:00-20:20 At dinner the master said he'd decide in the morning, and you couldn't help smashing your bowl: \"Selling the ancient trees is selling our ancestors!\" Boss Zheng kept urging the master to sign tonight.\n20:30 You went back to the village and drank glumly by the fire pit.\n21:50 Emboldened by drink, you went up to the estate to plead with the master once more. The roasting house's front door was ajar; the moment you pushed it open you saw the master face-down on the floor, his body already cold, a burnt smell coming from the roasting basket, and your tea knife lying by his hand. Scared out of your wits, you turned and ran back to the village.\n22:30 Someone in the village called you back to the estate.\n\n[Your secret] You were at the scene at 21:50, saw the body, and ran.\n[Your story] After dinner I was drinking in the village the whole time and never came up to the estate.\n[Your goals] Find the real killer; get \"the blood under the tea knife\" made public to prove someone else put the knife there.",
+          "coverStory": "After dinner I went back to the village and drank by the fire pit; I wasn't called back until 22:30 and never came up to the estate.",
+          "knowledge": {
+            "k_yan_knife": "At 18:40 I finished gathering tea in the sun-drying yard, hung my tea knife in its sheath on the drying rack and went to eat. I never touched it after that. Anyone passing that rack could take it.",
+            "k_yan_dinner": "At dinner Boss Zheng kept pressing the master to sign that very night. The master ignored him, and Boss Zheng looked furious.",
+            "k_yan_cover": "After dinner I went back to the village and drank by the fire pit; I wasn't called back until 22:30 and never came up to the estate.",
+            "k_yan_secret": "At 21:50 I went to the roasting house to plead with the master again. I pushed the door open and saw him on the floor, his body already cold, my tea knife by his hand, a burnt smell from the basket. I panicked, turned and ran."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Get \"the blood under the tea knife\" made public"
+          ]
+        },
+        "zheng_qiming": {
+          "name": "Zheng Qiming",
+          "publicBio": "45, investment director at Hongchuan Capital in Guangzhou and the buyer's representative in this acquisition.",
+          "personality": "Smooth and polite, fond of statistics and \"win-win\"; under pressure he keeps checking his watch and smoking cigars.",
+          "script": "You are Zheng Qiming, investment director at Hongchuan Capital in Guangzhou. You've been chasing this acquisition for a year: close it and there's a big bonus; fail and there's no place for you at the firm. You have been hiding something from the master: Hongchuan is buying the tea garden to build a resort hotel in the heart of the ancient grove, and some of the ancient trees are to be transplanted. You also privately promised Luo Wenbin, chairman of the village cooperative, a 50,000-yuan \"coordination fee\" to persuade the village to sign the consent form.\n\n[Tonight]\n19:00-20:20 Dinner. The master said he'd decide in the morning whether to sign; you kept urging him to sign tonight.\n20:30-20:50 Outside the roasting house's back window you phoned your boss to report, smoked three cigars, and tucked the remaining 30,000 yuan for Luo Wenbin under a bamboo tray in a corner of the sun-drying yard. Through the window you heard the master take a sip of tea and mutter to himself: \"This isn't right… this isn't the 2009 tea.\"\n20:55 Back to your guest room.\n21:45-22:10 You were on a video call with Su Man, who was in the accounts office, checking stock figures for tomorrow's handover.\n22:20 You went to the roasting house to try persuading the master once more and found him on the floor, the brazier gone out. You shouted for help.\n\n[Your secret] The hotel plan and the money for Luo Wenbin; you were at the roasting house's back window at 20:30.\n[Your story] From dinner until 21:45 I was in my guest room dealing with emails.\n[Your goals] Find the real killer; don't let \"the hotel plan\" be made public.",
+          "coverStory": "From dinner until 21:45 I was in my guest room dealing with emails, then on a video call with the bookkeeper checking accounts. At 22:20 I went to find the master and discovered what had happened.",
+          "knowledge": {
+            "k_zheng_call": "From 21:45 to 22:10 I was on a video call with Su the bookkeeper checking stock-take figures; she was in the accounts office the whole time.",
+            "k_zheng_found": "At 22:20 I went to the roasting house to find the master and found him on the floor. The brazier had gone out and the room smelled burnt.",
+            "k_zheng_cover": "From dinner until 21:45 I was in my guest room dealing with emails and never went out.",
+            "k_zheng_secret": "From 20:30 to 20:50 I was outside the roasting house's back window making a call and smoking cigars, and I tucked the 30,000 for Luo Wenbin under a bamboo tray. I heard the master muttering inside: \"This isn't right… this isn't the 2009 tea.\""
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep \"the hotel plan\" from being made public"
+          ]
+        },
+        "luo_wenbin": {
+          "name": "Luo Wenbin",
+          "publicBio": "56, chairman of the tea cooperative in Menglan Village below the mountain, who has feuded with the Duan family for over a decade over the boundary of the East Slope ancient tea garden.",
+          "personality": "Loud, big on loyalty, always thumping his chest — and vague whenever money comes up.",
+          "script": "You are Luo Wenbin, chairman of the tea cooperative in Menglan Village below the mountain. The village and the estate have fought over the boundary of the East Slope ancient tea garden for more than ten years. Once the garden is sold to an outside boss, the village can forget about ever getting back those few dozen trees. But Zheng Qiming promised you a 50,000-yuan \"coordination fee\"; you've already taken a 20,000 deposit and agreed to help him get the villagers to sign the consent form.\n\n[Tonight]\n18:30 You came to the estate gate to talk to the master about the boundary; it turned into a row and you snapped: \"Sell to outsiders and the village won't stand for it!\" Su the bookkeeper was standing right there.\n19:00-21:00 You went back to the cooperative for a meeting.\n21:20 You rode your motorbike round the back of the estate, crept into the sun-drying yard and looked for the balance Zheng Qiming said he'd leave under a bamboo tray. Passing the roasting house, you saw a figure silhouetted on the paper window — built like a woman — head bowed, writing something against the wall.\n21:20-21:40 You groped about in the dark for twenty minutes without finding the money, and never noticed when your key ring fell off.\n21:40 You rode home.\n22:40 Someone from the village came with the news, and you hurried back to the estate.\n\n[Your secret] You took Zheng Qiming's money; you were in the sun-drying yard tonight.\n[Your story] I only rode past on the dirt road outside the estate and didn't stop.\n[Your goals] Find the real killer; don't let \"the envelope under the bamboo tray\" be made public.",
+          "coverStory": "I was at a meeting at the cooperative this evening. Afterwards I rode past on the dirt road outside the estate without stopping, and I certainly never went into the sun-drying yard.",
+          "knowledge": {
+            "k_luo_shadow": "At 21:20, riding past the edge of the sun-drying yard, I saw a figure silhouetted on the roasting house's paper window — built like a woman — head bowed, writing something against the wall.",
+            "k_luo_cover": "I was at a meeting at the cooperative this evening. Afterwards I rode past on the dirt road outside the estate without stopping, and I certainly never went into the sun-drying yard.",
+            "k_luo_secret": "Zheng Qiming promised me a 50,000 \"coordination fee\" to get the village to sign the consent form. Tonight from 21:20 to 21:40 I was in the sun-drying yard looking for the balance he left under a bamboo tray, but in the pitch dark I couldn't find it."
+          },
+          "objectives": [
+            "Vote out the real killer",
+            "Keep \"the envelope under the bamboo tray\" from being made public"
+          ]
+        }
+      },
+      "relationships": [
+        "Close as sisters",
+        "Watched her grow up",
+        "Counterpart in the buyout talks",
+        "Fellow villagers",
+        "Checking handover stock together",
+        "Secret deal (coordination fee)"
+      ],
+      "victimRelationships": [
+        "Employer of six years; like a daughter",
+        "Father and daughter",
+        "Old hand (thirty years)",
+        "Opponent in the buyout talks",
+        "Old rival in a boundary dispute"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "First Look at the Body",
+          "text": "Duan Shoushan lies face-down beside the roasting basket with a depressed blunt-force wound to the back of his head. The iron fire tongs by the brazier have been wiped, but blood and a few white hairs are still caught in the joint of the tips — this is the weapon. The charcoal has been burning all evening and the room is warm, so the body has cooled far more slowly than usual; time of death can only be roughly put between 20:30 and 22:30."
+        },
+        "c_roastlog": {
+          "title": "Roasting Log on the Wall",
+          "text": "A roasting log board hangs on the wall by the door. The master's habit is to turn the tea every 20 minutes and make a pencil note. Tonight's log reads: 20:20 start, 20:40 turned, 21:00 turned, 21:20 turned, 21:40 turned — then nothing more. Look closely and the last two lines are neater than the ones before, stroke by careful stroke, as if traced."
+        },
+        "c_scorched": {
+          "title": "Scorched Tea in the Basket",
+          "text": "Tip all the tea out of the roasting basket: the upper layer is still good tea, but the bottom layer, pressed against the bamboo tray, is charred black and bitter. At this brazier's heat, turning every twenty minutes could never scorch it like this — the bottom layer has gone untouched for at least an hour. The ash in the brazier is still faintly warm; it probably burned out around 22:10. In other words, the last real turning of the tea was at about 21:00."
+        },
+        "c_knife": {
+          "title": "Tea Knife by the Body",
+          "text": "On the floor by the body's right hand lies a horn-handled Pu'er tea knife, the character \"Yan\" (岩) carved into its handle. Everyone at the estate knows it: tea master Yan En has used this knife for over twenty years."
+        },
+        "c_knife_blood": {
+          "title": "Blood Under the Tea Knife",
+          "text": "Pick up the tea knife and look closely: the blade is perfectly clean, without a speck of blood, and the dead man has no knife wounds at all. Stranger still, the floor beneath the knife also bears dried bloodstains — the knife was placed there only after the blood had spread."
+        },
+        "c_teatable": {
+          "title": "Leftover Tea on the Table",
+          "text": "Spread on the tea table is a torn-open wrapper from a \"2009 Menglan Ancient Tree\" tea cake, No. 0917, but the cake itself is gone. A little cold tea is left in the serving pitcher. The master's tasting notebook lies open at the latest page: \"2009, No. 0917 — thin liquor, no aged character. This is not my tea. Open the storehouse in the morning.\" The page after this one has been neatly torn out."
+        },
+        "c_phone": {
+          "title": "The Master's Phone",
+          "text": "The phone has fallen at the foot of the roasting basket, screen unlocked. The last WeChat message, sent at 20:58 to \"Su the bookkeeper\": \"Bring the 2009 stock-take sheet to the roasting house. Now.\" She replied: \"OK.\" After that there are no more calls or messages at all."
+        },
+        "c_footprint": {
+          "title": "Canvas-Shoe Prints at the Door",
+          "text": "The sun-drying yard was sprinkled at dusk to lay the dust, and the mud before the roasting house's front door bears a line of \"Liberation\" canvas-shoe prints: a few steps toward the door, a stop at the threshold, then a sharp turn and long, running strides toward the village. The only person at the estate who always wears Liberation shoes is master Yan En. The back door opens onto a flagstone path that holds no prints."
+        },
+        "c_cigar": {
+          "title": "Cigar Butts Under the Window",
+          "text": "Under the bamboo shelter outside the roasting house's back window lie three cigar butts, and a small patch of grass beside them has been trampled flat. Through this window you can see the roasting basket and the tea table. The only cigar smoker at the estate tonight is Zheng Qiming from Guangzhou."
+        },
+        "c_envelope": {
+          "title": "Envelope Under the Bamboo Tray",
+          "text": "Under a stack of bamboo trays in a corner of the sun-drying yard is a kraft-paper envelope holding 30,000 yuan in cash, the flap marked \"Luo · balance.\" On the ground by the trays lies a key ring whose tag reads \"Menglan Tea Farmers' Cooperative.\""
+        },
+        "c_fakecake": {
+          "title": "The Swapped Aged Tea",
+          "text": "The storehouse holds a full twenty bundles of \"2009 Menglan Ancient Tree.\" Open a few cakes at random: the wrappers and the neifei (the authenticity ticket pressed into the cake) are genuine, but the cakes are loosely pressed and the spent leaves are fine and broken — terrace-plantation tea two or three years old at most. There are only three keys to the storehouse lock: one each for the master, Yan En and the bookkeeper Su Man."
+        },
+        "c_oldcontract": {
+          "title": "Old Pact Under the Shrine",
+          "text": "Beneath the Tea Ancestor shrine lies a yellowed handwritten pact dated 1996: \"The ten old trees of the East Slope ancient garden shall be picked by the Yan family in perpetuity, never to be changed by descendants. Duan Shoushan.\" Beside it, though, is a photocopy of an annex to the buyout contract — and those ten trees are plainly on the transfer list, gouged over and over with a fingernail."
+        },
+        "c_inventory": {
+          "title": "This Afternoon's Stock-Take",
+          "text": "On the accounts office desk is the stock-take sheet completed this afternoon: \"2009 Menglan Ancient Tree, twenty bundles, 140 cakes total, checked cake by cake, correct.\" Checked by: Su Man."
+        },
+        "c_express": {
+          "title": "Courier Slips to Guangzhou",
+          "text": "Tucked into an old ledger folder in the accounts office are seven courier receipts, the earliest from two years ago. All are addressed to the same \"Mr. Chen\" at the Fangcun tea market in Guangzhou, every item described as \"tea samples,\" three to seven parcels each time. The sender's phone number is the estate's landline, and the \"handled by\" field is blank."
+        },
+        "c_pencil": {
+          "title": "A Page in the Wastebasket",
+          "text": "At the bottom of the accounts office wastebasket lies a crumpled sheet whose ragged torn edge matches exactly the page ripped from the master's tasting notebook. On it, written over and over in pencil, are \"21:20 turned\" and \"21:40 turned,\" each attempt more like the master's handwriting than the last."
+        },
+        "c_printer": {
+          "title": "The Printer's History",
+          "text": "The accounts office printer's screen shows the most recent job: 21:27, \"Power of Attorney.docx,\" 1 copy. Normally only Su Man uses the office, but the door isn't locked — anyone can come in."
+        },
+        "c_blueprint": {
+          "title": "Site Plan in the Buyout Annex",
+          "text": "Tucked into the annexes of the buyout contract is an internal Hongchuan Capital site plan: the core of the ancient tea garden is zoned for a \"luxury tea-tourism resort hotel,\" marked \"some ancient trees to be transplanted to landscape area.\" Across it the master has written four big characters in red pen: \"Liars — won't sign.\""
+        },
+        "c_seal": {
+          "title": "The Seal in the Handbag",
+          "text": "In the handbag in Duan Yunshu's room are the estate's official seal and a \"Power of Attorney\": the master authorises Duan Yunshu to sign the buyout contract with full authority on the estate's behalf. The seal impression is fresh, the ink paste not yet fully dry; the master's signature has clearly been traced stroke by stroke."
+        },
+        "c_letter": {
+          "title": "A Letter to Yunshu",
+          "text": "On the desk in Yunshu's room is an opened letter the master wrote her a few days ago: \"Of the money from selling the tea garden, I plan to put sixty percent into an ancient-tea-tree conservation fund. You will get twenty percent — enough to start over in Kunming.\" Under the letter are several overdue notices from online lending platforms, totalling over 400,000 yuan."
+        }
+      },
+      "contradictions": {
+        "x_su_time": "Su Man says that when she went to the roasting house at 21:35 the master was still turning the tea, yet the bottom of the basket went unturned for over an hour — after 21:00 the master never touched the tea again.",
+        "x_su_delay": "At 20:58 the master told Su Man to come \"now,\" and she replied \"OK,\" yet she claims she put it off until 21:35.",
+        "x_yan_shoe": "Yan En says he never came up to the estate after dinner, yet his Liberation-shoe prints are at the roasting house door — and they run away.",
+        "x_duan_seal": "Duan Yunshu says she never left her room after dinner, yet the seal from the master's jacket ended up in her handbag, and the ink on the power of attorney isn't even dry.",
+        "x_zheng_cigar": "Zheng Qiming says he was in his guest room after dinner, yet his cigar butts are under the roasting house's back window.",
+        "x_luo_envelope": "Luo Wenbin says he only rode past and never entered the sun-drying yard, yet the cooperative's key ring was dropped by the bamboo trays in the yard."
+      },
+      "truth": {
+        "weapon": "The iron fire tongs beside the roasting-house brazier",
+        "summary": "The killer is the bookkeeper Su Man. For two years she had been mailing the storehouse's 2009 ancient-tree aged tea to a buyer in Guangzhou and swapping in terrace tea in the original wrappers. On the eve of the signing, as Duan Shoushan re-roasted the tasting tea, he tasted that cake No. 0917 was fake, and at 20:58 messaged her on WeChat to bring the stock-take sheet to the roasting house. At 21:05 she struck the master on the back of the head with the iron fire tongs and killed him. She then fetched Yan En's tea knife from the drying rack and laid it in the pool of blood to frame him, threw the remaining tea cakes into the brazier, tore a page from the tasting notebook to practise the master's handwriting, and forged two lines — \"21:20 turned\" and \"21:40 turned\" — in the roasting log so that the master would seem alive at 21:40. Her claim that \"the master was fine when I delivered the stock-take sheet at 21:35,\" together with her video call with Zheng Qiming from 21:45, was meant to give her an alibi. But she never actually turned the tea: the scorched bottom layer shows no one turned it after 21:00, exposing the forged log and her testimony at once; and the tea knife lying on top of the bloodstain shows it was placed afterwards. Yan En found the body at 21:50 and fled; Duan Yunshu stole the seal at 21:15 and forged the power of attorney in the empty accounts office at 21:27; Zheng Qiming and Luo Wenbin each covered up their secret deal — they all lied, but none of them is the killer.",
+        "timeline": [
+          "Luo Wenbin argues with Duan Shoushan at the estate gate over the ancient garden's boundary; Su Man is present.",
+          "Yan En finishes gathering the raw tea and hangs his sheathed tea knife on the drying rack.",
+          "Dinner. Duan Shoushan says \"Whether I sign or not, I'll decide tomorrow after tasting the tea\"; Yan En smashes his bowl.",
+          "Duan Shoushan enters the roasting house and starts roasting, logging a turn every 20 minutes (the 20:40 and 21:00 entries are genuine).",
+          "Zheng Qiming phones and smokes cigars outside the roasting house's back window and tucks 30,000 yuan under a bamboo tray; he hears the master say \"This isn't the 2009 tea.\"",
+          "Duan Shoushan messages Su Man on WeChat to bring the stock-take sheet to the roasting house.",
+          "Duan Shoushan turns the tea for the last time. Su Man enters the roasting house by the back door and is confronted.",
+          "Su Man strikes Duan Shoushan on the back of the head with the iron fire tongs, killing him.",
+          "Su Man fetches Yan En's tea knife and lays it in the pool of blood, burns the remaining tea cakes, and tears a page from the tasting notebook to practise the handwriting.",
+          "Duan Yunshu enters the roasting house's outer room and steals the seal without entering the inner room; Su Man hides in the inner room.",
+          "Su Man forges \"21:20 turned\" and \"21:40 turned\" on the log board; Luo Wenbin, in the sun-drying yard, sees a woman's silhouette on the window.",
+          "Su Man leaves by the back door and on returning throws the practice sheet into the accounts office wastebasket (arriving about 21:32).",
+          "Duan Yunshu prints the power of attorney in the empty accounts office and forges the signature.",
+          "Luo Wenbin gropes for the money in the dark in the sun-drying yard without success and drops his key ring.",
+          "Su Man and Zheng Qiming check the stock over a video call.",
+          "Yan En arrives at the roasting house, finds the body and his own tea knife, and flees in panic back to the village.",
+          "The brazier burns out.",
+          "Zheng Qiming finds the body."
+        ],
+        "secrets": [
+          "The killer; for two years she swapped out and secretly sold the storehouse's 2009 ancient-tree aged tea.",
+          "Carrying over 400,000 yuan in online loans; at 21:15 stole the seal from the roasting house's outer room, and at 21:27 forged the power of attorney.",
+          "Was at the roasting house at 21:50, found the body and fled without reporting it.",
+          "Concealed the plan to build a hotel in the ancient garden and transplant ancient trees; secretly promised Luo Wenbin a 50,000-yuan coordination fee; was outside the roasting house's back window 20:30-20:50.",
+          "Took Zheng Qiming's coordination fee; entered the sun-drying yard looking for the money 21:20-21:40."
+        ]
+      }
+    }
+  }
+}

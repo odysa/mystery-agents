@@ -1,0 +1,880 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "yuye-yaohuo",
+  "version": "1.0.0",
+  "title": "雨夜窑火",
+  "subtitle": "陶瓷大师七十寿宴之夜，暴雨封山，窑火未燃，大师倒在了工作室里。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 5,
+  "difficulty": "入门",
+  "estimatedMinutes": 40,
+  "victim": {
+    "id": "shen_mochuan",
+    "name": "沈墨川",
+    "bio": "七十岁，景德镇郊外「沈家窑」的主人，享誉海内外的青花瓷大师。性格刚直，对作品近乎苛刻。"
+  },
+  "background": "2019年深秋，江西景德镇郊外的沈家窑山庄。今晚是陶瓷大师沈墨川的七十岁寿宴，家人、徒弟和老朋友都聚在山庄里。晚宴结束时，沈墨川举杯说：「明天一早，我要当众宣布一件关于沈家窑传承的大事。」\n\n入夜后暴雨倾盆，下山的路被冲断，所有人都被困在山庄。23:00，保姆林秀兰端着夜宵走进工作室，发现沈墨川倒在书桌旁，后脑受到重击，已经没有了呼吸。\n\n电话线被暴雨冲断，警察最早明早才能上山。在那之前，凶手就在你们五个人之中。",
+  "intro": "【主持人】欢迎来到《雨夜窑火》。请仔细阅读你的角色剧本：你的经历、你知道的事、你的秘密和任务。凶手的目标是不被投票指认；其他人要找出真相——但每个人都有自己不想被揭开的秘密。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。",
+    "investigate_2": "【主持人】雨更大了。第二轮搜证开始，有些线索只有在发现关键物证后才会被注意到。",
+    "discuss_2": "【主持人】最后一轮讨论。天快亮了，请抓紧时间理清时间线。",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "studio",
+      "name": "工作室",
+      "description": "案发现场。沈墨川的书桌、拉坯机和满墙的青花瓷，后门通往一条露天后廊。",
+      "x": 0.3,
+      "y": 0.35
+    },
+    {
+      "id": "kiln",
+      "name": "窑房",
+      "description": "后廊尽头的柴窑房，陆远平日在这里烧窑、看火。",
+      "x": 0.78,
+      "y": 0.3
+    },
+    {
+      "id": "library",
+      "name": "藏书阁",
+      "description": "二楼的藏书阁，存放账目、文书和沈墨川的藏书。",
+      "x": 0.3,
+      "y": 0.78
+    },
+    {
+      "id": "garden",
+      "name": "后花园",
+      "description": "工作室窗外的花园，有一座凉亭，正对着工作室的窗户。",
+      "x": 0.78,
+      "y": 0.75
+    }
+  ],
+  "characters": [
+    {
+      "id": "shen_qing",
+      "name": "沈清",
+      "color": "#d9534f",
+      "publicBio": "32岁，沈墨川的独生女，在上海经营一家画廊，这次专程回来祝寿。",
+      "personality": "直率、骄傲、说话带刺，但内心很在意父亲。",
+      "script": "你是沈清，沈墨川唯一的女儿。母亲去世后，父亲续娶了只比你大八岁的周曼，你从此很少回家。你在上海开的画廊去年经营失败，欠下了80万的债。\n\n【当晚经历】\n19:00-20:30 参加寿宴。\n21:30 你去工作室找父亲，想请他卖掉几件藏品帮你还债。父亲拒绝了，说「沈家窑的东西一件都不能卖」。你们大吵一架。\n21:45 你气冲冲地离开工作室，去后花园的凉亭抽烟、给债主打电话，一直待到23:00听到林嫂的尖叫。\n22:15 你在凉亭里无意看到：工作室的窗户里，有一个穿灰色雨衣的人影在和父亲说话，动作很激烈。22:20左右，工作室的灯灭了。你当时以为是父亲在骂徒弟，没有在意。\n\n【你的秘密】你欠债80万，并且案发前和父亲吵过架——你担心说出来会被当成凶手。\n\n【你的任务】\n1. 找出杀害父亲的真凶。\n2. 找到并公开能证明你一直待在凉亭的线索。",
+      "knowledge": [
+        {
+          "id": "k_qing_saw",
+          "text": "22:15 我在凉亭里看到工作室窗内有个穿灰色雨衣的人影在和父亲争执，22:20 左右灯灭了。",
+          "time": "22:15",
+          "implicates": {
+            "lu_yuan": 2
+          },
+          "secret": false
+        },
+        {
+          "id": "k_qing_argue",
+          "text": "21:30-21:45 我和父亲在工作室为钱吵了一架，我离开时他还好好的。",
+          "time": "21:30",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "coverStory": "21:45 以后我一直在后花园凉亭里抽烟打电话，没离开过。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_public",
+          "clue": "c_cigarettes",
+          "desc": "公开凉亭烟头线索，证明自己的不在场"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "garden",
+          "studio",
+          "library",
+          "kiln"
+        ]
+      }
+    },
+    {
+      "id": "lu_yuan",
+      "name": "陆远",
+      "color": "#5b7fbf",
+      "publicBio": "35岁，沈墨川的关门弟子，跟随师父学艺十五年，被视为沈家窑的接班人。",
+      "personality": "沉稳寡言，说话滴水不漏；被逼急时会把话题引向别人。",
+      "script": "你是陆远，沈墨川的徒弟，也是杀害他的凶手。\n\n这几年，你偷偷仿制师父的作品，盖上假的「墨川」印章，通过古董商老马卖了上百万。今晚寿宴后，师父把你叫去工作室，桌上摆着你做的仿品——他全都知道了。\n\n【当晚真实经历】\n19:00-20:30 参加寿宴。\n21:00-22:00 你在窑房，心神不宁，根本没有烧窑。\n22:05 你穿着灰色雨衣，冒雨从后廊走到工作室。师父拿着仿品质问你，说明天要当众揭穿你、报警，并把传承人改成沈清。\n22:15 争执中你抓起桌上的青铜镇纸砸向师父的后脑。他倒下后，你关了灯，从后廊逃回窑房。\n22:30 你把带血的镇纸埋进冷窑的灰坑里，把湿雨衣挂在门后。\n23:00 听到尖叫后，你装作从窑房赶来。\n\n【你的谎言】你对所有人说：「我整晚都在窑房烧窑、看火温，一步都没离开。」\n\n【你的秘密】你是凶手；你在卖仿品。\n\n【你的任务】\n1. 不要被投票指认为凶手。\n2. 不要让「窑温记录」被公开——它会戳穿你的不在场证明。\n\n【策略提示】先去窑房把对你不利的线索拿到手，不要公开。把怀疑引向和师父吵过架的人，或者案发前去过工作室的人。",
+      "knowledge": [
+        {
+          "id": "k_lu_cover",
+          "text": "我整晚都在窑房烧窑、看火温，一步都没离开过。",
+          "time": "21:00-23:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_lu_truth",
+          "text": "22:05-22:20 我在工作室，和师父发生争执并杀了他。",
+          "time": "22:05",
+          "implicates": {
+            "lu_yuan": 5
+          },
+          "secret": true
+        }
+      ],
+      "coverStory": "我整晚都在窑房烧窑、看火温，一步都没离开过。",
+      "isMurderer": true,
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_kilnlog",
+          "desc": "不让窑温记录被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "kiln",
+          "kiln",
+          "studio",
+          "library"
+        ]
+      }
+    },
+    {
+      "id": "zhou_man",
+      "name": "周曼",
+      "color": "#9b59b6",
+      "publicBio": "40岁，沈墨川的第二任妻子，原是美术学院的讲师，嫁入沈家八年。",
+      "personality": "优雅、谨慎、善于察言观色，说话总是留三分。",
+      "script": "你是周曼，沈墨川的续弦妻子。这段婚姻早已名存实亡，你和律师韩子衡暗中相恋已经两年。\n\n【当晚经历】\n19:00-20:30 参加寿宴。\n21:00 你在走廊上看见韩子衡走进了工作室，大约半小时后出来。\n22:00-22:40 你和韩子衡在藏书阁里幽会，喝了红酒，你的丝巾落在了那里。\n22:40 你回到卧室。\n23:00 听到林嫂的尖叫。\n\n【你的秘密】你和韩子衡的私情。如果被公开，你在遗嘱中的份额可能保不住，名声也会毁掉。\n\n【你的说法】「22:00 以后我一个人在藏书阁看书。」\n\n【你的任务】\n1. 找出真凶。\n2. 不要让「藏书阁的红酒杯和丝巾」被公开。",
+      "knowledge": [
+        {
+          "id": "k_zhou_saw_han",
+          "text": "21:00 左右我在走廊看见韩律师进了工作室，大约半小时后才出来。",
+          "time": "21:00",
+          "implicates": {
+            "han_ziheng": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_zhou_affair",
+          "text": "22:00-22:40 我和韩子衡一起在藏书阁。",
+          "time": "22:00",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_zhou_cover",
+          "text": "22:00 以后我一个人在藏书阁看书。",
+          "time": "22:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "22:00 以后我一个人在藏书阁看书。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_twocups",
+          "desc": "不让藏书阁的红酒杯和丝巾被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "library",
+          "studio",
+          "garden",
+          "kiln"
+        ]
+      }
+    },
+    {
+      "id": "han_ziheng",
+      "name": "韩子衡",
+      "color": "#2e9e6b",
+      "publicBio": "38岁，沈家的法律顾问，父亲是沈墨川的老友，这次受邀来祝寿。",
+      "personality": "理性、讲证据，喜欢用律师的方式盘问别人。",
+      "script": "你是韩子衡，沈家的律师。今晚沈墨川私下找你修改遗嘱。你和周曼暗中相恋已有两年。\n\n【当晚经历】\n19:00-20:30 参加寿宴。\n21:00-21:30 你在工作室和沈墨川谈修改遗嘱：他要把沈家窑的传承人从陆远改成沈清。提到陆远时他非常愤怒，说「有些事明天我要当众说清楚」，但没告诉你具体是什么事。\n22:00-22:40 你和周曼在藏书阁幽会。\n22:40 你回到客房。\n\n【你的秘密】你和周曼的私情。\n\n【你的说法】「22:00 以后我在客房整理文件。」\n\n【你的任务】\n1. 找出真凶。\n2. 让「遗嘱草稿」被公开——你相信改遗嘱的原因和命案有关。",
+      "knowledge": [
+        {
+          "id": "k_han_will",
+          "text": "21:00-21:30 我和沈老谈修改遗嘱，他要把传承人从陆远改成沈清，提到陆远时非常愤怒，说「有些事明天当众说清楚」。",
+          "time": "21:00",
+          "implicates": {
+            "lu_yuan": 2
+          },
+          "secret": false
+        },
+        {
+          "id": "k_han_affair",
+          "text": "22:00-22:40 我和周曼一起在藏书阁。",
+          "time": "22:00",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_han_cover",
+          "text": "22:00 以后我在客房整理文件。",
+          "time": "22:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        }
+      ],
+      "coverStory": "22:00 以后我在客房整理文件。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_public",
+          "clue": "c_will",
+          "desc": "让遗嘱草稿被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "library",
+          "studio",
+          "kiln",
+          "garden"
+        ]
+      }
+    },
+    {
+      "id": "lin_xiulan",
+      "name": "林秀兰",
+      "color": "#d4a017",
+      "publicBio": "58岁，在沈家做了二十年的保姆，看着沈清和陆远长大。",
+      "personality": "朴实、心软、爱念叨，一紧张就说话前后颠倒。",
+      "script": "你是林秀兰，沈家的保姆，人称林嫂。你的儿子在城里看病急需用钱。\n\n【当晚经历】\n19:00-20:30 在厨房和餐厅忙寿宴。\n21:50 你给老爷送茶到工作室。老爷背对着你在打电话，语气很重：「仿品……全是假的……明天我就报警。」你趁他不注意，从敞开的抽屉里拿了2000块钱。\n21:55 你离开工作室回到厨房。\n23:00 你端夜宵到工作室，发现老爷倒在地上，工作室后门开着，地上有泥水。你吓得尖叫起来。\n\n【你的秘密】你从抽屉里拿了钱。\n\n【你的任务】\n1. 找出真凶。\n2. 不要让「抽屉里少了现金」的线索被公开。",
+      "knowledge": [
+        {
+          "id": "k_lin_phone",
+          "text": "21:50 我给老爷送茶，听见他在电话里说「仿品……全是假的……明天我就报警」。",
+          "time": "21:50",
+          "implicates": {
+            "lu_yuan": 2
+          },
+          "secret": false
+        },
+        {
+          "id": "k_lin_found",
+          "text": "23:00 我发现老爷时，工作室的后门开着，地上有一路泥水，像是从后廊进来的。",
+          "time": "23:00",
+          "implicates": {
+            "lu_yuan": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_lin_money",
+          "text": "21:50 我趁老爷打电话，从抽屉里拿了2000块钱。",
+          "time": "21:50",
+          "implicates": {},
+          "secret": true
+        },
+        {
+          "id": "k_lin_cover",
+          "text": "我 21:50 送完茶就回厨房了，一直到 23:00 送夜宵。",
+          "time": "21:50",
+          "implicates": {},
+          "secret": false,
+          "lie": false
+        }
+      ],
+      "coverStory": "我21:50送完茶就回厨房了，一直到23:00送夜宵。",
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_drawer",
+          "desc": "不让抽屉少钱的线索被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "studio",
+          "garden",
+          "library",
+          "kiln"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "shen_qing",
+      "b": "zhou_man",
+      "label": "继母女·关系冷淡",
+      "public": true
+    },
+    {
+      "a": "shen_qing",
+      "b": "lu_yuan",
+      "label": "一起长大的师兄妹",
+      "public": true
+    },
+    {
+      "a": "lin_xiulan",
+      "b": "lu_yuan",
+      "label": "看着他长大",
+      "public": true
+    },
+    {
+      "a": "lin_xiulan",
+      "b": "shen_qing",
+      "label": "看着她长大",
+      "public": true
+    },
+    {
+      "a": "han_ziheng",
+      "b": "shen_qing",
+      "label": "世交",
+      "public": true
+    },
+    {
+      "a": "zhou_man",
+      "b": "han_ziheng",
+      "label": "秘密恋人",
+      "public": false
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "shen_qing",
+      "label": "父女"
+    },
+    {
+      "who": "lu_yuan",
+      "label": "师徒十五年"
+    },
+    {
+      "who": "zhou_man",
+      "label": "夫妻（续弦）"
+    },
+    {
+      "who": "han_ziheng",
+      "label": "法律顾问"
+    },
+    {
+      "who": "lin_xiulan",
+      "label": "雇主（二十年）"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "studio",
+      "title": "尸体初检",
+      "text": "沈墨川后脑有明显的钝器伤，伤口边缘呈方形。体温和尸僵判断，死亡时间约在 22:00 到 22:30 之间。",
+      "time": "22:00-22:30",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_desk",
+      "location": "studio",
+      "title": "书桌上的半封信",
+      "text": "书桌上压着一封没写完的信：「陆远：这些年你以我的名义做的事，我已经全部知道了。明日当众说清楚，你好自为之……」",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_teacup",
+      "location": "studio",
+      "title": "凉掉的茶",
+      "text": "书桌上有一杯凉透的茶，茶托下压着一张林秀兰的买菜记账单。有人在案发前送过茶。",
+      "time": "21:50",
+      "implicates": {
+        "lin_xiulan": 1
+      }
+    },
+    {
+      "id": "c_drawer",
+      "location": "studio",
+      "title": "抽屉里少了现金",
+      "text": "书桌抽屉敞开着。抽屉里的小账本写着「现金 5000」，但实际只剩下 3000 元。",
+      "time": "",
+      "implicates": {
+        "lin_xiulan": 2
+      }
+    },
+    {
+      "id": "c_footprint",
+      "location": "studio",
+      "title": "后门的泥脚印",
+      "text": "工作室后门内侧有一串湿泥脚印，是 43 码的雨靴印，从后廊方向进来，又折返出去。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 2
+      }
+    },
+    {
+      "id": "c_kilnlog",
+      "location": "kiln",
+      "title": "窑温记录仪",
+      "text": "窑炉的电子温度记录显示：当晚 21:00 到 23:00，窑温一直低于 40℃——这一整晚根本没有烧过窑。",
+      "time": "21:00-23:00",
+      "implicates": {
+        "lu_yuan": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_raincoat",
+      "location": "kiln",
+      "title": "湿透的灰色雨衣",
+      "text": "窑房门后挂着一件湿透的灰色雨衣，袖口上有几点暗红色的斑点。窑房里只有陆远的雨靴，43 码。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 3
+      }
+    },
+    {
+      "id": "c_forgery",
+      "location": "kiln",
+      "title": "仿品与假印章",
+      "text": "工具柜深处藏着三只仿制的「墨川」款青花瓶，还有一枚刻着「墨川」的假印章。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 2
+      }
+    },
+    {
+      "id": "c_ashpit",
+      "location": "kiln",
+      "title": "冷窑灰坑里的镇纸",
+      "text": "既然窑没烧过，灰坑里却有新翻动的痕迹。扒开冷灰，里面埋着一块方形青铜镇纸，棱角上沾着干涸的血迹。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 4
+      },
+      "requires": [
+        "c_kilnlog"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_will",
+      "location": "library",
+      "title": "遗嘱修改草稿",
+      "text": "一份今晚刚写的遗嘱修改草稿：沈家窑的传承人由「陆远」改为「沈清」，旁边批注「此人不可托付」。周曼的份额保持不变。",
+      "time": "21:00",
+      "implicates": {
+        "lu_yuan": 2,
+        "shen_qing": 1
+      }
+    },
+    {
+      "id": "c_ledger",
+      "location": "library",
+      "title": "窑厂账目",
+      "text": "近三年的账目里，有二十多笔「墨川」款作品经陆远之手卖给古董商「老马」，但沈墨川亲手登记的作品目录里根本没有这些作品。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 2
+      }
+    },
+    {
+      "id": "c_twocups",
+      "location": "library",
+      "title": "两只红酒杯和一条丝巾",
+      "text": "藏书阁的小桌上有两只用过的红酒杯，椅背上搭着一条周曼常戴的丝巾。今晚有两个人在这里待过。",
+      "time": "22:00-22:40",
+      "implicates": {
+        "zhou_man": 1,
+        "han_ziheng": 1
+      }
+    },
+    {
+      "id": "c_cigarettes",
+      "location": "garden",
+      "title": "凉亭里的烟头",
+      "text": "凉亭里散落着七八个同一牌子的女士香烟烟头，是沈清抽的牌子。有人在这里待了很久。",
+      "time": "21:45-23:00",
+      "implicates": {
+        "shen_qing": -1
+      }
+    },
+    {
+      "id": "c_debt",
+      "location": "garden",
+      "title": "皱巴巴的催款函",
+      "text": "凉亭的石凳下有一张被揉皱的催款函：「沈清女士，您拖欠的 80 万元借款已逾期……」",
+      "time": "",
+      "implicates": {
+        "shen_qing": 2
+      }
+    },
+    {
+      "id": "c_view",
+      "location": "garden",
+      "title": "凉亭的视野",
+      "text": "从凉亭望过去，正好能看清工作室的窗户。在这里的人，应该能看到工作室里发生了什么。",
+      "time": "",
+      "implicates": {}
+    },
+    {
+      "id": "c_mudpath",
+      "location": "garden",
+      "title": "后廊的泥路",
+      "text": "后廊的泥地上只有一行往返的雨靴脚印，一头连着窑房，一头连着工作室的后门。",
+      "time": "",
+      "implicates": {
+        "lu_yuan": 2
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "lu_yuan",
+    "weapon": "青铜镇纸",
+    "summary": "凶手是徒弟陆远。他多年来仿制师父作品、盖假印章私下出售。寿宴当晚，沈墨川发现了仿品，决定第二天当众揭穿、报警，并把传承人改为沈清。22:05，陆远穿着灰色雨衣从后廊来到工作室，争执中用青铜镇纸击中师父后脑，随后关灯逃回窑房，把镇纸埋进冷窑灰坑。他声称整晚在窑房烧窑，但窑温记录显示那晚窑根本没烧过。",
+    "timeline": [
+      {
+        "time": "21:00-21:30",
+        "text": "韩子衡与沈墨川在工作室商谈修改遗嘱。"
+      },
+      {
+        "time": "21:30-21:45",
+        "text": "沈清与父亲在工作室为钱争吵，随后去了后花园凉亭。"
+      },
+      {
+        "time": "21:50",
+        "text": "林秀兰送茶，听到沈墨川在电话里提到仿品和报警，并偷拿了 2000 元。"
+      },
+      {
+        "time": "22:00-22:40",
+        "text": "周曼与韩子衡在藏书阁幽会。"
+      },
+      {
+        "time": "22:05",
+        "text": "陆远穿灰色雨衣经后廊进入工作室，被师父质问仿品一事。"
+      },
+      {
+        "time": "22:15",
+        "text": "陆远用青铜镇纸击中沈墨川后脑。沈清在凉亭看到窗内的灰色雨衣人影。"
+      },
+      {
+        "time": "22:20-22:30",
+        "text": "陆远关灯逃回窑房，把镇纸埋入冷窑灰坑，挂起雨衣。"
+      },
+      {
+        "time": "23:00",
+        "text": "林秀兰送夜宵时发现尸体。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "shen_qing",
+        "text": "欠债 80 万，案发前和父亲争吵过。"
+      },
+      {
+        "who": "zhou_man",
+        "text": "与韩子衡有私情，22:00-22:40 两人在藏书阁。"
+      },
+      {
+        "who": "han_ziheng",
+        "text": "与周曼有私情。"
+      },
+      {
+        "who": "lin_xiulan",
+        "text": "从抽屉里偷拿了 2000 元。"
+      },
+      {
+        "who": "lu_yuan",
+        "text": "凶手；多年来仿制师父作品私卖。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 2,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "contradictions": [
+    {
+      "id": "x_kiln",
+      "knowledge": "k_lu_cover",
+      "clue": "c_kilnlog",
+      "text": "陆远声称整晚在窑房烧窑，但窑温记录显示那晚窑根本没烧过。",
+      "implicates": {
+        "lu_yuan": 3
+      }
+    },
+    {
+      "id": "x_library",
+      "knowledge": "k_zhou_cover",
+      "clue": "c_twocups",
+      "text": "周曼说自己一个人在藏书阁，但那里有两只用过的红酒杯。",
+      "implicates": {
+        "zhou_man": 1
+      }
+    },
+    {
+      "id": "x_drawer",
+      "knowledge": "k_lin_cover",
+      "clue": "c_drawer",
+      "text": "林秀兰 21:50 进过工作室，抽屉里的现金恰好少了。",
+      "implicates": {
+        "lin_xiulan": 1
+      }
+    }
+  ],
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "Kiln Fire on a Rainy Night",
+      "subtitle": "On the night of a ceramics master's seventieth birthday banquet, a storm seals off the mountain, the kiln stays cold, and the master lies dead in his studio.",
+      "background": "Late autumn, 2019. The Shen Family Kiln estate, on the outskirts of Jingdezhen in Jiangxi. Tonight is the seventieth birthday banquet of ceramics master Shen Mochuan, and his family, his apprentice and his old friends have all gathered at the estate. As dinner ends, Shen Mochuan raises his glass: \"First thing tomorrow, I will make a public announcement about the future of the Shen Family Kiln.\"\n\nAfter nightfall the rain comes down in torrents and washes out the road down the mountain, trapping everyone on the estate. At 23:00, the housekeeper Lin Xiulan carries a late-night snack into the Studio and finds Shen Mochuan collapsed beside his desk, struck hard on the back of the head. He is no longer breathing.\n\nThe storm has brought down the phone line, and the police cannot reach the mountain before tomorrow morning. Until then, the killer is one of the five of you.",
+      "intro": "[Host] Welcome to \"Kiln Fire on a Rainy Night.\" Read your character script carefully: your evening, what you know, your secrets and your objectives. The murderer's goal is to avoid being voted out; everyone else must uncover the truth. But each of you has a secret you would rather keep buried.",
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice. Any clue you find is known only to you, and it is your choice whether to reveal it.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal clues or accuse a suspect. Anyone who is questioned must answer at once.",
+        "investigate_2": "[Host] The rain grows heavier. The second round of investigation begins. Some clues will only be noticed once a key piece of evidence has been found.",
+        "discuss_2": "[Host] The final round of discussion. Dawn is close, so hurry and piece the timeline together.",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the murderer. Whoever receives the most votes will be named (in a tie, the murderer escapes)."
+      },
+      "victim": {
+        "name": "Shen Mochuan",
+        "bio": "Seventy years old, owner of the Shen Family Kiln outside Jingdezhen, and a blue-and-white porcelain master renowned at home and abroad. Upright and stubborn, and almost merciless about his work."
+      },
+      "locations": {
+        "studio": {
+          "name": "Studio",
+          "description": "The crime scene. Shen Mochuan's desk, his potter's wheel and walls lined with blue-and-white porcelain. A back door opens onto an open-air rear walkway."
+        },
+        "kiln": {
+          "name": "Kiln House",
+          "description": "The wood-fired kiln house at the end of the rear walkway, where Lu Yuan usually fires the kiln and watches the flames."
+        },
+        "library": {
+          "name": "Library",
+          "description": "The upstairs library, holding the accounts, documents and Shen Mochuan's books."
+        },
+        "garden": {
+          "name": "Back Garden",
+          "description": "The garden outside the Studio window, with a pavilion that faces straight onto the Studio's window."
+        }
+      },
+      "characters": {
+        "shen_qing": {
+          "name": "Shen Qing",
+          "publicBio": "32, Shen Mochuan's only daughter. She runs an art gallery in Shanghai and came home specially for his birthday.",
+          "personality": "Blunt, proud and sharp-tongued, but she cares about her father more than she shows.",
+          "script": "You are Shen Qing, Shen Mochuan's only daughter. After your mother died, your father remarried Zhou Man, who is only eight years older than you, and you have rarely come home since. Last year the gallery you opened in Shanghai failed, leaving you 800,000 yuan in debt.\n\n[Tonight]\n19:00-20:30 You attend the birthday banquet.\n21:30 You go to the Studio to find your father and ask him to sell a few pieces from his collection to help pay off your debts. He refuses: \"Not a single thing from the Shen Family Kiln is for sale.\" The two of you have a furious row.\n21:45 You storm out of the Studio and go to the pavilion in the Back Garden to smoke and call your creditors. You stay there until 23:00, when you hear Lin Sao (Auntie Lin) scream.\n22:15 From the pavilion you happen to see, through the Studio window, a figure in a grey raincoat talking with your father, gesturing violently. Around 22:20 the Studio light goes out. At the time you assumed your father was scolding his apprentice and paid it no mind.\n\n[Your Secret] You owe 800,000 yuan, and you argued with your father shortly before the murder. You are afraid that if you say so, you will be taken for the killer.\n\n[Your Objectives]\n1. Find out who really killed your father.\n2. Find and reveal the clue that proves you stayed in the pavilion the whole time.",
+          "coverStory": "After 21:45 I stayed in the Back Garden pavilion the whole time, smoking and making phone calls. I never left.",
+          "knowledge": {
+            "k_qing_saw": "At 22:15, from the pavilion, I saw a figure in a grey raincoat arguing with my father through the Studio window. Around 22:20 the light went out.",
+            "k_qing_argue": "From 21:30 to 21:45 my father and I argued about money in the Studio. He was perfectly fine when I left."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Reveal the pavilion cigarette butts clue to prove your alibi"
+          ]
+        },
+        "lu_yuan": {
+          "name": "Lu Yuan",
+          "publicBio": "35, Shen Mochuan's last and closest apprentice. He has studied under the master for fifteen years and is seen as heir to the Shen Family Kiln.",
+          "personality": "Steady and taciturn, he never lets a word slip; when cornered, he steers the conversation toward someone else.",
+          "script": "You are Lu Yuan, Shen Mochuan's apprentice, and the one who killed him.\n\nFor years you have secretly forged your master's work, stamped it with a fake \"Mochuan\" seal, and sold it through the antiques dealer Lao Ma (Old Ma) for over a million yuan. After tonight's banquet your master called you to the Studio. On his desk sat the forgeries you made. He knew everything.\n\n[Tonight: What Really Happened]\n19:00-20:30 You attend the birthday banquet.\n21:00-22:00 You are in the Kiln House, too uneasy to think. You never fire the kiln at all.\n22:05 Wearing a grey raincoat, you walk through the rain along the rear walkway to the Studio. Your master confronts you with the forgeries and says that tomorrow he will expose you in public, call the police, and name Shen Qing as heir instead.\n22:15 In the struggle you grab the bronze paperweight from the desk and bring it down on the back of his head. After he falls, you switch off the light and flee back along the rear walkway to the Kiln House.\n22:30 You bury the bloodied paperweight in the ash pit of the cold kiln and hang the wet raincoat behind the door.\n23:00 When you hear the scream, you pretend to come running from the Kiln House.\n\n[Your Lie] You tell everyone: \"I was in the Kiln House all night firing the kiln and watching the temperature. I never left for a moment.\"\n\n[Your Secret] You are the murderer, and you have been selling forgeries.\n\n[Your Objectives]\n1. Do not get voted out as the murderer.\n2. Do not let the kiln temperature log be revealed. It would destroy your alibi.\n\n[Strategy Tip] Go to the Kiln House first and take the clues that hurt you; do not reveal them. Steer suspicion toward whoever argued with the master, or whoever visited the Studio before the murder.",
+          "coverStory": "I was in the Kiln House all night firing the kiln and watching the temperature. I never left for a moment.",
+          "knowledge": {
+            "k_lu_cover": "I was in the Kiln House all night firing the kiln and watching the temperature. I never left for a moment.",
+            "k_lu_truth": "From 22:05 to 22:20 I was in the Studio. My master and I fought, and I killed him."
+          },
+          "objectives": [
+            "Avoid being voted out as the murderer",
+            "Keep the kiln temperature log from being revealed"
+          ]
+        },
+        "zhou_man": {
+          "name": "Zhou Man",
+          "publicBio": "40, Shen Mochuan's second wife. A former lecturer at an art academy, she married into the Shen family eight years ago.",
+          "personality": "Elegant, cautious and quick to read a room; she always holds something back.",
+          "script": "You are Zhou Man, Shen Mochuan's second wife. The marriage has long been a marriage in name only, and for two years you have been secretly in love with the lawyer Han Ziheng.\n\n[Tonight]\n19:00-20:30 You attend the birthday banquet.\n21:00 In the corridor, you see Han Ziheng go into the Studio. He comes out about half an hour later.\n22:00-22:40 You and Han Ziheng meet in secret in the Library and drink red wine. You leave your silk scarf behind there.\n22:40 You return to your bedroom.\n23:00 You hear Lin Sao scream.\n\n[Your Secret] Your affair with Han Ziheng. If it comes out, you may lose your share of the will, and your reputation will be ruined.\n\n[Your Story] \"After 22:00 I was alone in the Library, reading.\"\n\n[Your Objectives]\n1. Find the real murderer.\n2. Do not let the wine glasses and silk scarf in the Library be revealed.",
+          "coverStory": "After 22:00 I was alone in the Library, reading.",
+          "knowledge": {
+            "k_zhou_saw_han": "Around 21:00 I saw Mr. Han, the lawyer, go into the Studio from the corridor. He didn't come out until about half an hour later.",
+            "k_zhou_affair": "From 22:00 to 22:40 Han Ziheng and I were together in the Library.",
+            "k_zhou_cover": "After 22:00 I was alone in the Library, reading."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the wine glasses and silk scarf in the Library from being revealed"
+          ]
+        },
+        "han_ziheng": {
+          "name": "Han Ziheng",
+          "publicBio": "38, legal adviser to the Shen family. His father is an old friend of Shen Mochuan, and he was invited to the birthday celebration.",
+          "personality": "Rational and evidence-driven; he likes to cross-examine people like a lawyer.",
+          "script": "You are Han Ziheng, the Shen family's lawyer. Tonight Shen Mochuan came to you privately to change his will. You and Zhou Man have been secretly in love for two years.\n\n[Tonight]\n19:00-20:30 You attend the birthday banquet.\n21:00-21:30 In the Studio, you and Shen Mochuan discuss changing the will: he wants to replace Lu Yuan with Shen Qing as heir to the Shen Family Kiln. When Lu Yuan's name comes up he is furious, and says, \"Some things I will set straight in front of everyone tomorrow,\" but he doesn't tell you what.\n22:00-22:40 You meet Zhou Man in secret in the Library.\n22:40 You return to the guest room.\n\n[Your Secret] Your affair with Zhou Man.\n\n[Your Story] \"After 22:00 I was in the guest room sorting through documents.\"\n\n[Your Objectives]\n1. Find the real murderer.\n2. Get the draft will revealed. You believe the reason for changing the will is connected to the murder.",
+          "coverStory": "After 22:00 I was in the guest room sorting through documents.",
+          "knowledge": {
+            "k_han_will": "From 21:00 to 21:30 I discussed changing the will with old Mr. Shen. He wanted to replace Lu Yuan with Shen Qing as heir, and was furious whenever Lu Yuan came up: \"Some things I will set straight in front of everyone tomorrow.\"",
+            "k_han_affair": "From 22:00 to 22:40 Zhou Man and I were together in the Library.",
+            "k_han_cover": "After 22:00 I was in the guest room sorting through documents."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Get the draft will revealed"
+          ]
+        },
+        "lin_xiulan": {
+          "name": "Lin Xiulan",
+          "publicBio": "58, housekeeper to the Shen family for twenty years. She watched Shen Qing and Lu Yuan grow up.",
+          "personality": "Simple, soft-hearted and chatty; when she gets nervous her words come out in a muddle.",
+          "script": "You are Lin Xiulan, the Shen family's housekeeper, known to everyone as Lin Sao (Auntie Lin). Your son is in hospital in the city and badly needs money for treatment.\n\n[Tonight]\n19:00-20:30 You are busy in the kitchen and dining room with the birthday banquet.\n21:50 You take tea to the master in the Studio. He has his back to you, on the phone, his voice heavy: \"Forgeries... all of them fakes... tomorrow I'm calling the police.\" While he isn't looking, you take 2,000 yuan from the open drawer.\n21:55 You leave the Studio and return to the kitchen.\n23:00 You bring a late-night snack to the Studio and find the master on the floor. The Studio's back door is open and there is muddy water on the floor. You scream in terror.\n\n[Your Secret] You took money from the drawer.\n\n[Your Objectives]\n1. Find the real murderer.\n2. Do not let the clue about the missing cash in the drawer be revealed.",
+          "coverStory": "I went back to the kitchen right after taking the tea in at 21:50, and stayed there until I brought the snack at 23:00.",
+          "knowledge": {
+            "k_lin_phone": "At 21:50 I took tea to the master and heard him say on the phone, \"Forgeries... all of them fakes... tomorrow I'm calling the police.\"",
+            "k_lin_found": "When I found the master at 23:00, the Studio's back door was open and there was a trail of muddy water on the floor, as if someone had come in from the rear walkway.",
+            "k_lin_money": "At 21:50, while the master was on the phone, I took 2,000 yuan from the drawer.",
+            "k_lin_cover": "After taking the tea in at 21:50 I went straight back to the kitchen, and stayed there until I brought the snack at 23:00."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the missing-cash-in-the-drawer clue from being revealed"
+          ]
+        }
+      },
+      "relationships": [
+        "Stepmother and stepdaughter, cool",
+        "Grew up together under the same master",
+        "Watched him grow up",
+        "Watched her grow up",
+        "Old family friends",
+        "Secret lovers"
+      ],
+      "victimRelationships": [
+        "Father and daughter",
+        "Master and apprentice, 15 years",
+        "Husband and wife (second marriage)",
+        "Legal adviser",
+        "Employer (20 years)"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "Initial Examination of the Body",
+          "text": "Shen Mochuan has an obvious blunt-force wound to the back of the head; the edges of the wound are square. Judging by body temperature and rigor mortis, death occurred between roughly 22:00 and 22:30."
+        },
+        "c_desk": {
+          "title": "Half-Finished Letter on the Desk",
+          "text": "Weighed down on the desk is an unfinished letter: \"Lu Yuan: I now know everything you have done in my name over these years. Tomorrow it will all be set straight in front of everyone. You had better think about what you've done...\""
+        },
+        "c_teacup": {
+          "title": "Cold Tea",
+          "text": "On the desk sits a cup of stone-cold tea. Under the saucer is one of Lin Xiulan's grocery receipts. Someone brought tea in before the murder."
+        },
+        "c_drawer": {
+          "title": "Missing Cash in the Drawer",
+          "text": "The desk drawer is wide open. The little account book inside reads \"Cash 5000,\" but only 3,000 yuan remains."
+        },
+        "c_footprint": {
+          "title": "Muddy Footprints at the Back Door",
+          "text": "Just inside the Studio's back door is a trail of wet, muddy footprints: size 43 rain boots, coming in from the direction of the rear walkway and then turning back out."
+        },
+        "c_kilnlog": {
+          "title": "Kiln Temperature Log",
+          "text": "The kiln's electronic temperature log shows that from 21:00 to 23:00 that night, the kiln temperature stayed below 40°C. The kiln was never fired all night."
+        },
+        "c_raincoat": {
+          "title": "Soaked Grey Raincoat",
+          "text": "Behind the Kiln House door hangs a soaking-wet grey raincoat, with a few dark red spots on the cuff. The only rain boots in the Kiln House are Lu Yuan's, size 43."
+        },
+        "c_forgery": {
+          "title": "Forgeries and a Fake Seal",
+          "text": "Hidden deep in the tool cabinet are three forged blue-and-white vases bearing the \"Mochuan\" mark, along with a fake seal carved with \"Mochuan.\""
+        },
+        "c_ashpit": {
+          "title": "Paperweight in the Cold Ash Pit",
+          "text": "The kiln was never fired, yet the ash pit shows signs of being freshly disturbed. Brushing aside the cold ash, you find a square bronze paperweight buried inside, its edges caked with dried blood."
+        },
+        "c_will": {
+          "title": "Draft Revision of the Will",
+          "text": "A draft revision of the will, written just tonight: the heir to the Shen Family Kiln is changed from \"Lu Yuan\" to \"Shen Qing,\" with a note in the margin: \"This man cannot be trusted.\" Zhou Man's share remains unchanged."
+        },
+        "c_ledger": {
+          "title": "Kiln Accounts",
+          "text": "In the past three years of accounts, more than twenty \"Mochuan\"-marked pieces were sold through Lu Yuan to the antiques dealer \"Lao Ma,\" yet none of them appear in the catalogue of works Shen Mochuan recorded in his own hand."
+        },
+        "c_twocups": {
+          "title": "Two Wine Glasses and a Silk Scarf",
+          "text": "On the Library's small table stand two used red wine glasses, and draped over the back of a chair is a silk scarf Zhou Man often wears. Two people were here tonight."
+        },
+        "c_cigarettes": {
+          "title": "Cigarette Butts in the Pavilion",
+          "text": "Seven or eight butts of the same brand of women's cigarettes lie scattered in the pavilion. It is the brand Shen Qing smokes. Someone stayed here a long time."
+        },
+        "c_debt": {
+          "title": "Crumpled Demand Letter",
+          "text": "Under the pavilion's stone bench is a crumpled demand letter: \"Ms. Shen Qing, your loan of 800,000 yuan is now overdue...\""
+        },
+        "c_view": {
+          "title": "View from the Pavilion",
+          "text": "From the pavilion you can see straight into the Studio window. Anyone sitting here should have been able to see what happened in the Studio."
+        },
+        "c_mudpath": {
+          "title": "Mud Path on the Rear Walkway",
+          "text": "The mud of the rear walkway holds only one line of rain-boot prints, going and returning, with the Kiln House at one end and the Studio's back door at the other."
+        }
+      },
+      "contradictions": {
+        "x_kiln": "Lu Yuan claims he spent all night firing the kiln, but the kiln temperature log shows the kiln was never fired that night.",
+        "x_library": "Zhou Man says she was alone in the Library, but there are two used wine glasses there.",
+        "x_drawer": "Lin Xiulan went into the Studio at 21:50, and cash just happens to be missing from the drawer."
+      },
+      "truth": {
+        "summary": "The murderer is the apprentice, Lu Yuan. For years he forged his master's work, stamped it with a fake seal and sold it on the side. On the night of the banquet Shen Mochuan discovered the forgeries and resolved to expose him publicly the next day, call the police and name Shen Qing as heir instead. At 22:05, Lu Yuan came along the rear walkway to the Studio in a grey raincoat. In the struggle he struck his master on the back of the head with the bronze paperweight, then switched off the light, fled back to the Kiln House and buried the paperweight in the cold kiln's ash pit. He claimed he was firing the kiln all night, but the kiln temperature log shows the kiln was never fired.",
+        "weapon": "Bronze paperweight",
+        "timeline": [
+          "Han Ziheng and Shen Mochuan discuss changing the will in the Studio.",
+          "Shen Qing argues with her father about money in the Studio, then goes to the Back Garden pavilion.",
+          "Lin Xiulan brings tea, hears Shen Mochuan mention forgeries and the police on the phone, and steals 2,000 yuan.",
+          "Zhou Man and Han Ziheng meet in secret in the Library.",
+          "Lu Yuan, in a grey raincoat, enters the Studio via the rear walkway and is confronted by his master about the forgeries.",
+          "Lu Yuan strikes Shen Mochuan on the back of the head with the bronze paperweight. From the pavilion, Shen Qing sees the figure in the grey raincoat through the window.",
+          "Lu Yuan switches off the light, flees to the Kiln House, buries the paperweight in the cold kiln's ash pit and hangs up the raincoat.",
+          "Lin Xiulan finds the body when she brings the late-night snack."
+        ],
+        "secrets": [
+          "Owes 800,000 yuan and argued with her father before the murder.",
+          "Having an affair with Han Ziheng; the two were in the Library from 22:00 to 22:40.",
+          "Having an affair with Zhou Man.",
+          "Stole 2,000 yuan from the drawer.",
+          "The murderer; for years secretly forged and sold his master's work."
+        ]
+      }
+    }
+  }
+}

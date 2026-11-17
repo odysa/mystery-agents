@@ -1,0 +1,883 @@
+{
+  "$schema": "../schema/openjubensha-1.schema.json",
+  "format": "openjubensha/1",
+  "id": "shuchang-xianxian",
+  "version": "1.0.0",
+  "title": "书场弦断",
+  "subtitle": "江南古镇，评弹老艺人的封箱之夜。下半场的开篇弹到一半，琵琶弦断——后台，老先生已经倒下了。",
+  "language": "zh-CN",
+  "license": "CC BY 4.0（MysteryAgents 原创剧本）",
+  "players": 4,
+  "difficulty": "进阶",
+  "estimatedMinutes": 45,
+  "victim": {
+    "id": "yu_henian",
+    "name": "俞鹤年",
+    "bio": "72 岁，苏州评弹名家，「俞调」传人，说了五十多年《珍珠塔》。脾气古板倔强，台上一丝不苟，台下说一不二。"
+  },
+  "background": "1993 年腊月，江南水乡锦溪镇，河边的老书场「听雨书场」。今晚是评弹名家俞鹤年的封箱演出——一年最后一场书，说完就要歇到开春。三百个座位座无虚席，不少老听客是从苏州、上海专程赶来的。\n\n19:30 开书，俞鹤年和女儿俞小芸父女档弹唱《珍珠塔》。20:30 中场休息，老先生回了后台。20:48 俞小芸先上台弹唱开篇，说好父亲随后就到。\n\n20:55，开篇唱到一半，琵琶的子弦「铮」地一声断了。俞小芸跑回后台换弦，却看见父亲倒在地上，嘴角流涎、四肢抽搐，那把从不离身的紫砂壶摔在一边。镇卫生院的医生赶来时，人已经没了。\n\n医生说，像是中了乌头一类的毒。河上起了大雾，县公安局的车要到后半夜才能进镇。在那之前，凶手就在你们四个人之中。",
+  "intro": "【主持人】欢迎来到《书场弦断》。四个人，四种动机，每个人都在今晚的中场靠近过那把紫砂壶。请仔细阅读你的剧本：你看见了什么、你在隐瞒什么。说谎的人不一定是凶手——但凶手一定在说谎。",
+  "phaseNarration": {
+    "investigate_1": "【主持人】第一轮搜证开始。每人可以搜查两次：后台、天井、前台账房、书场大厅。找到的线索只有你自己知道，是否公开由你决定。",
+    "discuss_1": "【主持人】第一轮讨论开始。你可以发言、质询某人、公开线索或指控嫌疑人。被质询的人必须立刻回答。先把中场 20:30 到 20:50 每个人在哪里说清楚。",
+    "investigate_2": "【主持人】雾更浓了，书场里只剩你们四个。第二轮搜证开始，每人可以搜查三次。有些东西，只有先看到另一样东西，才会明白它的意思。",
+    "discuss_2": "【主持人】最后一轮讨论。想一想：老先生最后喝下的那口茶，水是从哪里来的？",
+    "vote": "【主持人】投票环节。请投出你认为的凶手。得票最多者将被指认（平票则凶手逃脱）。"
+  },
+  "locations": [
+    {
+      "id": "backstage",
+      "name": "后台",
+      "description": "案发现场。书台后面的小间，一张八仙桌、一只炭盆、挂衣服的木钉，墙上挂着琵琶和三弦。一扇门通大厅书台，一扇门通往前台的侧廊。",
+      "x": 0.25,
+      "y": 0.3
+    },
+    {
+      "id": "courtyard",
+      "name": "天井",
+      "description": "后台背面的小天井，种着几盆腊梅，一口水缸。一扇破了窗纸的木窗正对后台。天井只连着后台，不通侧廊。",
+      "x": 0.75,
+      "y": 0.25
+    },
+    {
+      "id": "front_desk",
+      "name": "前台账房",
+      "description": "书场门口的售票台和账房，钱老板平时坐在这里卖票、记账。侧门连着一条窄窄的侧廊，是去后台最近的路。",
+      "x": 0.75,
+      "y": 0.75
+    },
+    {
+      "id": "hall",
+      "name": "书场大厅",
+      "description": "三百个座位的老书场，正中是铺着红桌围的书台，台上一桌两椅。散场后座位上还留着瓜子壳和听客落下的东西。",
+      "x": 0.25,
+      "y": 0.75
+    }
+  ],
+  "characters": [
+    {
+      "id": "qian_deshun",
+      "name": "钱德顺",
+      "color": "#8e6c3a",
+      "publicBio": "56 岁，听雨书场的老板，租下俞家的老房子开书场二十年。逢人三分笑，是镇上有名的「钱好人」。",
+      "personality": "圆滑客气、热心张罗，说话总带着笑；被追问细节时会絮絮叨叨扯开话题。",
+      "script": "你是钱德顺，听雨书场的老板，也是毒死俞鹤年的凶手。书场的房子是俞家祖产，你租了二十年。半年前你瞒着俞鹤年，和上海一家旅游开发公司签了书场「转让意向书」，收了二十万定金，早已填了赌债。上个月俞鹤年放出话：封箱之后，要把房子无偿捐给县文化馆。真捐了，你就得退钱、吃官司。\n\n【当晚真实经历】\n12 月 18 日 你在镇上同德堂买了一两草乌，报销单上写的是「灭鼠」。\n19:00-20:32 你在前台卖票。\n20:32 你拎着兑好草乌粉的热水瓶，从侧廊去后台。20:34 你笑着说「老先生辛苦，给您续上开水」，亲手冲进他的紫砂壶。他道了谢，喝了一大口。\n20:36 你离开后台，在侧廊里等秦婉离开前台，20:38 才回去，把热水瓶冲干净倒扣在脸盆里。\n20:43 你在前台看见陆少棠从侧廊出来，神色慌张，手里攥着个亮闪闪的小东西。\n20:56 小芸尖叫。众人冲进后台时，你趁乱把包药的纸包——外面裹着半张撕下的票根纸——塞进了陆少棠挂在门边的外套口袋。\n\n【你的谎言】中场我一直在前台卖票，一步没离开。\n【你的任务】不被指认；不让同德堂的发票被公开。把怀疑引向陆少棠和小芸。",
+      "isMurderer": true,
+      "coverStory": "中场二十分钟我一直在前台卖票，晚到的听客都是我收的钱，一步都没离开。老先生出事，我比谁都心疼。",
+      "knowledge": [
+        {
+          "id": "k_qian_cover",
+          "text": "20:30 到 21:00 中场前后，我一直在前台卖票，一步没离开。",
+          "time": "20:30-21:00",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_qian_saw_lu",
+          "text": "20:43 我在前台看见陆少棠从侧廊里出来，神色慌张，手里攥着个亮闪闪的小东西。",
+          "time": "20:43",
+          "implicates": {
+            "lu_shaotang": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_qian_truth",
+          "text": "20:32 我拎着兑了草乌粉的热水瓶去后台，20:34 亲手给老先生的壶里续了水。",
+          "time": "20:32-20:38",
+          "implicates": {
+            "qian_deshun": 5
+          },
+          "secret": true
+        },
+        {
+          "id": "k_qian_frame",
+          "text": "20:56 众人冲进后台时，我把药包塞进了陆少棠的外套口袋。",
+          "time": "20:56",
+          "implicates": {
+            "qian_deshun": 3
+          },
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "escape",
+          "desc": "不被投票指认为凶手"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_receipt",
+          "desc": "不让同德堂的发票被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "front_desk",
+          "backstage",
+          "hall",
+          "courtyard"
+        ]
+      }
+    },
+    {
+      "id": "yu_xiaoyun",
+      "name": "俞小芸",
+      "color": "#d9534f",
+      "publicBio": "34 岁，俞鹤年的独生女，父女档的「下手」，弹了二十年琵琶。是她发现了父亲倒在后台。",
+      "personality": "外柔内刚、话不多，被冤枉时会冷冷地顶回去；提到手腕时会下意识把手藏到袖子里。",
+      "script": "你是俞小芸，俞鹤年的独生女，也是他台上的「下手」。母亲早逝，书场这栋老房子是俞家祖产，你一直以为将来会归你。上个月父亲却说，封箱后要把它捐给县文化馆，你们大吵了一架，至今没和好。\n\n更要命的是：你的右手腕半年前伤了筋，弹久了钻心地疼。你一直偷偷搽父亲泡的草乌药酒（外用，内服剧毒），瞒着他——要是被他知道，「下手」的位子就是别人的了。\n\n【当晚经历】\n19:15 你在后台给父亲泡好碧螺春。他照例把紫砂壶带上书台，边说边喝。\n20:30 下台时壶已见底。20:31 你去天井搽药酒，出门时看见秦婉进了后台。\n20:39 前后，你隔着天井的破窗，听见父亲骂陆少棠「滚出师门」。\n20:45 你回后台取琵琶，父亲说「嘴里发麻」，你以为是冻的，没在意。\n20:48 你先上台弹开篇。20:55 子弦突然断了。20:56 你跑回后台，父亲已经倒在地上。\n\n【你的秘密】手腕的伤和草乌药酒；你和父亲为房子吵过架。\n【你的任务】找出真凶；别让天井里的药酒瓶被公开。",
+      "coverStory": "中场我在天井透气，20:45 回后台拿琵琶，20:48 上台弹开篇。茶是我开书前泡的，父亲在台上喝了一整场都好好的。",
+      "knowledge": [
+        {
+          "id": "k_yun_stage",
+          "text": "上半场父亲在台上一直喝那把紫砂壶里的茶，20:30 下台时壶已经见底了。",
+          "time": "19:30-20:30",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_yun_qin",
+          "text": "20:31 我去天井时，看见秦婉进了后台。",
+          "time": "20:31",
+          "implicates": {
+            "qin_wan": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_yun_quarrel",
+          "text": "20:39 左右我在天井，隔着窗听见父亲骂陆少棠：「滚出师门！」",
+          "time": "20:39",
+          "implicates": {
+            "lu_shaotang": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_yun_numb",
+          "text": "20:45 我回后台拿琵琶，父亲说嘴里发麻，我还以为是冻的。",
+          "time": "20:45",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_yun_wine",
+          "text": "中场我在天井往手腕上搽草乌药酒——我的手腕伤了半年，一直瞒着父亲。",
+          "time": "20:31-20:45",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_wine",
+          "desc": "不让天井里的草乌药酒瓶被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "courtyard",
+          "backstage",
+          "hall",
+          "front_desk"
+        ]
+      }
+    },
+    {
+      "id": "lu_shaotang",
+      "name": "陆少棠",
+      "color": "#5b7fbf",
+      "publicBio": "28 岁，俞鹤年的徒弟，学艺八年，平时在书场兼做场务。嗓子好、心气高，一直盼着师父把《珍珠塔》秘本传给他。",
+      "personality": "急躁、要面子，说话冲；被戳穿时先是嘴硬，然后会突然泄气。",
+      "script": "你是陆少棠，俞鹤年的徒弟。师父的《珍珠塔》秘本从不外传，你偷偷用随身听把师父说全本的书录了下来，转录成磁带卖给苏州的音像店，已经卖了一年多。今晚开书前，师父不知从哪儿得到了一盘你的磁带。\n\n【当晚经历】\n19:00 你把外套挂在后台门边的木钉上，一晚上没再穿过。\n20:30-20:37 中场，你在书场门口抽烟。20:32 你看见侧廊里有人拎着热水瓶往后台去，天黑没看清是谁。20:33 前后你看见秦婉在前台等了好几分钟，前台没人。\n20:39 你从大厅的书台侧门进后台。师父把磁带摔在桌上，骂你欺师灭祖，说封箱时就当众把你逐出师门。\n20:42 你出来时满腔怨气，用刮胡刀片在挂着的琵琶子弦上割了一道——师父偏心小芸，你想让她在台上出丑。20:43 你从侧廊溜回前台。\n\n【你的秘密】卖师父的录音；割了琵琶弦。\n【你的说法】中场我一直在书场门口抽烟，没进过后台。\n【你的任务】找出真凶；别让天井花盆里的磁带被公开。",
+      "coverStory": "中场我一直在书场门口抽烟，没进过后台。我的外套 19:00 就挂在后台门边，谁都碰得到。",
+      "knowledge": [
+        {
+          "id": "k_lu_cover",
+          "text": "中场我一直在书场门口抽烟，没进过后台。",
+          "time": "20:30-20:50",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_lu_saw",
+          "text": "20:32 我在门口抽烟时，看见侧廊里有人拎着热水瓶往后台去，天黑没看清是谁。",
+          "time": "20:32",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_lu_desk",
+          "text": "20:33 前后我看见秦婉在前台等了好几分钟，前台一个人都没有。",
+          "time": "20:33",
+          "implicates": {
+            "qian_deshun": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_lu_coat",
+          "text": "我的外套 19:00 就挂在后台门边，一晚上都没穿过。",
+          "time": "19:00",
+          "implicates": {
+            "lu_shaotang": -1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_lu_fight",
+          "text": "20:39-20:42 师父拿着我卖的录音带骂我、要逐我出师门；出来时我用刀片割了小芸琵琶的子弦。",
+          "time": "20:39-20:42",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "clue_not_public",
+          "clue": "c_tape",
+          "desc": "不让天井花盆里的磁带被公开"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "courtyard",
+          "backstage",
+          "front_desk",
+          "hall"
+        ]
+      }
+    },
+    {
+      "id": "qin_wan",
+      "name": "秦婉",
+      "color": "#2e9e6b",
+      "publicBio": "30 岁，县文化馆的干部，这个月一直在给俞鹤年做「评弹老艺人口述录音」。今晚背着录音机来听封箱书。",
+      "personality": "斯文、条理清楚，说话像写报告；情绪上来时会突然沉默。",
+      "script": "你是秦婉，县文化馆的干部——但你接近俞鹤年，不只是为了录音。你的外婆叫秀芝，1957 年和年轻的俞鹤年相好，怀了孩子。第二年他为了娶书场老东家的女儿，抛下了她。外婆等了他一辈子，母亲临终前把这件事告诉了你。\n\n【当晚经历】\n19:30-20:30 你在大厅听书、录音。\n20:31 中场一开始，你进了后台，把外婆和他的合影给他看，说出了自己是谁。他脸色铁青，当着你的面把照片撕碎扔进纸篓，说「我不认得什么秀芝」。\n20:33 你离开时，他把壶里最后一口茶喝干了，咕哝了一句「水也凉了，壶也空了」。\n20:33-20:37 你从大厅绕到前台，想买包瓜子、顺便替他要壶开水，可前台一个人都没有，你等了几分钟就回座位了。\n20:56 你听见小芸的尖叫。\n\n【你的秘密】你是他的外孙女；他撕了照片，你恨他。\n【你的说法】我和俞先生今天是第一次见面，只是来做录音的。\n【你的任务】找出真凶；你有动机、又是最后见他的人之一，绝不能成为得票最多的人。",
+      "coverStory": "我和俞先生今天是第一次见面，只是来做非遗录音的。中场我去前台买瓜子，前台没人。",
+      "knowledge": [
+        {
+          "id": "k_qin_cover",
+          "text": "我和俞先生今天是第一次见面，我只是来给他做非遗录音的。",
+          "time": "",
+          "implicates": {},
+          "secret": false,
+          "lie": true
+        },
+        {
+          "id": "k_qin_last",
+          "text": "20:33 我离开后台时，俞先生把壶里最后一口茶喝干了，说「水也凉了，壶也空了」。",
+          "time": "20:33",
+          "implicates": {},
+          "secret": false
+        },
+        {
+          "id": "k_qin_desk",
+          "text": "20:33-20:37 我去前台想买瓜子、顺便要壶开水，前台一个人都没有。",
+          "time": "20:33-20:37",
+          "implicates": {
+            "qian_deshun": 1
+          },
+          "secret": false
+        },
+        {
+          "id": "k_qin_secret",
+          "text": "我是俞鹤年的外孙女。20:31 我在后台把外婆的照片给他看，他当着我的面把照片撕了。",
+          "time": "20:31",
+          "implicates": {},
+          "secret": true
+        }
+      ],
+      "objectives": [
+        {
+          "type": "find_murderer",
+          "desc": "投票指认真凶"
+        },
+        {
+          "type": "not_most_voted",
+          "desc": "不成为得票最多的人"
+        }
+      ],
+      "ruleHints": {
+        "preferredLocations": [
+          "hall",
+          "backstage",
+          "front_desk",
+          "courtyard"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "a": "yu_xiaoyun",
+      "b": "lu_shaotang",
+      "label": "师兄妹·暗中较劲",
+      "public": true
+    },
+    {
+      "a": "qian_deshun",
+      "b": "lu_shaotang",
+      "label": "老板与场务",
+      "public": true
+    },
+    {
+      "a": "qin_wan",
+      "b": "yu_xiaoyun",
+      "label": "血缘上的姨甥（秦婉的母亲与俞小芸同父异母）",
+      "public": false
+    },
+    {
+      "a": "qian_deshun",
+      "b": "yu_xiaoyun",
+      "label": "看着她长大的钱伯伯",
+      "public": true
+    }
+  ],
+  "victimRelationships": [
+    {
+      "who": "qian_deshun",
+      "label": "房东与租户（二十年）"
+    },
+    {
+      "who": "yu_xiaoyun",
+      "label": "父女·台上搭档"
+    },
+    {
+      "who": "lu_shaotang",
+      "label": "师徒八年"
+    },
+    {
+      "who": "qin_wan",
+      "label": "做口述录音的文化馆干部"
+    }
+  ],
+  "clues": [
+    {
+      "id": "c_body",
+      "location": "backstage",
+      "title": "尸体初检",
+      "text": "俞鹤年倒在八仙桌边，口唇青紫、嘴角流涎，手指蜷曲。医生判断是乌头碱中毒，死亡约在 20:50 前后。乌头碱服下后一般十几分钟到半小时发作，先是口舌发麻，然后抽搐、心跳骤停。",
+      "time": "20:50",
+      "implicates": {},
+      "key": true
+    },
+    {
+      "id": "c_teapot",
+      "location": "backstage",
+      "title": "摔落的紫砂壶",
+      "text": "紫砂壶摔在地上，壶盖裂了。壶里剩的茶汤还温，茶叶是开书前泡的那一泡，已经冲到第二道——中场有人往壶里续过开水。用舌尖碰一下残茶，舌头发麻。",
+      "time": "",
+      "implicates": {
+        "yu_xiaoyun": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_thermos",
+      "location": "backstage",
+      "title": "后台的热水瓶",
+      "text": "后台八仙桌下的热水瓶贴着「后台」红纸，满满一瓶，瓶塞干干的，今晚根本没人打开过。续进紫砂壶的开水，不是从这里倒的。",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 1
+      },
+      "requires": [
+        "c_teapot"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_string",
+      "location": "backstage",
+      "title": "断掉的子弦",
+      "text": "俞小芸换下的琵琶子弦，断口一半平整、一半毛糙——是先被利器割开了一大半，弹的时候才崩断的。上半场这把琵琶弹得好好的，中场它一直挂在后台墙上。",
+      "time": "20:30-20:48",
+      "implicates": {
+        "lu_shaotang": 1
+      }
+    },
+    {
+      "id": "c_coat",
+      "location": "backstage",
+      "title": "外套口袋里的药包",
+      "text": "陆少棠挂在后台门边的外套，内袋里有一个印着「同德堂」的小纸包，里面残留着灰白色的药粉，舔一下舌头发麻。纸包外面还胡乱裹着半张淡黄色的纸，印着「听雨书场 · 入场券存根」的格子。",
+      "time": "",
+      "implicates": {
+        "lu_shaotang": 3
+      },
+      "key": true
+    },
+    {
+      "id": "c_photo",
+      "location": "backstage",
+      "title": "纸篓里撕碎的老照片",
+      "text": "后台纸篓里有一张被撕碎的黑白老照片。拼起来是年轻时的俞鹤年和一个梳长辫的姑娘，背面写着「赠秀芝 · 鹤年 · 一九五七年春」。碎片里还夹着一根女式发卡。",
+      "time": "",
+      "implicates": {
+        "qin_wan": 2
+      }
+    },
+    {
+      "id": "c_wine",
+      "location": "courtyard",
+      "title": "腊梅盆后的药酒瓶",
+      "text": "腊梅盆后藏着一只小玻璃瓶，泡着发黑的草乌根，标签上是俞鹤年的字：「草乌药酒 · 外用 · 严禁入口」。瓶里少了小半，瓶口还有一股新鲜的酒气。",
+      "time": "",
+      "implicates": {
+        "yu_xiaoyun": 3
+      }
+    },
+    {
+      "id": "c_tape",
+      "location": "courtyard",
+      "title": "花盆里的磁带",
+      "text": "一只空花盆里塞着一个塑料袋，里面是五盘盒式磁带，标签手写「俞鹤年《珍珠塔》秘本 · 全本」，还有一张苏州观前街音像店的收货单，收款人一栏写着「陆」。",
+      "time": "",
+      "implicates": {
+        "lu_shaotang": 2
+      }
+    },
+    {
+      "id": "c_ticket",
+      "location": "front_desk",
+      "title": "票根簿",
+      "text": "前台的票根簿按时间登记晚到的听客：20:32 卖出一张，下一张是 20:38——中间整整六分钟一张没卖。最后一页的存根被人撕去了半张，撕口还很新。",
+      "time": "20:32-20:38",
+      "implicates": {
+        "qian_deshun": 1
+      },
+      "key": true
+    },
+    {
+      "id": "c_front_thermos",
+      "location": "front_desk",
+      "title": "倒扣的热水瓶",
+      "text": "前台有两只贴着「前台」红纸的热水瓶。一只满着；另一只是空的，倒扣在脸盆里，内胆湿漉漉的，像刚被里外冲洗过。今晚天寒，前台的开水一向供不应求，没人会在中场把开水倒掉。",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 1
+      },
+      "requires": [
+        "c_thermos"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_drip",
+      "location": "front_desk",
+      "title": "侧廊的水渍",
+      "text": "前台通往侧廊的门槛边，有一串已经半干的水点，一路往侧廊深处——也就是后台的方向——滴过去，像有人拎着滴水的东西走过。",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 1
+      }
+    },
+    {
+      "id": "c_receipt",
+      "location": "front_desk",
+      "title": "报销单里的发票",
+      "text": "账房抽屉的报销单夹里，有一张同德堂药号的发票：「草乌 一两」，日期 12 月 18 日，抬头写「听雨书场」，用途一栏写着「灭鼠」。经手人签名的那一角被撕掉了。书场里从来没人见过下老鼠药。",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 2
+      },
+      "requires": [
+        "c_coat"
+      ],
+      "key": true
+    },
+    {
+      "id": "c_contract",
+      "location": "front_desk",
+      "title": "书场转让意向书",
+      "text": "账房的铁皮柜里压着一份「听雨书场转让意向书」，乙方是上海某旅游开发公司，甲方签字「钱德顺」，日期是半年前。附一张二十万元定金的收据。俞家从未在上面签字。",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 2
+      }
+    },
+    {
+      "id": "c_speech",
+      "location": "hall",
+      "title": "封箱致辞稿",
+      "text": "书台抽屉里有一张俞鹤年手写的封箱致辞稿：「其一，听雨书场房屋本是俞家祖产，封箱之后无偿捐与县文化馆，不再出租；其二，《珍珠塔》秘本传与小女小芸；其三，劣徒陆少棠私录书目牟利，即日逐出师门。」",
+      "time": "",
+      "implicates": {
+        "qian_deshun": 1,
+        "lu_shaotang": 1,
+        "yu_xiaoyun": 1
+      }
+    },
+    {
+      "id": "c_qin_letter",
+      "location": "hall",
+      "title": "录音包里的信",
+      "text": "秦婉座位下的录音包里有一封旧信：「婉儿：你外婆秀芝等了俞鹤年一辈子。五八年他为了娶书场老东家的女儿，丢下了怀着你妈的她……妈妈走之前，只想让你替外婆问他一句为什么。」",
+      "time": "",
+      "implicates": {
+        "qin_wan": 2
+      }
+    },
+    {
+      "id": "c_stage_ring",
+      "location": "hall",
+      "title": "书台上的茶渍",
+      "text": "书台的红桌围上有一圈圈紫砂壶底留下的茶渍，旁边一张场记单写着：「俞先生上半场照例自带紫砂壶，饮茶七八次。」开书前泡的那壶茶，老先生在台上喝了整整一个钟头都安然无恙。",
+      "time": "19:30-20:30",
+      "implicates": {
+        "yu_xiaoyun": -1
+      }
+    }
+  ],
+  "contradictions": [
+    {
+      "id": "x_qian_desk",
+      "knowledge": "k_qian_cover",
+      "clue": "c_ticket",
+      "text": "钱德顺说中场一直在前台卖票，可票根簿上 20:32 到 20:38 一张票都没卖。",
+      "implicates": {
+        "qian_deshun": 2
+      }
+    },
+    {
+      "id": "x_qian_thermos",
+      "knowledge": "k_qian_cover",
+      "clue": "c_front_thermos",
+      "text": "钱德顺说中场一直守在前台，可前台的一只热水瓶在中场被倒空、冲洗过了。",
+      "implicates": {
+        "qian_deshun": 1
+      }
+    },
+    {
+      "id": "x_lu_door",
+      "knowledge": "k_lu_cover",
+      "clue": "c_string",
+      "text": "陆少棠说中场没进过后台，可琵琶中场一直挂在后台，子弦正是这段时间被人割的。",
+      "implicates": {
+        "lu_shaotang": 1
+      }
+    },
+    {
+      "id": "x_qin_first",
+      "knowledge": "k_qin_cover",
+      "clue": "c_qin_letter",
+      "text": "秦婉说今天才第一次见俞先生，可她包里的信说她是俞鹤年的外孙女。",
+      "implicates": {
+        "qin_wan": 1
+      }
+    }
+  ],
+  "truth": {
+    "murderer": "qian_deshun",
+    "weapon": "兑了草乌粉的开水",
+    "summary": "凶手是书场老板钱德顺。他瞒着俞家把书场「转让」给旅游公司、收了二十万定金挥霍一空，而俞鹤年要在封箱后把房子捐给文化馆。中场时老先生的紫砂壶已经喝空（他在台上喝了一个钟头都没事，说明开书前泡的茶无毒）。20:32 钱德顺拎着兑了草乌粉的前台热水瓶，从侧廊去后台，20:34 亲手给老先生续了水；之后他在侧廊等秦婉离开，20:38 才回前台，把热水瓶冲洗干净——票根簿上这六分钟一张票都没卖。20:56 众人冲进后台时，他把药包塞进陆少棠挂在门边的外套栽赃，可那药包外裹着从前台票根簿上撕下的半张存根，而同德堂的草乌发票就夹在书场账房的报销单里。俞小芸的药酒、陆少棠割断的琴弦、秦婉撕碎的照片，都是这一夜别人的秘密。",
+    "timeline": [
+      {
+        "time": "19:15",
+        "text": "俞小芸在后台为父亲泡好碧螺春。"
+      },
+      {
+        "time": "19:30-20:30",
+        "text": "上半场，俞鹤年在书台上边说边喝紫砂壶里的茶，安然无恙，下台时壶已见底。"
+      },
+      {
+        "time": "20:31",
+        "text": "俞小芸去天井搽草乌药酒；秦婉进后台认亲，俞鹤年撕碎了照片。"
+      },
+      {
+        "time": "20:32",
+        "text": "钱德顺拎着下了毒的热水瓶离开前台，经侧廊去后台（陆少棠在门口看见一个人影）。"
+      },
+      {
+        "time": "20:33-20:37",
+        "text": "秦婉离开后台，到前台等候无人；钱德顺 20:34 为老先生续水，随后躲在侧廊。"
+      },
+      {
+        "time": "20:38",
+        "text": "钱德顺回到前台，冲洗热水瓶，继续卖票。"
+      },
+      {
+        "time": "20:39-20:42",
+        "text": "陆少棠进后台，被师父痛骂、扬言逐出师门（俞小芸在天井隔窗听见）；离开时割了琵琶子弦。"
+      },
+      {
+        "time": "20:43",
+        "text": "陆少棠从侧廊回到前台，被钱德顺看见。"
+      },
+      {
+        "time": "20:45-20:48",
+        "text": "俞小芸回后台取琵琶，父亲说嘴发麻；她 20:48 上台弹开篇。"
+      },
+      {
+        "time": "20:50",
+        "text": "俞鹤年毒发，倒在后台。"
+      },
+      {
+        "time": "20:55-20:56",
+        "text": "琵琶子弦崩断，俞小芸跑回后台发现父亲。众人冲进后台时，钱德顺把药包塞进陆少棠的外套。"
+      }
+    ],
+    "secrets": [
+      {
+        "who": "qian_deshun",
+        "text": "凶手；私自转让书场收了二十万定金；用前台热水瓶下毒，并把药包栽赃给陆少棠。"
+      },
+      {
+        "who": "yu_xiaoyun",
+        "text": "手腕伤了半年，偷偷搽草乌药酒；和父亲为捐房子吵过架。"
+      },
+      {
+        "who": "lu_shaotang",
+        "text": "偷录师父的秘本卖给音像店；中场进过后台，割了琵琶弦。"
+      },
+      {
+        "who": "qin_wan",
+        "text": "俞鹤年的外孙女；中场在后台认亲，照片被他撕碎。"
+      }
+    ]
+  },
+  "config": {
+    "rounds": [
+      {
+        "investigate": 2,
+        "discuss": 2
+      },
+      {
+        "investigate": 3,
+        "discuss": 2
+      }
+    ],
+    "maxSpeechChars": 300
+  },
+  "author": "MysteryAgents",
+  "translations": {
+    "en": {
+      "title": "The Broken String",
+      "subtitle": "A water town south of the Yangtze, the season's closing night for an old ballad-storyteller. Halfway through the second-half opening ballad, a pipa string snaps. Backstage, the old master has already fallen.",
+      "background": "The twelfth lunar month, 1993. Jinxi, a canal town south of the Yangtze, at the old riverside storytelling house, the Tingyu (\"Listening to the Rain\") Story House. Tonight is the season-closing performance of pingtan master Yu Henian: the last show of the year, after which the house rests until spring. All three hundred seats are full, and many old regulars have come all the way from Suzhou and Shanghai.\n\nThe show begins at 19:30, with Yu Henian and his daughter Yu Xiaoyun performing The Pearl Pagoda as a father-daughter duo. At 20:30 comes the intermission, and the old master returns backstage. At 20:48 Yu Xiaoyun goes on first to sing the opening ballad, on the understanding that her father will follow.\n\nAt 20:55, halfway through the opening ballad, the pipa's treble string snaps with a sharp twang. Yu Xiaoyun runs backstage to change it, and finds her father on the floor, drooling, his limbs convulsing, the Yixing clay teapot he never let out of his sight smashed beside him. By the time the doctor from the town clinic arrives, he is gone.\n\nThe doctor says it looks like poisoning by aconite or something like it. A heavy fog has risen on the river, and the county police car cannot reach the town until the small hours. Until then, the killer is one of the four of you.",
+      "intro": "[Host] Welcome to \"The Broken String.\" Four people, four motives, and every one of you went near that clay teapot during tonight's intermission. Read your script carefully: what you saw, and what you are hiding. A liar is not necessarily the killer, but the killer is certainly lying.",
+      "phaseNarration": {
+        "investigate_1": "[Host] The first round of investigation begins. Each of you may search twice: Backstage, the Courtyard, the Front Desk office and the Storytelling Hall. Any clue you find is known only to you, and it is your choice whether to reveal it.",
+        "discuss_1": "[Host] The first round of discussion begins. You may speak, question someone, reveal clues or accuse a suspect. Anyone who is questioned must answer at once. Start by making clear where everyone was during the intermission, from 20:30 to 20:50.",
+        "investigate_2": "[Host] The fog grows thicker, and only the four of you remain in the story house. The second round of investigation begins. Each of you may search three times. Some things only make sense once you have seen something else first.",
+        "discuss_2": "[Host] The final round of discussion. Think about it: the last mouthful of tea the old master drank, where did that water come from?",
+        "vote": "[Host] Time to vote. Cast your vote for the person you believe is the murderer. Whoever receives the most votes will be named (in a tie, the murderer escapes)."
+      },
+      "victim": {
+        "name": "Yu Henian",
+        "bio": "72, a celebrated master of Suzhou pingtan (ballad-storytelling), heir to the \"Yu style,\" who has performed The Pearl Pagoda for more than fifty years. Old-fashioned and stubborn: meticulous on stage, and his word is law off it."
+      },
+      "locations": {
+        "backstage": {
+          "name": "Backstage",
+          "description": "The crime scene. A small room behind the stage, with an Eight Immortals table, a charcoal brazier, wooden pegs for coats, and a pipa and a sanxian (three-string lute) hanging on the wall. One door leads to the stage in the hall; another leads to the side passage toward the front desk."
+        },
+        "courtyard": {
+          "name": "Courtyard",
+          "description": "A small open courtyard behind the backstage room, with a few pots of wintersweet and a water vat. A wooden window with torn paper panes faces the backstage room. The courtyard connects only to backstage, not to the side passage."
+        },
+        "front_desk": {
+          "name": "Front Desk & Office",
+          "description": "The ticket counter and office at the entrance of the story house, where Boss Qian usually sits selling tickets and keeping the books. A side door opens onto a narrow side passage, the shortest way backstage."
+        },
+        "hall": {
+          "name": "Storytelling Hall",
+          "description": "The old three-hundred-seat story house. In the center is the stage with its red table skirt, and on it one table and two chairs. After the show, the seats are still littered with melon-seed shells and things the audience left behind."
+        }
+      },
+      "characters": {
+        "qian_deshun": {
+          "name": "Qian Deshun",
+          "publicBio": "56, owner of the Tingyu Story House, who has rented the Yu family's old house for twenty years to run it. Always smiling, he is known around town as \"Good Old Qian.\"",
+          "personality": "Smooth, polite and eager to take charge, always with a smile; when pressed for details, he rambles on and changes the subject.",
+          "script": "You are Qian Deshun, owner of the Tingyu Story House, and the man who poisoned Yu Henian. The story house building is the Yu family's ancestral property, and you have rented it for twenty years. Six months ago, behind Yu Henian's back, you signed a letter of intent with a Shanghai tourism development company to \"transfer\" the story house, and took a 200,000 yuan deposit, which has long since gone to pay your gambling debts. Last month Yu Henian let it be known that after the season closes he will donate the building, free of charge, to the County Cultural Center. If he does, you will have to return the money and face a lawsuit.\n\n[Tonight: What Really Happened]\nDecember 18: At the Tongde Hall pharmacy in town you bought one liang (50 g) of caowu (aconite root). On the expense slip you wrote \"rat poison.\"\n19:00-20:32 You sell tickets at the front desk.\n20:32 Carrying a hot-water flask with the caowu powder mixed in, you go along the side passage to the backstage room. At 20:34 you smile and say, \"You've worked hard, sir, let me top up your hot water,\" and pour it into his clay teapot with your own hands. He thanks you and takes a big gulp.\n20:36 You leave the backstage room and wait in the side passage for Qin Wan to leave the front desk. Only at 20:38 do you go back, rinse the flask clean and set it upside down in the washbasin.\n20:43 From the front desk you see Lu Shaotang come out of the side passage looking flustered, clutching some small, shiny object.\n20:56 Xiaoyun screams. As everyone rushes backstage, you use the confusion to slip the paper packet that held the poison, wrapped in half of a torn-off ticket stub, into the pocket of Lu Shaotang's coat hanging by the door.\n\n[Your Lie] During the intermission I was at the front desk selling tickets the whole time and never left.\n[Your Objectives] Do not get named; do not let the Tongde Hall receipt be revealed. Steer suspicion toward Lu Shaotang and Xiaoyun.",
+          "coverStory": "For the whole twenty-minute intermission I was at the front desk selling tickets. I took the money from every latecomer myself and never stepped away. Nobody is more heartbroken about the old master than me.",
+          "knowledge": {
+            "k_qian_cover": "From 20:30 to 21:00, around the intermission, I was at the front desk selling tickets the whole time and never left.",
+            "k_qian_saw_lu": "At 20:43, from the front desk, I saw Lu Shaotang come out of the side passage looking flustered, clutching some small, shiny object.",
+            "k_qian_truth": "At 20:32 I carried a hot-water flask mixed with caowu powder backstage, and at 20:34 I topped up the old master's teapot with my own hands.",
+            "k_qian_frame": "At 20:56, as everyone rushed backstage, I slipped the poison packet into Lu Shaotang's coat pocket."
+          },
+          "objectives": [
+            "Avoid being voted out as the murderer",
+            "Keep the Tongde Hall receipt from being revealed"
+          ]
+        },
+        "yu_xiaoyun": {
+          "name": "Yu Xiaoyun",
+          "publicBio": "34, Yu Henian's only daughter and the accompanist in their father-daughter duo, who has played the pipa for twenty years. She is the one who found her father collapsed backstage.",
+          "personality": "Gentle on the outside, tough inside, and few words; when wrongly accused she answers back coldly. Whenever her wrist comes up, she hides her hand in her sleeve without thinking.",
+          "script": "You are Yu Xiaoyun, Yu Henian's only daughter and his accompanist on stage. Your mother died young. The old building that houses the story house is the Yu family's ancestral property, and you always assumed it would one day be yours. But last month your father said that after the season closes he would donate it to the County Cultural Center. You had a huge row, and you still haven't made up.\n\nWorse still: six months ago you injured a tendon in your right wrist, and after playing for long it hurts unbearably. You have been secretly rubbing on the caowu medicinal liquor your father steeps (for external use; highly toxic if swallowed), and hiding it from him. If he found out, your place as his accompanist would go to someone else.\n\n[Tonight]\n19:15 Backstage, you brew Biluochun tea for your father. As usual, he takes the clay teapot on stage and drinks as he performs.\n20:30 When he comes off stage, the pot is nearly empty. At 20:31 you go out to the courtyard to rub on the medicinal liquor, and as you leave you see Qin Wan enter the backstage room.\n20:39 or so, through the courtyard's torn window, you hear your father yelling at Lu Shaotang: \"Get out of my school!\"\n20:45 You go back in to fetch your pipa. Your father says his mouth feels numb; you assume it's the cold and think nothing of it.\n20:48 You go on stage first to play the opening ballad. At 20:55 the treble string suddenly snaps. At 20:56 you run backstage, and your father is already on the floor.\n\n[Your Secret] Your wrist injury and the caowu medicinal liquor; and your row with your father over the house.\n[Your Objectives] Find the real murderer; do not let the medicinal liquor bottle in the courtyard be revealed.",
+          "coverStory": "During the intermission I was getting some air in the courtyard. At 20:45 I went backstage for my pipa, and at 20:48 I went on to play the opening ballad. I brewed the tea before the show, and my father drank it on stage all through the first half without any trouble.",
+          "knowledge": {
+            "k_yun_stage": "All through the first half, my father drank tea from that clay teapot on stage. When he came off at 20:30, the pot was nearly empty.",
+            "k_yun_qin": "When I went out to the courtyard at 20:31, I saw Qin Wan go into the backstage room.",
+            "k_yun_quarrel": "Around 20:39, from the courtyard, I heard my father through the window yelling at Lu Shaotang: \"Get out of my school!\"",
+            "k_yun_numb": "When I went backstage for my pipa at 20:45, my father said his mouth felt numb. I thought it was the cold.",
+            "k_yun_wine": "During the intermission I was in the courtyard rubbing caowu medicinal liquor on my wrist. My wrist has been injured for six months, and I've hidden it from my father."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the caowu liquor bottle in the courtyard from being revealed"
+          ]
+        },
+        "lu_shaotang": {
+          "name": "Lu Shaotang",
+          "publicBio": "28, Yu Henian's apprentice of eight years, who also works as the story house's stagehand. A fine voice and high ambitions; he has long hoped his master would pass the secret text of The Pearl Pagoda on to him.",
+          "personality": "Hot-headed and proud, with a sharp tongue; when caught out he denies it stubbornly, then suddenly deflates.",
+          "script": "You are Lu Shaotang, Yu Henian's apprentice. Your master never lets the secret text of The Pearl Pagoda out of his hands, so you secretly recorded him performing the whole story on your Walkman, dubbed it onto cassettes and sold them to an audio shop in Suzhou. You have been doing it for over a year. Tonight before the show, your master somehow got hold of one of your tapes.\n\n[Tonight]\n19:00 You hang your coat on the wooden peg by the backstage door and don't put it on again all evening.\n20:30-20:37 During the intermission you smoke at the entrance of the story house. At 20:32 you see someone carrying a hot-water flask along the side passage toward the backstage room, but it's too dark to see who. Around 20:33 you see Qin Wan waiting at the front desk for several minutes, with no one manning it.\n20:39 You enter the backstage room through the stage-side door from the hall. Your master slams the tape down on the table, calls you a traitor to your teacher and your school, and says that at the season's close he will expel you in front of everyone.\n20:42 As you leave, seething, you slice into the treble string of the hanging pipa with a razor blade. Your master favors Xiaoyun, and you want her humiliated on stage. At 20:43 you slip back to the front desk along the side passage.\n\n[Your Secret] You sell recordings of your master, and you cut the pipa string.\n[Your Story] During the intermission I was smoking at the entrance the whole time and never went backstage.\n[Your Objectives] Find the real murderer; do not let the cassettes in the courtyard flowerpot be revealed.",
+          "coverStory": "During the intermission I was smoking at the entrance the whole time and never went backstage. My coat had been hanging by the backstage door since 19:00. Anyone could have got at it.",
+          "knowledge": {
+            "k_lu_cover": "During the intermission I was smoking at the entrance the whole time and never went backstage.",
+            "k_lu_saw": "At 20:32, while I was smoking at the entrance, I saw someone carrying a hot-water flask along the side passage toward the backstage room. It was too dark to see who.",
+            "k_lu_desk": "Around 20:33 I saw Qin Wan waiting at the front desk for several minutes. There was no one at the front desk at all.",
+            "k_lu_coat": "My coat had been hanging by the backstage door since 19:00. I didn't wear it all evening.",
+            "k_lu_fight": "From 20:39 to 20:42 my master yelled at me over the tapes I'd sold and threatened to expel me. On my way out I cut the treble string of Xiaoyun's pipa with a blade."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Keep the cassettes in the courtyard flowerpot from being revealed"
+          ]
+        },
+        "qin_wan": {
+          "name": "Qin Wan",
+          "publicBio": "30, an official at the County Cultural Center who has spent this month recording Yu Henian for an \"oral histories of veteran pingtan artists\" project. Tonight she has brought her tape recorder to hear the closing show.",
+          "personality": "Refined and orderly, she talks the way she writes reports; when her emotions rise she suddenly falls silent.",
+          "script": "You are Qin Wan, an official at the County Cultural Center. But recordings are not the only reason you got close to Yu Henian. Your grandmother, Xiuzhi, was the young Yu Henian's sweetheart in 1957 and became pregnant by him. The following year, he abandoned her to marry the daughter of the story house's old owner. Your grandmother waited for him all her life, and your mother told you the story on her deathbed.\n\n[Tonight]\n19:30-20:30 You are in the hall listening to the show and recording.\n20:31 As soon as the intermission begins, you go backstage, show him a photo of your grandmother and him together, and tell him who you are. His face turns livid. He tears the photo to pieces in front of you, throws them in the wastebasket and says, \"I don't know any Xiuzhi.\"\n20:33 As you leave, he drains the last mouthful of tea from the pot and mutters, \"The water's gone cold and the pot's empty.\"\n20:33-20:37 You go round from the hall to the front desk, meaning to buy a bag of melon seeds and ask for a pot of hot water for him while you're at it, but there is no one at the front desk. After waiting a few minutes you go back to your seat.\n20:56 You hear Xiaoyun scream.\n\n[Your Secret] You are his granddaughter; he tore up the photo, and you hate him.\n[Your Story] Today is the first time I've ever met Mr. Yu. I'm only here to make recordings.\n[Your Objectives] Find the real murderer. You have a motive and were one of the last to see him, so you must not receive the most votes.",
+          "coverStory": "Today is the first time I've ever met Mr. Yu. I'm only here to make intangible heritage recordings. During the intermission I went to the front desk for melon seeds, but nobody was there.",
+          "knowledge": {
+            "k_qin_cover": "Today is the first time I've ever met Mr. Yu. I'm only here to record him for the intangible heritage project.",
+            "k_qin_last": "When I left the backstage room at 20:33, Mr. Yu drained the last mouthful of tea from the pot and said, \"The water's gone cold and the pot's empty.\"",
+            "k_qin_desk": "From 20:33 to 20:37 I went to the front desk to buy melon seeds and ask for a pot of hot water. There was no one at the front desk at all.",
+            "k_qin_secret": "I am Yu Henian's granddaughter. At 20:31, backstage, I showed him my grandmother's photo, and he tore it up in front of me."
+          },
+          "objectives": [
+            "Vote for the real murderer",
+            "Do not receive the most votes"
+          ]
+        }
+      },
+      "relationships": [
+        "Fellow apprentices, quiet rivals",
+        "Boss and stagehand",
+        "Niece and her half-aunt by blood",
+        "Uncle Qian, who watched her grow up"
+      ],
+      "victimRelationships": [
+        "Landlord and tenant (20 years)",
+        "Father and daughter, stage partners",
+        "Master and apprentice, 8 years",
+        "Cultural Center official recording him"
+      ],
+      "clues": {
+        "c_body": {
+          "title": "Initial Examination of the Body",
+          "text": "Yu Henian lies beside the Eight Immortals table, lips bluish-purple, drool at the corner of his mouth, fingers curled. The doctor judges it to be aconitine poisoning, with death at around 20:50. Aconitine usually takes effect between ten-odd minutes and half an hour after it is swallowed: first numbness of the mouth and tongue, then convulsions and cardiac arrest."
+        },
+        "c_teapot": {
+          "title": "The Fallen Clay Teapot",
+          "text": "The clay teapot lies smashed on the floor, its lid cracked. The tea left inside is still warm. The leaves are the same ones brewed before the show, now on their second infusion: someone topped up the pot with hot water during the intermission. Touch the dregs to the tip of your tongue, and it goes numb."
+        },
+        "c_thermos": {
+          "title": "The Backstage Flask",
+          "text": "The hot-water flask under the backstage Eight Immortals table bears a red paper label reading \"Backstage.\" It is completely full and its stopper is bone dry. Nobody opened it tonight. The hot water poured into the clay teapot did not come from here."
+        },
+        "c_string": {
+          "title": "The Snapped Treble String",
+          "text": "On the treble string Yu Xiaoyun replaced, the break is half clean and half frayed: most of it was first cut through with something sharp, and only snapped once it was played. The pipa was played without trouble in the first half, and all through the intermission it hung on the backstage wall."
+        },
+        "c_coat": {
+          "title": "Poison Packet in the Coat Pocket",
+          "text": "In the inside pocket of Lu Shaotang's coat, hanging by the backstage door, is a small paper packet printed \"Tongde Hall.\" It holds traces of greyish-white powder that numb the tongue when tasted. The packet is loosely wrapped in half a sheet of pale yellow paper, printed with the boxes of a \"Tingyu Story House - Admission Ticket Stub.\""
+        },
+        "c_photo": {
+          "title": "Torn Photo in the Wastebasket",
+          "text": "In the backstage wastebasket is an old black-and-white photograph, torn to pieces. Pieced together, it shows a young Yu Henian and a girl with long braids. On the back: \"For Xiuzhi - Henian - Spring 1957.\" Caught among the pieces is a woman's hairpin."
+        },
+        "c_wine": {
+          "title": "Liquor Bottle Behind the Wintersweet",
+          "text": "Hidden behind a pot of wintersweet is a small glass bottle with blackened caowu roots steeping in it. The label is in Yu Henian's hand: \"Caowu medicinal liquor - external use only - never take by mouth.\" A fair bit is missing, and the mouth of the bottle still smells freshly of alcohol."
+        },
+        "c_tape": {
+          "title": "Cassettes in the Flowerpot",
+          "text": "Stuffed in an empty flowerpot is a plastic bag holding five cassette tapes, hand-labeled \"Yu Henian, The Pearl Pagoda, secret text, complete,\" along with a delivery receipt from an audio shop on Guanqian Street in Suzhou. The payee field reads \"Lu.\""
+        },
+        "c_ticket": {
+          "title": "Ticket Stub Book",
+          "text": "The front desk's stub book logs latecomers by time: one ticket sold at 20:32, and the next at 20:38. For six full minutes in between, not a single ticket was sold. Half of the stub on the last page has been torn away, and the tear is fresh."
+        },
+        "c_front_thermos": {
+          "title": "The Upturned Flask",
+          "text": "The front desk has two hot-water flasks with red paper labels reading \"Front Desk.\" One is full. The other is empty, set upside down in the washbasin, its liner dripping wet as though it had just been rinsed inside and out. It is a cold night and hot water at the front desk is always in short supply; nobody would pour it out during the intermission."
+        },
+        "c_drip": {
+          "title": "Water Drops in the Side Passage",
+          "text": "By the threshold of the door from the front desk to the side passage is a line of half-dried water drops, leading deep into the side passage, toward the backstage room, as if someone had walked by carrying something that dripped."
+        },
+        "c_receipt": {
+          "title": "Receipt Among the Expense Slips",
+          "text": "In the expense slip folder in the office drawer is a receipt from the Tongde Hall pharmacy: \"Caowu, one liang,\" dated December 18, made out to \"Tingyu Story House,\" with the purpose given as \"rat poison.\" The corner with the handler's signature has been torn off. No one has ever seen rat poison put down in the story house."
+        },
+        "c_contract": {
+          "title": "Letter of Intent to Transfer",
+          "text": "Pressed in the office's tin cabinet is a \"Letter of Intent for the Transfer of the Tingyu Story House.\" Party B is a Shanghai tourism development company; Party A is signed \"Qian Deshun,\" dated six months ago. Attached is a receipt for a 200,000 yuan deposit. The Yu family has never signed it."
+        },
+        "c_speech": {
+          "title": "Closing-Night Speech",
+          "text": "In the stage table drawer is Yu Henian's handwritten speech for the season's close: \"First, the Tingyu Story House building is the Yu family's ancestral property; after the close it will be donated free of charge to the County Cultural Center and no longer let. Second, the secret text of The Pearl Pagoda passes to my daughter Xiaoyun. Third, my unworthy apprentice Lu Shaotang has secretly recorded our repertoire for profit and is expelled from my school as of today.\""
+        },
+        "c_qin_letter": {
+          "title": "Letter in the Recording Bag",
+          "text": "In the recording bag under Qin Wan's seat is an old letter: \"Wan'er: your grandmother Xiuzhi waited for Yu Henian all her life. In '58 he left her, pregnant with your mother, to marry the daughter of the story house's old owner... Before Mother passes, all she wants is for you to ask him why, on your grandmother's behalf.\""
+        },
+        "c_stage_ring": {
+          "title": "Tea Rings on the Stage",
+          "text": "On the stage's red table skirt are ring after ring of tea stains left by the base of the clay teapot. Beside them, a stage log reads: \"As usual, Mr. Yu brought his own clay teapot for the first half; drank seven or eight times.\" The pot brewed before the show, the old master drank on stage for a full hour without harm."
+        }
+      },
+      "contradictions": {
+        "x_qian_desk": "Qian Deshun says he was selling tickets at the front desk all through the intermission, yet the stub book shows not a single ticket sold from 20:32 to 20:38.",
+        "x_qian_thermos": "Qian Deshun says he never left the front desk during the intermission, yet one of the front desk flasks was emptied and rinsed during the intermission.",
+        "x_lu_door": "Lu Shaotang says he never went backstage during the intermission, yet the pipa hung backstage the whole intermission, and that is exactly when its treble string was cut.",
+        "x_qin_first": "Qin Wan says today was the first time she met Mr. Yu, yet the letter in her bag says she is Yu Henian's granddaughter."
+      },
+      "truth": {
+        "summary": "The murderer is Qian Deshun, the owner of the story house. Behind the Yu family's back he \"transferred\" the story house to a tourism company, took a 200,000 yuan deposit and squandered it, while Yu Henian planned to donate the building to the Cultural Center after the season closed. By the intermission the old master's clay teapot was empty (he drank from it on stage for an hour without harm, which shows the tea brewed before the show was not poisoned). At 20:32 Qian Deshun took the front desk flask, laced with caowu powder, along the side passage to the backstage room, and at 20:34 topped up the old master's pot with his own hands. He then waited in the side passage for Qin Wan to leave, only returning to the front desk at 20:38 to rinse the flask clean; the stub book shows not a single ticket sold in those six minutes. At 20:56, as everyone rushed backstage, he slipped the poison packet into Lu Shaotang's coat hanging by the door to frame him. But the packet was wrapped in half a stub torn from the front desk's stub book, and the Tongde Hall receipt for the caowu was filed among the story house office's expense slips. Yu Xiaoyun's medicinal liquor, the string Lu Shaotang cut, and the photo torn up in front of Qin Wan were all other people's secrets on this night.",
+        "weapon": "Hot water laced with caowu (aconite root) powder",
+        "timeline": [
+          "Yu Xiaoyun brews Biluochun tea for her father backstage.",
+          "In the first half, Yu Henian drinks from his clay teapot on stage as he performs, without harm. When he comes off, the pot is nearly empty.",
+          "Yu Xiaoyun goes to the courtyard to rub on caowu medicinal liquor. Qin Wan goes backstage to reveal who she is, and Yu Henian tears up the photo.",
+          "Qian Deshun leaves the front desk with the poisoned flask and heads backstage via the side passage (Lu Shaotang, at the entrance, sees a figure).",
+          "Qin Wan leaves the backstage room and waits at the empty front desk. At 20:34 Qian Deshun tops up the old master's pot, then hides in the side passage.",
+          "Qian Deshun returns to the front desk, rinses the flask and carries on selling tickets.",
+          "Lu Shaotang goes backstage, is berated by his master and threatened with expulsion (Yu Xiaoyun hears it through the courtyard window). As he leaves, he cuts the pipa's treble string.",
+          "Lu Shaotang returns to the front desk via the side passage, and Qian Deshun sees him.",
+          "Yu Xiaoyun goes backstage for her pipa; her father says his mouth is numb. At 20:48 she goes on stage to play the opening ballad.",
+          "The poison takes hold, and Yu Henian collapses backstage.",
+          "The pipa's treble string snaps, and Yu Xiaoyun runs backstage to find her father. As everyone rushes backstage, Qian Deshun slips the poison packet into Lu Shaotang's coat."
+        ],
+        "secrets": [
+          "The murderer; secretly \"transferred\" the story house and took a 200,000 yuan deposit; used the front desk flask to deliver the poison, and planted the packet on Lu Shaotang.",
+          "Has had an injured wrist for six months and secretly uses caowu medicinal liquor; argued with her father over donating the house.",
+          "Secretly recorded his master's secret text and sold it to an audio shop; went backstage during the intermission and cut the pipa string.",
+          "Yu Henian's granddaughter; revealed herself backstage during the intermission, and he tore up the photo."
+        ]
+      }
+    }
+  }
+}
