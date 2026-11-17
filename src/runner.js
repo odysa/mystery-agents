@@ -1,6 +1,9 @@
 // 对局运行器：驱动 AI 回合、等待人类回合、记录每一次智能体决策，并把事件持久化。
 import { Game } from './engine/game.js';
-import { loadScenario, localizeScenario } from './engine/scenario.js';
+import { readFile } from 'node:fs/promises';
+import { join, dirname, normalize } from 'node:path';
+import { loadScenario, localizeScenario, findScenario } from './engine/scenario.js';
+import { mimeOf } from './engine/media.js';
 import { tr } from './i18n.js';
 import { RuleAgent } from './agents/rule.js';
 import { LLMAgent } from './agents/llm.js';
@@ -12,13 +15,31 @@ export const TOKEN_SEATS = ['human', 'external'];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+const RASTER = new Set(['image/png', 'image/jpeg', 'image/gif', 'image/webp']);
+
+/** 给多模态模型读取位图：包内文件或 data URI。SVG、https 链接返回 null（只用 alt 文字）。 */
+export function assetLoader(scenario) {
+  return async (id) => {
+    const a = scenario.assets?.[id];
+    if (!a || a.type !== 'image' || !RASTER.has(mimeOf(a))) return null;
+    if (a.src.startsWith('data:')) return { mime: mimeOf(a), data: a.src.slice(a.src.indexOf(',') + 1) };
+    if (a.src.startsWith('https://')) return null;
+    const loc = findScenario(scenario.id);
+    if (!loc) return null;
+    const root = join(dirname(loc.file), scenario.id);
+    const file = normalize(join(root, a.src));
+    if (!file.startsWith(root + '/')) return null;
+    try { return { mime: mimeOf(a), data: (await readFile(file)).toString('base64') }; } catch { return null; }
+  };
+}
+
 export function makeAgent(kind, { scenario, pid, seed, url, lang = 'zh' }) {
   if (kind === 'rule') return new RuleAgent({ scenario, pid, seed, lang });
   if (kind === 'webhook') {
     if (!url) throw new Error(`座位 ${pid} 是 webhook 智能体，但没有提供 URL`);
     return new WebhookAgent({ scenario, pid, seed, url, lang });
   }
-  return new LLMAgent({ scenario, pid, seed, lang, provider: makeProvider(kind) });
+  return new LLMAgent({ scenario, pid, seed, lang, provider: makeProvider(kind), loadAsset: assetLoader(scenario) });
 }
 
 export class GameRunner {

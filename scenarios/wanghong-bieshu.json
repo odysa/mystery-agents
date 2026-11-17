@@ -13,7 +13,8 @@
   "victim": {
     "id": "lin_lu",
     "name": "林鹿",
-    "bio": "26岁，星耀传媒的头部带货主播，艺名「鹿鹿」，全网粉丝八百万。镜头前甜美亲切，镜头后要求严苛、说一不二。"
+    "bio": "26岁，星耀传媒的头部带货主播，艺名「鹿鹿」，全网粉丝八百万。镜头前甜美亲切，镜头后要求严苛、说一不二。",
+    "portrait": "p_lin_lu"
   },
   "background": "2024年6月12日，星耀传媒包下京郊的云栖别墅搞周年团建。头部主播林鹿坚持当晚照常开播，把二楼主卧改成了临时直播间，20:00 准时开播；楼下的同事一边烧烤、玩狼人杀，一边把她的直播投在客厅的投影上。\n\n22:10，直播画面突然中断，弹幕瞬间炸了锅。林鹿的电话无人接听，敲门也没有回应。22:27，老板赵启明用管理员密码打开直播间的门——林鹿仰靠在直播椅上，脖子上缠着补光灯的电源线，已经没有了呼吸。\n\n别墅在山脚下，最近的派出所赶过来至少要一个多小时。投影上的她明明一直在说话、在笑，凶手又是什么时候动的手？",
   "intro": "【主持人】欢迎来到《断播之夜》。这是一场进阶难度的推理：每个人都有不想被揭开的秘密，也都有让自己看起来很可疑的行踪。请注意——你亲眼看到的，未必就是真实发生的。凶手的目标是不被投票指认，其他人要找出真相。",
@@ -30,35 +31,40 @@
       "name": "二楼直播间",
       "description": "案发现场。主卧改成的直播间，隔音棉、补光灯、推流电脑一应俱全，门上装着智能密码锁。",
       "x": 0.15,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_livestream"
     },
     {
       "id": "corridor",
       "name": "二楼走廊与客房",
       "description": "连接直播间和几间客房的走廊，有一台定时清扫的扫地机器人和一个放杂物的储物柜。",
       "x": 0.6,
-      "y": 0.12
+      "y": 0.12,
+      "image": "loc_corridor"
     },
     {
       "id": "living",
       "name": "一楼客厅与厨房",
       "description": "大家玩狼人杀、看直播投影的地方，开放式厨房连着通往院门的玄关。",
       "x": 0.3,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_living"
     },
     {
       "id": "equipment",
       "name": "车库设备间",
       "description": "陈屿临时搭起来的技术间：路由器、团队网盘 NAS 和直播后台的数据大屏都在这里。",
       "x": 0.88,
-      "y": 0.5
+      "y": 0.5,
+      "image": "loc_equipment"
     },
     {
       "id": "pool",
       "name": "泳池花园",
       "description": "别墅后院的泳池和躺椅，夜里灯光昏暗，从客厅后门出去就是。",
       "x": 0.68,
-      "y": 0.88
+      "y": 0.88,
+      "image": "loc_pool"
     }
   ],
   "characters": [
@@ -128,6 +134,14 @@
           "corridor",
           "equipment"
         ]
+      },
+      "portrait": "p_zhao_qiming",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.88,
+        "rate": 1,
+        "style": "低沉圆滑，带着老板腔，语气笃定"
       }
     },
     {
@@ -190,6 +204,14 @@
           "livestream",
           "equipment"
         ]
+      },
+      "portrait": "p_he_wen",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 1,
+        "rate": 1.1,
+        "style": "干练利落，语速偏快，客气周到"
       }
     },
     {
@@ -249,6 +271,14 @@
           "livestream",
           "pool"
         ]
+      },
+      "portrait": "p_chen_yu",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 0.95,
+        "rate": 0.9,
+        "style": "话少平直，声音偏闷，被追问时会结巴"
       }
     },
     {
@@ -312,6 +342,14 @@
           "living",
           "corridor"
         ]
+      },
+      "portrait": "p_zhou_xiaotang",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.2,
+        "rate": 1.12,
+        "style": "甜美清亮，语调上扬，像在直播间里说话"
       }
     },
     {
@@ -372,6 +410,14 @@
           "equipment",
           "living"
         ]
+      },
+      "portrait": "p_xu_jing",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.08,
+        "rate": 0.88,
+        "style": "轻声细语，怯生生的，常常说到一半停下"
       }
     }
   ],
@@ -461,7 +507,10 @@
       "time": "",
       "implicates": {
         "chen_yu": 2
-      }
+      },
+      "media": [
+        "m_glove"
+      ]
     },
     {
       "id": "c_phone",
@@ -519,7 +568,10 @@
       "time": "21:36",
       "implicates": {
         "chen_yu": 1
-      }
+      },
+      "media": [
+        "m_robot"
+      ]
     },
     {
       "id": "c_glovebox",
@@ -629,7 +681,10 @@
       "time": "21:35-21:49",
       "implicates": {
         "zhou_xiaotang": 1
-      }
+      },
+      "media": [
+        "m_poolphone"
+      ]
     },
     {
       "id": "c_poolcam",
@@ -848,7 +903,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the “Supplementary Agreement” with the forged signature from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Deep and smooth, the voice of a boss, always sure of himself"
+          }
         },
         "he_wen": {
           "name": "He Wen",
@@ -865,7 +923,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep the streaming software log from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Brisk and efficient, a little fast, unfailingly polite"
+          }
         },
         "chen_yu": {
           "name": "Chen Yu",
@@ -882,7 +943,10 @@
           "objectives": [
             "Vote out the real killer",
             "Get the storage-cabinet toolbox clue made public, proving the glove isn't yours"
-          ]
+          ],
+          "voice": {
+            "style": "Flat and terse, a little muffled; stumbles when pressed"
+          }
         },
         "zhou_xiaotang": {
           "name": "Zhou Xiaotang",
@@ -899,7 +963,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the spare phone by the pool from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Sweet and bright with a rising lilt, as if still on stream"
+          }
         },
         "xu_jing": {
           "name": "Xu Jing",
@@ -916,7 +983,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the notebook with the ghost-streaming steps from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Soft and timid, often trailing off mid-sentence"
+          }
         }
       },
       "relationships": [
@@ -1045,7 +1115,162 @@
           "Secretly sold dirt on Lin Lu to a gossip account; was on the phone by the pool from 21:35 to 21:49 and saw He Wen coming down from the second floor.",
           "Had long been ghost-streaming clips as fake live streams for Lin Lu, and was being forced to sign and take the blame."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "A villa at the foot of the hills at night: the upstairs livestream room glows pink and the living room below shows the stream on a projector; in the foreground, a phone screen glitches"
+        },
+        "p_lin_lu": {
+          "alt": "Portrait of Lin Lu: a young streamer with long wavy hair and a pink top, a ring light reflected in her eyes"
+        },
+        "p_zhao_qiming": {
+          "alt": "Portrait of Zhao Qiming: a middle-aged man with slicked-back hair in a dark suit, shrewd-looking"
+        },
+        "p_he_wen": {
+          "alt": "Portrait of He Wen: a brisk woman with her hair in a bun, a purple blazer and a wireless earpiece"
+        },
+        "p_chen_yu": {
+          "alt": "Portrait of Chen Yu: a young man in black-rimmed glasses and a black hoodie, lit by blue screen light"
+        },
+        "p_zhou_xiaotang": {
+          "alt": "Portrait of Zhou Xiaotang: a girl with twin buns, an orange top and gold hoop earrings, smiling sweetly"
+        },
+        "p_xu_jing": {
+          "alt": "Portrait of Xu Jing: a young woman with a ponytail and a teal cardigan, a makeup brush tucked behind her ear, avoiding eye contact"
+        },
+        "loc_livestream": {
+          "alt": "The upstairs livestream room: foam-panelled walls, a ring light, an empty streaming chair, the streaming PC and a door with a smart keypad lock"
+        },
+        "loc_corridor": {
+          "alt": "The dim upstairs corridor with the livestream room door at the end; a robot vacuum with a blue light sits on the floor, a storage cabinet on the right"
+        },
+        "loc_living": {
+          "alt": "The living room under string lights: the stream plays on a projector screen, a few cards lie on the coffee table, and the open kitchen glows warm on the right"
+        },
+        "loc_equipment": {
+          "alt": "The makeshift tech room in the garage: a rack of blinking equipment, a router, a laptop and a big screen of data charts"
+        },
+        "loc_pool": {
+          "alt": "The backyard pool at night, glowing cyan from underwater lights, with loungers on either side, dim garden lamps and a security camera on a pole"
+        },
+        "m_glove": {
+          "alt": "In torchlight, a black anti-slip wiring glove lies on the floor under the bed, a line pressed across its palm by a cord"
+        },
+        "m_robot": {
+          "alt": "Two obstacle photos in the robot vacuum's app: at 21:36, a pair of white disposable slippers at the livestream room door; at 22:06, a figure in a black hoodie standing at the door with his back to the camera"
+        },
+        "m_poolphone": {
+          "alt": "Under the lifted lounger cushion lies an old phone with a strawberry sticker on its back"
+        }
       }
+    }
+  },
+  "cover": "cover",
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "夜色中的山脚别墅，二楼直播间亮着粉色的灯，楼下客厅投着直播画面；前景一部手机的直播画面出现故障条纹",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lin_lu": {
+      "type": "image",
+      "src": "media/lin_lu.svg",
+      "alt": "林鹿的画像：长卷发、穿粉色上衣的年轻女主播，眼中映着环形补光灯",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zhao_qiming": {
+      "type": "image",
+      "src": "media/zhao_qiming.svg",
+      "alt": "赵启明的画像：梳着背头、穿深色西装的中年男人，神情精明",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_he_wen": {
+      "type": "image",
+      "src": "media/he_wen.svg",
+      "alt": "何雯的画像：盘着发髻、穿紫色西装外套、戴无线耳机的干练女人",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_chen_yu": {
+      "type": "image",
+      "src": "media/chen_yu.svg",
+      "alt": "陈屿的画像：戴黑框眼镜、穿黑色连帽卫衣的年轻男人，脸被屏幕的蓝光照亮",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zhou_xiaotang": {
+      "type": "image",
+      "src": "media/zhou_xiaotang.svg",
+      "alt": "周小糖的画像：梳着双丸子头、穿橙色上衣、戴金色圈形耳环的女孩，笑得很甜",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_xu_jing": {
+      "type": "image",
+      "src": "media/xu_jing.svg",
+      "alt": "许婧的画像：扎马尾、穿青绿色开衫、耳后别着化妆刷的年轻女人，眼神躲闪",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_livestream": {
+      "type": "image",
+      "src": "media/loc_livestream.svg",
+      "alt": "二楼直播间：贴满隔音棉的墙、环形补光灯、空着的直播椅、推流电脑，以及装着智能密码锁的门",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_corridor": {
+      "type": "image",
+      "src": "media/loc_corridor.svg",
+      "alt": "昏暗的二楼走廊，尽头是直播间的门；地上停着一台亮着蓝灯的扫地机器人，右侧是储物柜",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_living": {
+      "type": "image",
+      "src": "media/loc_living.svg",
+      "alt": "挂着串灯的客厅：投影幕上放着直播画面，沙发前的茶几上散着几张卡牌，右侧是亮着暖灯的开放式厨房",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_equipment": {
+      "type": "image",
+      "src": "media/loc_equipment.svg",
+      "alt": "车库里的临时技术间：闪着指示灯的机柜、路由器、笔记本电脑和显示数据图表的大屏",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_pool": {
+      "type": "image",
+      "src": "media/loc_pool.svg",
+      "alt": "夜晚的后院泳池，水下灯泛着青蓝色的光，两侧摆着躺椅，花园灯光昏暗，杆子上装着一个监控摄像头",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_glove": {
+      "type": "image",
+      "src": "media/clue_glove.svg",
+      "alt": "手电光下，床底地板上躺着一只黑色防滑布线手套，掌心有一道被电线勒出的横向压痕",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_robot": {
+      "type": "image",
+      "src": "media/clue_robot.svg",
+      "alt": "扫地机器人 App 的两张障碍物照片：21:36，直播间门口一双白色一次性拖鞋；22:06，一个穿黑色连帽卫衣的人背对镜头站在门口",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_poolphone": {
+      "type": "image",
+      "src": "media/clue_poolphone.svg",
+      "alt": "掀开的躺椅坐垫下，压着一部背面贴着草莓贴纸的旧手机",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
     }
   }
 }

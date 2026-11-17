@@ -8,7 +8,16 @@ import { listScenarios, loadScenario, validateScenario, lintScenario } from '../
 import { simulate } from '../src/simulate.js';
 import { createApp } from '../src/server.js';
 
-const yuye = () => JSON.parse(readFileSync(new URL('../scenarios/yuye-yaohuo.json', import.meta.url), 'utf8'));
+// 投稿测试用的剧本：去掉包内媒体文件引用（投稿只能用 data URI 或 https）
+const yuye = () => {
+  const s = JSON.parse(readFileSync(new URL('../scenarios/yuye-yaohuo.json', import.meta.url), 'utf8'));
+  delete s.assets; delete s.cover; delete s.victim.portrait;
+  for (const c of s.characters) { delete c.portrait; delete c.media; }
+  for (const l of s.locations) delete l.image;
+  for (const c of s.clues) delete c.media;
+  for (const t of Object.values(s.translations || {})) delete t.assets;
+  return s;
+};
 
 test('所有内置剧本都通过校验，并能被 AI 完整跑完、零越权', async () => {
   const list = listScenarios();

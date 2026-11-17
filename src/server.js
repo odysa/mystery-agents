@@ -15,6 +15,8 @@ import { renderObservationText } from './agent-text.js';
 import { tr, trMsg, langOf, normLang } from './i18n.js';
 import { agentGuide, llmsTxt } from './agent-docs.js';
 import { handleMcp } from './mcp.js';
+import { canSeeAsset, assetVisibility, assetInfo, mimeOf, checkMediaFiles, IMAGE_EXT, AUDIO_EXT } from './engine/media.js';
+import { stat as statP, readFile as readFileP } from 'node:fs/promises';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
@@ -55,8 +57,8 @@ export function createApp({
   const tokenPid = (runner, token) => (token ? Object.entries(runner.meta.tokens || {}).find(([, t]) => t === token)?.[0] : null);
   const openSeats = (r) => (r.game.ended ? [] : (r.meta.open || []));
   const json = (res, code, body) => { res.writeHead(code, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' }); res.end(JSON.stringify(body)); };
-  const readBody = (req) => new Promise((resolve, reject) => {
-    let b = ''; req.on('data', (c) => { b += c; if (b.length > 1e6) req.destroy(); });
+  const readBody = (req, limit = 1e6) => new Promise((resolve, reject) => {
+    let b = ''; req.on('data', (c) => { b += c; if (b.length > limit) { reject(new Error('请求体太大')); req.destroy(); } });
     req.on('end', () => { try { resolve(b ? JSON.parse(b) : {}); } catch (e) { reject(e); } }); req.on('error', reject);
   });
 
@@ -88,8 +90,62 @@ export function createApp({
         humans: runner.humans, joined: [...(runner.joined || [])], watchers: runner.watchers || 0,
         open: openSeats(runner), agentNames: runner.meta.agentNames || {}, lang: runner.lang,
       },
+      media: visibleMedia(runner, viewer),
       ...(g.ended ? { metrics: gameMetrics(g) } : {}),
     };
+  }
+
+  // ---------- 媒体 ----------
+  // 每个观察者只拿到自己有权看到的媒体（含 URL）。对局结束后真相公开，所有媒体对所有人可见。
+  function mediaViewer(runner, viewer) { return runner.game.ended ? { kind: 'god' } : viewer; }
+  function mediaUrl(runner, id, viewer) {
+    const a = runner.scenario.assets[id];
+    if (a.src.startsWith('https://')) return a.src;
+    const vis = assetVisibility(runner.scenario)[id];
+    if (vis?.public) return `/media/${runner.meta.scenarioId}/${id}?lang=${runner.lang}`;
+    const q = viewer.kind === 'player' ? `token=${runner.meta.tokens[viewer.pid]}` : viewer.kind === 'god' ? 'view=god' : 'view=spectator';
+    return `/api/games/${runner.meta.id}/media/${id}?${q}`;
+  }
+  function visibleMedia(runner, viewer) {
+    const sc = runner.scenario;
+    if (!sc.assets) return {};
+    const mv = mediaViewer(runner, viewer);
+    const out = {};
+    for (const id of Object.keys(sc.assets)) {
+      if (canSeeAsset(sc, id, mv, runner.game.state)) out[id] = { ...assetInfo(sc.assets[id]), url: mediaUrl(runner, id, viewer) };
+    }
+    return out;
+  }
+  // 发送一个媒体：包内文件（支持 Range，音频拖动进度要用）、data URI 或 https 跳转
+  async function sendAsset(req, res, scenarioId, asset, { cache }) {
+    const headers = {
+      'x-content-type-options': 'nosniff',
+      // SVG 等文件即使被直接打开也不能执行脚本
+      'content-security-policy': "default-src 'none'; img-src data:; style-src 'unsafe-inline'; media-src 'self'; sandbox",
+      'cache-control': cache ? 'public, max-age=3600' : 'private, no-store',
+    };
+    if (asset.src.startsWith('https://')) { res.writeHead(302, { ...headers, location: asset.src }); return res.end(); }
+    let buf;
+    if (asset.src.startsWith('data:')) buf = Buffer.from(asset.src.slice(asset.src.indexOf(',') + 1), 'base64');
+    else {
+      const loc = findScenario(scenarioId);
+      if (!loc) return json(res, 404, { error: 'Not found' });
+      const root = join(dirname(loc.file), scenarioId);
+      const file = normalize(join(root, asset.src));
+      if (!file.startsWith(root + '/')) return json(res, 404, { error: 'Not found' });
+      try { buf = await readFileP(file); } catch { return json(res, 404, { error: 'Not found' }); }
+    }
+    const type = mimeOf(asset);
+    const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || '');
+    if (range) {
+      const start = range[1] ? Number(range[1]) : Math.max(0, buf.length - Number(range[2]));
+      const end = range[1] && range[2] ? Math.min(Number(range[2]), buf.length - 1) : buf.length - 1;
+      if (start >= buf.length || start > end) { res.writeHead(416, { ...headers, 'content-range': `bytes */${buf.length}` }); return res.end(); }
+      res.writeHead(206, { ...headers, 'content-type': type, 'accept-ranges': 'bytes', 'content-range': `bytes ${start}-${end}/${buf.length}`, 'content-length': end - start + 1 });
+      return res.end(req.method === 'HEAD' ? undefined : buf.subarray(start, end + 1));
+    }
+    res.writeHead(200, { ...headers, 'content-type': type, 'accept-ranges': 'bytes', 'content-length': buf.length });
+    return res.end(req.method === 'HEAD' ? undefined : buf);
   }
 
   function summary(r) {
@@ -112,9 +168,17 @@ export function createApp({
     }
     if (req.method === 'POST' && parts[1] === 'scenarios' && (parts[2] === 'check' || !parts[2])) {
       if (!allowSubmit) return json(res, 403, { error: t('这台服务器关闭了剧本投稿（MA_ALLOW_SUBMIT=0）') });
-      const body = await readBody(req);
+      const body = await readBody(req, 40e6);
       const sc = body.scenario;
       const errors = validateScenario(sc).map((e) => trMsg(L, e));
+      if (!errors.length) {
+        // 投稿没有文件夹可以上传，媒体只能用 data URI 内嵌或 https 链接；SVG 要过安全检查
+        const rel = [...Object.entries(sc.assets || {}).map(([id, a]) => [`assets.${id}`, a.src]),
+          ...Object.entries(sc.translations || {}).flatMap(([l, tt]) => Object.entries(tt.assets || {}).map(([id, o]) => [`translations.${l}.assets.${id}`, o.src]))]
+          .filter(([, src]) => src && src.startsWith('media/'));
+        for (const [path] of rel) errors.push(t('{path}：投稿时媒体请用 data URI 内嵌或 https 链接', { path }));
+        errors.push(...(await checkMediaFiles(sc, '/nonexistent', { readFile: readFileP, stat: statP })).map((e) => trMsg(L, e)));
+      }
       if (errors.length) return json(res, 422, { ok: false, errors });
       const existing = findScenario(sc.id);
       const lint = lintScenario(sc);
@@ -128,7 +192,19 @@ export function createApp({
       if (report.accessControlViolations > 0 || report.completionRate < 1) return json(res, 422, { ...result, ok: false, errors: [t('试玩未能正常完成，暂不接受发布')] });
       mkdirSync(scenarioDir, { recursive: true });
       if (readdirSync(scenarioDir).length >= MAX_COMMUNITY) return json(res, 507, { ...result, ok: false, errors: [t('社区剧本数量已达上限')] });
-      const saved = { format: FORMAT, ...sc, submittedAt: new Date().toISOString() };
+      const saved = { format: FORMAT, ...structuredClone(sc), submittedAt: new Date().toISOString() };
+      // 把内嵌的 data URI 媒体提取成文件，剧本里改成相对路径
+      const mediaDir = join(scenarioDir, sc.id, 'media');
+      const extract = (key, src, type) => {
+        if (!src?.startsWith('data:')) return src;
+        const mime = src.slice(5, src.indexOf(';'));
+        const ext = Object.entries(type === 'image' ? IMAGE_EXT : AUDIO_EXT).find(([, m]) => m === mime)?.[0] || 'bin';
+        mkdirSync(mediaDir, { recursive: true });
+        writeFileSync(join(mediaDir, `${key}.${ext}`), Buffer.from(src.slice(src.indexOf(',') + 1), 'base64'));
+        return `media/${key}.${ext}`;
+      };
+      for (const [id, a] of Object.entries(saved.assets || {})) a.src = extract(id, a.src, a.type);
+      for (const [l, tt] of Object.entries(saved.translations || {})) for (const [id, o] of Object.entries(tt.assets || {})) if (o.src) o.src = extract(`${id}.${l}`, o.src, saved.assets[id].type);
       writeFileSync(join(scenarioDir, `${sc.id}.json`), JSON.stringify(saved, null, 2));
       return json(res, 201, { ...result, id: sc.id });
     }
@@ -139,9 +215,24 @@ export function createApp({
       return json(res, 200, JSON.parse(readFileSync(f.file, 'utf8')));
     }
     if (req.method === 'GET' && parts[1] === 'scenarios' && parts[2]) {
-      try { const raw = loadScenario(parts[2]); return json(res, 200, { ...publicScenarioView(localizeScenario(raw, L)), source: findScenario(parts[2])?.source, languages: scenarioLangs(raw), lang: L }); } catch { return json(res, 404, { error: t('剧本不存在') }); }
+      try {
+        const raw = loadScenario(parts[2]); const sc = localizeScenario(raw, L);
+        const vis = assetVisibility(sc);
+        const media = Object.fromEntries(Object.entries(sc.assets || {}).filter(([id]) => vis[id]?.public).map(([id, a]) => [id, { ...assetInfo(a), url: a.src.startsWith('https://') ? a.src : `/media/${raw.id}/${id}?lang=${L}` }]));
+        return json(res, 200, { ...publicScenarioView(sc), media, source: findScenario(parts[2])?.source, languages: scenarioLangs(raw), lang: L });
+      } catch { return json(res, 404, { error: t('剧本不存在') }); }
     }
-    if (req.method === 'GET' && parts[1] === 'scenarios') return json(res, 200, listScenarios());
+    if (req.method === 'GET' && parts[1] === 'scenarios') {
+      // 封面的文字描述和 URL 跟随请求的语言
+      return json(res, 200, listScenarios().map((x) => {
+        if (!x.cover) return x;
+        try {
+          const sc = localizeScenario(loadScenario(x.id), L);
+          const a = sc.assets[sc.cover];
+          return { ...x, coverAlt: a.alt, cover: a.src.startsWith('https://') ? a.src : `${x.cover}?lang=${L}` };
+        } catch { return x; }
+      }));
+    }
     if (req.method === 'GET' && parts[1] === 'providers') return json(res, 200, await availableProviders(L));
     if (req.method === 'GET' && parts[1] === 'open-seats') {
       const out = [];
@@ -201,6 +292,12 @@ export function createApp({
     if (!runner) return json(res, 404, { error: t('对局不存在') });
     const sub = parts[3];
 
+    if (sub === 'media' && (req.method === 'GET' || req.method === 'HEAD') && parts[4]) {
+      const v = viewerOf(runner, q); if (v.error) return json(res, 403, { error: t(v.error) });
+      const asset = runner.scenario.assets?.[parts[4]];
+      if (!asset || !canSeeAsset(runner.scenario, parts[4], mediaViewer(runner, v), runner.game.state)) return json(res, 404, { error: t('未找到') });
+      return sendAsset(req, res, runner.meta.scenarioId, asset, { cache: false });
+    }
     if (sub === 'join' && req.method === 'POST') {
       const body = await readBody(req);
       const open = openSeats(runner);
@@ -222,7 +319,7 @@ export function createApp({
     }
     if (sub === 'view' && req.method === 'GET') {
       const v = viewerOf(runner, q); if (v.error) return json(res, 403, { error: t(v.error) });
-      if (q.get('format') === 'text' && v.kind === 'player') return text(res, 200, renderObservationText(buildView(runner, v), { since: Number(q.get('since') || 0), full: !q.get('since'), lang: runner.lang }));
+      if (q.get('format') === 'text' && v.kind === 'player') return text(res, 200, renderObservationText(buildView(runner, v), { since: Number(q.get('since') || 0), full: !q.get('since'), lang: runner.lang, base: baseOf(req) }));
       return json(res, 200, buildView(runner, v));
     }
     if (sub === 'turn' && req.method === 'GET') {
@@ -237,7 +334,7 @@ export function createApp({
         if (q.get('format') === 'text') {
           const since = Number(q.get('since') || 0);
           const head = yourTurn || runner.game.ended ? '' : `${tr(runner.lang, '（还没轮到你：再次请求本地址继续等待）')}\n`;
-          return text(res, 200, head + renderObservationText(view, { since, full: !q.get('since'), lang: runner.lang }));
+          return text(res, 200, head + renderObservationText(view, { since, full: !q.get('since'), lang: runner.lang, base: baseOf(req) }));
         }
         return json(res, 200, { yourTurn, ...view });
       };
@@ -322,6 +419,13 @@ export function createApp({
       if (url.pathname === '/agent.md' || url.pathname === '/AGENTS.md') return text(res, 200, agentGuide(baseOf(req), langOf(req, url.searchParams)), 'text/markdown; charset=utf-8');
       if (url.pathname === '/llms.txt') return text(res, 200, llmsTxt(baseOf(req), langOf(req, url.searchParams)));
       if (url.pathname === '/openjubensha.md') return text(res, 200, readFileSync(join(ROOT, 'docs', 'openjubensha.md'), 'utf8'), 'text/markdown; charset=utf-8');
+      const pm = url.pathname.match(/^\/media\/([\w-]+)\/([\w-]+)$/);
+      if (pm && (req.method === 'GET' || req.method === 'HEAD')) {
+        let sc;
+        try { sc = localizeScenario(loadScenario(pm[1]), normLang(url.searchParams.get('lang')) || undefined); } catch { return json(res, 404, { error: 'Not found' }); }
+        if (!sc.assets?.[pm[2]] || !assetVisibility(sc)[pm[2]]?.public) return json(res, 404, { error: 'Not found' });
+        return await sendAsset(req, res, pm[1], sc.assets[pm[2]], { cache: true });
+      }
       if (url.pathname === '/mcp') {
         const port = server.address().port;
         return await handleMcp(req, res, { publicBase: baseOf(req), internalBase: `http://127.0.0.1:${port}`, lang: normLang(url.searchParams.get('lang')) || 'zh' });

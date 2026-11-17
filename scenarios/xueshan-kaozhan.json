@@ -10,10 +10,126 @@
   "players": 5,
   "difficulty": "困难",
   "estimatedMinutes": 75,
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "暴风雪夜里的冰川科考站：雪山下一排亮着几扇窗的主楼，旁边是独立的设备间集装箱，风雪横扫。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_cheng_yuanshan": {
+      "type": "image",
+      "src": "media/cheng.svg",
+      "alt": "程远山的头像：花白头发、神情严厉的老站长，穿着红色站服。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_he_siyuan": {
+      "type": "image",
+      "src": "media/he_siyuan.svg",
+      "alt": "何思源的头像：戴细框眼镜、头发整齐的中年男人，抓绒衣外套着深蓝背心，面带温和的笑。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_su_xiaotang": {
+      "type": "image",
+      "src": "media/su_xiaotang.svg",
+      "alt": "苏晓棠的头像：戴红色毛线帽和圆框眼镜、扎马尾的年轻女博士生，神情有些紧绷。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_ye_yun": {
+      "type": "image",
+      "src": "media/ye_yun.svg",
+      "alt": "叶芸的头像：齐耳短发、神情冷静的女队医，白大褂里是紫色衣领，挂着听诊器。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_dawa_ciren": {
+      "type": "image",
+      "src": "media/dawa_ciren.svg",
+      "alt": "达瓦次仁的头像：戴皮毛护耳帽、脸颊被高原风吹得发红的藏族汉子，工装上沾着油污。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zheng_kai": {
+      "type": "image",
+      "src": "media/zheng_kai.svg",
+      "alt": "郑凯的头像：发型时髦、胡茬短短的男人，穿绿色羽绒服，斜挎着相机背带，笑得很热络。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_equipment": {
+      "type": "image",
+      "src": "media/loc_equipment.svg",
+      "alt": "设备间：冰冷的集装箱里立着柴油发电机和配电柜，天花板上吊着带拉线开关的顶灯，一道手电光照进来。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_lab": {
+      "type": "image",
+      "src": "media/loc_lab.svg",
+      "alt": "冰芯实验室：外间一排更衣柜和工作台，里间是结着霜的冷库门，门边有刷卡器。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_office": {
+      "type": "image",
+      "src": "media/loc_office.svg",
+      "alt": "站长办公室：书架、黑着屏的电脑、断网的卫星终端和散放的文件，窗外风雪呼啸。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_living": {
+      "type": "image",
+      "src": "media/loc_living.svg",
+      "alt": "生活区：风雪中连成一排的宿舍、医务室、锅炉房和物资仓，锅炉房的烟囱冒着白汽。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_canteen": {
+      "type": "image",
+      "src": "media/loc_canteen.svg",
+      "alt": "食堂：暖黄灯光下的长桌上散着扑克牌和记分纸，门边挂着一本交接本，窗外是暴风雪。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_wrench": {
+      "type": "image",
+      "src": "media/clue_wrench.svg",
+      "alt": "金属地板上的一把红柄管钳，钳口沾着血和头发，手柄上有记号笔写的字迹（「达瓦」）。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_snow": {
+      "type": "image",
+      "src": "media/clue_snow.svg",
+      "alt": "郑凯拍下的设备间门口雪地：闪光灯照亮的新雪上，只有一行来回的大号防寒靴印。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_parka": {
+      "type": "image",
+      "src": "media/clue_parka.svg",
+      "alt": "更衣柜里塞着的红色站服：右袖口有几点被雪水晕开的暗红色斑点，口袋里露出一副沾着机油的薄手套。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_footage": {
+      "type": "image",
+      "src": "media/clue_footage.svg",
+      "alt": "郑凯摄像机里 20:53 的最后一段画面：风雪中，设备间的小窗透着灯光，画面晃得厉害。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover",
   "victim": {
     "id": "cheng_yuanshan",
     "name": "程远山",
-    "bio": "58岁，央拉冰川科考站站长，冰川学家，在这座站守了二十年。为人严厉，眼里揉不得沙子。"
+    "bio": "58岁，央拉冰川科考站站长，冰川学家，在这座站守了二十年。为人严厉，眼里揉不得沙子。",
+    "portrait": "p_cheng_yuanshan"
   },
   "background": "2024年初冬，青藏高原，央拉冰川脚下海拔 5200 米的科考站。站里只有六个人：站长程远山、副站长何思源、博士生苏晓棠、队医叶芸、后勤机修达瓦次仁，以及来拍宣传片的赞助方代表郑凯。\n\n晚饭时程远山说：「等风雪停了，我有件事要向所里汇报，关系到站里的一个项目。」19:40，卫星天线结冰，网络中断。程远山有个全站皆知的习惯：每晚八点四十五左右去独立的设备间记一次发电机油耗。21:32，柴油发电机突然熄火，全站断电。\n\n22:20，达瓦去设备间修发电机，发现程远山俯卧在发电机旁，后脑被重物击碎。最近的乡镇在一百二十公里外，风雪不停，谁也来不了。凶手就在你们五个人之中。",
   "intro": "【主持人】欢迎来到《雪山孤站》。零下三十度的夜里，五个人围着一盏应急灯。请仔细阅读你的剧本：每个人今晚都有不想说的事，有人说谎是为了自保，只有一个人说谎是为了杀人。注意——断电的时间，未必就是出事的时间。",
@@ -30,35 +146,40 @@
       "name": "设备间",
       "description": "案发现场。主楼外三十米的独立集装箱，放着柴油发电机和配电柜，没有暖气。",
       "x": 0.16,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_equipment"
     },
     {
       "id": "lab",
       "name": "冰芯实验室",
       "description": "实验室外间是更衣柜和工作台，里间是刷卡进出的零下二十度冷库，存放冰芯样品。",
       "x": 0.5,
-      "y": 0.18
+      "y": 0.18,
+      "image": "loc_lab"
     },
     {
       "id": "office",
       "name": "站长办公室",
       "description": "程远山的办公室兼通讯室，有他的电脑、文件和一部已经断网的卫星终端。",
       "x": 0.84,
-      "y": 0.3
+      "y": 0.3,
+      "image": "loc_office"
     },
     {
       "id": "living",
       "name": "生活区",
       "description": "宿舍、医务室、锅炉房和物资仓连成一排，是大家睡觉、看病和存放物资的地方。",
       "x": 0.3,
-      "y": 0.76
+      "y": 0.76,
+      "image": "loc_living"
     },
     {
       "id": "canteen",
       "name": "食堂",
       "description": "全站最暖和的地方，晚饭后大家常在这里打牌。门边挂着一本交接本。",
       "x": 0.72,
-      "y": 0.74
+      "y": 0.74,
+      "image": "loc_canteen"
     }
   ],
   "characters": [
@@ -125,6 +246,14 @@
           "office",
           "canteen"
         ]
+      },
+      "portrait": "p_he_siyuan",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.95,
+        "rate": 0.95,
+        "style": "温和稳重，语调平缓，不紧不慢"
       }
     },
     {
@@ -189,6 +318,14 @@
           "living",
           "equipment"
         ]
+      },
+      "portrait": "p_su_xiaotang",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.1,
+        "rate": 1.05,
+        "style": "清亮偏细，说话小心翼翼，认定了就变得又快又硬"
       }
     },
     {
@@ -261,6 +398,14 @@
           "equipment",
           "canteen"
         ]
+      },
+      "portrait": "p_ye_yun",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 0.95,
+        "rate": 1,
+        "style": "冷静干脆，句子短，语气平淡"
       }
     },
     {
@@ -335,6 +480,14 @@
           "canteen",
           "lab"
         ]
+      },
+      "portrait": "p_dawa_ciren",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.85,
+        "rate": 0.85,
+        "style": "浑厚憨实，汉语说得慢，带藏族口音"
       }
     },
     {
@@ -398,6 +551,14 @@
           "equipment",
           "canteen"
         ]
+      },
+      "portrait": "p_zheng_kai",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 1.05,
+        "rate": 1.12,
+        "style": "外向热络，语速快，像在主持节目"
       }
     }
   ],
@@ -480,7 +641,10 @@
       "implicates": {
         "dawa_ciren": 3
       },
-      "key": true
+      "key": true,
+      "media": [
+        "clue_wrench"
+      ]
     },
     {
       "id": "c2_headlamp",
@@ -529,7 +693,10 @@
       "time": "22:05",
       "implicates": {
         "dawa_ciren": 2
-      }
+      },
+      "media": [
+        "clue_snow"
+      ]
     },
     {
       "id": "c2_coldlog",
@@ -565,6 +732,9 @@
       },
       "requires": [
         "c2_coldlog"
+      ],
+      "media": [
+        "clue_parka"
       ]
     },
     {
@@ -577,7 +747,10 @@
         "zheng_kai": 2,
         "dawa_ciren": -1
       },
-      "key": true
+      "key": true,
+      "media": [
+        "clue_footage"
+      ]
     },
     {
       "id": "c2_usb",
@@ -877,7 +1050,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep the chief's headlamp from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Mild and steady, even-toned, unhurried"
+          }
         },
         "su_xiaotang": {
           "name": "Su Xiaotang",
@@ -894,7 +1070,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the USB drive under the pillow from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Clear and light, careful; turns quick and hard once she is sure"
+          }
         },
         "ye_yun": {
           "name": "Ye Yun",
@@ -912,7 +1091,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the five-year-old medical record from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Calm and crisp, short sentences, flat tone"
+          }
         },
         "dawa_ciren": {
           "name": "Dawa Tsering",
@@ -930,7 +1112,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the altered diesel ledger from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Deep and earnest, speaks Mandarin slowly with a Tibetan accent"
+          }
         },
         "zheng_kai": {
           "name": "Zheng Kai",
@@ -947,7 +1132,10 @@
           "objectives": [
             "Vote out the real killer",
             "Don't be the person with the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Outgoing and chatty, fast, like a TV host"
+          }
         }
       },
       "relationships": [
@@ -1080,6 +1268,56 @@
           "His company's \"glacier carbon sink\" publicity is fake; he was outside the equipment room at 20:53 and saw the killer's back, but kept quiet.",
           "The killer; falsified the dating data for the YL-series ice cores."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "The glacier research station on a blizzard night: a row of station modules with a few lit windows beneath snowy peaks, the separate equipment container beside it, snow driving sideways."
+        },
+        "p_cheng_yuanshan": {
+          "alt": "Portrait of Cheng Yuanshan: a stern, grey-haired veteran station chief in the red station parka."
+        },
+        "p_he_siyuan": {
+          "alt": "Portrait of He Siyuan: a neat middle-aged man in thin-rimmed glasses, a dark blue vest over his fleece, smiling mildly."
+        },
+        "p_su_xiaotang": {
+          "alt": "Portrait of Su Xiaotang: a young female PhD student with a ponytail, round glasses and a red knit beanie, looking tense."
+        },
+        "p_ye_yun": {
+          "alt": "Portrait of Ye Yun: a calm woman with a chin-length bob, the station doctor in a white coat with a stethoscope."
+        },
+        "p_dawa_ciren": {
+          "alt": "Portrait of Dawa Tsering: a Tibetan man in a fur-lined ear-flap hat, cheeks reddened by the plateau wind, oil stains on his work jacket."
+        },
+        "p_zheng_kai": {
+          "alt": "Portrait of Zheng Kai: a man with a fashionable haircut and light stubble in a green down jacket, a camera strap across his chest, smiling warmly."
+        },
+        "loc_equipment": {
+          "alt": "The equipment room: inside a freezing container stand the diesel generator and switch cabinet, a ceiling lamp with a pull-cord switch overhead, lit by a flashlight beam."
+        },
+        "loc_lab": {
+          "alt": "The ice-core lab: lockers and a workbench in the outer room, the frosted cold-store door with a card reader beside it."
+        },
+        "loc_office": {
+          "alt": "The station chief's office: bookshelves, a dark computer screen, the offline satellite terminal and scattered papers, a blizzard outside the window."
+        },
+        "loc_living": {
+          "alt": "The living quarters: dorms, medical room, boiler room and storeroom joined in a row in the blizzard, steam rising from the boiler chimney."
+        },
+        "loc_canteen": {
+          "alt": "The canteen: under warm light, playing cards and a score sheet are scattered on the long table, a handover notebook hangs by the door, a blizzard outside."
+        },
+        "clue_wrench": {
+          "alt": "A red-handled pipe wrench on the metal floor, blood and hair on its jaws, marker writing on the handle (\"Dawa\")."
+        },
+        "clue_snow": {
+          "alt": "Zheng Kai's photo of the snow at the equipment-room door: in the flash-lit fresh snow there is only one trail of large snow-boot prints, going and coming back."
+        },
+        "clue_parka": {
+          "alt": "The red station parka stuffed in a locker: a few dark red spots blurred by snowmelt on the right cuff, a pair of thin oily gloves poking out of the pocket."
+        },
+        "clue_footage": {
+          "alt": "The last clip on Zheng Kai's camera, 20:53: in the blizzard, light shows in the equipment room's small window; the picture shakes badly."
+        }
       }
     }
   }

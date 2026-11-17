@@ -10,10 +10,133 @@
   "players": 6,
   "difficulty": "困难",
   "estimatedMinutes": 90,
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "除夕前夜的威远镖局：大雪纷飞，正堂和厢房挂着红灯笼，院中立着三角镖旗，左边银库的门虚掩着。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lei_zhenshan": {
+      "type": "image",
+      "src": "media/lei_zhenshan.svg",
+      "alt": "雷震山的头像：白发长辫、白须浓密、眉目威严的老镖头，穿镶皮毛的深色长袍。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lei_zhen": {
+      "type": "image",
+      "src": "media/lei_zhen.svg",
+      "alt": "雷振的头像：戴黑缎瓜皮帽、穿红色绸袍的年轻少镖头，脑后拖着辫子，神情张扬。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zhao_dabiao": {
+      "type": "image",
+      "src": "media/zhao_dabiao.svg",
+      "alt": "赵大彪的头像：膀大腰圆、满脸黑胡子的大镖师，穿短打，腰扎金黄色布带。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_han_dong": {
+      "type": "image",
+      "src": "media/han_dong.svg",
+      "alt": "韩冬的头像：瘦削沉静的年轻镖师，穿深青色棉短打，脑后拖着辫子，眼神平静。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_sun_demao": {
+      "type": "image",
+      "src": "media/sun_demao.svg",
+      "alt": "孙德茂的头像：戴瓜皮帽和金丝圆眼镜、留山羊胡的胖掌柜，穿紫色马褂，满脸堆笑。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_qin_sanniang": {
+      "type": "image",
+      "src": "media/qin_sanniang.svg",
+      "alt": "秦三娘的头像：挽着发髻、插着金簪、戴耳坠的中年女账房，穿玫红色立领袄。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lu_xiaoliu": {
+      "type": "image",
+      "src": "media/lu_xiaoliu.svg",
+      "alt": "陆小六的头像：围着旧围巾、穿绿色棉袄的少年趟子手，脑后拖着辫子，眼神机灵。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_yinku": {
+      "type": "image",
+      "src": "media/loc_yinku.svg",
+      "alt": "银库与院子：青砖银库的包铁木门虚掩着，屋檐下挂着红灯笼，门前小院积着雪。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_zhengtang": {
+      "type": "image",
+      "src": "media/loc_zhengtang.svg",
+      "alt": "正堂：高悬的金框匾额下是老镖头的书案和两支红烛，前面摆着八仙桌，两侧挂着山水画。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_majiu": {
+      "type": "image",
+      "src": "media/loc_majiu.svg",
+      "alt": "后院马厩：昏暗的马棚里拴着两匹马，旁边是高高的草料堆，墙角一道小后门外是雪地。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_lianwu": {
+      "type": "image",
+      "src": "media/loc_lianwu.svg",
+      "alt": "练功房：刀枪架、石锁和一个熄了的火盆，月光从窗格照进来，地上结着一层薄霜。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_xiangfang": {
+      "type": "image",
+      "src": "media/loc_xiangfang.svg",
+      "alt": "东西厢房：一排糊纸窗的厢房，几扇窗透着灯光，廊下的公用火盆烧得通红，院里落着雪。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_clock": {
+      "type": "image",
+      "src": "media/clue_clock.svg",
+      "alt": "摔在地上的西洋自鸣钟，玻璃罩碎了一地，指针停在 22:20（十点二十分）。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_ring": {
+      "type": "image",
+      "src": "media/clue_ring.svg",
+      "alt": "铁柜底下的一枚白玉扳指，边上磕掉了一小块。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_loupe": {
+      "type": "image",
+      "src": "media/clue_loupe.svg",
+      "alt": "铁柜顶上的一只玳瑁放大镜，镜片上沾着细细的珠粉。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "clue_bandit": {
+      "type": "image",
+      "src": "media/clue_bandit.svg",
+      "alt": "马厩墙缝里取出的狼头竹牌，上面缠着一张卷起来的字条。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover",
   "victim": {
     "id": "lei_zhenshan",
     "name": "雷震山",
-    "bio": "六十岁，保定府威远镖局的总镖头，走镖四十年，号称「镖旗不倒」。为人豪爽重义，却也独断专行，年轻时的旧事从不对人提起。"
+    "bio": "六十岁，保定府威远镖局的总镖头，走镖四十年，号称「镖旗不倒」。为人豪爽重义，却也独断专行，年轻时的旧事从不对人提起。",
+    "portrait": "p_lei_zhenshan"
   },
   "background": "光绪二十六年腊月二十九，除夕前夜。保定府城外的威远镖局里，一趟要在年后押往天津的红货——京城宝和当托保的一匣九龙东珠——暂存在镖局银库。入夜后大雪封了官道，托镖的孙掌柜也被困在镖局过年。\n\n这一夜，前厅里包饺子、守岁，后院静悄悄地落着雪。23:00，趟子手陆小六提灯巡夜，发现银库的门虚掩着：老镖头雷震山倒在铁柜前，太阳穴被砸开，铁柜大开，装东珠的紫檀匣不见了。墙边的西洋自鸣钟摔碎在地，指针停在 22:20。\n\n雪封了路，官府的人最早也要初二才能到。凶手和东珠，都还在这座院子里。",
   "intro": "【主持人】欢迎来到《雪夜镖局》。这是一场困难难度的推理：六个人，六个秘密，几乎每个人今晚都做过见不得光的事，也都有理由盼着老镖头死。凶手的目标是不被投票指认，其他人要找出真相。请记住：雪会盖住脚印，钟也会说谎。",
@@ -30,35 +153,40 @@
       "name": "银库与院子",
       "description": "案发现场。青砖砌的银库，一道包铁木门，里面是铁柜和账桌；门前是一方积雪的小院，连着东厢和后院。",
       "x": 0.5,
-      "y": 0.15
+      "y": 0.15,
+      "image": "loc_yinku"
     },
     {
       "id": "zhengtang",
       "name": "正堂与账房",
       "description": "镖局的正堂，挂着「威远」大匾，老镖头的书案在这里；隔壁一间小屋是秦三娘的账房，前厅就在正堂南面。",
       "x": 0.12,
-      "y": 0.55
+      "y": 0.55,
+      "image": "loc_zhengtang"
     },
     {
       "id": "majiu",
       "name": "后院马厩",
       "description": "后院的马厩和草料棚，有一道小后门通往镖局外的野地。",
       "x": 0.88,
-      "y": 0.55
+      "y": 0.55,
+      "image": "loc_majiu"
     },
     {
       "id": "lianwu",
       "name": "练功房",
       "description": "后院角上的练功房，摆着刀枪架和石锁，冬天全靠一个火盆取暖。",
       "x": 0.72,
-      "y": 0.92
+      "y": 0.92,
+      "image": "loc_lianwu"
     },
     {
       "id": "xiangfang",
       "name": "东西厢房",
       "description": "镖师、少镖头和客人住的厢房，东厢廊下有一个大家共用的火盆；小六睡在西厢的下人房。",
       "x": 0.3,
-      "y": 0.92
+      "y": 0.92,
+      "image": "loc_xiangfang"
     }
   ],
   "characters": [
@@ -119,6 +247,14 @@
           "xiangfang",
           "majiu"
         ]
+      },
+      "portrait": "p_lei_zhen",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1.05,
+        "rate": 1.12,
+        "style": "年轻气盛，嗓门冲，带着酒后的急躁"
       }
     },
     {
@@ -182,6 +318,14 @@
           "lianwu",
           "xiangfang"
         ]
+      },
+      "portrait": "p_zhao_dabiao",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.8,
+        "rate": 1,
+        "style": "粗声大嗓，中气十足"
       }
     },
     {
@@ -246,6 +390,14 @@
           "zhengtang",
           "majiu"
         ]
+      },
+      "portrait": "p_han_dong",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 0.9,
+        "rate": 0.9,
+        "style": "低沉克制，话少而客气"
       }
     },
     {
@@ -309,6 +461,14 @@
           "zhengtang",
           "majiu"
         ]
+      },
+      "portrait": "p_sun_demao",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 1.05,
+        "rate": 1.05,
+        "style": "圆滑带笑，京腔，说话滴水不漏"
       }
     },
     {
@@ -381,6 +541,14 @@
           "xiangfang",
           "lianwu"
         ]
+      },
+      "portrait": "p_qin_sanniang",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 1.05,
+        "rate": 1.12,
+        "style": "爽利泼辣，说话像打算盘，又快又准"
       }
     },
     {
@@ -447,6 +615,14 @@
           "xiangfang",
           "zhengtang"
         ]
+      },
+      "portrait": "p_lu_xiaoliu",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1.2,
+        "rate": 1.15,
+        "style": "少年嗓音，机灵嘴快，一害怕就发虚"
       }
     }
   ],
@@ -531,7 +707,10 @@
       "text": "墙边的西洋自鸣钟摔在地上，玻璃罩碎了一地，指针停在 22:20。看上去像是搏斗时被撞下来的。",
       "time": "22:20",
       "implicates": {},
-      "key": true
+      "key": true,
+      "media": [
+        "clue_clock"
+      ]
     },
     {
       "id": "c_glass",
@@ -555,7 +734,10 @@
       "time": "",
       "implicates": {
         "lei_zhen": 3
-      }
+      },
+      "media": [
+        "clue_ring"
+      ]
     },
     {
       "id": "c_cabinet",
@@ -575,7 +757,10 @@
       "time": "",
       "implicates": {
         "qin_sanniang": 1
-      }
+      },
+      "media": [
+        "clue_loupe"
+      ]
     },
     {
       "id": "c_prints",
@@ -646,7 +831,10 @@
       "implicates": {
         "zhao_dabiao": 2,
         "sun_demao": 1
-      }
+      },
+      "media": [
+        "clue_bandit"
+      ]
     },
     {
       "id": "c_backgate",
@@ -947,7 +1135,10 @@
             "Vote out the real killer",
             "Get the jade-chip clue in the main hall revealed, proving the ring was lost there"
           ],
-          "script": "You are Lei Zhen, young master of the Weiyuan Escort Agency — and a good-for-nothing son. You owe eight hundred taels in gambling debts to the Jubao gambling house in town, and they've sworn that if you don't pay by New Year's Eve, they'll chop off your hand. You've even thought about getting your hands on that casket of treasure.\n\n[Tonight]\n18:00-19:30 Dinner in the main hall. Father drinks too much and says something like “Back at Black Pine Ridge, if I hadn't made the call when I did...” You don't understand what he means.\n20:40 In the main hall you beg Father for money. He refuses. You shout, “If you won't give it to me, I'll take it myself!” and he slaps you so hard that the white jade thumb ring flies off your thumb. You storm out, slamming the door, without stopping to pick it up.\n20:45 From now on you're in your own room in the east wing, drinking alone. At 21:15, through a crack in your window, you see someone carrying a lantern toward the vault. The snow is too heavy to see who.\n22:10 Fortified by drink, you go to the vault to beg Father once more. The door is ajar and it's dark inside. You call “Father!” twice; no answer. Thinking he's angry and ignoring you, you go back to your room at 22:15.\n23:00 Only when you hear Little Six shouting do you learn something has happened.\n\n[Your secret] The gambling debt, your designs on the treasure, and the fact that you went to the vault door at 22:10.\n\n[Your story] “After 20:40 I was drinking in my room the whole time. I never went out.”\n\n[Your task] Find the real killer; get the clue in the main hall that proves the ring was lost there revealed."
+          "script": "You are Lei Zhen, young master of the Weiyuan Escort Agency — and a good-for-nothing son. You owe eight hundred taels in gambling debts to the Jubao gambling house in town, and they've sworn that if you don't pay by New Year's Eve, they'll chop off your hand. You've even thought about getting your hands on that casket of treasure.\n\n[Tonight]\n18:00-19:30 Dinner in the main hall. Father drinks too much and says something like “Back at Black Pine Ridge, if I hadn't made the call when I did...” You don't understand what he means.\n20:40 In the main hall you beg Father for money. He refuses. You shout, “If you won't give it to me, I'll take it myself!” and he slaps you so hard that the white jade thumb ring flies off your thumb. You storm out, slamming the door, without stopping to pick it up.\n20:45 From now on you're in your own room in the east wing, drinking alone. At 21:15, through a crack in your window, you see someone carrying a lantern toward the vault. The snow is too heavy to see who.\n22:10 Fortified by drink, you go to the vault to beg Father once more. The door is ajar and it's dark inside. You call “Father!” twice; no answer. Thinking he's angry and ignoring you, you go back to your room at 22:15.\n23:00 Only when you hear Little Six shouting do you learn something has happened.\n\n[Your secret] The gambling debt, your designs on the treasure, and the fact that you went to the vault door at 22:10.\n\n[Your story] “After 20:40 I was drinking in my room the whole time. I never went out.”\n\n[Your task] Find the real killer; get the clue in the main hall that proves the ring was lost there revealed.",
+          "voice": {
+            "style": "Hot-headed and young, loud, with a drinker's impatience"
+          }
         },
         "zhao_dabiao": {
           "name": "Zhao Dabiao",
@@ -964,7 +1155,10 @@
             "Vote out the real killer",
             "Keep the Black Wind bandits' token from being revealed"
           ],
-          "script": "You are Zhao Dabiao, the agency's senior escort. For two years the old chief escort has kept you under his thumb at every turn, and resentment has long been festering. Proprietor Sun approached you: the pearls he entrusted are fakes, and if the Black Wind bandits “rob” the consignment at Black Pine Ridge on the third day of the New Year, the agency must by custom pay out three times the value — split thirty-seventy afterward. You agreed, and even made contact with the bandit stronghold for him.\n\n[Tonight]\n20:00 You hear that the old chief escort has exposed Proprietor Sun's fake pearls to his face and plans to hand him to the magistrate on the second day — and once Sun confesses, you're finished too.\n21:00 A Black Wind scout sneaks into the stable; you agree the plan goes ahead as arranged. You stuff the wolf-head bamboo token into a crack in the stable wall. At 21:20 you lead him out the back gate and see him off into the fields.\n21:30 Coming back in through the back gate, you see the vault window still lit, with a figure moving behind the paper windowpane. With a guilty conscience, you don't dare go over.\n21:32-21:50 You go back to your room in the east wing and sit there in a daze. At 21:50 you enter the front hall; Han Dong is already sitting by the stove drying his boots.\n23:00 You hear the shouting and run to the vault with the others.\n\n[Your secret] You're in league with the Black Wind bandits to rob your own agency's consignment; at 21:20 you went out the back gate.\n\n[Your story] “From 21:00 to 21:50 I was in the stable the whole time feeding the horses and mending saddles.”\n\n[Your task] Find the real killer; keep the Black Wind token in the stable wall from being revealed."
+          "script": "You are Zhao Dabiao, the agency's senior escort. For two years the old chief escort has kept you under his thumb at every turn, and resentment has long been festering. Proprietor Sun approached you: the pearls he entrusted are fakes, and if the Black Wind bandits “rob” the consignment at Black Pine Ridge on the third day of the New Year, the agency must by custom pay out three times the value — split thirty-seventy afterward. You agreed, and even made contact with the bandit stronghold for him.\n\n[Tonight]\n20:00 You hear that the old chief escort has exposed Proprietor Sun's fake pearls to his face and plans to hand him to the magistrate on the second day — and once Sun confesses, you're finished too.\n21:00 A Black Wind scout sneaks into the stable; you agree the plan goes ahead as arranged. You stuff the wolf-head bamboo token into a crack in the stable wall. At 21:20 you lead him out the back gate and see him off into the fields.\n21:30 Coming back in through the back gate, you see the vault window still lit, with a figure moving behind the paper windowpane. With a guilty conscience, you don't dare go over.\n21:32-21:50 You go back to your room in the east wing and sit there in a daze. At 21:50 you enter the front hall; Han Dong is already sitting by the stove drying his boots.\n23:00 You hear the shouting and run to the vault with the others.\n\n[Your secret] You're in league with the Black Wind bandits to rob your own agency's consignment; at 21:20 you went out the back gate.\n\n[Your story] “From 21:00 to 21:50 I was in the stable the whole time feeding the horses and mending saddles.”\n\n[Your task] Find the real killer; keep the Black Wind token in the stable wall from being revealed.",
+          "voice": {
+            "style": "Gruff and booming, full-chested"
+          }
         },
         "han_dong": {
           "name": "Han Dong",
@@ -981,7 +1175,10 @@
             "Avoid being voted out as the killer",
             "Keep the flaw “broken glass lying on the pool of blood” from being revealed"
           ],
-          "script": "You are Han Dong, the agency's second escort — and the man who killed Lei Zhenshan.\n\nFor ten years you believed your father died a hero at Black Pine Ridge defending the consignment. Tonight at dinner, the old chief escort drank too much and let slip: “Back at Black Pine Ridge, if I hadn't made the call when I did...”\n\n[What Really Happened Tonight]\n20:40 The young master takes a slap and his thumb ring flies under the table. At 20:45 you pick it up and tuck it inside your coat.\n20:50 You open the escort journal on the writing desk and find the page for the 16th year of Guangxu: when they were ambushed, the old chief escort abandoned your father as rear guard to save the cargo. You tear out that page.\n21:15 You go to the vault to confront him. All he says is, “The cargo weighs more than a man.” At 21:25 you snatch up a brass steelyard weight and strike him on the temple.\n21:26-21:32 You set the chiming clock to 22:20 and then smash it, toss the thumb ring under the iron strongbox, carry off the pearl casket (one pearl rolls out), and blow out the lamp.\n21:33 You leave wrapped in a straw rain cape. At 21:34 you bury the casket in the stable's fodder pile, and at 21:38 you burn the page in the brazier under the east-wing veranda. The snow stops at 21:45; your footprints have long since been covered.\n21:44 You enter the front hall and dry your boots by the stove, and from then on you're with everyone else.\n\n[Your lie] “From 21:00 to 21:45 I was practicing forms in the training room.”\n\n[Your task] Don't get accused; keep the flaw in the smashed clock from being revealed. Steer suspicion toward the young master and Zhao Dabiao."
+          "script": "You are Han Dong, the agency's second escort — and the man who killed Lei Zhenshan.\n\nFor ten years you believed your father died a hero at Black Pine Ridge defending the consignment. Tonight at dinner, the old chief escort drank too much and let slip: “Back at Black Pine Ridge, if I hadn't made the call when I did...”\n\n[What Really Happened Tonight]\n20:40 The young master takes a slap and his thumb ring flies under the table. At 20:45 you pick it up and tuck it inside your coat.\n20:50 You open the escort journal on the writing desk and find the page for the 16th year of Guangxu: when they were ambushed, the old chief escort abandoned your father as rear guard to save the cargo. You tear out that page.\n21:15 You go to the vault to confront him. All he says is, “The cargo weighs more than a man.” At 21:25 you snatch up a brass steelyard weight and strike him on the temple.\n21:26-21:32 You set the chiming clock to 22:20 and then smash it, toss the thumb ring under the iron strongbox, carry off the pearl casket (one pearl rolls out), and blow out the lamp.\n21:33 You leave wrapped in a straw rain cape. At 21:34 you bury the casket in the stable's fodder pile, and at 21:38 you burn the page in the brazier under the east-wing veranda. The snow stops at 21:45; your footprints have long since been covered.\n21:44 You enter the front hall and dry your boots by the stove, and from then on you're with everyone else.\n\n[Your lie] “From 21:00 to 21:45 I was practicing forms in the training room.”\n\n[Your task] Don't get accused; keep the flaw in the smashed clock from being revealed. Steer suspicion toward the young master and Zhao Dabiao.",
+          "voice": {
+            "style": "Low and restrained, few words, always polite"
+          }
         },
         "sun_demao": {
           "name": "Sun Demao",
@@ -998,7 +1195,10 @@
             "Vote out the real killer",
             "Keep the real pearls and the letter in the guest room from being revealed"
           ],
-          "script": "You are Sun Demao, proprietor of the Baohe Pawnshop. For two years the pawnshop has been bleeding money. You hid the real Eastern pearls, handed over a casket of dyed mussel pearls for the escort, and secretly bought off Zhao Dabiao to collude with the Black Wind bandits, planning to have the consignment “robbed” at Black Pine Ridge on the third day of the New Year so the agency would have to pay out three times its value.\n\n[Tonight]\n20:00 Chief Escort Lei summons you to the main hall and says coldly: “Proprietor Sun, your pearls are fake. First thing on the second day of the New Year, I'm taking you to the magistrate.”\n20:20 You return to the guest room, unable to sit still. At 20:40, even across the courtyard, you hear the young master yelling in the main hall: “If you won't give it to me, I'll take it myself!”\n21:02 With a two-hundred-tael banknote in your sleeve, you go to the vault, kneel, and beg the old chief escort for mercy. He tears the banknote in two before your eyes and throws you out. At 21:08 you're back in the guest room and start packing, meaning to run once the snow stops.\n21:40 You go to the front hall, where Qin Sanniang and Little Six are making dumplings; before long Han Dong comes in too. From then on you stay in the front hall.\n23:00 You hear the shouting.\n\n[Your secret] The pearls are fake and the real ones are sewn under your insoles; you and Zhao Dabiao conspired to rob the consignment; at 21:02 you went to the vault.\n\n[Your story] “After 20:20 I was in the guest room the whole time; I only went to the front hall at 21:40.”\n\n[Your task] Find the real killer; keep what's in your guest room from being revealed."
+          "script": "You are Sun Demao, proprietor of the Baohe Pawnshop. For two years the pawnshop has been bleeding money. You hid the real Eastern pearls, handed over a casket of dyed mussel pearls for the escort, and secretly bought off Zhao Dabiao to collude with the Black Wind bandits, planning to have the consignment “robbed” at Black Pine Ridge on the third day of the New Year so the agency would have to pay out three times its value.\n\n[Tonight]\n20:00 Chief Escort Lei summons you to the main hall and says coldly: “Proprietor Sun, your pearls are fake. First thing on the second day of the New Year, I'm taking you to the magistrate.”\n20:20 You return to the guest room, unable to sit still. At 20:40, even across the courtyard, you hear the young master yelling in the main hall: “If you won't give it to me, I'll take it myself!”\n21:02 With a two-hundred-tael banknote in your sleeve, you go to the vault, kneel, and beg the old chief escort for mercy. He tears the banknote in two before your eyes and throws you out. At 21:08 you're back in the guest room and start packing, meaning to run once the snow stops.\n21:40 You go to the front hall, where Qin Sanniang and Little Six are making dumplings; before long Han Dong comes in too. From then on you stay in the front hall.\n23:00 You hear the shouting.\n\n[Your secret] The pearls are fake and the real ones are sewn under your insoles; you and Zhao Dabiao conspired to rob the consignment; at 21:02 you went to the vault.\n\n[Your story] “After 20:20 I was in the guest room the whole time; I only went to the front hall at 21:40.”\n\n[Your task] Find the real killer; keep what's in your guest room from being revealed.",
+          "voice": {
+            "style": "Smooth and smiling, Beijing drawl, never lets anything slip"
+          }
         },
         "qin_sanniang": {
           "name": "Qin Sanniang",
@@ -1016,7 +1216,10 @@
             "Vote out the real killer",
             "Keep the birth chart in the counting room from being revealed"
           ],
-          "script": "You are Qin Sanniang, the agency's bookkeeper. Seventeen years ago you bore Lei Zhenshan a son — Lu Xiaoliu, Little Six. Lei flatly refused to acknowledge him, and all you could do was watch the boy grow up as the agency's errand-running runner.\n\n[Tonight]\n19:30 The old chief escort calls you to the vault to examine the pearls. One look tells you they're dyed mussel pearls — fakes. At 19:45 he mentions offhandedly that after the New Year he's sending Little Six to Tianjin as an apprentice, and you have a furious row; you curse him: “May you die a wretched death.” At 19:50 you leave the vault, forgetting your magnifying glass on top of the iron strongbox.\n20:40 You're in the counting room. Through the doorway you see the old chief escort slap the young master so hard his thumb ring flies off and rolls under the square table in the main hall. When you tidy up later, the ring is gone.\n21:00-23:00 You're in the front hall making dumplings the whole time. Little Six goes to the woodshed for charcoal at 21:20 and doesn't come back until 21:35.\n21:40 Proprietor Sun comes in. At 21:44 Han Dong enters the front hall, his boots and trouser legs soaked with snowmelt; he says he'd been practicing forms in the training room and washed his face at the well. At 21:45 the snow stops, and you jot a note in the almanac.\n23:00 Little Six's shout startles you so badly you drop a bowl.\n\n[Your secret] Little Six's parentage; and tonight you went to the vault and quarreled with Lei.\n\n[Your story] “Apart from dinner, I was in the counting room and the front hall all night.”\n\n[Your task] Find the real killer; keep the birth chart in the counting room from being revealed."
+          "script": "You are Qin Sanniang, the agency's bookkeeper. Seventeen years ago you bore Lei Zhenshan a son — Lu Xiaoliu, Little Six. Lei flatly refused to acknowledge him, and all you could do was watch the boy grow up as the agency's errand-running runner.\n\n[Tonight]\n19:30 The old chief escort calls you to the vault to examine the pearls. One look tells you they're dyed mussel pearls — fakes. At 19:45 he mentions offhandedly that after the New Year he's sending Little Six to Tianjin as an apprentice, and you have a furious row; you curse him: “May you die a wretched death.” At 19:50 you leave the vault, forgetting your magnifying glass on top of the iron strongbox.\n20:40 You're in the counting room. Through the doorway you see the old chief escort slap the young master so hard his thumb ring flies off and rolls under the square table in the main hall. When you tidy up later, the ring is gone.\n21:00-23:00 You're in the front hall making dumplings the whole time. Little Six goes to the woodshed for charcoal at 21:20 and doesn't come back until 21:35.\n21:40 Proprietor Sun comes in. At 21:44 Han Dong enters the front hall, his boots and trouser legs soaked with snowmelt; he says he'd been practicing forms in the training room and washed his face at the well. At 21:45 the snow stops, and you jot a note in the almanac.\n23:00 Little Six's shout startles you so badly you drop a bowl.\n\n[Your secret] Little Six's parentage; and tonight you went to the vault and quarreled with Lei.\n\n[Your story] “Apart from dinner, I was in the counting room and the front hall all night.”\n\n[Your task] Find the real killer; keep the birth chart in the counting room from being revealed.",
+          "voice": {
+            "style": "Sharp and brisk, talks like an abacus clicking, fast and exact"
+          }
         },
         "lu_xiaoliu": {
           "name": "Lu Xiaoliu",
@@ -1033,7 +1236,10 @@
             "Vote out the real killer",
             "Keep the pearl you hid from being revealed"
           ],
-          "script": "You are Lu Xiaoliu — Little Six — the agency's runner. You never knew your father or mother; Qin Sanniang raised you, one mouthful of rice at a time. You've always felt there was something strange about the way the old chief escort looked at you.\n\n[Tonight]\n20:45 You go into the main hall to clear the teacups and see Second Master Han (Han Dong) bend down, pick something up from under the square table, and tuck it inside his coat. Second Master Han has always been the kindest to you; you don't think much of it, and you don't want to blab.\n21:00-21:20 You help Qin Sanniang make dumplings in the front hall. At 21:20 you go to the woodshed for charcoal. At 21:33, passing through the back courtyard, you see a tall figure in a straw rain cape and bamboo hat walking from the vault toward the back courtyard. The snow is too heavy to see who it is — everyone in the agency wears that kind of rain cape.\n21:35 You return to the front hall and stay there from then on.\n23:00 Making your rounds with a lantern, you find the vault door ajar and the old chief escort on the floor. A pearl has rolled up by your foot; without quite knowing why, you pick it up and slip it into your pocket, and only then do you shout for help. Later you secretly scratch it and the color comes off — it's fake.\n\n[Your secret] You took a pearl; you saw Second Master Han pick something up in the main hall.\n\n[Your story] “When I found the old chief escort, I didn't touch anything.”\n\n[Your task] Find the real killer; keep the pearl you hid from being revealed."
+          "script": "You are Lu Xiaoliu — Little Six — the agency's runner. You never knew your father or mother; Qin Sanniang raised you, one mouthful of rice at a time. You've always felt there was something strange about the way the old chief escort looked at you.\n\n[Tonight]\n20:45 You go into the main hall to clear the teacups and see Second Master Han (Han Dong) bend down, pick something up from under the square table, and tuck it inside his coat. Second Master Han has always been the kindest to you; you don't think much of it, and you don't want to blab.\n21:00-21:20 You help Qin Sanniang make dumplings in the front hall. At 21:20 you go to the woodshed for charcoal. At 21:33, passing through the back courtyard, you see a tall figure in a straw rain cape and bamboo hat walking from the vault toward the back courtyard. The snow is too heavy to see who it is — everyone in the agency wears that kind of rain cape.\n21:35 You return to the front hall and stay there from then on.\n23:00 Making your rounds with a lantern, you find the vault door ajar and the old chief escort on the floor. A pearl has rolled up by your foot; without quite knowing why, you pick it up and slip it into your pocket, and only then do you shout for help. Later you secretly scratch it and the color comes off — it's fake.\n\n[Your secret] You took a pearl; you saw Second Master Han pick something up in the main hall.\n\n[Your story] “When I found the old chief escort, I didn't touch anything.”\n\n[Your task] Find the real killer; keep the pearl you hid from being revealed.",
+          "voice": {
+            "style": "Boyish voice, quick and chatty, goes thin when scared"
+          }
         }
       },
       "relationships": [
@@ -1171,6 +1377,59 @@
           "Little Six's birth mother; examined the pearls in the vault at 19:30 and quarreled with Lei Zhenshan.",
           "Lei Zhenshan's illegitimate son (unknown to himself); took a pearl from the scene; saw Han Dong pick up the thumb ring."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "The Weiyuan Escort Agency on New Year's Eve eve: heavy snow, red lanterns on the main hall and wing rooms, a triangular escort banner in the yard, the vault door on the left standing ajar."
+        },
+        "p_lei_zhenshan": {
+          "alt": "Portrait of Lei Zhenshan: an imposing old chief escort with a white queue and thick white beard, in a dark fur-trimmed robe."
+        },
+        "p_lei_zhen": {
+          "alt": "Portrait of Lei Zhen: the young heir in a black satin skullcap and red silk robe, queue down his back, cocky expression."
+        },
+        "p_zhao_dabiao": {
+          "alt": "Portrait of Zhao Dabiao: a burly senior escort with a thick black beard, in a short jacket with a golden sash."
+        },
+        "p_han_dong": {
+          "alt": "Portrait of Han Dong: a lean, quiet young escort in a dark slate padded jacket, queue down his back, calm eyes."
+        },
+        "p_sun_demao": {
+          "alt": "Portrait of Sun Demao: a plump pawnshop manager in a skullcap and gold round spectacles, goatee and mustache, purple riding jacket, all smiles."
+        },
+        "p_qin_sanniang": {
+          "alt": "Portrait of Qin Sanniang: a middle-aged woman bookkeeper with her hair in a bun held by a gold pin, earrings, in a rose-red stand-collar jacket."
+        },
+        "p_lu_xiaoliu": {
+          "alt": "Portrait of Lu Xiaoliu: a teenage outrider in a green padded jacket and old scarf, queue down his back, quick-eyed."
+        },
+        "loc_yinku": {
+          "alt": "The vault and courtyard: the iron-banded door of the grey-brick vault stands ajar, red lanterns under the eaves, snow in the small yard."
+        },
+        "loc_zhengtang": {
+          "alt": "The main hall: beneath a gold-framed plaque, the old chief's desk with two red candles, an Eight Immortals table in front, landscape scrolls on either side."
+        },
+        "loc_majiu": {
+          "alt": "The back-yard stable: two horses in the dim stalls, a tall heap of fodder beside them, a small back door opening onto snow."
+        },
+        "loc_lianwu": {
+          "alt": "The training room: weapon racks, stone weights and an unlit brazier, moonlight through the lattice window, a thin frost on the floor."
+        },
+        "loc_xiangfang": {
+          "alt": "The wing rooms: a row of rooms with paper windows, some lit, the shared brazier glowing red under the eaves, snow falling in the yard."
+        },
+        "clue_clock": {
+          "alt": "The Western striking clock fallen on the floor, its glass cover shattered everywhere, the hands stopped at 22:20 (twenty past ten)."
+        },
+        "clue_ring": {
+          "alt": "A white jade thumb ring under the iron cabinet, a small chip knocked off its rim."
+        },
+        "clue_loupe": {
+          "alt": "A tortoiseshell magnifying glass on top of the iron cabinet, fine pearl powder on the lens."
+        },
+        "clue_bandit": {
+          "alt": "The wolf-head bamboo token pulled from a crack in the stable wall, a rolled paper note tied around it."
+        }
       }
     }
   }

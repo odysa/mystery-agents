@@ -13,7 +13,8 @@
   "victim": {
     "id": "gu_henian",
     "name": "顾鹤年",
-    "bio": "七十二岁，苏州百年昆曲戏班「怡音社」第四代班主，唱了一辈子小生，脾气倔，眼里容不得一粒沙子。"
+    "bio": "七十二岁，苏州百年昆曲戏班「怡音社」第四代班主，唱了一辈子小生，脾气倔，眼里容不得一粒沙子。",
+    "portrait": "p_gu_henian"
   },
   "background": "初秋，苏州古城里的私家园林「漪园」。怡音社在这座园子里驻场演出已近百年，戏台、水榭、戏箱房都是老祖宗留下的。明早十点，班主顾鹤年要在戏台上当众宣布怡音社的下一任传人，并举行「传箱仪式」——把装着百年老戏衣的樟木戏箱交到传人手里。\n\n18:00 漪园闭园，园门落锁，园中只剩下戏班的人和管理处的方总。19:00 到 20:30 是最后一次彩排，班主全程黑着脸，一句话也没多说。\n\n22:30，班主的孙女顾青推开戏箱房的门，发现顾鹤年倒在戏箱旁，颈上有勒痕，身旁散落着一条白绸水袖，人已经没了气息。\n\n报警之后，警方要求所有人留在园中、不得走动，等待勘查。在警察赶到之前，你们五个人决定先把这一夜理清楚——因为凶手就在你们之中。",
   "intro": "【主持人】欢迎来到《水袖惊梦》。这是一个进阶剧本：每个人都有秘密，每个人都说了谎，而说谎的人未必是凶手。请仔细阅读你的角色剧本，留意时间——笛声、监控、门禁，都可能骗人。",
@@ -30,35 +31,40 @@
       "name": "戏箱房",
       "description": "案发现场。存放百年樟木戏箱的老屋，前门对着戏台走廊，侧门通向一条临水的曲廊。",
       "x": 0.2,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_xiangfang"
     },
     {
       "id": "shuixie",
       "name": "水榭",
       "description": "池塘边的水榭，柳婉卿平日在这里吹笛、调音。一条曲廊连着戏箱房的侧门。",
       "x": 0.8,
-      "y": 0.22
+      "y": 0.22,
+      "image": "loc_shuixie"
     },
     {
       "id": "henian",
       "name": "鹤年斋",
       "description": "班主顾鹤年的书房，存放戏班的账册、文书和他的手稿。",
       "x": 0.5,
-      "y": 0.52
+      "y": 0.52,
+      "image": "loc_henian"
     },
     {
       "id": "huazhuang",
       "name": "化妆间",
       "description": "戏台后面的扮戏房，演员的衣架、化妆箱都在这里，门从不上锁。",
       "x": 0.2,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_huazhuang"
     },
     {
       "id": "guanli",
       "name": "管理处",
       "description": "园林管理处办公室，里面有监控主机和门禁电脑，窗口斜对着曲廊。",
       "x": 0.8,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_guanli"
     }
   ],
   "characters": [
@@ -119,6 +125,14 @@
           "shuixie",
           "henian"
         ]
+      },
+      "portrait": "p_shen_yuetang",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.1,
+        "rate": 0.9,
+        "style": "轻声细语，清冷克制，被逼问时就沉默"
       }
     },
     {
@@ -180,6 +194,14 @@
           "guanli",
           "xiangfang"
         ]
+      },
+      "portrait": "p_cheng_xiaolou",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1,
+        "rate": 1.08,
+        "style": "嗓门大，爽朗好面子，心虚时会故意岔开话题"
       }
     },
     {
@@ -237,6 +259,14 @@
           "xiangfang",
           "shuixie"
         ]
+      },
+      "portrait": "p_liu_wanqing",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 0.96,
+        "rate": 0.88,
+        "style": "温婉柔和，慢条斯理，从不提高声音"
       }
     },
     {
@@ -298,6 +328,14 @@
           "shuixie",
           "henian"
         ]
+      },
+      "portrait": "p_fang_zhiyuan",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.9,
+        "rate": 1.05,
+        "style": "圆滑客套，满口场面话，爱搬规章制度"
       }
     },
     {
@@ -360,6 +398,14 @@
           "huazhuang",
           "guanli"
         ]
+      },
+      "portrait": "p_gu_qing",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.08,
+        "rate": 1.12,
+        "style": "伶牙俐齿，语速快，嘴上不饶人"
       }
     }
   ],
@@ -442,7 +488,10 @@
       "implicates": {
         "shen_yuetang": 3
       },
-      "key": true
+      "key": true,
+      "media": [
+        "ev_sleeve"
+      ]
     },
     {
       "id": "c_flake",
@@ -487,7 +536,10 @@
       "time": "",
       "implicates": {
         "shen_yuetang": 2
-      }
+      },
+      "media": [
+        "ev_hairpin"
+      ]
     },
     {
       "id": "c_flute",
@@ -498,7 +550,10 @@
       "implicates": {
         "liu_wanqing": 2
       },
-      "key": true
+      "key": true,
+      "media": [
+        "ev_flute"
+      ]
     },
     {
       "id": "c_speaker",
@@ -512,7 +567,10 @@
       "requires": [
         "c_flute"
       ],
-      "key": true
+      "key": true,
+      "media": [
+        "a_speaker_flute"
+      ]
     },
     {
       "id": "c_moss",
@@ -842,7 +900,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the kingfisher-feather hairpin outside the costume-trunk room from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Soft-spoken, cool and restrained; goes silent when pressed"
+          }
         },
         "cheng_xiaolou": {
           "name": "Cheng Xiaolou",
@@ -859,7 +920,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the clinic receipt from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Loud and hearty, proud; changes the subject when uneasy"
+          }
         },
         "liu_wanqing": {
           "name": "Liu Wanqing",
@@ -875,7 +939,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep the speaker under the zither table from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Gentle and warm, unhurried, never raises her voice"
+          }
         },
         "fang_zhiyuan": {
           "name": "Fang Zhiyuan",
@@ -892,7 +959,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the letter of intent to buy the costume trunks from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Smooth and courteous, full of stock phrases, quick to cite the rules"
+          }
         },
         "gu_qing": {
           "name": "Gu Qing",
@@ -909,7 +979,10 @@
           "objectives": [
             "Vote out the real killer",
             "Do not be the person with the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Sharp-tongued and quick, never lets anything slide"
+          }
         }
       },
       "relationships": [
@@ -1042,7 +1115,174 @@
           "Switched off the camera, secretly photographed the costumes, and privately brokered the sale of the century-old trunks to an overseas collector.",
           "Secretly pawned the heirloom kingfisher-feather headdress and planned to sneak it back into the trunk tonight."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "A garden stage on a moonlit night: two red lanterns on vermilion pillars, a white water sleeve drifting across the sky, the full moon reflected in the pond"
+        },
+        "p_gu_henian": {
+          "alt": "A kunqu troupe master in his seventies: white hair, a white moustache, a black long gown, a stubborn, stern look"
+        },
+        "p_shen_yuetang": {
+          "alt": "A young female lead in her late twenties: a high bun with a jade hairpin, a white cross-collar practice robe with a red collar, cool and reserved"
+        },
+        "p_cheng_xiaolou": {
+          "alt": "A thirty-year-old xiaosheng actor: side-parted hair, a hearty grin, a pale-blue cross-collar practice robe with a dark-blue collar"
+        },
+        "p_liu_wanqing": {
+          "alt": "A woman flautist in her forties: a low bun, pearl studs, a dark-green qipao, a gentle smile"
+        },
+        "p_fang_zhiyuan": {
+          "alt": "A tourism-company manager in his fifties: slicked-back hair, gold-rimmed glasses, a dark suit with a purple tie and lapel pin, a smooth smile"
+        },
+        "p_gu_qing": {
+          "alt": "A woman in her mid-twenties: long black hair, gold drop earrings, a mustard cardigan, a defiant half-smile"
+        },
+        "loc_xiangfang": {
+          "alt": "The costume-trunk room: stacks of camphor-wood trunks with brass clasps, a lattice window on the left, a half-open side door on the right"
+        },
+        "loc_shuixie": {
+          "alt": "The waterside pavilion by moonlight: a zither table with a flute on it, a winding gallery along the water, willows on the bank"
+        },
+        "loc_henian": {
+          "alt": "Henian Studio: a hanging scroll on the wall, books, a brush pot and papers on the desk, a bookcase on the right"
+        },
+        "loc_huazhuang": {
+          "alt": "The dressing room: a bulb-lit mirror and makeup table, several costumes on a rail"
+        },
+        "loc_guanli": {
+          "alt": "The management office: a wall of CCTV screens, a computer on the desk, moonlight and the gallery outside the window"
+        },
+        "ev_sleeve": {
+          "alt": "A long white silk water sleeve lying on the floor, its surface full of pulled creases"
+        },
+        "ev_flute": {
+          "alt": "A purple-bamboo flute: its membrane split and missing a small piece, a few fresh scratches on the body"
+        },
+        "ev_hairpin": {
+          "alt": "A kingfisher-feather butterfly hairpin wedged in a crack in a stone step, blue feathers edged in gold"
+        },
+        "a_speaker_flute": {
+          "alt": "An excerpt of the “Zaoluopao - practice” recording from the Bluetooth speaker (illustrative)",
+          "transcript": "(A clip of about 12 seconds, no voices.) A solo bamboo flute: clear and unbroken, a slow melody with grace notes and vibrato; the tone is a little thin, as if played through a small speaker. This is only a short excerpt; the original recording is about thirty minutes long."
+        }
       }
     }
-  }
+  },
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "月夜的园林戏台：两盏红灯笼映着朱红柱子，一条白色水袖在夜空中飘过，池水倒映着圆月",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_gu_henian": {
+      "type": "image",
+      "src": "media/p_gu_henian.svg",
+      "alt": "七十多岁的昆曲班主：花白头发、白胡髭，穿黑色对襟长衫，神情倔强严厉",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_shen_yuetang": {
+      "type": "image",
+      "src": "media/p_shen_yuetang.svg",
+      "alt": "二十多岁的闺门旦演员：高挽发髻插着玉簪，穿白色交领练功衣配红色衣领，神情清冷",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_cheng_xiaolou": {
+      "type": "image",
+      "src": "media/p_cheng_xiaolou.svg",
+      "alt": "三十岁的小生演员：侧分短发、爽朗地笑着，穿浅蓝交领练功衣配深蓝衣领",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_liu_wanqing": {
+      "type": "image",
+      "src": "media/p_liu_wanqing.svg",
+      "alt": "四十多岁的女笛师：低挽发髻、珍珠耳钉，穿墨绿旗袍，笑容温和",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_fang_zhiyuan": {
+      "type": "image",
+      "src": "media/p_fang_zhiyuan.svg",
+      "alt": "五十多岁的文旅公司总经理：油亮的背头、金丝眼镜，深色西装配紫色领带和胸针，笑容圆滑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_gu_qing": {
+      "type": "image",
+      "src": "media/p_gu_qing.svg",
+      "alt": "二十多岁的年轻女子：黑色长发、金色坠耳环，姜黄色开衫，嘴角带着不服气的笑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_xiangfang": {
+      "type": "image",
+      "src": "media/loc_xiangfang.svg",
+      "alt": "戏箱房：一摞摞带铜锁扣的樟木戏箱，左边是格子窗，右边侧门半开",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_shuixie": {
+      "type": "image",
+      "src": "media/loc_shuixie.svg",
+      "alt": "月下的水榭：临水的亭子里一张琴桌，桌上横着一支笛子，一条曲廊沿水延伸，岸边垂柳",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_henian": {
+      "type": "image",
+      "src": "media/loc_henian.svg",
+      "alt": "鹤年斋：墙上挂着画轴，书桌上有书册、笔筒和纸张，右边是书架",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_huazhuang": {
+      "type": "image",
+      "src": "media/loc_huazhuang.svg",
+      "alt": "化妆间：一面镶着灯泡的化妆镜和化妆台，衣架上挂着几件戏服",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_guanli": {
+      "type": "image",
+      "src": "media/loc_guanli.svg",
+      "alt": "管理处：一面监控屏幕墙、桌上的电脑，窗外是月色和曲廊",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_sleeve": {
+      "type": "image",
+      "src": "media/c_sleeve.svg",
+      "alt": "地板上散落着一条长长的白绸水袖，绸面布满被拉扯出的皱痕",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_flute": {
+      "type": "image",
+      "src": "media/c_flute.svg",
+      "alt": "一支紫竹曲笛：笛膜裂开一道口子、缺了一小块，笛身上有几道新鲜的刮痕",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_hairpin": {
+      "type": "image",
+      "src": "media/c_hairpin.svg",
+      "alt": "石阶缝里卡着一支点翠蝴蝶发簪，蓝色翠羽镶着金边",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "a_speaker_flute": {
+      "type": "audio",
+      "src": "media/a_speaker_flute.wav",
+      "alt": "蓝牙音箱里「皂罗袍·练习」录音的片段（示意）",
+      "transcript": "（约 12 秒的片段，无人声）一段曲笛独奏：笛声清亮连贯，旋律舒缓，音与音之间带着倚音和颤音；音色偏薄，像是从小喇叭里放出来的。这里只截取了开头一小段，原录音长约三十分钟。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover"
 }

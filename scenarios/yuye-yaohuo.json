@@ -13,7 +13,8 @@
   "victim": {
     "id": "shen_mochuan",
     "name": "沈墨川",
-    "bio": "七十岁，景德镇郊外「沈家窑」的主人，享誉海内外的青花瓷大师。性格刚直，对作品近乎苛刻。"
+    "bio": "七十岁，景德镇郊外「沈家窑」的主人，享誉海内外的青花瓷大师。性格刚直，对作品近乎苛刻。",
+    "portrait": "p_shen_mochuan"
   },
   "background": "2019年深秋，江西景德镇郊外的沈家窑山庄。今晚是陶瓷大师沈墨川的七十岁寿宴，家人、徒弟和老朋友都聚在山庄里。晚宴结束时，沈墨川举杯说：「明天一早，我要当众宣布一件关于沈家窑传承的大事。」\n\n入夜后暴雨倾盆，下山的路被冲断，所有人都被困在山庄。23:00，保姆林秀兰端着夜宵走进工作室，发现沈墨川倒在书桌旁，后脑受到重击，已经没有了呼吸。\n\n电话线被暴雨冲断，警察最早明早才能上山。在那之前，凶手就在你们五个人之中。",
   "intro": "【主持人】欢迎来到《雨夜窑火》。请仔细阅读你的角色剧本：你的经历、你知道的事、你的秘密和任务。凶手的目标是不被投票指认；其他人要找出真相——但每个人都有自己不想被揭开的秘密。",
@@ -30,28 +31,32 @@
       "name": "工作室",
       "description": "案发现场。沈墨川的书桌、拉坯机和满墙的青花瓷，后门通往一条露天后廊。",
       "x": 0.3,
-      "y": 0.35
+      "y": 0.35,
+      "image": "loc_studio"
     },
     {
       "id": "kiln",
       "name": "窑房",
       "description": "后廊尽头的柴窑房，陆远平日在这里烧窑、看火。",
       "x": 0.78,
-      "y": 0.3
+      "y": 0.3,
+      "image": "loc_kiln"
     },
     {
       "id": "library",
       "name": "藏书阁",
       "description": "二楼的藏书阁，存放账目、文书和沈墨川的藏书。",
       "x": 0.3,
-      "y": 0.78
+      "y": 0.78,
+      "image": "loc_library"
     },
     {
       "id": "garden",
       "name": "后花园",
       "description": "工作室窗外的花园，有一座凉亭，正对着工作室的窗户。",
       "x": 0.78,
-      "y": 0.75
+      "y": 0.75,
+      "image": "loc_garden"
     }
   ],
   "characters": [
@@ -99,6 +104,14 @@
           "library",
           "kiln"
         ]
+      },
+      "portrait": "p_shen_qing",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.05,
+        "rate": 1.1,
+        "style": "语速偏快，语气尖锐带刺，尾音上扬"
       }
     },
     {
@@ -147,6 +160,14 @@
           "studio",
           "library"
         ]
+      },
+      "portrait": "p_lu_yuan",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.88,
+        "rate": 0.92,
+        "style": "低沉平稳，话少，字字斟酌"
       }
     },
     {
@@ -201,6 +222,14 @@
           "garden",
           "kiln"
         ]
+      },
+      "portrait": "p_zhou_man",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 0.97,
+        "rate": 0.95,
+        "style": "柔和优雅，语调克制，话总留三分"
       }
     },
     {
@@ -255,6 +284,14 @@
           "kiln",
           "garden"
         ]
+      },
+      "portrait": "p_han_ziheng",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 1,
+        "rate": 1.05,
+        "style": "清晰干脆，条理分明，像在法庭上发问"
       }
     },
     {
@@ -318,6 +355,14 @@
           "library",
           "kiln"
         ]
+      },
+      "portrait": "p_lin_xiulan",
+      "voice": {
+        "gender": "female",
+        "age": "old",
+        "pitch": 1.08,
+        "rate": 1.1,
+        "style": "温和絮叨，带点乡音，一紧张就颠三倒四"
       }
     }
   ],
@@ -430,7 +475,10 @@
       "time": "",
       "implicates": {
         "lu_yuan": 2
-      }
+      },
+      "media": [
+        "ev_footprint"
+      ]
     },
     {
       "id": "c_kilnlog",
@@ -451,7 +499,10 @@
       "time": "",
       "implicates": {
         "lu_yuan": 3
-      }
+      },
+      "media": [
+        "ev_raincoat"
+      ]
     },
     {
       "id": "c_forgery",
@@ -475,7 +526,10 @@
       "requires": [
         "c_kilnlog"
       ],
-      "key": true
+      "key": true,
+      "media": [
+        "ev_ashpit"
+      ]
     },
     {
       "id": "c_will",
@@ -701,7 +755,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Reveal the pavilion cigarette butts clue to prove your alibi"
-          ]
+          ],
+          "voice": {
+            "style": "Quick and sharp-tongued, with a cutting, rising lilt"
+          }
         },
         "lu_yuan": {
           "name": "Lu Yuan",
@@ -716,7 +773,10 @@
           "objectives": [
             "Avoid being voted out as the murderer",
             "Keep the kiln temperature log from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Low and even, sparing with words, every word weighed"
+          }
         },
         "zhou_man": {
           "name": "Zhou Man",
@@ -732,7 +792,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the wine glasses and silk scarf in the Library from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Soft and elegant, restrained, always holding something back"
+          }
         },
         "han_ziheng": {
           "name": "Han Ziheng",
@@ -748,7 +811,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Get the draft will revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Crisp and clear, methodical, like a cross-examination"
+          }
         },
         "lin_xiulan": {
           "name": "Lin Xiulan",
@@ -765,7 +831,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the missing-cash-in-the-drawer clue from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Warm and chatty with a country accent; gets muddled when nervous"
+          }
         }
       },
       "relationships": [
@@ -874,7 +943,152 @@
           "Stole 2,000 yuan from the drawer.",
           "The murderer; for years secretly forged and sold his master's work."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "The Shen kiln estate on a rainy night: lightning over the hills, one window glowing warm, a blue-and-white vase in the foreground"
+        },
+        "p_shen_mochuan": {
+          "alt": "A seventy-year-old master potter: thinning white hair, white beard, round glasses, a dark-blue mandarin-collar jacket, a stern look"
+        },
+        "p_shen_qing": {
+          "alt": "A woman in her early thirties: long wavy black hair, red drop earrings, a black blazer over red, a faintly mocking smile"
+        },
+        "p_lu_yuan": {
+          "alt": "A man in his mid-thirties: short black hair, stubble, a grey work jacket, a composed expression"
+        },
+        "p_zhou_man": {
+          "alt": "An elegant woman of forty: hair in a bun, pearl studs, a dark purple cardigan and a purple silk scarf"
+        },
+        "p_han_ziheng": {
+          "alt": "A lawyer in his late thirties: side-parted hair, black-rimmed glasses, a dark suit with a green tie"
+        },
+        "p_lin_xiulan": {
+          "alt": "A housekeeper in her late fifties: grey permed curls, a kindly smile, a mustard-yellow apron"
+        },
+        "loc_studio": {
+          "alt": "The studio: walls of blue-and-white porcelain, a desk under a lamp, a potter’s wheel, and a half-open back door with rain outside"
+        },
+        "loc_kiln": {
+          "alt": "The kiln room: a brick wood-fired kiln with a dark, cold mouth, stacked firewood, and a temperature recorder on the wall"
+        },
+        "loc_library": {
+          "alt": "The library: two bookcases, a rain-streaked window, and ledgers on a small table under a lamp"
+        },
+        "loc_garden": {
+          "alt": "The back garden in the rain: a pavilion on the left, the studio’s lit window on the right"
+        },
+        "ev_ashpit": {
+          "alt": "A square bronze paperweight half-buried in cold ash, dried dark-red blood on one edge"
+        },
+        "ev_raincoat": {
+          "alt": "A soaked grey raincoat hanging behind a door, a few dark-red spots on the cuff"
+        },
+        "ev_footprint": {
+          "alt": "A trail of wet, muddy rain-boot prints inside the back door, coming in and then turning back out"
+        }
       }
     }
-  }
+  },
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "雨夜里的沈家窑山庄：闪电划过山头，一扇窗亮着暖灯，前景是一只青花瓷瓶",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_shen_mochuan": {
+      "type": "image",
+      "src": "media/p_shen_mochuan.svg",
+      "alt": "七十岁的陶瓷大师：花白头发、白胡子、圆框眼镜，穿深蓝立领对襟衫，神情严厉",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_shen_qing": {
+      "type": "image",
+      "src": "media/p_shen_qing.svg",
+      "alt": "三十出头的女子：黑色波浪长发、红色坠耳环，黑色西装配红色内搭，嘴角带着一丝讥诮",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lu_yuan": {
+      "type": "image",
+      "src": "media/p_lu_yuan.svg",
+      "alt": "三十多岁的男子：短黑发、胡茬，穿灰色工装外套，神情沉稳",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zhou_man": {
+      "type": "image",
+      "src": "media/p_zhou_man.svg",
+      "alt": "四十岁的优雅女子：盘发、珍珠耳钉，深紫开衫配紫色丝巾",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_han_ziheng": {
+      "type": "image",
+      "src": "media/p_han_ziheng.svg",
+      "alt": "三十多岁的男律师：侧分短发、黑框眼镜，深色西装配绿色领带",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lin_xiulan": {
+      "type": "image",
+      "src": "media/p_lin_xiulan.svg",
+      "alt": "五十多岁的保姆：花白烫发卷、和善的笑容，系着姜黄色围裙",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_studio": {
+      "type": "image",
+      "src": "media/loc_studio.svg",
+      "alt": "工作室：满墙青花瓷、亮着台灯的书桌、拉坯机，后门半开，门外下着雨",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_kiln": {
+      "type": "image",
+      "src": "media/loc_kiln.svg",
+      "alt": "窑房：砖砌的柴窑，窑口黑冷，旁边堆着柴，墙上挂着一个温度记录仪",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_library": {
+      "type": "image",
+      "src": "media/loc_library.svg",
+      "alt": "藏书阁：两排书架、一扇被雨打湿的窗，灯下的小桌上放着账本",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_garden": {
+      "type": "image",
+      "src": "media/loc_garden.svg",
+      "alt": "雨中的后花园：左边一座凉亭，右边是工作室亮着灯的窗户",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_ashpit": {
+      "type": "image",
+      "src": "media/c_ashpit.svg",
+      "alt": "冷灰里半埋着一块方形青铜镇纸，一处棱角上沾着干涸的暗红血迹",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_raincoat": {
+      "type": "image",
+      "src": "media/c_raincoat.svg",
+      "alt": "门后挂着一件湿透的灰色雨衣，袖口上有几点暗红色的斑点",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_footprint": {
+      "type": "image",
+      "src": "media/c_footprint.svg",
+      "alt": "后门内侧地板上一串湿泥雨靴印，从门口走进来，又折返出去",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover"
 }

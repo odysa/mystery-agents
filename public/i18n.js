@@ -353,6 +353,25 @@ const EN = {
   '未被发现': 'Not found',
   '被隐藏': 'Hidden',
   '还没有公开的线索。': 'No clues revealed yet.',
+  // ---- 多模态：图片 / 音频 / 语音 ----
+  '查看大图：{alt}': 'View full image: {alt}',
+  '文字稿': 'Transcript',
+  '关闭': 'Close',
+  '私密资料': 'Private materials',
+  '{n} 张图片': '{n} images',
+  '{n} 段录音': '{n} recordings',
+  '证物图像与录音': 'Evidence images and recordings',
+  '其他资料': 'Other materials',
+  '语音': 'Voice',
+  '正在用浏览器语音朗读角色发言，点击关闭': "Reading new lines aloud with your browser's voices. Click to turn off.",
+  '用浏览器语音朗读新的发言（每个角色有自己的声音）': "Read new lines aloud with your browser's voices (each character gets their own voice)",
+  '这台设备没有可用的系统语音，无法朗读': "This device has no system voices, so lines can't be read aloud",
+  '点一下页面任意位置，就可以开始朗读': 'Click anywhere on the page to start reading aloud',
+  '语音输入': 'Voice input',
+  '停止语音输入': 'Stop voice input',
+  '当前浏览器无法使用语音输入': "Voice input isn't available in this browser",
+  '无法使用麦克风：请在浏览器里允许麦克风权限': "Can't use the microphone. Allow microphone access in your browser.",
+  '语音输入出错：{err}': 'Voice input error: {err}',
 };
 
 const _warned = new Set();

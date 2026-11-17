@@ -13,7 +13,8 @@
   "victim": {
     "id": "zheng_liheng",
     "name": "郑立衡",
-    "bio": "五十八岁，某大学化学系教授、博士生导师，课题组带头人。治学极严，出了名的「数据洁癖」，晚上习惯泡一杯枸杞茶在办公室工作到深夜。"
+    "bio": "五十八岁，某大学化学系教授、博士生导师，课题组带头人。治学极严，出了名的「数据洁癖」，晚上习惯泡一杯枸杞茶在办公室工作到深夜。",
+    "portrait": "p_zheng_liheng"
   },
   "background": "十一月的一个周四，某大学化学实验楼。明天上午九点，郑立衡课题组的博士生许嘉禾就要进行博士学位论文答辩。18:00 到 19:30，课题组在七楼小会议室做了最后一次答辩预演，郑立衡全程皱着眉头，散会时一句话也没说。\n\n夜里，七楼的几间屋子都还亮着灯。22:45，许嘉禾推开 712 办公室的门，发现郑立衡伏在办公桌上，口唇发绀，已经没有了呼吸。桌上的保温杯里还剩半杯枸杞茶。\n\n警方和校方已经赶来，整栋楼被封锁，所有人被要求在七楼等候问询。在正式笔录开始前，你们四个人被留在同一间会议室里——而你们都清楚：今晚进出过七楼的，只有你们。",
   "intro": "【主持人】欢迎来到《答辩前夜》。这是一个进阶剧本：每个人都有秘密，每个人都有理由说谎，而说谎的人未必是凶手。请仔细阅读你的剧本，留意每一条记录上的时间——手环、电梯、门磁、日志，它们拼起来，才是这一夜的真相。",
@@ -30,35 +31,40 @@
       "name": "712 办公室",
       "description": "案发现场。郑立衡的办公室，书桌、电脑、台历和他的保温杯都在这里。",
       "x": 0.2,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_office712"
     },
     {
       "id": "lab703",
       "name": "703 合成实验室",
       "description": "课题组的合成实验室，每个学生有自己的通风橱和实验台。许嘉禾的通风橱在最里面。",
       "x": 0.8,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_lab703"
     },
     {
       "id": "corridor",
       "name": "七楼走廊",
       "description": "连接各房间的走廊，包括茶水间、打印机、小会议室、电梯厅和楼梯间。",
       "x": 0.5,
-      "y": 0.52
+      "y": 0.52,
+      "image": "loc_corridor"
     },
     {
       "id": "reagent",
       "name": "试剂间与仪器室",
       "description": "七楼东头的试剂间和仪器室，剧毒品柜双人双锁，由罗一鸣负责登记。",
       "x": 0.2,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_reagent"
     },
     {
       "id": "tang513",
       "name": "513 唐蔚办公室",
       "description": "五楼唐蔚副教授的办公室，乘电梯或走楼梯都能到七楼。",
       "x": 0.8,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_tang513"
     }
   ],
   "characters": [
@@ -128,6 +134,14 @@
           "lab703",
           "tang513"
         ]
+      },
+      "portrait": "p_xu_jiahe",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1,
+        "rate": 0.9,
+        "style": "轻声、迟疑，停顿很多；被逼急时语速陡然加快"
       }
     },
     {
@@ -190,6 +204,14 @@
           "corridor",
           "lab703"
         ]
+      },
+      "portrait": "p_luo_yiming",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1.08,
+        "rate": 1.15,
+        "style": "声音明亮，嘴快热心，爱打圆场"
       }
     },
     {
@@ -247,6 +269,14 @@
           "corridor",
           "office712"
         ]
+      },
+      "portrait": "p_tang_wei",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 0.95,
+        "rate": 1,
+        "style": "干练清晰，像在做学术报告，习惯分点陈述"
       }
     },
     {
@@ -309,6 +339,14 @@
           "reagent",
           "tang513"
         ]
+      },
+      "portrait": "p_zhou_zhi",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 0.92,
+        "rate": 1,
+        "style": "冷淡干脆，句子短，不愿多解释"
       }
     }
   ],
@@ -376,7 +414,10 @@
       "text": "郑立衡伏在办公桌上，口唇发绀，像是急性中毒。保温杯里剩下的半杯枸杞茶气味异样，而旁边茶壶里的茶却很正常——毒是直接加进杯子里的。初步判断死亡时间约在 21:40 到 22:10 之间。",
       "time": "21:40-22:10",
       "implicates": {},
-      "key": true
+      "key": true,
+      "media": [
+        "ev_body"
+      ]
     },
     {
       "id": "c_watch",
@@ -385,7 +426,10 @@
       "text": "郑立衡手腕上的运动手环记录：21:32 起心率骤然升高、持续紊乱，21:50 之后再无有效数据。这类毒物发作不算慢——它进到杯子里的时间，应该在 21:32 之前不久。",
       "time": "21:32-21:50",
       "implicates": {},
-      "key": true
+      "key": true,
+      "media": [
+        "ev_watch"
+      ]
     },
     {
       "id": "c_planner",
@@ -441,7 +485,10 @@
       "implicates": {
         "xu_jiahe": 3
       },
-      "key": true
+      "key": true,
+      "media": [
+        "ev_vial"
+      ]
     },
     {
       "id": "c_hood",
@@ -761,7 +808,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the \"defense suspended\" email from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Quiet and hesitant with long pauses; speeds up sharply when cornered"
+          }
         },
         "luo_yiming": {
           "name": "Luo Yiming",
@@ -778,7 +828,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Do not receive the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Bright and fast-talking, eager to smooth things over"
+          }
         },
         "tang_wei": {
           "name": "Tang Wei",
@@ -794,7 +847,10 @@
           "objectives": [
             "Avoid being voted out as the murderer",
             "Keep the \"21:10 Tang\" appointment on the desk calendar from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Brisk and clear, like giving a lecture, always in numbered points"
+          }
         },
         "zhou_zhi": {
           "name": "Zhou Zhi",
@@ -811,7 +867,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the computer's USB log from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Cool and curt, short sentences, unwilling to explain herself"
+          }
         }
       },
       "relationships": [
@@ -933,7 +992,152 @@
           "The murderer; fabricated the 2022 batch of data.",
           "Was in 712 from 21:35 to 21:42 and copied the unpublished synthesis route; has been promised a job by another university."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "The chemistry building at night: a row of cold white windows lit on the seventh floor, red and blue police lights below, bare branches and a moon on the left"
+        },
+        "p_zheng_liheng": {
+          "alt": "A professor in his late fifties: thinning grey hair, black-rimmed glasses, a grey-brown cardigan over a white shirt, a deep frown"
+        },
+        "p_xu_jiahe": {
+          "alt": "A doctoral student near thirty: messy black hair, round glasses, tired eyes, a lab coat over a blue sweater, looking uneasy"
+        },
+        "p_luo_yiming": {
+          "alt": "A master’s student in his mid-twenties: close-cropped hair, a broad grin, a lab coat over green, a badge on his chest"
+        },
+        "p_tang_wei": {
+          "alt": "A woman associate professor in her mid-thirties: chin-length bob, pearl studs, a purple blazer over a white shirt, brisk and composed"
+        },
+        "p_zhou_zhi": {
+          "alt": "A woman postdoc in her early thirties: high ponytail, narrow eyes, a dark turtleneck with a fine necklace, a cool expression"
+        },
+        "loc_office712": {
+          "alt": "Office 712: bookcase, a glowing monitor, a desk calendar, a thermos and a lamp, the city at night outside the window"
+        },
+        "loc_lab703": {
+          "alt": "Lab 703: a row of four fume hoods with glassware behind the sashes"
+        },
+        "loc_corridor": {
+          "alt": "The seventh-floor corridor: fluorescent lights running to the lift doors at the end, doors on both sides"
+        },
+        "loc_reagent": {
+          "alt": "Reagent and instrument room: a steel cabinet with toxic-hazard signs and two padlocks, reagent shelves and an analytical instrument"
+        },
+        "loc_tang513": {
+          "alt": "Office 513: night outside the window, an open laptop, a stack of papers and a cup of tea on the desk"
+        },
+        "ev_body": {
+          "alt": "A desk under lamplight: an open thermos with half a cup of goji tea left, a white porcelain teapot beside it"
+        },
+        "ev_watch": {
+          "alt": "Heart-rate graph on a fitness band: a sudden, erratic rise from 21:32, and no valid data after 21:50"
+        },
+        "ev_vial": {
+          "alt": "A small empty reagent bottle in the corner of a fume hood, a little liquid left at the bottom, a toxic-hazard symbol on the label"
+        }
       }
     }
-  }
+  },
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "深夜的化学楼：七楼一排窗亮着冷白的灯，楼下闪着警灯的红蓝光，左边是光秃的树枝和月亮",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zheng_liheng": {
+      "type": "image",
+      "src": "media/p_zheng_liheng.svg",
+      "alt": "五十多岁的教授：花白稀疏的头发、黑框眼镜，灰褐色开衫配白衬衫，眉头紧锁",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_xu_jiahe": {
+      "type": "image",
+      "src": "media/p_xu_jiahe.svg",
+      "alt": "近三十岁的博士生：乱糟糟的黑发、圆框眼镜、眼下发青，白大褂里是蓝色毛衣，神情不安",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_luo_yiming": {
+      "type": "image",
+      "src": "media/p_luo_yiming.svg",
+      "alt": "二十多岁的硕士生：短寸头、咧嘴笑，白大褂配绿色内搭，胸前别着工作牌",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_tang_wei": {
+      "type": "image",
+      "src": "media/p_tang_wei.svg",
+      "alt": "三十多岁的女副教授：齐肩短发、珍珠耳钉，紫色西装配白衬衫，神情干练",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zhou_zhi": {
+      "type": "image",
+      "src": "media/p_zhou_zhi.svg",
+      "alt": "三十岁出头的女博士后：高马尾、细长的眼睛，深色高领毛衣配细项链，神情冷淡",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_office712": {
+      "type": "image",
+      "src": "media/loc_office712.svg",
+      "alt": "712 办公室：书架、亮着的电脑、台历、保温杯和台灯，窗外是城市夜景",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_lab703": {
+      "type": "image",
+      "src": "media/loc_lab703.svg",
+      "alt": "703 合成实验室：一排四台通风橱，玻璃拉门后摆着玻璃器皿",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_corridor": {
+      "type": "image",
+      "src": "media/loc_corridor.svg",
+      "alt": "七楼走廊：日光灯一路延伸到尽头的电梯门，两侧是一扇扇房门",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_reagent": {
+      "type": "image",
+      "src": "media/loc_reagent.svg",
+      "alt": "试剂间与仪器室：贴着剧毒标识、挂着两把锁的铁柜，试剂架和一台分析仪器",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_tang513": {
+      "type": "image",
+      "src": "media/loc_tang513.svg",
+      "alt": "513 办公室：窗外夜色，桌上开着的笔记本电脑、一叠文件和一杯茶",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_body": {
+      "type": "image",
+      "src": "media/c_body.svg",
+      "alt": "台灯下的办公桌：打开的保温杯里剩着半杯枸杞茶，旁边是一只白瓷茶壶",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_watch": {
+      "type": "image",
+      "src": "media/c_watch.svg",
+      "alt": "运动手环屏幕上的心率曲线：21:32 起骤然升高、剧烈紊乱，21:50 之后没有有效数据",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_vial": {
+      "type": "image",
+      "src": "media/c_vial.svg",
+      "alt": "通风橱角落里一只空的小试剂瓶，瓶底残留少量液体，标签上有剧毒标识",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover"
 }

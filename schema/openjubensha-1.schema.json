@@ -101,6 +101,9 @@
         },
         "bio": {
           "type": "string"
+        },
+        "portrait": {
+          "$ref": "#/$defs/assetRef"
         }
       }
     },
@@ -136,6 +139,9 @@
             "type": "number",
             "minimum": 0,
             "maximum": 1
+          },
+          "image": {
+            "$ref": "#/$defs/assetRef"
           }
         }
       }
@@ -262,6 +268,19 @@
                 }
               }
             }
+          },
+          "portrait": {
+            "$ref": "#/$defs/assetRef"
+          },
+          "voice": {
+            "$ref": "#/$defs/voice"
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/assetRef"
+            },
+            "description": "只有该角色可见的媒体"
           }
         }
       }
@@ -355,6 +374,13 @@
           "key": {
             "type": "boolean",
             "description": "关键线索（用于评测）"
+          },
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/assetRef"
+            },
+            "description": "与线索同可见性的媒体"
           }
         }
       }
@@ -500,6 +526,19 @@
       "additionalProperties": {
         "type": "object"
       }
+    },
+    "assets": {
+      "type": "object",
+      "description": "媒体登记表，见规范 3.10",
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_-]{1,64}$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "cover": {
+      "$ref": "#/$defs/assetRef"
     }
   },
   "$defs": {
@@ -513,6 +552,79 @@
         "type": "number",
         "minimum": -10,
         "maximum": 10
+      }
+    },
+    "assetRef": {
+      "$ref": "#/$defs/id",
+      "description": "assets 里的媒体 id"
+    },
+    "asset": {
+      "type": "object",
+      "required": [
+        "type",
+        "src",
+        "alt"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "image",
+            "audio"
+          ]
+        },
+        "src": {
+          "type": "string",
+          "description": "media/… 相对路径、https 链接或 data URI"
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "文字描述（必填）"
+        },
+        "transcript": {
+          "type": "string",
+          "maxLength": 5000
+        },
+        "credit": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "properties": {
+        "gender": {
+          "enum": [
+            "female",
+            "male",
+            "neutral"
+          ]
+        },
+        "age": {
+          "enum": [
+            "child",
+            "young",
+            "adult",
+            "old"
+          ]
+        },
+        "pitch": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2
+        },
+        "rate": {
+          "type": "number",
+          "minimum": 0.5,
+          "maximum": 2
+        },
+        "style": {
+          "type": "string",
+          "maxLength": 100
+        }
       }
     }
   }

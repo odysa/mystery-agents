@@ -13,7 +13,8 @@
   "victim": {
     "id": "yu_henian",
     "name": "俞鹤年",
-    "bio": "72 岁，苏州评弹名家，「俞调」传人，说了五十多年《珍珠塔》。脾气古板倔强，台上一丝不苟，台下说一不二。"
+    "bio": "72 岁，苏州评弹名家，「俞调」传人，说了五十多年《珍珠塔》。脾气古板倔强，台上一丝不苟，台下说一不二。",
+    "portrait": "p_yu_henian"
   },
   "background": "1993 年腊月，江南水乡锦溪镇，河边的老书场「听雨书场」。今晚是评弹名家俞鹤年的封箱演出——一年最后一场书，说完就要歇到开春。三百个座位座无虚席，不少老听客是从苏州、上海专程赶来的。\n\n19:30 开书，俞鹤年和女儿俞小芸父女档弹唱《珍珠塔》。20:30 中场休息，老先生回了后台。20:48 俞小芸先上台弹唱开篇，说好父亲随后就到。\n\n20:55，开篇唱到一半，琵琶的子弦「铮」地一声断了。俞小芸跑回后台换弦，却看见父亲倒在地上，嘴角流涎、四肢抽搐，那把从不离身的紫砂壶摔在一边。镇卫生院的医生赶来时，人已经没了。\n\n医生说，像是中了乌头一类的毒。河上起了大雾，县公安局的车要到后半夜才能进镇。在那之前，凶手就在你们四个人之中。",
   "intro": "【主持人】欢迎来到《书场弦断》。四个人，四种动机，每个人都在今晚的中场靠近过那把紫砂壶。请仔细阅读你的剧本：你看见了什么、你在隐瞒什么。说谎的人不一定是凶手——但凶手一定在说谎。",
@@ -30,28 +31,32 @@
       "name": "后台",
       "description": "案发现场。书台后面的小间，一张八仙桌、一只炭盆、挂衣服的木钉，墙上挂着琵琶和三弦。一扇门通大厅书台，一扇门通往前台的侧廊。",
       "x": 0.25,
-      "y": 0.3
+      "y": 0.3,
+      "image": "loc_backstage"
     },
     {
       "id": "courtyard",
       "name": "天井",
       "description": "后台背面的小天井，种着几盆腊梅，一口水缸。一扇破了窗纸的木窗正对后台。天井只连着后台，不通侧廊。",
       "x": 0.75,
-      "y": 0.25
+      "y": 0.25,
+      "image": "loc_courtyard"
     },
     {
       "id": "front_desk",
       "name": "前台账房",
       "description": "书场门口的售票台和账房，钱老板平时坐在这里卖票、记账。侧门连着一条窄窄的侧廊，是去后台最近的路。",
       "x": 0.75,
-      "y": 0.75
+      "y": 0.75,
+      "image": "loc_front_desk"
     },
     {
       "id": "hall",
       "name": "书场大厅",
       "description": "三百个座位的老书场，正中是铺着红桌围的书台，台上一桌两椅。散场后座位上还留着瓜子壳和听客落下的东西。",
       "x": 0.25,
-      "y": 0.75
+      "y": 0.75,
+      "image": "loc_hall"
     }
   ],
   "characters": [
@@ -119,6 +124,14 @@
           "hall",
           "courtyard"
         ]
+      },
+      "portrait": "p_qian_deshun",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.92,
+        "rate": 1.08,
+        "style": "笑声不断，吴侬软语，客气圆滑，爱絮叨"
       }
     },
     {
@@ -188,6 +201,14 @@
           "hall",
           "front_desk"
         ]
+      },
+      "portrait": "p_yu_xiaoyun",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 1,
+        "rate": 0.92,
+        "style": "轻柔沉静，话不多，被冤枉时语气转冷"
       }
     },
     {
@@ -258,6 +279,14 @@
           "front_desk",
           "hall"
         ]
+      },
+      "portrait": "p_lu_shaotang",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1.05,
+        "rate": 1.12,
+        "style": "嗓音响亮，性子急，说话冲，被戳穿后突然泄气"
       }
     },
     {
@@ -318,6 +347,14 @@
           "front_desk",
           "courtyard"
         ]
+      },
+      "portrait": "p_qin_wan",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.02,
+        "rate": 0.98,
+        "style": "斯文清楚，像念报告；情绪上来时会突然沉默"
       }
     }
   ],
@@ -384,7 +421,10 @@
       "implicates": {
         "yu_xiaoyun": 1
       },
-      "key": true
+      "key": true,
+      "media": [
+        "ev_teapot"
+      ]
     },
     {
       "id": "c_thermos",
@@ -408,7 +448,11 @@
       "time": "20:30-20:48",
       "implicates": {
         "lu_shaotang": 1
-      }
+      },
+      "media": [
+        "ev_string",
+        "a_string_snap"
+      ]
     },
     {
       "id": "c_coat",
@@ -429,7 +473,10 @@
       "time": "",
       "implicates": {
         "qin_wan": 2
-      }
+      },
+      "media": [
+        "ev_photo"
+      ]
     },
     {
       "id": "c_wine",
@@ -439,7 +486,10 @@
       "time": "",
       "implicates": {
         "yu_xiaoyun": 3
-      }
+      },
+      "media": [
+        "ev_wine"
+      ]
     },
     {
       "id": "c_tape",
@@ -715,7 +765,10 @@
           "objectives": [
             "Avoid being voted out as the murderer",
             "Keep the Tongde Hall receipt from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Always chuckling, soft Wu-accented speech, smooth and polite, prone to rambling"
+          }
         },
         "yu_xiaoyun": {
           "name": "Yu Xiaoyun",
@@ -733,7 +786,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the caowu liquor bottle in the courtyard from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Soft and composed, says little; turns cold when wrongly accused"
+          }
         },
         "lu_shaotang": {
           "name": "Lu Shaotang",
@@ -751,7 +807,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Keep the cassettes in the courtyard flowerpot from being revealed"
-          ]
+          ],
+          "voice": {
+            "style": "Ringing voice, impatient and blunt; deflates suddenly when caught out"
+          }
         },
         "qin_wan": {
           "name": "Qin Wan",
@@ -768,7 +827,10 @@
           "objectives": [
             "Vote for the real murderer",
             "Do not receive the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Refined and precise, like reading a report; falls abruptly silent when moved"
+          }
         }
       },
       "relationships": [
@@ -877,7 +939,164 @@
           "Secretly recorded his master's secret text and sold it to an audio shop; went backstage during the intermission and cut the pipa string.",
           "Yu Henian's granddaughter; revealed herself backstage during the intermission, and he tore up the photo."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "An empty storytelling stage: a red table cloth, one table and two chairs, a pipa with a snapped string leaning on a chair, red lanterns on either side, fog drifting"
+        },
+        "p_yu_henian": {
+          "alt": "An elderly pingtan performer in his seventies: thinning white hair, a grey moustache, a dark long gown, a stern, old-fashioned look"
+        },
+        "p_qian_deshun": {
+          "alt": "A storytelling-house owner in his fifties: round, smiling face, side-parted hair, a mole by the mouth, a brown padded jacket"
+        },
+        "p_yu_xiaoyun": {
+          "alt": "A woman pipa player in her thirties: a low bun, jade earrings, a deep-red qipao, a calm expression"
+        },
+        "p_lu_shaotang": {
+          "alt": "A young performer in his late twenties: a swoop of fringe across the forehead, a navy long gown, a frown and a downturned mouth"
+        },
+        "p_qin_wan": {
+          "alt": "A thirty-year-old cultural-centre official: a short bob, thin-rimmed glasses, a green cardigan over a white blouse, refined"
+        },
+        "loc_backstage": {
+          "alt": "Backstage: a pipa and a sanxian on the wall, coats on wooden pegs, a square table, a glowing charcoal brazier, a curtained doorway to the stage"
+        },
+        "loc_courtyard": {
+          "alt": "The small courtyard in fog: two pots of yellow wintersweet, a water vat, and a lattice window with a hole torn in its paper"
+        },
+        "loc_front_desk": {
+          "alt": "The front desk: a barred ticket window, an abacus and books on the counter, a lamp, an iron cabinet and the door to the side corridor"
+        },
+        "loc_hall": {
+          "alt": "The main hall: rows of seats facing the stage with its red table cloth, two red lanterns"
+        },
+        "ev_teapot": {
+          "alt": "A Yixing clay teapot fallen on the floor, its lid cracked, tea and leaves spilled"
+        },
+        "ev_string": {
+          "alt": "The snapped first pipa string under a magnifier: each broken end is half clean, half frayed"
+        },
+        "ev_wine": {
+          "alt": "A small glass bottle behind a wintersweet pot, blackened caowu roots steeping inside, the level noticeably down"
+        },
+        "ev_photo": {
+          "alt": "A black-and-white photo torn into pieces showing a young man and a girl with a long braid; a woman’s hair clip beside them"
+        },
+        "a_string_snap": {
+          "alt": "Illustrative sound: a pipa string snapping mid-performance",
+          "transcript": "(About 8 seconds, no voices.) A pipa plays a slow, steady line of single notes, the last one tremolo-plucked; at about 4.9 seconds there is a sudden piercing \"zheng\" as the string snaps. All other ringing is cut off at once, a bright high twang fades quickly, then about three seconds of silence."
+        }
       }
     }
-  }
+  },
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "空荡荡的书台：红桌围、一桌两椅，一把断了弦的琵琶斜靠在椅子上，两侧挂着红灯笼，雾气弥漫",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_yu_henian": {
+      "type": "image",
+      "src": "media/p_yu_henian.svg",
+      "alt": "七十多岁的评弹老艺人：花白稀疏的头发、灰白胡髭，穿深色长衫，神情古板严厉",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_qian_deshun": {
+      "type": "image",
+      "src": "media/p_qian_deshun.svg",
+      "alt": "五十多岁的书场老板：圆脸、笑眯眯，侧分短发，嘴边一颗痣，穿棕色棉袄",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_yu_xiaoyun": {
+      "type": "image",
+      "src": "media/p_yu_xiaoyun.svg",
+      "alt": "三十多岁的琵琶女艺人：低挽发髻、玉色耳坠，穿深红色旗袍，神情沉静",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lu_shaotang": {
+      "type": "image",
+      "src": "media/p_lu_shaotang.svg",
+      "alt": "二十多岁的青年艺人：一绺刘海斜搭在额前，穿藏蓝长衫，眉头紧皱、嘴角下撇",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_qin_wan": {
+      "type": "image",
+      "src": "media/p_qin_wan.svg",
+      "alt": "三十岁的文化馆干部：齐耳短发、细框眼镜，绿色开衫配白衬衫，斯文",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_backstage": {
+      "type": "image",
+      "src": "media/loc_backstage.svg",
+      "alt": "后台：墙上挂着琵琶和三弦，木钉上挂着外衣，一张八仙桌，地上一只烧着炭的炭盆，左边门帘通书台",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_courtyard": {
+      "type": "image",
+      "src": "media/loc_courtyard.svg",
+      "alt": "雾中的小天井：两盆开着黄花的腊梅、一口水缸，一扇窗纸破了个洞的木格窗",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_front_desk": {
+      "type": "image",
+      "src": "media/loc_front_desk.svg",
+      "alt": "前台账房：木栅售票窗、柜台上的算盘和本子、台灯，右边一只铁皮柜和通往侧廊的门",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_hall": {
+      "type": "image",
+      "src": "media/loc_hall.svg",
+      "alt": "书场大厅：一排排座椅朝向铺着红桌围的书台，两盏红灯笼",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_teapot": {
+      "type": "image",
+      "src": "media/c_teapot.svg",
+      "alt": "摔在地上的紫砂壶，壶盖裂开，茶汤和茶叶洒了一地",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_string": {
+      "type": "image",
+      "src": "media/c_string.svg",
+      "alt": "放大镜下断掉的琵琶子弦：两个断口都是一半平整、一半毛糙",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_wine": {
+      "type": "image",
+      "src": "media/c_wine.svg",
+      "alt": "腊梅盆后的一只小玻璃瓶，泡着发黑的草乌根，瓶里少了一截",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "ev_photo": {
+      "type": "image",
+      "src": "media/c_photo.svg",
+      "alt": "撕成几片的黑白老照片，拼起来是一个年轻男子和一个梳长辫的姑娘；旁边有一根女式发卡",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "a_string_snap": {
+      "type": "audio",
+      "src": "media/a_string_snap.wav",
+      "alt": "示意音效：琵琶弹奏中子弦崩断",
+      "transcript": "（约 8 秒，无人声）琵琶缓缓弹出一串平稳的单音，最后一个音用轮指连续弹拨；约 4.9 秒处突然一声尖锐的「铮」——弦断了，其余余音随即被掐断，只剩一声发亮的高音颤响迅速消失，之后是三秒左右的寂静。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    }
+  },
+  "cover": "cover"
 }

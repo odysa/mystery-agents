@@ -23,8 +23,12 @@ export class ClaudeProvider {
     return this._client;
   }
 
-  async complete({ system, user, schema }) {
+  async complete({ system, user, schema, images = [] }) {
     const client = await this.client();
+    // 多模态：线索图片作为 image 块放在文字前面（Claude 支持 png/jpeg/gif/webp）
+    const content = images.length
+      ? [...images.map((im) => ({ type: 'image', source: { type: 'base64', media_type: im.mime, data: im.data } })), { type: 'text', text: user }]
+      : user;
     const response = await client.beta.messages.create({
       model: this.model,
       max_tokens: 8000,
@@ -32,7 +36,7 @@ export class ClaudeProvider {
       betas: ['server-side-fallback-2026-07-01'],
       fallbacks: 'default',
       system,
-      messages: [{ role: 'user', content: user }],
+      messages: [{ role: 'user', content }],
       output_config: { effort: this.effort, format: { type: 'json_schema', schema } },
     });
     if (response.stop_reason === 'refusal') throw new Error(`模型拒绝回答: ${response.stop_details?.category || ''}`);
@@ -47,15 +51,20 @@ export class OpenAICompatProvider {
     this.baseUrl = (baseUrl || process.env.OPENAI_BASE_URL || 'https://api.deepseek.com/v1').replace(/\/$/, '');
     this.apiKey = apiKey ?? process.env.OPENAI_API_KEY ?? '';
     this.model = model || process.env.OPENAI_MODEL || 'deepseek-chat';
+    // 很多 OpenAI 兼容模型不支持图片输入，需要显式开启（如 qwen-vl、gpt-4o 系列）
+    this.vision = process.env.OPENAI_VISION === '1';
   }
 
-  async complete({ system, user }) {
+  async complete({ system, user, images = [] }) {
+    const content = this.vision && images.length
+      ? [...images.map((im) => ({ type: 'image_url', image_url: { url: `data:${im.mime};base64,${im.data}` } })), { type: 'text', text: user }]
+      : user;
     const res = await fetch(`${this.baseUrl}/chat/completions`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', ...(this.apiKey ? { authorization: `Bearer ${this.apiKey}` } : {}) },
       body: JSON.stringify({
         model: this.model,
-        messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+        messages: [{ role: 'system', content: system }, { role: 'user', content }],
         response_format: { type: 'json_object' },
         temperature: 0.7,
       }),

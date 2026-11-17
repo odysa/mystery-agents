@@ -84,6 +84,8 @@ async function renderLobby() {
   const sc = scenarios.find((x) => x.id === store.get('ma_scenario')) || scenarios[0];
   const full = await api(`/api/scenarios/${sc.id}?lang=${LANG}`).catch(() => null);
   const chars = full?.characters || [];
+  MEDIA = full?.media || {};
+  const cover = img(full?.cover);
   const seats = Object.fromEntries(chars.map((c) => [c.id, 'rule']));
   const readyProviders = providers.filter((p) => p.ready);
   const bestAI = readyProviders.find((p) => p.id !== 'rule')?.id || 'rule';
@@ -99,7 +101,8 @@ async function renderLobby() {
   const draw = () => {
     $app.innerHTML = `
       <section class="hero">
-        <div class="poster">
+        <div class="poster ${cover ? 'has-cover' : ''}">
+          ${cover ? `<img class="poster-cover" src="${esc(cover.url)}" alt="${esc(cover.alt)}" decoding="async"><div class="poster-shade"></div>` : ''}
           <div class="rain"></div>
           <div class="pill" style="color:#e0a84a;border-color:#e0a84a88">${T('原创剧本 · {diff} · {n} 人 · 约 {min} 分钟', { diff: esc(DIFF(sc.difficulty)), n: sc.players, min: sc.estimatedMinutes })}</div>
           <h1 style="margin-top:14px">${esc(full?.title || scT(sc, 'title'))}</h1>
@@ -139,10 +142,11 @@ async function renderLobby() {
       <div class="section-title"><h2>${T('剧本库')}</h2><span class="muted small">${T('共 {n} 个原创剧本，点击切换', { n: scenarios.length })}</span></div>
       <div class="library">
         ${scenarios.map((x) => `
-          <button class="scard ${x.id === sc.id ? 'on' : ''}" data-sc="${esc(x.id)}">
+          <button class="scard ${x.id === sc.id ? 'on' : ''} ${x.cover ? 'has-cover' : ''}" data-sc="${esc(x.id)}">
+            ${x.cover ? `<span class="scard-cover"><img src="${esc(x.cover)}" alt="${esc(x.coverAlt || '')}" loading="lazy" decoding="async"></span>` : ''}
             <div class="row" style="justify-content:space-between"><b>${T('《{title}》', { title: esc(scT(x, 'title')) })}${x.source === 'community' ? ` <span class="pill">${T('社区')}</span>` : ''}</b><span class="pill ${x.difficulty === '困难' ? 'red' : x.difficulty === '入门' ? 'green' : 'gold'}">${esc(DIFF(x.difficulty))}</span></div>
             <span class="small muted">${esc(scT(x, 'subtitle'))}</span>
-            <span class="small faint">${T('{n} 人 · {locs} 个地点 · {clues} 条线索 · 约 {min} 分钟', { n: x.players, locs: x.locations, clues: x.clues, min: x.estimatedMinutes })}</span>
+            <span class="small faint">${T('{n} 人 · {locs} 个地点 · {clues} 条线索 · 约 {min} 分钟', { n: x.players, locs: x.locations, clues: x.clues, min: x.estimatedMinutes })}${x.media?.images ? ` · <span title="${esc(T('{n} 张图片', { n: x.media.images }))}">🖼️ ${x.media.images}</span>` : ''}${x.media?.audio ? ` · <span title="${esc(T('{n} 段录音', { n: x.media.audio }))}">🎧 ${x.media.audio}</span>` : ''}</span>
           </button>`).join('')}
       </div>
 
@@ -150,7 +154,7 @@ async function renderLobby() {
       <div class="seats">
         ${chars.map((c) => `
           <div class="seat ${['human', 'external', 'open'].includes(seats[c.id]) ? 'human' : ''}">
-            <div class="who"><div class="avatar" style="background:${c.color}">${esc(c.name[0])}</div><b>${esc(c.name)}</b></div>
+            <div class="who">${avatar(c)}<b>${esc(c.name)}</b></div>
             <p>${esc(c.publicBio)}</p>
             <select data-seat="${c.id}">${opts(seats[c.id])}</select>
           </div>`).join('')}
@@ -364,7 +368,7 @@ function renderGame(id, { watch = false } = {}) {
   };
   G.connect = connect;
   connect();
-  cleanup = () => { G.es?.close(); };
+  cleanup = () => { G.es?.close(); micStop(G); ttsStop(); if (TTS.G === G) TTS.G = null; closeLightbox(); };
 }
 
 // ---------- 派生数据 ----------
@@ -453,9 +457,233 @@ Watch: ${BASE}/#/watch/${id}`,
 const AGENT_PROMPTS = LANG === 'en' ? AGENT_PROMPTS_EN : AGENT_PROMPTS_ZH;
 const AGENT_MD = LANG === 'en' ? '/agent.md?lang=en' : '/agent.md';
 
-function avatar(c, cls = '') { return c ? `<div class="avatar ${cls}" style="background:${c.color}" title="${esc(c.name)}">${esc(c.name[0])}</div>` : `<div class="avatar ${cls}" style="background:#555">${T('主')}</div>`; }
+// ======================= 多模态：图片 / 音频 =======================
+// MEDIA：当前页面可见的媒体 { 媒体id: { type, alt, transcript?, credit?, url } }。
+// 大厅里来自剧本公开视图，对局里来自 view.media（服务器已按观察者权限过滤）；不在表里的 id 一律不渲染。
+let MEDIA = {};
+const img = (id) => (MEDIA[id]?.type === 'image' ? MEDIA[id] : null);
+
+// 头像：有肖像就用图片盖住字母头像（图片加载失败时退回字母，见文件末尾的 error 监听）
+function avatar(c, cls = '') {
+  if (!c) return `<div class="avatar ${cls}" style="background:#555" data-pid="__host">${T('主')}</div>`;
+  const p = img(c.portrait);
+  return `<div class="avatar ${cls} ${p ? 'has-img' : ''}" style="background:${c.color}" title="${esc(c.name)}" data-pid="${esc(c.id)}">${esc(c.name[0])}${p ? `<img src="${esc(p.url)}" alt="${esc(p.alt)}" loading="lazy" decoding="async">` : ''}</div>`;
+}
+
+// 一组媒体（线索附件 / 角色私密资料）：图片是缩略图（点击放大），音频是播放器 + 可折叠文字稿
+function mediaHTML(ids, { ctx = '' } = {}) {
+  const list = (ids || []).filter((id) => MEDIA[id]);
+  if (!list.length) return '';
+  const imgs = list.filter((id) => MEDIA[id].type === 'image');
+  const auds = list.filter((id) => MEDIA[id].type === 'audio');
+  return `<div class="media">${imgs.length ? `<div class="thumbs">${imgs.map((id) => thumbHTML(id)).join('')}</div>` : ''}${auds.map((id) => audioHTML(id, ctx)).join('')}</div>`;
+}
+function thumbHTML(id, cls = '') {
+  const m = MEDIA[id];
+  return `<button type="button" class="thumb ${cls}" data-lightbox="${esc(id)}" title="${esc(m.alt)}" aria-label="${esc(T('查看大图：{alt}', { alt: m.alt }))}"><img src="${esc(m.url)}" alt="${esc(m.alt)}" loading="lazy" decoding="async"></button>`;
+}
+function audioHTML(id, ctx = '') {
+  const m = MEDIA[id];
+  return `<div class="audio-clue"><div class="alt">🎧 ${esc(m.alt)}</div>
+    <audio controls preload="none" src="${esc(m.url)}" data-akey="${esc(`${ctx}|${id}`)}" aria-label="${esc(m.alt)}"></audio>
+    ${m.transcript ? `<details data-dkey="${esc(`${ctx}|${id}`)}"><summary>${T('文字稿')}</summary><div class="transcript">${esc(m.transcript)}</div></details>` : ''}</div>`;
+}
+
+// 替换 innerHTML，但保留已经开始播放的音频元素和展开的文字稿（否则每来一条事件，正在听的录音就会被打断）
+function setHTML(el, html) {
+  const keep = {};
+  el.querySelectorAll('audio[data-akey]').forEach((a) => { if (!a.paused || a.currentTime > 0) keep[a.dataset.akey] = a; });
+  const open = new Set([...el.querySelectorAll('details[data-dkey]')].filter((d) => d.open).map((d) => d.dataset.dkey));
+  el.innerHTML = html;
+  el.querySelectorAll('audio[data-akey]').forEach((a) => { const old = keep[a.dataset.akey]; if (old) { a.replaceWith(old); delete keep[a.dataset.akey]; } });
+  el.querySelectorAll('details[data-dkey]').forEach((d) => { if (open.has(d.dataset.dkey)) d.open = true; });
+}
+
+// 灯箱：点击缩略图看大图与文字描述
+function openLightbox(id) {
+  const m = MEDIA[id]; if (!m) return;
+  let box = document.getElementById('lightbox');
+  if (!box) {
+    box = document.createElement('div');
+    box.id = 'lightbox'; box.className = 'lightbox'; box.hidden = true;
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
+    box.innerHTML = `<figure><button type="button" class="lb-close" aria-label="${esc(T('关闭'))}">✕</button><img alt=""><figcaption></figcaption></figure>`;
+    document.body.appendChild(box);
+    box.addEventListener('click', (e) => { if (e.target === box || e.target.closest('.lb-close')) closeLightbox(); });
+  }
+  const im = box.querySelector('img');
+  im.src = m.url; im.alt = m.alt;
+  box.setAttribute('aria-label', m.alt);
+  box.querySelector('figcaption').innerHTML = `${esc(m.alt)}${m.credit ? `<span class="credit">${esc(m.credit)}</span>` : ''}`;
+  box._return = document.activeElement;
+  box.hidden = false;
+  document.body.classList.add('lb-open');
+  box.querySelector('.lb-close').focus();
+}
+function closeLightbox() {
+  const box = document.getElementById('lightbox');
+  if (!box || box.hidden) return;
+  box.hidden = true;
+  document.body.classList.remove('lb-open');
+  box._return?.focus?.();
+}
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-lightbox]'); if (b) { e.preventDefault(); openLightbox(b.dataset.lightbox); } });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+// 头像 / 缩略图加载失败：去掉图片，露出字母头像或文字描述
+document.addEventListener('error', (e) => {
+  const t = e.target;
+  if (!(t instanceof HTMLImageElement)) return;
+  const av = t.closest('.avatar');
+  if (av) { av.classList.remove('has-img'); t.remove(); return; }
+  const th = t.closest('.thumb');
+  if (th) { th.classList.add('broken'); th.textContent = t.alt; }
+}, true);
+
+// ======================= 角色声音（Web Speech API 语音合成） =======================
+const TTS = {
+  supported: typeof window.speechSynthesis !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined',
+  voices: [],
+  queue: [],
+  current: null,
+  on: store.get('ma_tts') === '1',
+  G: null,
+};
+const SPEECH_EVENTS = new Set(['spoke', 'questioned', 'responded', 'accused', 'evidence_shared', 'narration']);
+function ttsLoadVoices() {
+  if (!TTS.supported) return;
+  try { TTS.voices = window.speechSynthesis.getVoices() || []; } catch { TTS.voices = []; }
+}
+if (TTS.supported) {
+  ttsLoadVoices();
+  try { window.speechSynthesis.addEventListener('voiceschanged', () => { ttsLoadVoices(); if (TTS.G?.view) update(TTS.G); }); } catch { /* 旧浏览器 */ }
+}
+const ttsReady = () => TTS.supported && TTS.voices.length > 0;
+// 按语言、性别挑系统声音；同性别有多个声音时按角色 id 分配，让不同角色听起来不一样
+const FEMALE = /female|woman|girl|女|xiaoxiao|xiaoyi|xiaohan|xiaomo|xiaochen|xiaorui|xiaoshuang|xiaoxuan|xiaoyan|huihui|yaoyao|tingting|meijia|sinji|hanhan|lili|samantha|victoria|karen|moira|tessa|fiona|zira|susan|hazel|serena|aria|jenny|libby|sonia|allison|\bava\b|kate|catherine|veena|nicky|joanna|salli|kimberly|ivy|emma|amy/i;
+const MALE = /(?<!fe)male|\bman\b|boy|男|yunxi|yunyang|yunjian|yunfeng|yunhao|yunze|kangkang|daniel|\balex\b|fred|\btom\b|david|mark|george|\bguy\b|ryan|aaron|arthur|oliver|rishi|gordon|lee|matthew|joey|justin|brian|eric|thomas/i;
+const voiceGender = (vc) => { const s = `${vc.name} ${vc.voiceURI}`; return FEMALE.test(s) ? 'female' : MALE.test(s) ? 'male' : null; };
+const hashStr = (s) => { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h; };
+function pickVoice(lang, gender, key) {
+  const pre = lang === 'en' ? 'en' : 'zh';
+  const norm = (l) => String(l || '').toLowerCase().replace('_', '-');
+  let pool = TTS.voices.filter((vc) => norm(vc.lang).startsWith(pre));
+  if (pre === 'zh') { const cn = pool.filter((vc) => /^zh-(cn|hans)/.test(norm(vc.lang))); if (cn.length) pool = cn; }
+  if (!pool.length) return null;
+  if (!gender || gender === 'neutral') return pool.find((vc) => vc.default) || pool.find((vc) => !voiceGender(vc)) || pool[0];
+  const g = pool.filter((vc) => voiceGender(vc) === gender);
+  const from = g.length ? g : pool;
+  return from[hashStr(key) % from.length];
+}
+// 把角色的声音设定换算成 utterance 参数
+function voiceParams(profile, lang, key) {
+  const p = profile || {};
+  const vc = pickVoice(lang, p.gender, key);
+  let pitch = Number.isFinite(p.pitch) ? p.pitch : 1;
+  let rate = Number.isFinite(p.rate) ? p.rate : 1;
+  if (p.age === 'old') { pitch *= 0.88; rate *= 0.9; }
+  else if (p.age === 'child') { pitch *= 1.25; rate *= 1.05; }
+  else if (p.age === 'young') pitch *= 1.08;
+  // 找不到同性别的声音时，用音高补一点
+  const vg = vc && voiceGender(vc);
+  if (vg && p.gender && p.gender !== 'neutral' && vg !== p.gender) pitch *= p.gender === 'male' ? 0.8 : 1.2;
+  const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+  return { voice: vc, lang: vc?.lang || (lang === 'en' ? 'en-US' : 'zh-CN'), pitch: Number(clamp(pitch, 0.1, 2).toFixed(2)), rate: Number(clamp(rate, 0.5, 2).toFixed(2)) };
+}
+function setSpeaking(pid) {
+  let st = document.getElementById('speakingStyle');
+  if (!st) { st = document.createElement('style'); st.id = 'speakingStyle'; document.head.appendChild(st); }
+  // 规则写在动态样式表里：对话流 / 左栏重新渲染后，新生成的头像也会带上「正在说话」的标记
+  const sel = `.avatar[data-pid="${CSS.escape(pid || '')}"]`;
+  st.textContent = pid ? `${sel}{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent-2);animation:speak-pulse 1.2s ease-in-out infinite}${sel}::after{content:'🔊';position:absolute;right:-6px;bottom:-4px;font-size:10px;line-height:1;padding:2px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 2px var(--bg)}` : '';
+  document.body.classList.toggle('tts-speaking', !!pid);
+}
+function ttsPump() {
+  if (TTS.current || !TTS.queue.length) return;
+  const item = TTS.queue.shift();
+  let u;
+  try { u = new SpeechSynthesisUtterance(item.text); } catch { return; }
+  u.lang = item.lang; u.pitch = item.pitch; u.rate = item.rate;
+  if (item.voice) u.voice = item.voice;
+  TTS.current = u;
+  const done = () => {
+    if (TTS.current !== u) return;
+    clearTimeout(u._watch); TTS.current = null; setSpeaking(null);
+    setTimeout(ttsPump, 120);
+  };
+  u.onend = done;
+  u.onerror = (ev) => {
+    // Chrome 要求先有一次用户交互才允许朗读（例如刷新后语音开关还开着）
+    if (ev?.error === 'not-allowed' && !TTS.warned) { TTS.warned = true; toast(T('点一下页面任意位置，就可以开始朗读')); }
+    done();
+  };
+  // 有些引擎不触发 onend：按文字长度兜底
+  u._watch = setTimeout(done, 6000 + item.text.length * 350 / item.rate);
+  setSpeaking(item.pid);
+  try { window.speechSynthesis.speak(u); } catch { done(); }
+}
+function ttsStop() {
+  TTS.queue = [];
+  const u = TTS.current; TTS.current = null;
+  if (u) clearTimeout(u._watch);
+  setSpeaking(null);
+  if (TTS.supported) { try { window.speechSynthesis.cancel(); } catch { /* 忽略 */ } }
+}
+// 每次拿到新视图：只朗读首次加载之后新出现的发言类事件；回放时不读
+function ttsFeed(G) {
+  const v = G.view;
+  const max = v.events.length ? v.events.at(-1).seq : 0;
+  if (G.spokenSeq === undefined) { G.spokenSeq = max; return; }
+  const fresh = v.events.filter((e) => e.seq > G.spokenSeq && SPEECH_EVENTS.has(e.type));
+  G.spokenSeq = Math.max(G.spokenSeq, max);
+  if (!TTS.on || !ttsReady() || G.replay !== null) return;
+  const lang = v.meta?.lang === 'en' ? 'en' : 'zh';
+  const chars = v.scenario.characters;
+  for (const e of fresh) {
+    const text = String(e.data?.text || '').replace(/^\s*[【\[](主持人|Host)[】\]]\s*/, '').trim();
+    if (!text) continue;
+    const c = chars.find((x) => x.id === e.actor);
+    const profile = e.type === 'narration' || !c ? { gender: 'neutral' } : (c.voice || (v.you?.id === c.id ? v.you.voice : null) || {});
+    TTS.queue.push({ text, pid: e.type === 'narration' || !c ? '__host' : c.id, ...voiceParams(profile, lang, c?.id || 'narrator') });
+  }
+  // AI 行动很快时别越积越多：只留最近 8 句
+  if (TTS.queue.length > 8) TTS.queue.splice(0, TTS.queue.length - 8);
+  ttsPump();
+}
+
+// ======================= 语音输入（Web Speech API 语音识别） =======================
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition || null;
+function micHTML(G) {
+  if (!SR) return '';
+  const on = !!G.rec;
+  return `<button type="button" class="mic ${on ? 'on' : ''}" data-mic aria-pressed="${on}" title="${esc(on ? T('停止语音输入') : T('语音输入'))}" aria-label="${esc(on ? T('停止语音输入') : T('语音输入'))}">🎤</button>`;
+}
+function micStop(G) { if (G.rec) { const r = G.rec; G.rec = null; try { r.stop(); } catch { /* 忽略 */ } } }
+function micToggle(G, btn) {
+  if (G.rec) { micStop(G); btn.classList.remove('on'); btn.setAttribute('aria-pressed', 'false'); return; }
+  let rec;
+  try { rec = new SR(); } catch { toast(T('当前浏览器无法使用语音输入')); return; }
+  rec.lang = G.view?.meta?.lang === 'en' ? 'en-US' : 'zh-CN';
+  rec.interimResults = true; rec.continuous = true;
+  const base = G.draft.text;
+  const sep = base && !/\s$/.test(base) ? (rec.lang === 'en-US' ? ' ' : '') : '';
+  rec.onresult = (ev) => {
+    let said = '';
+    for (let i = 0; i < ev.results.length; i++) said += ev.results[i][0].transcript;
+    G.draft.text = (base + sep + said).slice(0, 300);
+    const ta = document.getElementById('aText');
+    if (ta) { ta.value = G.draft.text; ta.scrollTop = ta.scrollHeight; }
+  };
+  rec.onerror = (ev) => { if (ev.error === 'not-allowed' || ev.error === 'service-not-allowed') toast(T('无法使用麦克风：请在浏览器里允许麦克风权限')); else if (ev.error !== 'no-speech' && ev.error !== 'aborted') toast(T('语音输入出错：{err}', { err: ev.error })); };
+  rec.onend = () => { if (G.rec === rec) G.rec = null; document.querySelectorAll('[data-mic]').forEach((b) => { b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); b.title = T('语音输入'); }); };
+  try { rec.start(); } catch (e) { toast(T('语音输入出错：{err}', { err: e.message })); return; }
+  G.rec = rec;
+  btn.classList.add('on'); btn.setAttribute('aria-pressed', 'true'); btn.title = T('停止语音输入');
+}
 
 function update(G) {
+  MEDIA = G.view.media || {};
+  TTS.G = G;
+  ttsFeed(G);
   const D = derive(G);
   renderStatus(G, D);
   renderLeft(G, D);
@@ -487,6 +715,11 @@ function renderStatus(G, D) {
   const controls = [];
   if (hostToken && isAIOnly && v.phase !== 'ended') controls.push(`<button class="btn sm" data-ctl="${v.meta.paused ? 'resume' : 'pause'}">${v.meta.paused ? '▶ ' + T('继续') : '⏸ ' + T('暂停')}</button>`);
   if (hostToken && v.phase !== 'ended') controls.push(`<label class="small muted">${T('速度')} <input type="range" min="0" max="4000" step="200" value="${v.meta.speedMs}" data-speed></label>`);
+  if (TTS.supported) {
+    controls.push(ttsReady()
+      ? `<button class="btn sm tts-toggle ${TTS.on ? 'on' : ''}" data-tts aria-pressed="${TTS.on}" title="${esc(TTS.on ? T('正在用浏览器语音朗读角色发言，点击关闭') : T('用浏览器语音朗读新的发言（每个角色有自己的声音）'))}">${TTS.on ? '🔊' : '🔈'} ${T('语音')}</button>`
+      : `<span class="tts-off" tabindex="0" title="${esc(T('这台设备没有可用的系统语音，无法朗读'))}"><button class="btn sm" disabled aria-disabled="true">🔇 ${T('语音')}</button></span>`);
+  }
   controls.push(`<span class="small muted" title="${T('正在观战的人数（不含玩家）')}">👀 ${v.meta.watchers || 0}</span>`);
   if (v.phase !== 'ended') controls.push(`<button class="btn sm" data-share title="${T('复制观战链接：对方只能看到公开信息')}${isAIOnly ? T('，可自行切换上帝视角') : ''}">🔗 ${T('分享观战')}</button>`);
   if (!G.token && v.meta.godAllowed) controls.push(`<button class="btn sm ${G.mode === 'god' ? 'primary' : ''}" data-mode>${G.mode === 'god' ? '👁️ ' + T('上帝视角') : '👤 ' + T('观众视角')}</button>`);
@@ -513,6 +746,13 @@ function renderStatus(G, D) {
       b.onclick = async () => {
         const url = b.dataset.copy;
         try { await navigator.clipboard.writeText(url); toast(T('邀请链接已复制')); } catch { prompt(T('复制这条邀请链接发给朋友：'), url); }
+      };
+    });
+    el.querySelectorAll('[data-tts]').forEach((b) => {
+      b.onclick = () => {
+        TTS.on = !TTS.on; store.set('ma_tts', TTS.on ? '1' : '0');
+        if (!TTS.on) ttsStop();
+        renderStatus(G, derive(G));
       };
     });
     el.querySelectorAll('[data-mode]').forEach((b) => { b.onclick = () => { G.mode = G.mode === 'god' ? 'spectator' : 'god'; store.set(`ma_mode_${G.id}`, G.mode); G.view = null; G.connect(); }; });
@@ -565,6 +805,7 @@ function clueHTML(c, { owner, publicBy, foot = '', priv = false } = {}) {
   return `<div class="cluecard ${priv ? 'private' : ''}">
     <div class="t"><span>${esc(c.title)}</span><span class="loc">${esc(c.locationName || '')}${c.time ? ' · ' + esc(c.time) : ''}</span></div>
     <div class="tx">${esc(c.text)}</div>
+    ${mediaHTML(c.media, { ctx: c.id })}
     ${(owner || publicBy || foot) ? `<div class="foot"><span>${owner ? T('持有：') + esc(owner) : ''}${publicBy ? ' ' + T('公开：') + esc(publicBy) : ''}</span>${foot}</div>` : ''}
   </div>`;
 }
@@ -580,6 +821,7 @@ function renderLeft(G, D) {
       <div class="head">${avatar(ch(you.id), 'lg')}<div><b>${esc(you.name)}</b><div class="small muted">${esc(you.publicBio)}</div></div></div>
       <div class="small"><b>${T('任务')}</b><ol class="objectives">${you.objectives.map((o) => `<li>${esc(o)}</li>`).join('')}</ol></div>
       <details ${v.phase === 'intro' ? 'open' : ''}><summary>${T('我的剧本')}</summary><div class="script">${esc(you.script)}</div></details>
+      ${(you.media || []).some((id) => MEDIA[id]) ? `<div class="private-media"><div class="small"><b>${T('私密资料')}</b> <span class="pill gold">${T('仅自己可见')}</span></div>${mediaHTML(you.media, { ctx: 'role' })}</div>` : ''}
     </div>`;
     const mine = v.myClues;
     html += `<div class="card"><h3 style="font-size:16px">${T('我的线索')} <span class="pill">${mine.length}</span></h3>
@@ -589,12 +831,12 @@ function renderLeft(G, D) {
     html += `<div class="card"><h3 style="font-size:16px">${T('角色')}</h3><div class="cluelist">${v.scenario.characters.map((c) => {
       const role = v.roles?.[c.id];
       return `<div style="display:flex;gap:10px;align-items:flex-start">${avatar(c)}<div class="small"><b style="font-size:14px">${esc(c.name)}</b> <span class="pill">${esc(seatLabel(v.meta, c.id))}</span> ${role?.isMurderer ? `<span class="pill red">${T('凶手')}</span>` : ''}<div class="muted">${esc(c.publicBio)}</div>
-        ${role ? `<details><summary class="small">${T('查看剧本')}</summary><div class="script">${esc(role.script)}</div></details>` : ''}</div></div>`;
+        ${role ? `<details><summary class="small">${T('查看剧本')}</summary><div class="script">${esc(role.script)}</div>${mediaHTML(role.media, { ctx: `role-${c.id}` })}</details>` : ''}</div></div>`;
     }).join('')}</div></div>`;
   }
   if (el._html !== html) {
     const open = [...el.querySelectorAll('details')].map((d) => d.open);
-    el.innerHTML = html; el._html = html;
+    setHTML(el, html); el._html = html;
     el.querySelectorAll('details').forEach((d, i) => { if (open[i] !== undefined) d.open = open[i]; });
   }
   void name;
@@ -645,15 +887,29 @@ function renderChat(G, D) {
       default: break;
     }
   }
-  const html = out.join('');
-  if (el._html !== html) {
-    el.innerHTML = html; el._html = html;
-    if (atBottom || G.replay !== null) el.scrollTop = el.scrollHeight;
-  }
+  if (patchList(el, out) && (atBottom || G.replay !== null)) el.scrollTop = el.scrollHeight;
+}
+
+// 对话流基本只追加：只重建第一处不同之后的条目，前面的节点（正在播放的录音、已加载的图片）原样保留。
+// items 的每一项都必须是一个顶层元素的 HTML。返回是否有变化。
+function patchList(el, items) {
+  const old = el._items || [];
+  if (el.childElementCount !== old.length) { el.innerHTML = ''; old.length = 0; }
+  let i = 0;
+  while (i < old.length && i < items.length && old[i] === items[i]) i++;
+  if (i === old.length && i === items.length) return false;
+  while (el.childElementCount > i) el.lastElementChild.remove();
+  const tpl = document.createElement('template');
+  tpl.innerHTML = items.slice(i).join('');
+  el.appendChild(tpl.content);
+  el._items = items.slice();
+  if (el.childElementCount !== items.length) el._items = null; // 结构不符时下次整体重建
+  return true;
 }
 
 // ---------- 行动面板 ----------
 async function act(G, action) {
+  micStop(G);
   try { await api(`/api/games/${G.id}/action`, { method: 'POST', body: { token: G.token, action } }); G.draft.text = ''; }
   catch (e) { toast(e.message); }
 }
@@ -661,13 +917,14 @@ async function act(G, action) {
 function renderActions(G, D) {
   const { v, name, chars } = D;
   const el = document.getElementById('actions');
-  if (v.phase === 'ended' || G.replay !== null) { el.innerHTML = ''; G.actionKey = ''; return; }
+  if (v.phase === 'ended' || G.replay !== null) { micStop(G); el.innerHTML = ''; G.actionKey = ''; return; }
   const t = v.turn;
   const mine = v.viewer.kind === 'player' && t && t.pid === v.viewer.pid;
   const key = mine ? `${t.pid}|${t.kind}|${v.events.length}|${G.draft.sub}` : `wait|${t?.pid}|${v.viewer.kind}`;
   if (key === G.actionKey) return;
   G.actionKey = key;
   if (!mine) {
+    micStop(G);
     el.innerHTML = v.viewer.kind === 'player' ? `<div class="actions waiting small">${T('等待其他角色行动…你可以先阅读剧本、整理线索，右侧可查看地图、关系图和时间线。')}</div>` : '';
     return;
   }
@@ -675,7 +932,7 @@ function renderActions(G, D) {
   const unshared = v.myClues.filter((c) => !c.public);
   const targetSel = `<select id="aTarget">${others.map((c) => `<option value="${c.id}" ${G.draft.target === c.id ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select>`;
   const clueSel = (optional) => `<select id="aClue">${optional ? `<option value="">${T('（不出示线索）')}</option>` : ''}${unshared.map((c) => `<option value="${c.id}">${esc(c.title)}</option>`).join('')}</select>`;
-  const ta = (ph) => `<textarea id="aText" maxlength="300" placeholder="${esc(ph)}">${esc(G.draft.text)}</textarea>`;
+  const ta = (ph) => `<div class="ta-wrap ${SR ? 'has-mic' : ''}"><textarea id="aText" maxlength="300" placeholder="${esc(ph)}">${esc(G.draft.text)}</textarea>${micHTML(G)}</div>`;
   let body = '';
   if (t.kind === 'ready') {
     body = `<div class="hint">${T('请先阅读左侧的角色剧本和任务。准备好后点击开始。')}</div><div><button class="btn primary" data-go="READY">${T('我已读完剧本')}</button></div>`;
@@ -707,6 +964,7 @@ function renderActions(G, D) {
 
   const text = el.querySelector('#aText');
   if (text) { text.oninput = () => { G.draft.text = text.value; }; text.onkeydown = (e) => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) el.querySelector('[data-submit]')?.click(); }; setTimeout(() => text.focus(), 0); }
+  el.querySelectorAll('[data-mic]').forEach((b) => { b.onclick = () => { micToggle(G, b); el.querySelector('#aText')?.focus(); }; });
   const tgt = el.querySelector('#aTarget'); if (tgt) { if (!G.draft.target || !others.some((c) => c.id === G.draft.target)) G.draft.target = tgt.value; tgt.onchange = () => { G.draft.target = tgt.value; }; }
   el.querySelectorAll('[data-go]').forEach((b) => { b.onclick = () => act(G, { type: b.dataset.go }); });
   el.querySelectorAll('[data-loc]').forEach((b) => { b.onclick = () => act(G, { type: 'INVESTIGATE', location: b.dataset.loc }); });
@@ -742,7 +1000,7 @@ function renderEnding(G, D) {
   const maxVotes = Math.max(...Object.values(res.tally), 1);
   const myRes = G.myPid ? res.players[G.myPid] : null;
   const m = v.metrics || {};
-  el.innerHTML = `<div class="card ending">
+  setHTML(el, `<div class="card ending">
     <div class="row" style="justify-content:space-between">
       <div class="verdict ${res.goodWin ? 'good' : 'bad'}">${res.goodWin ? T('真相大白：凶手被指认') : T('凶手逃脱了')}</div>
       <button class="btn sm ghost" data-toggle>${G.endOpen === false ? T('展开') : T('收起')}</button>
@@ -765,6 +1023,7 @@ function renderEnding(G, D) {
       <div class="truth-tl">${truth.timeline.map((t) => `<div><b>${esc(t.time)}</b>${esc(t.text)}</div>`).join('')}</div>
       <div class="small muted" style="margin-top:6px">${truth.secrets.map((s) => `<div>· ${T('{who}的秘密：', { who: `<b>${esc(name(s.who))}</b>` })}${esc(s.text)}</div>`).join('')}</div>
     </details>
+    ${endingMediaHTML(v)}
     <details style="margin-top:8px"><summary><b>${T('本局指标')}</b></summary>
       <div class="metrics" style="margin-top:8px">
         ${[[T('侦探投票准确率'), pct(m.detectiveVoteAccuracy)], [T('规则违规率'), pct(m.ruleViolationRate)], [T('搜到的线索'), m.cluesFound], [T('公开的线索'), m.cluesPublic], [T('关键线索公开'), m.keyCluesPublic], [T('搜证有效率'), pct(m.investigationEfficiency)], [T('AI 决策次数'), m.decisions], [T('模型回退次数'), m.llmFallbacks], [T('Token 用量'), m.tokens]].map(([k, val]) => `<div class="metric"><b>${val ?? '-'}</b><span>${k}</span></div>`).join('')}
@@ -778,11 +1037,23 @@ function renderEnding(G, D) {
       <a class="btn sm" href="/api/games/${G.id}/log" download="mystery-${G.id}.json">${T('下载日志')}</a>
     </div>
     </div>
-  </div>`;
+  </div>`);
   el.querySelector('[data-toggle]').onclick = () => { G.endOpen = G.endOpen === false; update(G); };
   const rp = el.querySelector('[data-replay]');
-  if (rp) rp.oninput = () => { const n = Number(rp.value); G.replay = n >= maxSeq ? null : n; update(G); };
+  if (rp) rp.oninput = () => { const n = Number(rp.value); G.replay = n >= maxSeq ? null : n; if (G.replay !== null) ttsStop(); update(G); };
   el.querySelector('[data-live]')?.addEventListener('click', () => { G.replay = null; update(G); });
+}
+// 终局：所有线索附带的图片 / 录音，以及没被任何人看到过的资料（终局后全部公开）
+function endingMediaHTML(v) {
+  const clues = new Map();
+  for (const c of [...(v.allClues || []), ...(v.publicClues || []), ...(v.myClues || [])]) if (c.media?.some((id) => MEDIA[id]) && !clues.has(c.id)) clues.set(c.id, c);
+  const used = new Set([v.scenario.cover, v.scenario.victim?.portrait, ...v.scenario.characters.map((c) => c.portrait), ...v.scenario.locations.map((l) => l.image), ...[...clues.values()].flatMap((c) => c.media)]);
+  const rest = Object.keys(MEDIA).filter((id) => !used.has(id));
+  if (!clues.size && !rest.length) return '';
+  return `<details style="margin-top:8px" data-dkey="ending-media"><summary><b>${T('证物图像与录音')}</b> <span class="pill">${clues.size + rest.length}</span></summary>
+    <div class="evidence-grid">${[...clues.values()].map((c) => `<div class="ev-item"><b class="small">${esc(c.title)}</b>${mediaHTML(c.media, { ctx: `end-${c.id}` })}</div>`).join('')}
+    ${rest.length ? `<div class="ev-item"><b class="small">${T('其他资料')}</b>${mediaHTML(rest, { ctx: 'end-rest' })}</div>` : ''}</div>
+  </details>`;
 }
 const pct = (x) => (x === undefined || x === null ? '-' : `${Math.round(x * 100)}%`);
 
@@ -799,7 +1070,7 @@ function renderViz(G, D) {
   const fn = { map: vizMap, graph: vizGraph, timeline: vizTimeline, suspect: vizSuspect, board: vizBoard }[G.tab] || vizMap;
   const html = fn(G, D);
   if (body._html !== html) {
-    body.innerHTML = html; body._html = html;
+    setHTML(body, html); body._html = html;
     body.querySelectorAll('[data-room]').forEach((r) => {
       r.addEventListener('click', () => {
         const v = G.view;
@@ -824,7 +1095,8 @@ function vizMap(G, D) {
   const myTurnInv = v.viewer.kind === 'player' && v.turn?.pid === v.viewer.pid && v.turn.kind === 'investigate' && G.replay === null;
   const crime = locs[0];
   let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T('现场地图')}">
-    <defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--line)" stroke-width="1"/></pattern></defs>
+    <defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="var(--line)" stroke-width="1"/></pattern>
+      <linearGradient id="roomfade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--panel-2);stop-opacity:.94"/><stop offset=".5" style="stop-color:var(--panel-2);stop-opacity:.62"/><stop offset="1" style="stop-color:var(--panel-2);stop-opacity:.2"/></linearGradient></defs>
     <rect x="0" y="0" width="${W}" height="${H}" rx="10" fill="url(#hatch)" opacity=".5"/>`;
   for (const l of locs.slice(1)) {
     const a = center(crime); const b = center(l);
@@ -837,25 +1109,31 @@ function vizMap(G, D) {
     const foundHere = evs.filter((e) => e.type === 'clue_found' && e.data.clue && e.data.location === l.id).length;
     const remaining = G.replay !== null && v.viewer.kind === 'god' ? total - foundHere : v.locations.find((x) => x.id === l.id)?.remaining;
     const heat = (searches[l.id] || 0) / maxS;
-    svg += `<g data-room="${l.id}" style="cursor:${myTurnInv ? 'pointer' : 'default'}">
-      <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="8" fill="var(--panel-2)" stroke="${myTurnInv && remaining ? 'var(--accent-2)' : l === crime ? 'var(--accent)' : 'var(--line)'}" stroke-width="${l === crime || myTurnInv ? 2 : 1}"/>
+    const li = img(l.image);
+    const stroke = `stroke="${myTurnInv && remaining ? 'var(--accent-2)' : l === crime ? 'var(--accent)' : 'var(--line)'}" stroke-width="${l === crime || myTurnInv ? 2 : 1}"`;
+    svg += `<g data-room="${l.id}" class="room ${myTurnInv ? 'clickable' : ''}" style="cursor:${myTurnInv ? 'pointer' : 'default'}">
+      <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="8" fill="var(--panel-2)" ${li ? '' : stroke}/>
+      ${li ? `<clipPath id="mclip-${l.id}"><rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="8"/></clipPath>
+      <image href="${esc(li.url)}" x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" preserveAspectRatio="xMidYMid slice" clip-path="url(#mclip-${l.id})" class="room-img" role="img" aria-label="${esc(li.alt)}"><title>${esc(li.alt)}</title></image>
+      <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="8" fill="url(#roomfade)" ${stroke}/>` : ''}
       <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="8" fill="var(--accent)" opacity="${(heat * 0.18).toFixed(2)}"/>
-      <text x="${p.x + 10}" y="${p.y + 22}" fill="var(--text)" font-size="15" font-family="var(--serif)" font-weight="700">${esc(l.name)}${l === crime ? ' ✕' : ''}</text>
-      <text x="${p.x + RW - 10}" y="${p.y + 22}" fill="var(--muted)" font-size="11" text-anchor="end">${T('线索 {a}/{b}', { a: remaining, b: total })}</text>
-      <text x="${p.x + 10}" y="${p.y + 40}" fill="var(--faint)" font-size="11">${T('被搜查 {n} 次', { n: searches[l.id] || 0 })}</text>`;
+      <text x="${p.x + 10}" y="${p.y + 22}" fill="var(--text)" font-size="15" font-family="var(--serif)" font-weight="700" ${li ? 'class="halo2"' : ''}>${esc(l.name)}${l === crime ? ' ✕' : ''}</text>
+      <text x="${p.x + RW - 10}" y="${p.y + 22}" fill="var(--muted)" font-size="11" text-anchor="end" ${li ? 'class="halo2"' : ''}>${T('线索 {a}/{b}', { a: remaining, b: total })}</text>
+      <text x="${p.x + 10}" y="${p.y + 40}" fill="${li ? 'var(--muted)' : 'var(--faint)'}" font-size="11" ${li ? 'class="halo2"' : ''}>${T('被搜查 {n} 次', { n: searches[l.id] || 0 })}</text>`;
     const here = Object.entries(pos).filter(([, loc]) => loc === l.id).map(([pid]) => pid);
     here.forEach((pid, i) => {
       const c = ch(pid);
       const cx = p.x + 22 + i * 28; const cy = p.y + RH - 22;
       const active = v.turn?.pid === pid && G.replay === null;
-      svg += `<g><circle cx="${cx}" cy="${cy}" r="12" fill="${c.color}" stroke="${active ? 'var(--accent-2)' : 'var(--bg)'}" stroke-width="${active ? 3 : 2}"/><text x="${cx}" y="${cy + 4.5}" font-size="12" fill="#fff" text-anchor="middle" font-family="var(--serif)">${esc(c.name[0])}</text><title>${esc(c.name)}</title></g>`;
+      const pi = img(c.portrait);
+      svg += `<g><circle cx="${cx}" cy="${cy}" r="12" fill="${c.color}"/><text x="${cx}" y="${cy + 4.5}" font-size="12" fill="#fff" text-anchor="middle" font-family="var(--serif)">${esc(c.name[0])}</text>${pi ? `<clipPath id="tclip-${pid}"><circle cx="${cx}" cy="${cy}" r="12"/></clipPath><image href="${esc(pi.url)}" x="${cx - 12}" y="${cy - 12}" width="24" height="24" preserveAspectRatio="xMidYMid slice" clip-path="url(#tclip-${pid})" role="img" aria-label="${esc(pi.alt)}"/>` : ''}<circle cx="${cx}" cy="${cy}" r="12" fill="none" stroke="${active ? 'var(--accent-2)' : 'var(--bg)'}" stroke-width="${active ? 3 : 2}"/><title>${esc(c.name)}</title></g>`;
     });
     svg += `</g>`;
   }
   svg += '</svg>';
   const legend = `<div class="legend"><span>✕ ${T('案发现场')}</span><span>${T('头像 = 角色最近一次搜证的位置')}</span><span>${T('红色深浅 = 搜查频率')}</span>${myTurnInv ? `<span style="color:var(--accent-2)">${T('点击房间即可搜证')}</span>` : ''}</div>`;
-  const loc = sc.locations.map((l) => `<div class="small" style="margin-top:6px"><b>${esc(l.name)}</b> <span class="muted">${esc(l.description)}</span></div>`).join('');
-  return svg + legend + `<div style="margin-top:10px">${loc}</div>`;
+  const loc = sc.locations.map((l) => `<div class="loc-item ${img(l.image) ? 'has-img' : ''}">${img(l.image) ? thumbHTML(l.image, 'loc-thumb') : ''}<div class="small"><b>${esc(l.name)}</b>${l === crime ? ` <span class="pill red">${T('案发现场')}</span>` : ''} <span class="muted">${esc(l.description || '')}</span></div></div>`).join('');
+  return svg + legend + `<div class="loc-list">${loc}</div>`;
 }
 
 // --- 关系图 ---
@@ -906,13 +1184,20 @@ function vizGraph(G, D) {
     }
   }
   // 节点
-  svg += `<g><circle cx="${cx}" cy="${cy}" r="30" fill="var(--bg-2)" stroke="var(--accent)" stroke-width="2"/><text x="${cx}" y="${cy - 2}" text-anchor="middle" font-size="14" fill="var(--text)" font-family="var(--serif)">${esc(sc.victim.name)}</text><text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="10" fill="var(--bad)">${T('死者')}</text></g>`;
+  const vp = img(sc.victim.portrait);
+  svg += vp
+    ? `<g><clipPath id="gclip-victim"><circle cx="${cx}" cy="${cy}" r="30"/></clipPath><circle cx="${cx}" cy="${cy}" r="30" fill="var(--bg-2)"/><image href="${esc(vp.url)}" x="${cx - 30}" y="${cy - 30}" width="60" height="60" preserveAspectRatio="xMidYMid slice" clip-path="url(#gclip-victim)" class="victim-img" role="img" aria-label="${esc(vp.alt)}"/><circle cx="${cx}" cy="${cy}" r="30" fill="none" stroke="var(--accent)" stroke-width="2"/>
+      <text x="${cx}" y="${cy + 46}" text-anchor="middle" font-size="13" fill="var(--text)" font-family="var(--serif)" class="halo">${esc(sc.victim.name)}</text><text x="${cx}" y="${cy + 60}" text-anchor="middle" font-size="10" fill="var(--bad)" class="halo">${T('死者')}</text><title>${esc(sc.victim.name)}</title></g>`
+    : `<g><circle cx="${cx}" cy="${cy}" r="30" fill="var(--bg-2)" stroke="var(--accent)" stroke-width="2"/><text x="${cx}" y="${cy - 2}" text-anchor="middle" font-size="14" fill="var(--text)" font-family="var(--serif)">${esc(sc.victim.name)}</text><text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="10" fill="var(--bad)">${T('死者')}</text></g>`;
   for (const c of chars) {
     const p = P[c.id];
     const isTurn = v.turn?.pid === c.id && G.replay === null;
     const isM = (v.roles?.[c.id]?.isMurderer) || (v.phase === 'ended' && v.result?.murderer === c.id);
-    svg += `<g><circle cx="${p.x}" cy="${p.y}" r="24" fill="${c.color}" stroke="${isTurn ? 'var(--accent-2)' : 'var(--bg)'}" stroke-width="${isTurn ? 4 : 3}"/>
+    const pi = img(c.portrait);
+    svg += `<g><circle cx="${p.x}" cy="${p.y}" r="24" fill="${c.color}"/>
       <text x="${p.x}" y="${p.y + 6}" text-anchor="middle" font-size="18" fill="#fff" font-family="var(--serif)">${esc(c.name[0])}</text>
+      ${pi ? `<clipPath id="gclip-${c.id}"><circle cx="${p.x}" cy="${p.y}" r="24"/></clipPath><image href="${esc(pi.url)}" x="${p.x - 24}" y="${p.y - 24}" width="48" height="48" preserveAspectRatio="xMidYMid slice" clip-path="url(#gclip-${c.id})" role="img" aria-label="${esc(pi.alt)}"/>` : ''}
+      <circle cx="${p.x}" cy="${p.y}" r="24" fill="none" stroke="${isTurn ? 'var(--accent-2)' : 'var(--bg)'}" stroke-width="${isTurn ? 4 : 3}"/>
       <text x="${p.x}" y="${p.y + 42}" text-anchor="middle" font-size="13" fill="var(--text)">${esc(c.name)}${isM ? ' 🔪' : ''}</text></g>`;
   }
   svg += '</svg>';

@@ -1,5 +1,6 @@
 // 剧本加载与校验。剧本是纯数据（JSON），引擎不依赖任何具体剧本。
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { checkMedia } from './media.js';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -49,6 +50,8 @@ export function listScenarios(dir) {
         id: s.id, title: s.title, subtitle: s.subtitle, players: s.players,
         difficulty: s.difficulty, estimatedMinutes: s.estimatedMinutes, license: s.license,
         clues: s.clues.length, locations: s.locations.length, source, author: s.author || null,
+        cover: s.cover && s.assets?.[s.cover] ? (s.assets[s.cover].src.startsWith('https://') ? s.assets[s.cover].src : `/media/${s.id}/${s.cover}`) : null,
+        media: { images: Object.values(s.assets || {}).filter((a) => a.type === 'image').length, audio: Object.values(s.assets || {}).filter((a) => a.type === 'audio').length },
         language: baseLang(s), languages: scenarioLangs(s),
         i18n: Object.fromEntries(Object.keys(s.translations || {}).map((l) => [l, {
           title: s.translations[l].title || s.title, subtitle: s.translations[l].subtitle || s.subtitle,
@@ -145,6 +148,7 @@ function checkTypes(s) {
     need(Number.isInteger(r?.discuss) && r.discuss >= 0 && r.discuss <= 5, `config.rounds[${i}].discuss 必须是 0 到 5 的整数`);
   });
   need((s.config?.rounds || []).length <= 4, 'config.rounds 最多 4 轮');
+  errors.push(...checkMedia(s));
   if (s.translations !== undefined) {
     const ok = s.translations && typeof s.translations === 'object' && !Array.isArray(s.translations);
     need(ok, 'translations 必须是 { 语言代码: {…} } 对象');
@@ -247,8 +251,9 @@ export function publicScenarioView(s) {
   return {
     id: s.id, title: s.title, subtitle: s.subtitle, background: s.background, intro: s.intro,
     victim: s.victim,
-    locations: s.locations.map(({ id, name, description, x, y }) => ({ id, name, description, x, y })),
-    characters: s.characters.map(({ id, name, color, publicBio }) => ({ id, name, color, publicBio })),
+    locations: s.locations.map(({ id, name, description, x, y, image }) => ({ id, name, description, x, y, ...(image ? { image } : {}) })),
+    ...(s.cover ? { cover: s.cover } : {}),
+    characters: s.characters.map(({ id, name, color, publicBio, portrait, voice }) => ({ id, name, color, publicBio, ...(portrait ? { portrait } : {}), ...(voice ? { voice } : {}) })),
     relationships: s.relationships.filter((r) => r.public).map(({ a, b, label }) => ({ a, b, label })),
     victimRelationships: s.victimRelationships,
     clueCount: s.clues.length,
@@ -259,7 +264,7 @@ export function publicScenarioView(s) {
 /** 线索中可以展示给持有者的字段（作者标注的 implicates/requires 不暴露）。 */
 export function clueCard(clue, locations) {
   const loc = locations.find((l) => l.id === clue.location);
-  return { id: clue.id, title: clue.title, text: clue.text, time: clue.time || '', location: clue.location, locationName: loc?.name || clue.location };
+  return { id: clue.id, title: clue.title, text: clue.text, time: clue.time || '', location: clue.location, locationName: loc?.name || clue.location, ...(clue.media?.length ? { media: [...clue.media] } : {}) };
 }
 
 /**
@@ -285,6 +290,7 @@ export function lintScenario(s) {
     murdererShare: Number(murdererShare.toFixed(2)), maxSingleClueOnMurderer: maxSingle,
     redHerrings, gatedClues: gated, contradictions: (s.contradictions || []).length,
     weights: pos,
+    media: { images: Object.values(s.assets || {}).filter((a) => a.type === 'image').length, audio: Object.values(s.assets || {}).filter((a) => a.type === 'audio').length, cover: !!s.cover, portraits: s.characters.filter((c) => c.portrait).length, voices: s.characters.filter((c) => c.voice).length },
   };
   if (murdererShare > 0.5) warnings.push(`指向凶手的线索权重占 ${Math.round(murdererShare * 100)}%，案子可能太容易（建议 ≤ 40%）`);
   if (maxSingle >= 4) warnings.push(`有线索单独指向凶手的权重达到 ${maxSingle}，可能一条线索就能破案（建议 ≤ 3）`);
@@ -338,6 +344,13 @@ export function localizeScenario(s, lang) {
     timeline: s.truth.timeline.map((e, i) => ({ ...e, text: pick(t.truth?.timeline?.[i], e.text) })),
     secrets: (s.truth.secrets || []).map((e, i) => ({ ...e, text: pick(t.truth?.secrets?.[i], e.text) })),
   };
+  if (s.assets) {
+    out.assets = Object.fromEntries(Object.entries(s.assets).map(([id, a]) => {
+      const o = t.assets?.[id] || {};
+      return [id, { ...a, src: o.src || a.src, alt: pick(o.alt, a.alt), ...(a.transcript ? { transcript: pick(o.transcript, a.transcript) } : {}) }];
+    }));
+  }
+  out.characters = out.characters.map((c) => (c.voice && t.characters?.[c.id]?.voice?.style ? { ...c, voice: { ...c.voice, style: t.characters[c.id].voice.style } } : c));
   out.phaseNarration = Object.fromEntries(Object.entries(s.phaseNarration || {}).map(([k, v]) => [k, pick(t.phaseNarration?.[k], v)]));
   out.language = lang;
   delete out.translations;
@@ -367,5 +380,10 @@ export function translationCoverage(s, lang) {
   s.truth.timeline.forEach((e, i) => need(t.truth?.timeline?.[i], `truth.timeline[${i}]`, e.text));
   (s.truth.secrets || []).forEach((e, i) => need(t.truth?.secrets?.[i], `truth.secrets[${i}]`, e.text));
   for (const [k, v] of Object.entries(s.phaseNarration || {})) need(t.phaseNarration?.[k], `phaseNarration.${k}`, v);
+  for (const [id, a] of Object.entries(s.assets || {})) {
+    need(t.assets?.[id]?.alt, `assets.${id}.alt`, a.alt);
+    if (a.transcript) need(t.assets?.[id]?.transcript, `assets.${id}.transcript`, a.transcript);
+  }
+  for (const c of s.characters) if (c.voice?.style) need(t.characters?.[c.id]?.voice?.style, `characters.${c.id}.voice.style`, c.voice.style);
   return { lang, total, missing, ratio: total ? (total - missing.length) / total : 1 };
 }

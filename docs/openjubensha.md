@@ -2,7 +2,7 @@
 
 > 格式标识：`openjubensha/1` · JSON Schema：[`schema/openjubensha-1.schema.json`](../schema/openjubensha-1.schema.json) · 参考实现：[`src/engine/scenario.js`](../src/engine/scenario.js)
 
-OpenJubensha 是一个**机器可读、可校验、可被 AI 直接游玩**的剧本杀剧本格式。一个剧本就是一个 UTF-8 JSON 文件。它的目标是：
+OpenJubensha 是一个**多模态、多语言、机器可读、可校验、可被 AI 直接游玩**的剧本杀剧本格式。一个剧本是一个 UTF-8 JSON 文件，加上可选的媒体目录（`<剧本id>/media/`）。它的目标是：
 
 - **作者友好**：纯数据，任何编辑器都能写；加上 `$schema` 就有自动补全。
 - **引擎无关**：格式只描述「故事 + 信息分配 + 规则参数」，不包含代码。任何实现都可以读取同一个剧本。
@@ -66,6 +66,7 @@ OpenJubensha 是一个**机器可读、可校验、可被 AI 直接游玩**的�
 | `config` | ✔ | 规则参数 |
 | `phaseNarration` |  | 阶段旁白 |
 | `translations` |  | 其他语言的翻译，见 3.9 |
+| `assets` `cover` |  | 媒体与封面，见 3.10 |
 
 ### 3.2 `locations[]`
 
@@ -154,6 +155,54 @@ OpenJubensha 是一个**机器可读、可校验、可被 AI 直接游玩**的�
 - **一局只用一种语言**：创建对局时选择语言（`"lang": "en"`），引擎用该语言的剧本文本、AI 台词和提示。
 - 翻译必须保留推理所依赖的细节（时间、数字、措辞上的破绽），否则剧本在该语言下可能不可解。
 
+## 3.10 多模态：图片、音频与角色声音
+
+剧本可以带图片和音频。媒体在顶层 `assets` 里登记，再在各处按 id 引用：
+
+```json
+"assets": {
+  "cover":      { "type": "image", "src": "media/cover.svg", "alt": "雨夜里亮着灯的窑厂" },
+  "p_lu_yuan":  { "type": "image", "src": "media/lu_yuan.svg", "alt": "穿灰色工装的年轻陶艺师" },
+  "a_voicemail":{ "type": "audio", "src": "media/voicemail.wav", "alt": "一段电话留言录音", "transcript": "……" }
+},
+"cover": "cover",
+"victim":     { "id": "…", "name": "…", "portrait": "p_victim" },
+"characters": [{ "id": "lu_yuan", "portrait": "p_lu_yuan", "voice": { "gender": "male", "age": "young", "pitch": 0.9, "rate": 1.0, "style": "低沉、话少" }, "media": ["…"] }],
+"locations":  [{ "id": "kiln", "image": "loc_kiln" }],
+"clues":      [{ "id": "c_voicemail", "media": ["a_voicemail"] }]
+```
+
+| 字段 | 说明 |
+|---|---|
+| `assets.<id>.type` | `image` 或 `audio` |
+| `assets.<id>.src` | 剧本包内的相对路径 `media/…`（文件放在 `scenarios/<剧本id>/media/`）、`https://` 链接，或 `data:<类型>;base64,…` 内嵌（单个 ≤ 4MB，投稿时服务器会提取成文件） |
+| `assets.<id>.alt` | **必填**的文字描述。给看不到图片、听不到声音的玩家，以及纯文本 AI 使用 |
+| `assets.<id>.transcript` | 音频的文字稿（推荐） |
+| `assets.<id>.credit` `license` | 作者与许可 |
+| `cover` | 封面图 |
+| `victim.portrait` `characters[].portrait` | 头像 |
+| `locations[].image` | 地点图 |
+| `clues[].media` | 附在线索上的图片 / 音频 |
+| `characters[].media` | 只属于该角色的私密媒体（剧本附图、私人录音） |
+| `characters[].voice` | 角色声音：`gender`（female/male/neutral）、`age`（child/young/adult/old）、`pitch`、`rate`（0.5–2）、`style`（文字描述，如「沙哑、语速快」）。实现用它做语音合成，或交给 TTS 服务 |
+
+支持的格式：图片 png / jpg / webp / gif / svg；音频 mp3 / ogg / wav / m4a / webm。
+
+**媒体的可见性跟随它被引用的位置**，实现必须遵守：
+
+| 引用位置 | 谁能看到 / 听到 |
+|---|---|
+| `cover`、头像、地点图 | 所有人 |
+| `clues[].media` | 与线索相同：找到它的人；被公开后所有人 |
+| `characters[].media` | 只有该角色 |
+| 没有被任何地方引用 | 没有人 |
+
+参考实现通过 `/api/games/<对局id>/media/<媒体id>?token=…` 按观察者权限提供私密媒体，公开媒体走 `/media/<剧本id>/<媒体id>`。
+
+**翻译**：`translations.<语言>.assets.<媒体id>` 可以覆盖 `alt`、`transcript`，也可以用 `src` 换成该语言的版本（例如英文配音的录音）；`translations.<语言>.characters.<角色id>.voice.style` 翻译声音描述。
+
+**建议**：图片里尽量不放文字，这样各语言通用；如果线索的关键在图上，`alt` 必须把推理需要的信息写全，保证纯文本玩家也能解开。SVG 不能包含脚本、事件属性或外部引用。
+
 ## 4. 游戏流程（实现语义）
 
 1. **开场**：每人阅读剧本并确认（READY）。
@@ -190,6 +239,4 @@ OpenJubensha 是一个**机器可读、可校验、可被 AI 直接游玩**的�
 
 ## 7. 版本
 
-- 新增可选字段属于兼容更新，仍是 `openjubensha/1`。
-- 改变已有字段语义或新增必填字段时，格式标识升级为 `openjubensha/2`。
-- 实现遇到不认识的字段**应该**忽略，遇到不认识的 `format` **必须**拒绝。
+`openjubensha/1` 尚未正式发布，在发布前仍可能调整。发布后：新增可选字段不改变版本号；改变已有字段语义或新增必填字段时升级为 `openjubensha/2`。实现遇到不认识的 `format` **必须**拒绝。

@@ -25,8 +25,16 @@ export function actionExamples(obs, lang = 'zh') {
   return obs.allowed.map((t) => ex[t]);
 }
 
-export function renderObservationText(obs, { since = 0, full = true, lang = 'zh' } = {}) {
+export function renderObservationText(obs, { since = 0, full = true, lang = 'zh', base = '' } = {}) {
   const z = pickLang(lang);
+  // 媒体：图片给 URL 和文字描述，音频再附文字稿；看不到图的 AI 靠 alt 也能推理
+  const mediaLines = (ids = []) => ids.filter((id) => obs.media?.[id]).map((id) => {
+    const m = obs.media[id];
+    const url = m.url.startsWith('/') ? base + m.url : m.url;
+    return m.type === 'image'
+      ? `    ${z('图片', 'Image')}: ${m.alt} — ${url}`
+      : `    ${z('音频', 'Audio')}: ${m.alt}${m.transcript ? ` ${z('文字稿', 'Transcript')}: ${m.transcript}` : ''} — ${url}`;
+  });
   const sc = obs.scenario;
   const name = (id) => sc.characters.find((c) => c.id === id)?.name || (id === sc.victim?.id ? sc.victim.name : id || z('主持人', 'Host'));
   const loc = (id) => sc.locations.find((l) => l.id === id)?.name || id;
@@ -50,15 +58,16 @@ export function renderObservationText(obs, { since = 0, full = true, lang = 'zh'
       for (const k of me.knowledge) L.push(`- ${k.time ? `[${k.time}] ` : ''}${k.text}${k.secret ? z('（秘密，不想说）', ' (secret — you would rather not say)') : ''}${k.lie ? z('（这是你的谎言）', ' (this is your lie)') : ''}`);
     }
     L.push(z('你的任务：', 'Your objectives:'), ...me.objectives.map((o) => `- ${o}`));
+    if (me.media?.length) L.push(z('你的私密资料：', 'Your private materials:'), ...mediaLines(me.media));
     L.push('', z('## 搜证地点（id：名称，剩余线索/总数）', '## Locations (id: name, clues left/total)'), ...obs.locations.map((l) => `- ${l.id}: ${l.name}, ${l.remaining}/${l.total}`));
   }
 
   L.push('', z(`## 你的线索（${obs.myClues.length}）`, `## Your clues (${obs.myClues.length})`));
-  for (const c of obs.myClues) L.push(`- [${c.id}] ${c.title} (${c.locationName}${c.time ? ` ${c.time}` : ''})${c.public ? z('［已公开］', ' [public]') : ''}: ${c.text}`);
+  for (const c of obs.myClues) L.push(`- [${c.id}] ${c.title} (${c.locationName}${c.time ? ` ${c.time}` : ''})${c.public ? z('［已公开］', ' [public]') : ''}: ${c.text}`, ...mediaLines(c.media));
   const others = obs.publicClues.filter((c) => c.sharedBy !== me.id);
   if (others.length) {
     L.push('', z('## 别人公开的线索', '## Clues revealed by others'));
-    for (const c of others) L.push(`- [${c.id}] ${c.title} (${z(`${name(c.sharedBy)} 公开`, `revealed by ${name(c.sharedBy)}`)}): ${c.text}`);
+    for (const c of others) L.push(`- [${c.id}] ${c.title} (${z(`${name(c.sharedBy)} 公开`, `revealed by ${name(c.sharedBy)}`)}): ${c.text}`, ...mediaLines(c.media));
   }
 
   const evs = obs.events.filter((e) => e.seq >= since);

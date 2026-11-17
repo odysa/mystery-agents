@@ -13,7 +13,8 @@
   "victim": {
     "id": "bai_lu",
     "name": "白露",
-    "bio": "26 岁，金雀舞厅的头牌歌女，一曲《夜来香》红遍上海滩。美艳、精明、手腕强硬，得罪过的人不比捧她的人少。"
+    "bio": "26 岁，金雀舞厅的头牌歌女，一曲《夜来香》红遍上海滩。美艳、精明、手腕强硬，得罪过的人不比捧她的人少。",
+    "portrait": "p_bai_lu"
   },
   "background": "民国二十五年（1936 年）冬，上海静安寺路，金雀舞厅。今晚 22:00，头牌歌女白露要登台唱压轴的《夜来香》，舞池里挤满了慕名而来的客人。\n\n21:30 是金雀的招牌节目「熄灯舞」：全场灯火熄灭十分钟，只有钢琴独奏《夜来香》在黑暗里流淌，舞客们相拥慢舞。21:40 灯光重新亮起，爵士乐队接着上场。\n\n21:50，梳头娘姨苏小桃去后台化妆间请白露准备登场，却发现她倒在梳妆凳边，颈上缠着她自己的白丝巾，已经没了气息。\n\n老板沈啸云当即锁了后门，请在场的巡捕房华探马金福暂时封锁后台。工部局的督察要到午夜才能赶来——在那之前，凶手就在你们六个人之中。",
   "intro": "【主持人】欢迎来到《金雀谢幕》。这是一个「人人都在撒谎」的夜晚：今晚后台的每个人，都有不能让别人知道的事。请记住，说谎的人未必是凶手，看起来最清白的人也未必清白。凶手的目标是不被投票指认；其他人要在秘密与真相之间作出取舍。",
@@ -30,35 +31,40 @@
       "name": "白露化妆间",
       "description": "案发现场。后台走廊尽头的单间，梳妆台、穿衣镜、衣架上挂着压轴要穿的旗袍。隔壁是二牌歌女杜美琪的化妆间。",
       "x": 0.2,
-      "y": 0.3
+      "y": 0.3,
+      "image": "loc_dressing_room"
     },
     {
       "id": "stage",
       "name": "舞台与乐池",
       "description": "舞池正前方的半圆舞台，台侧是乐池和一架三角钢琴。熄灯舞时这里一片漆黑。",
       "x": 0.55,
-      "y": 0.2
+      "y": 0.2,
+      "image": "loc_stage"
     },
     {
       "id": "booth",
       "name": "音控室",
       "description": "侧台旁的小隔间，放着电唱机和扩音器，平时由音控员老周看管，一扇小门通往后台走廊。",
       "x": 0.85,
-      "y": 0.35
+      "y": 0.35,
+      "image": "loc_booth"
     },
     {
       "id": "office",
       "name": "老板办公室",
       "description": "二楼的老板办公室，红木大班台、保险柜和一扇对着后巷的窗户。",
       "x": 0.35,
-      "y": 0.75
+      "y": 0.75,
+      "image": "loc_office"
     },
     {
       "id": "alley",
       "name": "后巷",
       "description": "舞厅后门外的窄巷，堆着垃圾箱和空酒箱，平时只有送货的车会开进来。",
       "x": 0.75,
-      "y": 0.78
+      "y": 0.78,
+      "image": "loc_alley"
     }
   ],
   "characters": [
@@ -126,6 +132,14 @@
           "dressing_room",
           "office"
         ]
+      },
+      "portrait": "p_chen_mubai",
+      "voice": {
+        "gender": "male",
+        "age": "young",
+        "pitch": 1,
+        "rate": 0.88,
+        "style": "轻声细语、温和克制，说话慢条斯理"
       }
     },
     {
@@ -187,6 +201,14 @@
           "booth",
           "alley"
         ]
+      },
+      "portrait": "p_du_meiqi",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.12,
+        "rate": 1.12,
+        "style": "泼辣响亮，嘴快不饶人，心虚时嗓门更大"
       }
     },
     {
@@ -239,6 +261,14 @@
           "dressing_room",
           "stage"
         ]
+      },
+      "portrait": "p_shen_xiaoyun",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.82,
+        "rate": 0.95,
+        "style": "低沉老练，笑里藏刀，偶尔拍桌子"
       }
     },
     {
@@ -293,7 +323,18 @@
           "office",
           "booth"
         ]
-      }
+      },
+      "portrait": "p_gu_huaian",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 1.05,
+        "rate": 1.12,
+        "style": "油滑健谈，爱夸张，喜欢反问"
+      },
+      "media": [
+        "a_record_skip"
+      ]
     },
     {
       "id": "ma_jinfu",
@@ -346,6 +387,14 @@
           "alley",
           "booth"
         ]
+      },
+      "portrait": "p_ma_jinfu",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.8,
+        "rate": 0.95,
+        "style": "粗声粗气，官腔十足，爱摆架子"
       }
     },
     {
@@ -416,6 +465,14 @@
           "stage",
           "booth"
         ]
+      },
+      "portrait": "p_su_xiaotao",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.22,
+        "rate": 0.9,
+        "style": "细声怯怯，说话结巴，带点哭腔"
       }
     }
   ],
@@ -495,7 +552,10 @@
       "time": "",
       "implicates": {
         "du_meiqi": 3
-      }
+      },
+      "media": [
+        "m_earring"
+      ]
     },
     {
       "id": "c_tea",
@@ -565,7 +625,10 @@
       "implicates": {
         "chen_mubai": 2
       },
-      "key": true
+      "key": true,
+      "media": [
+        "m_piano"
+      ]
     },
     {
       "id": "c_score",
@@ -603,7 +666,10 @@
       "requires": [
         "c_sleeve"
       ],
-      "key": true
+      "key": true,
+      "media": [
+        "m_record"
+      ]
     },
     {
       "id": "c_gramophone",
@@ -894,7 +960,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep the broken record in the piano bench from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Soft-spoken, gentle and restrained, unhurried"
+          }
         },
         "du_meiqi": {
           "name": "Du Meiqi",
@@ -911,7 +980,10 @@
           "objectives": [
             "Vote out the real killer",
             "Get the lost-property register made public to prove the earring was lost long before"
-          ]
+          ],
+          "voice": {
+            "style": "Sharp-tongued and loud, quick to retort; louder still when cornered"
+          }
         },
         "shen_xiaoyun": {
           "name": "Shen Xiaoyun",
@@ -927,7 +999,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the secret opium ledger in the office from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Low and worldly, a smile with a knife in it; now and then pounds the table"
+          }
         },
         "gu_huaian": {
           "name": "Gu Huai'an",
@@ -943,7 +1018,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the flashbulb in the dressing room from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Glib and chatty, prone to exaggeration, answers with questions"
+          }
         },
         "ma_jinfu": {
           "name": "Ma Jinfu",
@@ -959,7 +1037,10 @@
           "objectives": [
             "Vote out the real killer",
             "Don't be the person with the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Gruff and officious, full of bureaucratic swagger"
+          }
         },
         "su_xiaotao": {
           "name": "Su Xiaotao",
@@ -977,7 +1058,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the pawn ticket in the back alley from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Small and timid, stammering, close to tears"
+          }
         }
       },
       "relationships": [
@@ -1107,7 +1191,184 @@
           "Takes Shen Xiaoyun's dirty money and escorts the opium; was in the back alley 21:25-21:45.",
           "Stole and pawned Bai Lu's jade bangle; was in the back alley 21:25-21:45 giving her brother money."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "An art deco stage: between red velvet curtains a spotlight falls on an empty microphone, gold confetti drifts down, and a grand piano waits in the shadows"
+        },
+        "p_bai_lu": {
+          "alt": "Portrait of Bai Lu: a singer with finger-waved hair, a white flower above her ear, pearl earrings and a silver-white qipao, red lips in a slight smile"
+        },
+        "p_chen_mubai": {
+          "alt": "Portrait of Chen Mubai: a young pianist with neatly parted hair, a black tailcoat and bow tie, eyes lowered"
+        },
+        "p_du_meiqi": {
+          "alt": "Portrait of Du Meiqi: a young singer with long waves and a scarlet qipao, wearing a single pearl earring, mouth turned down"
+        },
+        "p_shen_xiaoyun": {
+          "alt": "Portrait of Shen Xiaoyun: a middle-aged proprietor with oiled hair, a moustache and a brown long gown with a watch chain"
+        },
+        "p_gu_huaian": {
+          "alt": "Portrait of Gu Huai'an: a reporter in a flat cap and waistcoat with a flash camera hanging on his chest, grinning slyly"
+        },
+        "a_record_skip": {
+          "alt": "The piano music Gu Huai'an remembers hearing during the Lights-Out Dance (an audio impression)",
+          "transcript": "About 14 seconds of solo piano with the hiss and occasional crackle of an old record; no voices. The first section plays through once; in the second section one bar repeats twice, identically, with a faint click where it joins, and then the melody carries on and fades out."
+        },
+        "p_ma_jinfu": {
+          "alt": "Portrait of Ma Jinfu: a burly detective in a fedora and trench coat, heavy stubble, scowling"
+        },
+        "p_su_xiaotao": {
+          "alt": "Portrait of Su Xiaotao: a girl with a long braid and a pale blue side-fastened cotton jacket, looking timid"
+        },
+        "loc_dressing_room": {
+          "alt": "The backstage dressing room: a mirror ringed with bulbs, a dressing table and stool, and a silver qipao on the rack"
+        },
+        "loc_stage": {
+          "alt": "The semicircular stage: red curtains, a spotlight on the standing microphone, and a grand piano in the pit at the side"
+        },
+        "loc_booth": {
+          "alt": "The sound booth: a gramophone with a brass horn and an amplifier on the desk, and a small door to the backstage corridor"
+        },
+        "loc_office": {
+          "alt": "The proprietor's office: a mahogany desk, a green banker's lamp, a telephone, a safe by the wall and a window over the back alley"
+        },
+        "loc_alley": {
+          "alt": "The back alley at night: light spills from the back door, bins and stacked empty crates line the wall, the ground wet and muddy"
+        },
+        "m_piano": {
+          "alt": "Gold confetti lies all over the piano keys and around the bench, smooth and undisturbed"
+        },
+        "m_earring": {
+          "alt": "A pearl earring in a silver setting lies on the floor under the dressing table"
+        },
+        "m_record": {
+          "alt": "Beneath handwritten sheet music in the piano bench lie several shards of a broken record"
+        }
       }
+    }
+  },
+  "cover": "cover",
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "装饰艺术风格的舞台：红丝绒幕布间，一束追光照着空无一人的话筒，金色纸屑飘落，左侧暗处是一架三角钢琴",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_bai_lu": {
+      "type": "image",
+      "src": "media/bai_lu.svg",
+      "alt": "白露的画像：手推波浪短发、鬓边簪白花、戴珍珠耳环、穿银白旗袍的歌女，红唇微挑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_chen_mubai": {
+      "type": "image",
+      "src": "media/chen_mubai.svg",
+      "alt": "陈慕白的画像：头发梳得一丝不苟、穿黑色燕尾服打领结的年轻钢琴师，眼神低垂",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_du_meiqi": {
+      "type": "image",
+      "src": "media/du_meiqi.svg",
+      "alt": "杜美琪的画像：长卷发、穿大红旗袍的年轻歌女，只戴着一只珍珠耳环，嘴角下撇",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_shen_xiaoyun": {
+      "type": "image",
+      "src": "media/shen_xiaoyun.svg",
+      "alt": "沈啸云的画像：油头、留八字胡、穿棕色长衫挂着怀表链的中年老板",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_gu_huaian": {
+      "type": "image",
+      "src": "media/gu_huaian.svg",
+      "alt": "顾怀安的画像：戴鸭舌帽、穿马甲、胸前挂着闪光灯照相机的记者，笑得油滑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "a_record_skip": {
+      "type": "audio",
+      "src": "media/skipping_record.wav",
+      "alt": "顾怀安记忆中熄灯舞时听到的钢琴声（声音示意）",
+      "transcript": "约 14 秒的钢琴独奏，带着老唱片的沙沙底噪和零星噼啪声，没有人声。第一段旋律走完一遍；第二段里，有一小节一模一样地重复了两遍，衔接处有一声轻微的“咔”，随后旋律继续，到结尾淡出。",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_ma_jinfu": {
+      "type": "image",
+      "src": "media/ma_jinfu.svg",
+      "alt": "马金福的画像：戴礼帽、穿风衣、胡茬浓重的魁梧探目，眉头紧锁",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_su_xiaotao": {
+      "type": "image",
+      "src": "media/su_xiaotao.svg",
+      "alt": "苏小桃的画像：梳一条长辫、穿浅蓝色大襟布衫的少女，神情怯怯",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_dressing_room": {
+      "type": "image",
+      "src": "media/loc_dressing_room.svg",
+      "alt": "后台化妆间：一圈灯泡环绕的化妆镜、梳妆台和圆凳，衣架上挂着一件银色旗袍",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_stage": {
+      "type": "image",
+      "src": "media/loc_stage.svg",
+      "alt": "半圆形舞台：红幕低垂，追光照着立式话筒，台侧乐池里是一架三角钢琴",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_booth": {
+      "type": "image",
+      "src": "media/loc_booth.svg",
+      "alt": "音控室：桌上一台带铜喇叭的电唱机和一台扩音器，角落一扇小门通往后台走廊",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_office": {
+      "type": "image",
+      "src": "media/loc_office.svg",
+      "alt": "老板办公室：红木大班台、绿罩台灯、电话、墙边的保险柜，以及一扇对着后巷的窗",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_alley": {
+      "type": "image",
+      "src": "media/loc_alley.svg",
+      "alt": "夜里的后巷：后门透出灯光，墙边是垃圾箱和堆着的空木箱，泥地湿漉漉的",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_piano": {
+      "type": "image",
+      "src": "media/clue_piano.svg",
+      "alt": "钢琴键盘和琴凳边落满金色纸屑，纸屑平平整整，没有一处被拨开",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_earring": {
+      "type": "image",
+      "src": "media/clue_earring.svg",
+      "alt": "梳妆台底下的地板上，滚落着一只银托珍珠耳环",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_record": {
+      "type": "image",
+      "src": "media/clue_record.svg",
+      "alt": "琴凳里的手写曲谱下，压着几块摔碎的黑胶唱片",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
     }
   }
 }

@@ -13,7 +13,8 @@
   "victim": {
     "id": "duan_shoushan",
     "name": "段守山",
-    "bio": "六十八岁，普洱勐岚山「勐岚茶庄」的庄主，守着东坡三百多株古茶树过了大半辈子。脾气倔，认茶不认人，一口茶就能喝出年份和山头。"
+    "bio": "六十八岁，普洱勐岚山「勐岚茶庄」的庄主，守着东坡三百多株古茶树过了大半辈子。脾气倔，认茶不认人，一口茶就能喝出年份和山头。",
+    "portrait": "p_duan_shoushan"
   },
   "background": "2024 年 4 月，春茶季的尾巴。普洱勐岚山上的勐岚茶庄，今晚灯火通明：广州的鸿川资本要收购茶庄和东坡古茶园，合同明天上午十点签字。\n\n晚饭桌上，庄主段守山却忽然放下筷子：「签不签，明早品完茶再定。」说完便去了晒青场边的焙茶房，用炭火回焙明早品鉴要用的老茶。\n\n22:20，收购方代表郑启明去焙茶房找他，发现段守山倒在焙笼旁，后脑被重物击中，早已没了气息。炭盆已经熄了，屋里弥漫着一股焦糊味。\n\n山路夜里不通车，镇上的派出所最早天亮才能上山。今夜还留在茶庄的五个人，每个人都和这份合同有关，每个人都有不想说的事。",
   "intro": "【主持人】欢迎来到《茶山收购》。这是一个困难难度的剧本：几乎每个人都在今晚撒了谎，但撒谎不等于杀人。请仔细阅读你的剧本，留意时间——焙茶房里的炭火、墙上的记录和焙笼里的茶叶，都在替死者说话。凶手的目标是不被投票指认，其他人要找出真相，同时守住自己的秘密。",
@@ -30,35 +31,40 @@
       "name": "焙茶房",
       "description": "案发现场。晒青场边一间木板房，里间是炭盆、焙笼和茶台，外间挂着衣物杂物；前门对着晒青场，后门有一条石板路通往账房。",
       "x": 0.28,
-      "y": 0.28
+      "y": 0.28,
+      "image": "loc_beicha"
     },
     {
       "id": "shaiqing",
       "name": "晒青场",
       "description": "焙茶房前的一大片晒青场，傍晚洒过水压尘。场边搭着晒青架和竹棚，下面是通往寨子的土路。",
       "x": 0.72,
-      "y": 0.2
+      "y": 0.2,
+      "image": "loc_shaiqing"
     },
     {
       "id": "chacang",
       "name": "茶仓",
       "description": "存放历年老茶的石砌茶仓，供着茶祖神龛。门锁只有三把钥匙。",
       "x": 0.84,
-      "y": 0.62
+      "y": 0.62,
+      "image": "loc_chacang"
     },
     {
       "id": "zhangfang",
       "name": "账房",
       "description": "主屋旁的小账房，会计苏蔓平日在这里记账、打印单据。门不上锁。",
       "x": 0.5,
-      "y": 0.8
+      "y": 0.8,
+      "image": "loc_zhangfang"
     },
     {
       "id": "keyuan",
       "name": "客院",
       "description": "主屋后面的小院，段云舒和郑启明今晚都住在这里的客房。",
       "x": 0.14,
-      "y": 0.7
+      "y": 0.7,
+      "image": "loc_keyuan"
     }
   ],
   "characters": [
@@ -125,6 +131,14 @@
           "beicha",
           "chacang"
         ]
+      },
+      "portrait": "p_su_man",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.05,
+        "rate": 0.92,
+        "style": "温和细致，轻声细语，爱报具体的时间和数字"
       }
     },
     {
@@ -181,6 +195,14 @@
           "zhangfang",
           "chacang"
         ]
+      },
+      "portrait": "p_duan_yunshu",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 1,
+        "rate": 1.15,
+        "style": "精明要强，语速快，先声夺人"
       }
     },
     {
@@ -242,6 +264,14 @@
           "chacang",
           "zhangfang"
         ]
+      },
+      "portrait": "p_yan_en",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.82,
+        "rate": 0.85,
+        "style": "低沉粗犷，话少而直，带山里口音"
       }
     },
     {
@@ -303,6 +333,14 @@
           "beicha",
           "keyuan"
         ]
+      },
+      "portrait": "p_zheng_qiming",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.95,
+        "rate": 1.08,
+        "style": "圆滑客气，带广东口音，满口数据和「双赢」"
       }
     },
     {
@@ -360,6 +398,14 @@
           "beicha",
           "zhangfang"
         ]
+      },
+      "portrait": "p_luo_wenbin",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.88,
+        "rate": 1.05,
+        "style": "嗓门洪亮，豪爽爱拍胸脯，说到钱就含糊"
       }
     }
   ],
@@ -440,7 +486,10 @@
       "text": "门边墙上挂着焙茶记录板，庄主习惯每 20 分钟翻一次茶，用铅笔记一笔。今晚的记录是：20:20 起焙、20:40 翻、21:00 翻、21:20 翻、21:40 翻，之后就没有了。仔细看，最后两行的字比前面几行更工整，一笔一画，像是描出来的。",
       "time": "20:20-21:40",
       "implicates": {},
-      "key": true
+      "key": true,
+      "media": [
+        "m_roastlog"
+      ]
     },
     {
       "id": "c_scorched",
@@ -454,7 +503,10 @@
       "requires": [
         "c_roastlog"
       ],
-      "key": true
+      "key": true,
+      "media": [
+        "m_scorched"
+      ]
     },
     {
       "id": "c_knife",
@@ -488,7 +540,10 @@
       "time": "",
       "implicates": {
         "su_man": 1
-      }
+      },
+      "media": [
+        "m_teatable"
+      ]
     },
     {
       "id": "c_phone",
@@ -861,7 +916,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep \"the scorched tea at the bottom of the basket\" from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Gentle and careful, soft-spoken, likes to cite exact times and figures"
+          }
         },
         "duan_yunshu": {
           "name": "Duan Yunshu",
@@ -877,7 +935,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep \"the seal in the handbag\" from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Sharp and driven, fast-talking, always gets the first word in"
+          }
         },
         "yan_en": {
           "name": "Yan En",
@@ -894,7 +955,10 @@
           "objectives": [
             "Vote out the real killer",
             "Get \"the blood under the tea knife\" made public"
-          ]
+          ],
+          "voice": {
+            "style": "Deep and rough, few words, blunt, with a mountain accent"
+          }
         },
         "zheng_qiming": {
           "name": "Zheng Qiming",
@@ -911,7 +975,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep \"the hotel plan\" from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Smooth and courteous with a Cantonese accent, full of figures and \"win-win\""
+          }
         },
         "luo_wenbin": {
           "name": "Luo Wenbin",
@@ -927,7 +994,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep \"the envelope under the bamboo tray\" from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Booming and hearty, thumps his chest; goes vague when money comes up"
+          }
         }
       },
       "relationships": [
@@ -1061,7 +1131,162 @@
           "Concealed the plan to build a hotel in the ancient garden and transplant ancient trees; secretly promised Luo Wenbin a 50,000-yuan coordination fee; was outside the roasting house's back window 20:30-20:50.",
           "Took Zheng Qiming's coordination fee; entered the sun-drying yard looking for the money 21:20-21:40."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "Pu'er tea mountains in moonlight and mist, terraced rows of tea bushes, and halfway up a roasting house glowing orange with charcoal fire, a thread of smoke rising behind it"
+        },
+        "p_duan_shoushan": {
+          "alt": "Portrait of Duan Shoushan: an old man with white hair and deep lines, in an indigo cotton jacket, stubborn-looking"
+        },
+        "p_su_man": {
+          "alt": "Portrait of Su Man: a young woman with her hair in a low bun and a russet cardigan, smiling gently"
+        },
+        "p_duan_yunshu": {
+          "alt": "Portrait of Duan Yunshu: a woman with a sharp bob, a pale shirt and gold hoop earrings, eyebrows raised"
+        },
+        "p_yan_en": {
+          "alt": "Portrait of Yan En: a weathered middle-aged tea master in a black turban and black traditional jacket, stern"
+        },
+        "p_zheng_qiming": {
+          "alt": "Portrait of Zheng Qiming: a middle-aged man with slick hair, a dark blazer over a pale blue shirt and a cigar, smiling politely"
+        },
+        "p_luo_wenbin": {
+          "alt": "Portrait of Luo Wenbin: a round-faced man with a grey crew cut and an ochre waistcoat, laughing heartily"
+        },
+        "loc_beicha": {
+          "alt": "The plank-walled roasting room: a bamboo roasting basket over the charcoal brazier fills the room with orange light; a record board hangs on the wall, the tea table is on the right, and there is a back door"
+        },
+        "loc_shaiqing": {
+          "alt": "The drying ground at night: racks of bamboo trays, a bamboo shed and a stack of trays, a dirt road leading downhill, and the lit window of the roasting house on the left"
+        },
+        "loc_chacang": {
+          "alt": "The stone tea store: shelves stacked with bamboo-wrapped bundles of aged tea, a shrine to the tea ancestor with incense in the middle, and a brass lock by the door"
+        },
+        "loc_zhangfang": {
+          "alt": "The small accounts office: ledgers on the shelves, an open ledger and an abacus under the desk lamp, a printer beside them and a wastepaper basket in the corner"
+        },
+        "loc_keyuan": {
+          "alt": "The guest courtyard behind the main house: two tile-roofed guest rooms with lit windows, red lanterns under the eaves and a potted plant in the middle"
+        },
+        "m_roastlog": {
+          "alt": "The roasting record board on the wall, five pencilled rows: 20:20, 20:40, 21:00, 21:20, 21:40; the last two rows are much neater than the others"
+        },
+        "m_scorched": {
+          "alt": "Tea tipped out of the roasting basket: the upper layer looks normal, but the bottom layer against the bamboo tray is charred black"
+        },
+        "m_teatable": {
+          "alt": "On the tea table: a torn, empty tea-cake wrapper (2009, no. 0917), a pitcher with a little cold tea left, and a tasting notebook with a page missing"
+        }
       }
+    }
+  },
+  "cover": "cover",
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "月色与山雾中的普洱茶山，梯田茶垄层层铺开，山腰一间焙茶房亮着炭火的橙光，屋后升起一缕青烟",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_duan_shoushan": {
+      "type": "image",
+      "src": "media/duan_shoushan.svg",
+      "alt": "段守山的画像：满头白发、皱纹深刻、穿藏青色对襟布衣的老人，神情倔强",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_su_man": {
+      "type": "image",
+      "src": "media/su_man.svg",
+      "alt": "苏蔓的画像：头发低挽、穿红棕色开衫的年轻女人，笑容温和",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_duan_yunshu": {
+      "type": "image",
+      "src": "media/duan_yunshu.svg",
+      "alt": "段云舒的画像：齐耳短发、穿浅色衬衫、戴金色圈形耳环的女人，眉梢上挑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_yan_en": {
+      "type": "image",
+      "src": "media/yan_en.svg",
+      "alt": "岩恩的画像：缠黑色包头、穿黑色民族上衣、肤色黝黑的中年制茶师傅，神情严肃",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_zheng_qiming": {
+      "type": "image",
+      "src": "media/zheng_qiming.svg",
+      "alt": "郑启明的画像：油头、穿深色西装外套和浅蓝衬衫、叼着雪茄的中年男人，笑容客气",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_luo_wenbin": {
+      "type": "image",
+      "src": "media/luo_wenbin.svg",
+      "alt": "罗文斌的画像：灰白寸头、圆脸、穿土黄色马甲的中年汉子，笑得爽朗",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_beicha": {
+      "type": "image",
+      "src": "media/loc_beicha.svg",
+      "alt": "木板搭的焙茶房：炭盆上罩着竹编焙笼，炭火映得满屋橙红，墙上挂着一块记录板，右边是茶台，旁边一扇后门",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_shaiqing": {
+      "type": "image",
+      "src": "media/loc_shaiqing.svg",
+      "alt": "夜里的晒青场：几排摆着竹匾的晒青架、一座竹棚和一摞竹匾，土路伸向山下，左边是焙茶房亮着的窗",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_chacang": {
+      "type": "image",
+      "src": "media/loc_chacang.svg",
+      "alt": "石砌的茶仓：架子上码着一提提竹箬包裹的老茶，中间是供着茶祖的神龛，香火袅袅，门边挂着一把铜锁",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_zhangfang": {
+      "type": "image",
+      "src": "media/loc_zhangfang.svg",
+      "alt": "小账房：书架上排着账本，台灯下的桌上摊着账簿和算盘，旁边一台打印机，墙角一个纸篓",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_keyuan": {
+      "type": "image",
+      "src": "media/loc_keyuan.svg",
+      "alt": "主屋后的客院：两间瓦顶客房亮着窗，檐下挂着红灯笼，院中一盆植物",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_roastlog": {
+      "type": "image",
+      "src": "media/clue_roastlog.svg",
+      "alt": "墙上的焙茶记录板，铅笔记着 20:20、20:40、21:00、21:20、21:40 五行；最后两行写得比前面工整得多",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_scorched": {
+      "type": "image",
+      "src": "media/clue_scorched.svg",
+      "alt": "从焙笼里倒出的茶：上层的茶叶色泽正常，贴着竹匾的底层却已焦黑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_teatable": {
+      "type": "image",
+      "src": "media/clue_teatable.svg",
+      "alt": "茶台上一张撕开的空茶饼包装纸（2009，编号 0917）、留着小半杯冷茶的公道杯，以及一本缺了一页的品鉴本",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
     }
   }
 }

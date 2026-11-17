@@ -38,8 +38,13 @@ const fmtEvent = (e, nameOf, locName, z) => {
   }
 };
 
-export function buildPrompt(obs, { historyLimit = 80, lang = 'zh' } = {}) {
+export function buildPrompt(obs, { historyLimit = 80, lang = 'zh', assets = {} } = {}) {
   const z = pickLang(lang);
+  // 线索附带的媒体：把文字描述（和音频文字稿）写进提示，看不到图片的模型也能推理
+  const mediaNote = (ids = []) => ids.filter((id) => assets[id]).map((id) => {
+    const a = assets[id];
+    return a.type === 'image' ? z(`［图片：${a.alt}］`, ` [Image: ${a.alt}]`) : z(`［录音：${a.alt}${a.transcript ? `；内容：${a.transcript}` : ''}］`, ` [Audio: ${a.alt}${a.transcript ? `; content: ${a.transcript}` : ''}]`);
+  }).join('');
   const sc = obs.scenario;
   const nameOf = (id) => sc.characters.find((c) => c.id === id)?.name || id || z('主持人', 'Host');
   const locName = (id) => sc.locations.find((l) => l.id === id)?.name || id;
@@ -59,6 +64,7 @@ export function buildPrompt(obs, { historyLimit = 80, lang = 'zh' } = {}) {
     '',
     z('【你的角色剧本（只有你知道）】', '[Your character script (only you know this)]'),
     you.script,
+    ...(you.media?.length ? [mediaNote(you.media)] : []),
   ].join('\n');
 
   const lines = obs.events.map((e) => fmtEvent(e, nameOf, locName, z)).filter(Boolean);
@@ -70,8 +76,8 @@ export function buildPrompt(obs, { historyLimit = 80, lang = 'zh' } = {}) {
     `${z('【案件背景】', '[Background]')}\n${sc.background}`,
     `${z('【在场角色】', '[Characters]')}\n${others.map((c) => `- ${c.id}: ${c.name}, ${c.publicBio}`).join('\n')}`,
     `${z('【搜证地点】', '[Locations]')}\n${obs.locations.map((l) => `- ${l.id}: ${l.name} (${z('剩余线索', 'clues left')} ${l.remaining}/${l.total})`).join('\n')}`,
-    `${z('【你持有的线索卡】', '[Your clue cards]')}\n${obs.myClues.length ? obs.myClues.map((c) => `- ${c.id} "${c.title}" ${c.public ? z('（已公开）', '(public)') : z('（未公开）', '(private)')}: ${c.text}`).join('\n') : none}`,
-    `${z('【已公开的线索卡】', '[Public clue cards]')}\n${obs.publicClues.length ? obs.publicClues.map((c) => `- ${c.id} "${c.title}" ${z(`由${nameOf(c.sharedBy)}公开`, `revealed by ${nameOf(c.sharedBy)}`)}: ${c.text}`).join('\n') : none}`,
+    `${z('【你持有的线索卡】', '[Your clue cards]')}\n${obs.myClues.length ? obs.myClues.map((c) => `- ${c.id} "${c.title}" ${c.public ? z('（已公开）', '(public)') : z('（未公开）', '(private)')}: ${c.text}${mediaNote(c.media)}`).join('\n') : none}`,
+    `${z('【已公开的线索卡】', '[Public clue cards]')}\n${obs.publicClues.length ? obs.publicClues.map((c) => `- ${c.id} "${c.title}" ${z(`由${nameOf(c.sharedBy)}公开`, `revealed by ${nameOf(c.sharedBy)}`)}: ${c.text}${mediaNote(c.media)}`).join('\n') : none}`,
     `${z(`【至今的过程（最近 ${hist.length} 条）】`, `[What has happened (last ${hist.length})]`)}\n${hist.join('\n') || z('（游戏刚开始）', '(the game has just started)')}`,
     `${z(`【现在轮到你】阶段：${obs.phase}，第 ${obs.round}/${obs.totalRounds} 轮。`, `[Your turn] Phase: ${obs.phase}, round ${obs.round}/${obs.totalRounds}. `)}${kindHelp(z)[t.kind]}`,
     askedBy ? z(`${nameOf(askedBy.actor)} 刚刚质询你：「${askedBy.data.text}」`, `${nameOf(askedBy.actor)} just questioned you: "${askedBy.data.text}"`) : '',
@@ -109,9 +115,12 @@ export function parseAction(text) {
 }
 
 export class LLMAgent {
-  constructor({ scenario, pid, provider, seed = 1, lang = 'zh' }) {
+  constructor({ scenario, pid, provider, seed = 1, lang = 'zh', loadAsset = null }) {
     this.pid = pid;
     this.lang = lang;
+    this.assets = scenario.assets || {};
+    this.loadAsset = loadAsset; // (assetId) => { mime, data(base64) } | null，只返回位图
+    this.maxImages = Number(process.env.MA_MAX_IMAGES || 4);
     this.provider = provider;
     this.kind = provider.name;
     this.fallback = new RuleAgent({ scenario, pid, seed, lang });
@@ -121,7 +130,12 @@ export class LLMAgent {
   /** validate: (action) => 错误字符串|null，由运行器传入引擎校验函数，用于一次自我纠正。 */
   async decide(obs, { validate } = {}) {
     if (obs.turn.kind === 'ready') return { action: { type: 'READY' }, meta: { provider: this.kind, thought: '读完剧本' } };
-    const prompt = buildPrompt(obs, { lang: this.lang });
+    const prompt = buildPrompt(obs, { lang: this.lang, assets: this.assets });
+    // 看得见的线索图片（自己持有的 + 已公开的），最新的优先
+    if (this.loadAsset) {
+      const ids = [...new Set([...obs.myClues, ...obs.publicClues].flatMap((c) => c.media || []))].filter((id) => this.assets[id]?.type === 'image');
+      prompt.images = (await Promise.all(ids.slice(-this.maxImages).map((id) => this.loadAsset(id)))).filter(Boolean);
+    }
     let lastErr = null;
     let raw = '';
     for (let attempt = 0; attempt < 2; attempt++) {

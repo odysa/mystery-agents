@@ -13,7 +13,8 @@
   "victim": {
     "id": "he_dongsheng",
     "name": "贺东升",
-    "bio": "54岁，东升资本创始合伙人，投资圈的风云人物。几年前做过一个叫「东升宝」的理财平台，平台爆雷，他却全身而退。有严重的飞行恐惧症，出差从不坐飞机。"
+    "bio": "54岁，东升资本创始合伙人，投资圈的风云人物。几年前做过一个叫「东升宝」的理财平台，平台爆雷，他却全身而退。有严重的飞行恐惧症，出差从不坐飞机。",
+    "portrait": "p_he_dongsheng"
   },
   "background": "2023年冬，一趟从北京西开往昆明的直达列车。第二天夜里，列车驶入湘黔交界的山区隧道群。投资人贺东升一个人包下了软卧 3 号包厢，同行的还有他的助理唐蔚，以及他投资的创业者林知夏。\n\n22:50，列车员秦建国巡视时发现 3 号包厢的门虚掩着。贺东升面朝墙躺在下铺，盖着被子，像是睡着了——但他已经没有了呼吸，脖子上有一道勒痕。\n\n乘警正在前部车厢处理一起醉酒斗殴，列车在隧道群里不能临时停车，下一个停靠站在凌晨两点。软卧车厢两端的门已经锁上。在那之前，凶手就在你们五个人之中。",
   "intro": "【主持人】欢迎来到《夜车卧铺》。列车在黑暗的山腹里一路向南，车轮声盖过了一切。请仔细阅读你的角色剧本——每个人今晚都靠近过那间包厢，或者有理由希望贺东升永远别到昆明。凶手只有一个，但说谎的人不止一个。",
@@ -30,35 +31,40 @@
       "name": "3号软卧包厢",
       "description": "案发现场。贺东升包下的四人包厢，小桌上摆着威士忌和公文包，床头的阅读灯还亮着。",
       "x": 0.18,
-      "y": 0.28
+      "y": 0.28,
+      "image": "loc_compartment3"
     },
     {
       "id": "berths",
       "name": "5、6号包厢",
       "description": "同一节软卧车厢的另外两间包厢。5 号住着林知夏和唐蔚，6 号住着宋怀瑾和邵一鸣。",
       "x": 0.52,
-      "y": 0.22
+      "y": 0.22,
+      "image": "loc_berths"
     },
     {
       "id": "dining",
       "name": "餐车",
       "description": "紧挨着软卧车厢的餐车，晚饭后只供应茶水和啤酒，夜里几乎没人。",
       "x": 0.85,
-      "y": 0.35
+      "y": 0.35,
+      "image": "loc_dining"
     },
     {
       "id": "duty",
       "name": "乘务员室",
       "description": "软卧车厢一端的列车员值班室，放着巡视日志、清洁用品和秦建国的私人物品。",
       "x": 0.22,
-      "y": 0.76
+      "y": 0.76,
+      "image": "loc_duty"
     },
     {
       "id": "vestibule",
       "name": "车厢连接处",
       "description": "软卧车厢通往餐车的连接处，是旅客抽烟、打电话的地方，有一个垃圾桶。",
       "x": 0.66,
-      "y": 0.74
+      "y": 0.74,
+      "image": "loc_vestibule"
     }
   ],
   "characters": [
@@ -140,6 +146,14 @@
           "dining",
           "vestibule"
         ]
+      },
+      "portrait": "p_lin_zhixia",
+      "voice": {
+        "gender": "female",
+        "age": "young",
+        "pitch": 1.05,
+        "rate": 1.15,
+        "style": "语速快、干脆，爱报数字，激动时声音发紧"
       }
     },
     {
@@ -221,6 +235,14 @@
           "berths",
           "duty"
         ]
+      },
+      "portrait": "p_tang_wei",
+      "voice": {
+        "gender": "female",
+        "age": "adult",
+        "pitch": 0.98,
+        "rate": 1,
+        "style": "冷静克制，措辞得体，像在汇报工作"
       }
     },
     {
@@ -295,6 +317,14 @@
           "vestibule",
           "berths"
         ]
+      },
+      "portrait": "p_qin_jianguo",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.85,
+        "rate": 0.9,
+        "style": "粗粝憨厚，带口音，急了嗓门一下子变大"
       }
     },
     {
@@ -365,6 +395,14 @@
           "compartment3",
           "dining"
         ]
+      },
+      "portrait": "p_shao_yiming",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 1,
+        "rate": 1.08,
+        "style": "圆滑健谈，爱追问，语气里带点调侃"
       }
     },
     {
@@ -430,6 +468,14 @@
           "vestibule",
           "berths"
         ]
+      },
+      "portrait": "p_song_huaijin",
+      "voice": {
+        "gender": "male",
+        "age": "adult",
+        "pitch": 0.92,
+        "rate": 0.92,
+        "style": "温和平稳，条理清楚，像医生在解释病情"
       }
     }
   ],
@@ -506,7 +552,10 @@
       "implicates": {
         "lin_zhixia": 3
       },
-      "key": true
+      "key": true,
+      "media": [
+        "m_strap"
+      ]
     },
     {
       "id": "c_band",
@@ -519,7 +568,10 @@
         "qin_jianguo": -1,
         "shao_yiming": -1
       },
-      "key": true
+      "key": true,
+      "media": [
+        "m_band"
+      ]
     },
     {
       "id": "c_phone",
@@ -543,7 +595,10 @@
       "time": "",
       "implicates": {
         "song_huaijin": 1
-      }
+      },
+      "media": [
+        "m_glasses"
+      ]
     },
     {
       "id": "c_plan",
@@ -899,7 +954,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the “two sets of sales figures” on your laptop from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Fast and crisp, quotes numbers; her voice tightens when upset"
+          }
         },
         "tang_wei": {
           "name": "Tang Wei",
@@ -918,7 +976,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the torn-up dismissal notice from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Calm and controlled, careful wording, like giving a work report"
+          }
         },
         "qin_jianguo": {
           "name": "Qin Jianguo",
@@ -936,7 +997,10 @@
           "objectives": [
             "Vote out the real killer",
             "Do not be the person with the most votes"
-          ]
+          ],
+          "voice": {
+            "style": "Rough and plain-spoken with a regional accent; gets loud when wronged"
+          }
         },
         "shao_yiming": {
           "name": "Shao Yiming",
@@ -954,7 +1018,10 @@
           "objectives": [
             "Vote out the real killer",
             "Keep the draft paper with your price calculations in the vestibule from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Smooth and talkative, always probing, with a teasing edge"
+          }
         },
         "song_huaijin": {
           "name": "Song Huaijin",
@@ -971,7 +1038,10 @@
           "objectives": [
             "Avoid being voted out as the killer",
             "Keep the heart-rate record on the victim's fitness band from being made public"
-          ]
+          ],
+          "voice": {
+            "style": "Gentle and even, orderly, like a doctor explaining a diagnosis"
+          }
         }
       },
       "relationships": [
@@ -1097,7 +1167,162 @@
           "Took 500,000 yuan in hush money from He Dongsheng; found the body at 22:30 without reporting it, and took the document folder.",
           "The killer; took kickbacks from Kangheng Medical and was being blackmailed by He Dongsheng with a recording."
         ]
+      },
+      "assets": {
+        "cover": {
+          "alt": "A green night train crosses a mountain bridge under the moon, about to enter a tunnel; only one window glows warm yellow"
+        },
+        "p_he_dongsheng": {
+          "alt": "Portrait of He Dongsheng: a man in his fifties with thinning grey hair, a dark suit and red tie, looking haughty"
+        },
+        "p_lin_zhixia": {
+          "alt": "Portrait of Lin Zhixia: a young woman with short hair, a camel turtleneck and a red scarf, brow furrowed"
+        },
+        "p_tang_wei": {
+          "alt": "Portrait of Tang Wei: a woman with her hair pinned up, square glasses and a dark purple blazer, composed"
+        },
+        "p_qin_jianguo": {
+          "alt": "Portrait of Qin Jianguo: a weathered middle-aged train attendant in a peaked cap and dark blue railway uniform"
+        },
+        "p_shao_yiming": {
+          "alt": "Portrait of Shao Yiming: a man with messy hair, round glasses and stubble, a lanyard round his neck, half-smiling"
+        },
+        "p_song_huaijin": {
+          "alt": "Portrait of Song Huaijin: a middle-aged man with greying temples, rimless glasses and a navy turtleneck, mild-mannered"
+        },
+        "loc_compartment3": {
+          "alt": "The soft-sleeper compartment: red berths on either side, whisky and a briefcase on the little table under the window, the reading lamp still on, black night outside"
+        },
+        "loc_berths": {
+          "alt": "The soft-sleeper corridor: windows and fold-down seats on one side, compartment doors on the other, red carpet underfoot"
+        },
+        "loc_dining": {
+          "alt": "The empty dining car late at night: tables with white cloths, red seats, and a cash register on the counter at the end"
+        },
+        "loc_duty": {
+          "alt": "The attendant's duty room: cleaning supplies and boxes on the shelves, a patrol log open on the desk, a peaked cap on the wall"
+        },
+        "loc_vestibule": {
+          "alt": "The vestibule between carriages: folded bellows, a window in cold light, the door to the dining car and a bin"
+        },
+        "m_strap": {
+          "alt": "The blue canvas strap pulled from under the pillow, about three centimetres wide, metal buckles at both ends and a mountain-and-coffee-bean emblem in the middle"
+        },
+        "m_glasses": {
+          "alt": "Two whisky glasses on the table: the left one has a lip print on the rim and whisky left in the bottom; the right one has been wiped spotless"
+        },
+        "m_band": {
+          "alt": "The fitness band's heart-rate graph: elevated from 21:30, a sharp spike at 21:44 then a rapid fall, and no signal from 21:47 on"
+        }
       }
+    }
+  },
+  "cover": "cover",
+  "assets": {
+    "cover": {
+      "type": "image",
+      "src": "media/cover.svg",
+      "alt": "月夜里一列绿皮夜车驶过山间铁桥，即将钻进隧道，只有一扇车窗亮着暖黄的灯",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_he_dongsheng": {
+      "type": "image",
+      "src": "media/he_dongsheng.svg",
+      "alt": "贺东升的画像：头发花白稀疏、穿深色西装系红领带的中年男人，神情倨傲",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_lin_zhixia": {
+      "type": "image",
+      "src": "media/lin_zhixia.svg",
+      "alt": "林知夏的画像：短发、穿驼色高领毛衣、围红围巾的年轻女人，眉头紧锁",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_tang_wei": {
+      "type": "image",
+      "src": "media/tang_wei.svg",
+      "alt": "唐蔚的画像：头发挽起、戴方框眼镜、穿深紫色西装外套的女人，神情克制",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_qin_jianguo": {
+      "type": "image",
+      "src": "media/qin_jianguo.svg",
+      "alt": "秦建国的画像：戴大檐帽、穿深蓝色铁路制服的中年列车员，面容黝黑朴实",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_shao_yiming": {
+      "type": "image",
+      "src": "media/shao_yiming.svg",
+      "alt": "邵一鸣的画像：头发凌乱、戴圆框眼镜、胡子拉碴、挂着证件的男人，似笑非笑",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "p_song_huaijin": {
+      "type": "image",
+      "src": "media/song_huaijin.svg",
+      "alt": "宋怀瑾的画像：两鬓斑白、戴无框眼镜、穿藏青色高领毛衣的中年男人，神情温和",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_compartment3": {
+      "type": "image",
+      "src": "media/loc_compartment3.svg",
+      "alt": "软卧包厢：两侧红色铺位，窗下小桌上放着威士忌和公文包，床头阅读灯亮着，窗外是漆黑的夜",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_berths": {
+      "type": "image",
+      "src": "media/loc_berths.svg",
+      "alt": "软卧车厢的走廊：一侧是车窗和折叠座椅，一侧是几扇包厢门，地上铺着红地毯",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_dining": {
+      "type": "image",
+      "src": "media/loc_dining.svg",
+      "alt": "深夜空荡的餐车：铺着白桌布的餐桌、红色座椅，尽头的吧台上有一台收银机",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_duty": {
+      "type": "image",
+      "src": "media/loc_duty.svg",
+      "alt": "乘务员室：架子上摆着清洁用品和纸盒，桌上摊着巡视日志，墙上挂着列车员的大檐帽",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "loc_vestibule": {
+      "type": "image",
+      "src": "media/loc_vestibule.svg",
+      "alt": "车厢连接处：折叠的风挡、一扇冷光的车窗、通往餐车的门和一个垃圾桶",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_strap": {
+      "type": "image",
+      "src": "media/clue_strap.svg",
+      "alt": "枕头下抽出的蓝色帆布肩带，宽约三厘米，两端是金属搭扣，中间印着一个山形咖啡豆标志",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_glasses": {
+      "type": "image",
+      "src": "media/clue_glasses.svg",
+      "alt": "小桌上的两只威士忌杯：左边一只杯沿有唇印、杯底剩着残酒；右边一只被擦得干干净净",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
+    },
+    "m_band": {
+      "type": "image",
+      "src": "media/clue_band.svg",
+      "alt": "运动手环的心率曲线：21:30 起偏快，21:44 骤然飙升后迅速跌落，21:47 以后显示无信号",
+      "credit": "MysteryAgents",
+      "license": "CC BY 4.0"
     }
   }
 }

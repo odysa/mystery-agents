@@ -298,6 +298,7 @@ export class Game {
       script: c.script, coverStory: c.coverStory || '', isMurderer: !!c.isMurderer,
       knowledge: (c.knowledge || []).map(({ id, text, time, secret, lie }) => ({ id, text, time: time || '', secret: !!secret, lie: !!lie })),
       objectives: c.objectives.map((o) => o.desc),
+      ...(c.portrait ? { portrait: c.portrait } : {}), ...(c.voice ? { voice: c.voice } : {}), ...(c.media?.length ? { media: [...c.media] } : {}),
     };
   }
 
