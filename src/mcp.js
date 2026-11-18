@@ -123,7 +123,9 @@ async function dispatch(msg, ctx) {
   }
 }
 
-async function callTool(name, a, { publicBase, internalBase, lang }) {
+async function callTool(name, a, { publicBase, internalBase, lang: endpointLang }) {
+  // 开局时显式指定了对局语言，就用它回复（否则跟随 /mcp?lang=）
+  const lang = (name === 'create_game' && ['zh', 'en'].includes(a.lang) && a.lang) || endpointLang;
   const z = lang === 'en' ? (zh, en) => en : (zh) => zh;
   const headers = { 'content-type': 'application/json', 'x-ma-lang': lang };
   const api = async (path, body, { raw = false } = {}) => {

@@ -586,19 +586,50 @@ function renderGame(id, { watch = false } = {}) {
     };
   });
 
+  // 实时更新优先用 SSE；有些代理（如 Cloudflare Quick Tunnel）会把 SSE 整个缓冲住，
+  // 4 秒内收不到任何数据就改用长轮询 /view?wait=…
+  const poll = (q) => {
+    let stopped = false;
+    G.stopLive = () => { stopped = true; };
+    const cid = (G.cid ||= Math.random().toString(36).slice(2));
+    (async () => {
+      let fails = 0;
+      while (!stopped) {
+        try {
+          const since = G.view ? G.view.events.length : -1;
+          const v = await api(`/api/games/${id}/view?${q}&wait=25&since=${since}&cid=${cid}`);
+          if (stopped) return;
+          G.view = v; update(G); fails = 0;
+        } catch {
+          if (stopped) return;
+          if (G.mode === 'god' && !G.view) { G.mode = 'spectator'; connect(); return; }
+          fails++;
+          await new Promise((r) => setTimeout(r, Math.min(10000, 1000 * fails)));
+        }
+      }
+    })();
+  };
   const connect = () => {
-    if (G.es) G.es.close();
+    G.stopLive?.();
+    if (G.es) { G.es.close(); G.es = null; }
     const q = G.token ? `token=${G.token}` : `view=${G.mode}`;
-    G.es = new EventSource(`/api/games/${id}/stream?${q}`);
-    G.es.addEventListener('view', (ev) => { G.view = JSON.parse(ev.data); update(G); });
-    G.es.onerror = async () => {
+    if (G.usePoll) return poll(q);
+    let got = false;
+    const es = (G.es = new EventSource(`/api/games/${id}/stream?${q}`));
+    es.addEventListener('view', (ev) => { got = true; G.view = JSON.parse(ev.data); update(G); });
+    es.onerror = async () => {
       // 上帝视角被拒绝等情况：退回观众视角
       if (G.mode === 'god' && !G.view) { G.mode = 'spectator'; connect(); }
     };
+    const fallback = setTimeout(() => {
+      if (got || G.es !== es) return;
+      es.close(); G.es = null; G.usePoll = true; poll(q);
+    }, 4000);
+    G.stopLive = () => clearTimeout(fallback);
   };
   G.connect = connect;
   connect();
-  cleanup = () => { G.es?.close(); micStop(G); ttsStop(); if (TTS.G === G) TTS.G = null; closeLightbox(); };
+  cleanup = () => { G.stopLive?.(); G.es?.close(); micStop(G); ttsStop(); if (TTS.G === G) TTS.G = null; closeLightbox(); };
 }
 
 // ---------- 派生数据 ----------

@@ -138,3 +138,34 @@ test('API：观战人数随 SSE 连接增减，观众只拿到公开事件', asy
     await waitFor(async () => (await call(`/api/games/${g.body.id}/view`)).body.meta.watchers === 0);
   });
 });
+
+test('API：长轮询 /view?wait= 在有新事件时返回，并计入观众数（给会缓冲 SSE 的代理用）', async () => {
+  const dir = await withServer(async (call) => {
+    const g = await call('/api/games', { seats: { lu_yuan: 'human' }, speedMs: 0, seed: 3 });
+    const { id, tokens } = g.body;
+    const first = await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`);
+    const n = first.body.events.length;
+    // 没有新事件：最多等 wait 秒后返回原样
+    const t0 = Date.now();
+    const idle = await call(`/api/games/${id}/view?token=${tokens.lu_yuan}&wait=1&since=${n}`);
+    assert.equal(idle.status, 200);
+    assert.ok(Date.now() - t0 >= 900, '没有变化时应等待');
+    // 等待中出现新动作：立刻返回新事件
+    await waitFor(async () => (await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`)).body.turn?.pid === 'lu_yuan');
+    const cur = (await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`)).body.events.length;
+    const pending = call(`/api/games/${id}/view?token=${tokens.lu_yuan}&wait=10&since=${cur}`);
+    await new Promise((r) => setTimeout(r, 200));
+    const t1 = Date.now();
+    const turn = (await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`)).body.turn;
+    const action = turn.kind === 'ready' ? { type: 'READY' } : turn.kind === 'investigate' ? { type: 'PASS' } : { type: 'PASS' };
+    assert.equal((await call(`/api/games/${id}/action`, { token: tokens.lu_yuan, action })).status, 200);
+    const got = await pending;
+    assert.ok(got.body.events.length > cur, '应返回新事件');
+    assert.ok(Date.now() - t1 < 3000, '应在变化后很快返回');
+    // 观众长轮询计入在线人数
+    await call(`/api/games/${id}/view?wait=0&cid=viewer1`);
+    const meta = (await call(`/api/games/${id}/view`)).body.meta;
+    assert.equal(meta.watchers, 1);
+  });
+  rmSync(dir, { recursive: true, force: true });
+});

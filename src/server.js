@@ -62,6 +62,13 @@ export function createApp({
     req.on('end', () => { try { resolve(b ? JSON.parse(b) : {}); } catch (e) { reject(e); } }); req.on('error', reject);
   });
 
+  // 在线观众：SSE 连接数 + 最近 45 秒内长轮询过的观众
+  const watchersOf = (r) => {
+    let n = r.watchers || 0; const now = Date.now();
+    for (const [k, exp] of r.pollers || []) { if (exp > now) n++; else r.pollers.delete(k); }
+    return n;
+  };
+
   function viewerOf(runner, q) {
     const token = q.get('token');
     if (token) {
@@ -87,7 +94,7 @@ export function createApp({
         id: runner.meta.id, seats: runner.meta.seats, paused: runner.paused, speedMs: runner.meta.speedMs,
         thinking: runner.thinking, hasHumans: runner.humans.length > 0, createdAt: runner.meta.createdAt,
         godAllowed: !runner.humans.length || g.ended,
-        humans: runner.humans, joined: [...(runner.joined || [])], watchers: runner.watchers || 0,
+        humans: runner.humans, joined: [...(runner.joined || [])], watchers: watchersOf(runner),
         open: openSeats(runner), agentNames: runner.meta.agentNames || {}, lang: runner.lang,
       },
       media: visibleMedia(runner, viewer),
@@ -153,7 +160,7 @@ export function createApp({
     return {
       id: r.meta.id, scenarioId: r.meta.scenarioId, title: r.scenario.title, createdAt: r.meta.createdAt,
       phase: g.state.phase, round: g.state.round, seats: r.meta.seats, ended: g.ended,
-      watchers: r.watchers || 0, open: openSeats(r), lang: r.lang,
+      watchers: watchersOf(r), open: openSeats(r), lang: r.lang,
       result: g.ended ? { convicted: g.state.result.convicted, goodWin: g.state.result.goodWin } : null,
     };
   }
@@ -320,6 +327,29 @@ export function createApp({
     if (sub === 'view' && req.method === 'GET') {
       const v = viewerOf(runner, q); if (v.error) return json(res, 403, { error: t(v.error) });
       if (q.get('format') === 'text' && v.kind === 'player') return text(res, 200, renderObservationText(buildView(runner, v), { since: Number(q.get('since') || 0), full: !q.get('since'), lang: runner.lang, base: baseOf(req) }));
+      if (q.has('wait')) {
+        // 长轮询版的实时更新：给会缓冲 SSE 的代理（如 Cloudflare Quick Tunnel）用。
+        // 浏览器带上已有的事件数 since；没有新事件时等到对局有任何变化（或超时）再返回。
+        const cid = q.get('cid');
+        if (cid && v.kind !== 'player') {
+          const pollers = (runner.pollers ||= new Map());
+          const isNew = !(pollers.get(cid) > Date.now());
+          pollers.set(cid, Date.now() + 45000);
+          if (isNew) setTimeout(() => runner.notify(), 0);
+        }
+        const since = Number(q.get('since') ?? -1);
+        const waitMs = Math.max(0, Math.min(25000, Number(q.get('wait')) * 1000 || 0));
+        if (waitMs && buildView(runner, v).events.length === since) {
+          await new Promise((resolve) => {
+            let timer = null;
+            const done = () => { off(); clearTimeout(timer); resolve(); };
+            const off = runner.onChange(() => { clearTimeout(timer); timer = setTimeout(done, 60); });
+            timer = setTimeout(done, waitMs);
+            req.on('close', done);
+          });
+          if (res.writableEnded || req.destroyed) return;
+        }
+      }
       return json(res, 200, buildView(runner, v));
     }
     if (sub === 'turn' && req.method === 'GET') {
