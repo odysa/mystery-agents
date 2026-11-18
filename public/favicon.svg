@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#a8322d"/><text x="32" y="45" font-size="38" text-anchor="middle" fill="#f6efe3" font-family="serif">谜</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="wax" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#d84a3f"/>
+      <stop offset="55%" stop-color="#9e241d"/>
+      <stop offset="100%" stop-color="#5e120e"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#wax)"/>
+  <circle cx="32" cy="32" r="24.5" fill="none" stroke="#e8c27a" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#3a0a07" stroke-opacity=".5" stroke-width="1.2"/>
+  <text x="32" y="43" font-size="31" font-weight="700" text-anchor="middle" fill="#f7eedb" font-family="'Noto Serif SC','Songti SC',serif">谜</text>
+</svg>

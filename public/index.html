@@ -6,23 +6,54 @@
   <title>谜案 · MysteryAgents 剧本杀</title>
   <meta name="description" content="开源剧本杀多智能体平台：和 AI 角色一起玩剧本杀，或观看 AI 全自动推理对局。">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="/style.css">
   <script src="/i18n.js"></script>
 </head>
 <body>
+  <div class="desk-backdrop" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#/"><span class="seal" data-i18n="谜">谜</span><span><b data-i18n="谜案">谜案</b><small data-i18n="MysteryAgents">MysteryAgents</small></span></a>
-    <nav>
-      <a href="#/" data-i18n="大厅">大厅</a>
-      <a href="#/games" data-i18n="对局记录">对局记录</a>
-      <a href="#/agents" data-i18n="接入 Agent">接入 Agent</a>
-      <a href="#/submit" data-i18n="投稿剧本">投稿剧本</a>
-      <a href="#/about" data-i18n="关于">关于</a>
-      <span class="lang-switch" role="group" aria-label="Language / 语言"><button type="button" data-setlang="zh" lang="zh-CN">中文</button><span aria-hidden="true">/</span><button type="button" data-setlang="en" lang="en">EN</button></span>
-    </nav>
+    <div class="topbar-inner">
+      <a class="brand" href="#/">
+        <span class="seal" aria-hidden="true">
+          <span class="seal-ring"></span>
+          <span class="seal-glyph" data-i18n="谜">谜</span>
+        </span>
+        <span class="brand-copy">
+          <b data-i18n="谜案">谜案</b>
+          <small data-i18n="MysteryAgents">MysteryAgents</small>
+        </span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#/" data-nav="/" data-i18n="大厅">大厅</a>
+        <a href="#/games" data-nav="/games" data-i18n="对局记录">对局记录</a>
+        <a href="#/agents" data-nav="/agents" data-i18n="接入 Agent">接入 Agent</a>
+        <a href="#/submit" data-nav="/submit" data-i18n="投稿剧本">投稿剧本</a>
+        <a href="#/about" data-nav="/about" data-i18n="关于">关于</a>
+      </nav>
+      <div class="topbar-tools">
+        <button type="button" class="theme-switch" id="themeToggle" data-theme-toggle>
+          <span class="theme-icon" aria-hidden="true">🕯️</span>
+          <span class="theme-label" data-theme-label>烛影</span>
+        </button>
+        <span class="lang-switch" role="group" aria-label="Language / 语言">
+          <button type="button" data-setlang="zh" lang="zh-CN">中文</button>
+          <span class="lang-sep" aria-hidden="true">/</span>
+          <button type="button" data-setlang="en" lang="en">EN</button>
+        </span>
+      </div>
+    </div>
   </header>
-  <main id="app"><div class="loading" data-i18n="加载中…">加载中…</div></main>
-  <div id="toast" class="toast" hidden></div>
+  <main id="app">
+    <div class="loading">
+      <div class="loading-seal" aria-hidden="true"><span>谜</span></div>
+      <div class="loading-text" data-i18n="加载中…">加载中…</div>
+    </div>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <script type="module" src="/app.js"></script>
 </body>
 </html>

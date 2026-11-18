@@ -1,5 +1,5 @@
-// MysteryAgents 前端多语言（经典脚本，先于 app.js 加载）
-// 全局：LANG（'zh' | 'en'）、T(中文原文, 变量)、setLang(语言)
+// MysteryAgents 前端多语言与主题预设（经典脚本，先于 app.js 加载）
+// 全局：LANG（'zh' | 'en'）、T(中文原文, 变量)、setLang(语言)、THEME、applyTheme(t)
 // 词典以中文原文为键；缺失的键回退中文并在控制台提示一次。
 
 const LANG = (() => {
@@ -10,6 +10,38 @@ const LANG = (() => {
   return String(navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
 })();
 document.documentElement.lang = LANG === 'en' ? 'en' : 'zh-CN';
+
+function detectSystemTheme() {
+  try {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  } catch {
+    return 'dark';
+  }
+}
+
+function getSavedTheme() {
+  try {
+    const v = localStorage.getItem('ma_theme');
+    if (v === 'light' || v === 'dark') return v;
+  } catch { /* 隐私模式 */ }
+  return null;
+}
+
+function applyTheme(theme, persist = false) {
+  const resolved = theme === 'light' || theme === 'dark' ? theme : detectSystemTheme();
+  document.documentElement.dataset.theme = resolved;
+  if (persist) {
+    try { localStorage.setItem('ma_theme', resolved); } catch { /* 隐私模式 */ }
+  }
+  return resolved;
+}
+
+applyTheme(getSavedTheme());
+try {
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+    if (!getSavedTheme()) applyTheme(null);
+  });
+} catch { /* 旧浏览器 */ }
 
 const EN = {
   // ---- 外壳 / 导航 ----
@@ -25,6 +57,11 @@ const EN = {
   '关于': 'About',
   '加载中…': 'Loading…',
   '请求失败 ({status})': 'Request failed ({status})',
+  '烛影': 'Noir',
+  '昼阅': 'Daylight',
+  '切换为白昼模式': 'Switch to daylight mode',
+  '切换为烛影模式': 'Switch to noir mode',
+  '侦缉卷宗与多智能体推理剧场': 'Case Archive & Multi-Agent Mystery Theater',
 
   // ---- 通用标签 ----
   '玩家的 Agent': "Player's agent",
@@ -56,6 +93,12 @@ const EN = {
   '空位（任何人的 Agent 可加入）': "Open seat (anyone's agent can join)",
   '（未配置）': ' (not configured)',
   '原创剧本 · {diff} · {n} 人 · 约 {min} 分钟': 'Original scenario · {diff} · {n} players · ~{min} min',
+  '当前调阅卷宗': 'ACTIVE CASE DOSSIER',
+  '死者：{name}': 'Victim: {name}',
+  '入局方式': 'ENTER THE CASE',
+  '已调阅': 'SELECTED',
+  '案件编号': 'CASE FILE',
+  '角色席位与先手设定': 'SUSPECT ROSTER & TABLE SETUP',
   '和 AI 一起玩': 'Play with AI',
   '你扮演一名角色，另外 {n} 名角色由 AI 扮演。AI 只知道自己角色的信息，会搜证、隐瞒、质询，也可能撒谎。': 'You play one character; AI plays the other {n}. Each AI knows only its own character. They investigate, hide things, question each other, and may lie.',
   '随机分配角色': 'Random character',
@@ -83,6 +126,11 @@ const EN = {
   '{s} 秒': '{s} s',
 
   // ---- 对局记录 ----
+  '案卷归档室': 'CASE ARCHIVE LEDGER',
+  '记录本服务器上的直播对局与结案回放': 'Live investigations and archived case replays on this server',
+  '操作': 'Actions',
+  '去大厅开启第一桩案件': 'Open a case from the lobby',
+  '档案柜里还没有对局记录。前往大厅挑选一桩悬案，与 AI 同桌飙戏或围观推理。': 'No cases in the ledger yet. Head to the lobby to pick a mystery—play alongside AI suspects or watch them deduce on their own.',
   '新对局': 'New game',
   '时间': 'Time',
   '剧本': 'Scenario',
@@ -98,6 +146,8 @@ const EN = {
   '还没有对局。': 'No games yet.',
 
   // ---- 关于 ----
+  '核心机制': 'CORE ARCHITECTURE',
+  '开源与创作许可': 'OPEN SOURCE & LICENSE',
   '关于 MysteryAgents': 'About MysteryAgents',
   'MysteryAgents 是一个开源的剧本杀多智能体平台，既是可以直接玩的游戏，也是研究多智能体推理、记忆、信息不对称与策略欺骗的实验环境。': 'MysteryAgents is an open-source multi-agent platform for murder mystery role-playing games (剧本杀). It is a game you can play right away, and a testbed for research on multi-agent reasoning, memory, information asymmetry and strategic deception.',
   '确定性规则引擎': 'Deterministic rules engine',
@@ -111,6 +161,7 @@ const EN = {
   '内置剧本均为本项目原创，采用 CC BY 4.0 许可。想写新剧本，请看仓库里的 docs/scenario-guide.md。': 'All built-in scenarios are original to this project and licensed CC BY 4.0. To write your own, see docs/scenario-guide.md in the repo.',
 
   // ---- 接入 Agent ----
+  '特工通讯处': 'AGENT DISPATCH BUREAU',
   '带上你自己的 Agent': 'Bring your own agent',
   'Agent native：读说明、入座、投稿，都不需要人帮忙': 'Agent-native: reading the docs, taking a seat and submitting scenarios need no human help',
   '① 最简单：复制一句话': '① Easiest: copy one line',
@@ -134,6 +185,8 @@ const EN = {
   '现在没有空位。在大厅里把某个座位设为「空位」，或者点「开放空位」。': 'No open seats right now. In the lobby, set a seat to "Open seat" or click "Open a seat".',
 
   // ---- 投稿剧本 ----
+  '审稿与试玩台': 'PLAYTEST & VALIDATION DESK',
+  '等待呈交剧本手稿': 'Awaiting Scenario Manuscript',
   '开放剧本杀格式 OpenMystery v1': 'OpenMystery v1, an open format for murder mystery role-play games',
   '让你的 Agent 来写': 'Let your agent write it',
   '：把这段复制给它（改一下题材）': ': copy this to it (change the theme)',
@@ -171,6 +224,15 @@ const EN = {
   '试玩使用离线规则型 AI（会读取线索的作者标注），侦探胜率 90% 以上通常说明案子太直白；真人和大模型的表现会不同。': 'Playtests use the offline rule-based AI, which reads the author\'s clue tags. A detective win rate above 90% usually means the case is too obvious. Humans and LLMs will play differently.',
 
   // ---- 对局页：通用 ----
+  '卷宗': 'Dossier',
+  '审讯台': 'Table',
+  '推演板': 'Board',
+  '角色档案': 'CHARACTER DOSSIER',
+  '证物袋': 'EVIDENCE POUCH',
+  '案件卷宗': 'CASE BRIEF',
+  '在场嫌疑人': 'SUSPECTS AT TABLE',
+  '呈堂证物': 'EXHIBIT',
+  '结案报告': 'CASE CLOSED REPORT',
   '主持人': 'Host',
   '主': 'H',
   '空位 · 等待 Agent 加入': 'Open seat · waiting for an agent',
@@ -353,6 +415,7 @@ const EN = {
   '未被发现': 'Not found',
   '被隐藏': 'Hidden',
   '还没有公开的线索。': 'No clues revealed yet.',
+
   // ---- 多模态：图片 / 音频 / 语音 ----
   '查看大图：{alt}': 'View full image: {alt}',
   '文字稿': 'Transcript',
