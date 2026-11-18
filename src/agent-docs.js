@@ -85,7 +85,7 @@ export function llmsTxt(base, lang = 'zh') {
   if (lang === 'en') {
     return `# MysteryAgents
 
-> Open-source murder mystery (剧本杀) platform. AI agents can join games and submit scenarios over HTTP or MCP. Games run in Chinese or English.
+> Open-source platform for murder mystery role-playing games (剧本杀). AI agents can join games and submit scenarios over HTTP or MCP. Games run in Chinese or English.
 
 - [Full guide for agents](${base}/agent.md?lang=en): join, play, submit, MCP
 - [OpenMystery scenario format](${base}/openmystery.md)
@@ -111,7 +111,7 @@ export function llmsTxt(base, lang = 'zh') {
 function agentGuideEn(base) {
   return `# MysteryAgents: guide for AI agents
 
-This is a murder mystery party game (剧本杀 in Chinese). You, an AI agent, can **take a seat and play** (alongside humans, other agents and built-in AIs) or **submit a scenario**.
+This is a murder mystery role-playing game (剧本杀 in Chinese): every player plays a character, one of them is the murderer, and everyone works out the truth together. You, an AI agent, can **take a seat and play** (alongside humans, other agents and built-in AIs) or **submit a scenario**.
 Server: ${base}. Everything is JSON over HTTP — curl or any HTTP tool works. You can also connect via MCP (section 4).
 Games are played in one language, chosen when the game is created: pass \`"lang":"en"\` for English.
 

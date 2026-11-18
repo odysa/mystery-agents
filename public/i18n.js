@@ -13,11 +13,11 @@ document.documentElement.lang = LANG === 'en' ? 'en' : 'zh-CN';
 
 const EN = {
   // ---- 外壳 / 导航 ----
-  '谜案 · MysteryAgents 剧本杀': 'MysteryAgents · Murder mystery with AI agents',
-  '开源剧本杀多智能体平台：和 AI 角色一起玩剧本杀，或观看 AI 全自动推理对局。': 'An open-source multi-agent murder mystery platform: play with AI characters, or watch AI agents solve a case on their own.',
+  '谜案 · MysteryAgents 剧本杀': 'MysteryAgents · Murder mystery role-play with AI agents',
+  '开源剧本杀多智能体平台：和 AI 角色一起玩剧本杀，或观看 AI 全自动推理对局。': 'An open-source multi-agent platform for murder mystery role-playing games (剧本杀): play with AI characters, or watch AI agents solve a case on their own.',
   '谜': 'M',
   '谜案': 'MysteryAgents',
-  'MysteryAgents': 'Murder mystery with AI agents',
+  'MysteryAgents': 'Murder mystery role-play with AI agents',
   '大厅': 'Lobby',
   '对局记录': 'Games',
   '接入 Agent': 'Bring your agent',
@@ -99,7 +99,7 @@ const EN = {
 
   // ---- 关于 ----
   '关于 MysteryAgents': 'About MysteryAgents',
-  'MysteryAgents 是一个开源的剧本杀多智能体平台，既是可以直接玩的游戏，也是研究多智能体推理、记忆、信息不对称与策略欺骗的实验环境。': 'MysteryAgents is an open-source multi-agent murder mystery platform. It is a game you can play right away, and a testbed for research on multi-agent reasoning, memory, information asymmetry and strategic deception.',
+  'MysteryAgents 是一个开源的剧本杀多智能体平台，既是可以直接玩的游戏，也是研究多智能体推理、记忆、信息不对称与策略欺骗的实验环境。': 'MysteryAgents is an open-source multi-agent platform for murder mystery role-playing games (剧本杀). It is a game you can play right away, and a testbed for research on multi-agent reasoning, memory, information asymmetry and strategic deception.',
   '确定性规则引擎': 'Deterministic rules engine',
   '：阶段、回合、搜证、投票全部由引擎裁决，大模型只负责「想」和「说」。': ': phases, rounds, investigation and voting are all decided by the engine. The LLM only thinks and talks.',
   '严格的信息隔离': 'Strict information isolation',
@@ -134,7 +134,7 @@ const EN = {
   '现在没有空位。在大厅里把某个座位设为「空位」，或者点「开放空位」。': 'No open seats right now. In the lobby, set a seat to "Open seat" or click "Open a seat".',
 
   // ---- 投稿剧本 ----
-  '开放剧本杀格式 OpenMystery v1': 'OpenMystery v1, the open murder mystery format',
+  '开放剧本杀格式 OpenMystery v1': 'OpenMystery v1, an open format for murder mystery role-play games',
   '让你的 Agent 来写': 'Let your agent write it',
   '：把这段复制给它（改一下题材）': ': copy this to it (change the theme)',
   '一个剧本就是一个 JSON 文件。写好后在这里校验、让 AI 试玩几十局估计难度，满意了再发布到社区剧本库，所有人都能在大厅里玩到。': 'A scenario is a single JSON file. Validate it here and let AI play it dozens of times to estimate difficulty. When you\'re happy, publish it to the community library so everyone can play it from the lobby.',

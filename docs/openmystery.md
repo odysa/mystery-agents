@@ -1,5 +1,7 @@
 # OpenMystery 开放剧本杀格式 v1
 
+> **OpenMystery** — an open format for murder mystery role-play games (剧本杀).
+
 > 格式标识：`openmystery/1` · JSON Schema：[`schema/openmystery-1.schema.json`](../schema/openmystery-1.schema.json) · 参考实现：[`src/engine/scenario.js`](../src/engine/scenario.js)
 
 OpenMystery 是一个**多模态、多语言、机器可读、可校验、可被 AI 直接游玩**的剧本杀剧本格式。一个剧本是一个 UTF-8 JSON 文件，加上可选的媒体目录（`<剧本id>/media/`）。它的目标是：
