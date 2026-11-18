@@ -1386,7 +1386,7 @@ function vizMap(G, D) {
       <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="6" fill="url(#roomfade)" ${stroke}/>` : ''}
       <rect x="${p.x}" y="${p.y}" width="${RW}" height="${RH}" rx="6" fill="var(--accent)" opacity="${(heat * 0.18).toFixed(2)}"/>
       <text x="${p.x + 10}" y="${p.y + 22}" fill="var(--text)" font-size="14.5" font-family="var(--serif)" font-weight="700" ${li ? 'class="halo2"' : ''}>${esc(l.name)}${l === crime ? ' ✕' : ''}</text>
-      <text x="${p.x + RW - 10}" y="${p.y + 22}" fill="var(--muted)" font-size="11" text-anchor="end" ${li ? 'class="halo2"' : ''}>${T('线索 {a}/{b}', { a: remaining, b: total })}</text>
+      <text x="${p.x + RW - 10}" y="${p.y + 40}" fill="var(--muted)" font-size="11" text-anchor="end" ${li ? 'class="halo2"' : ''}>${T('线索 {a}/{b}', { a: remaining, b: total })}</text>
       <text x="${p.x + 10}" y="${p.y + 40}" fill="${li ? 'var(--muted)' : 'var(--faint)'}" font-size="11" ${li ? 'class="halo2"' : ''}>${T('被搜查 {n} 次', { n: searches[l.id] || 0 })}</text>`;
     const here = Object.entries(pos).filter(([, loc]) => loc === l.id).map(([pid]) => pid);
     here.forEach((pid, i) => {

@@ -874,7 +874,7 @@ input[type="range"] {
   min-height: 430px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background:
     radial-gradient(ellipse at 82% 18%, rgba(223, 168, 75, 0.24), transparent 52%),
     radial-gradient(ellipse at 12% 88%, rgba(196, 54, 44, 0.34), transparent 58%),
@@ -967,7 +967,7 @@ input[type="range"] {
 }
 
 .poster-body {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 .poster h1 {
@@ -3105,6 +3105,9 @@ svg text.halo2 {
   main, body.in-game main {
     padding: 14px 14px 40px;
   }
+  .topbar {
+    position: static;
+  }
   .topbar-inner {
     padding: 10px 14px;
   }
@@ -3140,7 +3143,7 @@ svg text.halo2 {
   }
   .mobile-jump {
     display: flex;
-    top: 94px;
+    top: 0;
   }
   .game {
     grid-template-columns: 1fr;
@@ -3260,17 +3263,21 @@ svg text.halo2 {
     font-size: 11.5px;
   }
   .topnav {
-    flex-wrap: wrap;
-    overflow-x: visible;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
     gap: 3px 4px;
     padding-top: 5px;
+  }
+  .topnav::-webkit-scrollbar {
+    display: none;
   }
   .topnav a {
     padding: 4px 8px;
     font-size: 12.5px;
   }
   .mobile-jump {
-    top: 84px;
+    top: 0;
   }
   .poster {
     padding: 18px 16px;
