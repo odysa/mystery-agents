@@ -552,10 +552,21 @@ function submitReport(r, sc, published) {
 }
 
 // ======================= 对局页 =======================
+// 只接受不比当前更旧的局面（代理延迟吐出的旧数据、并发请求的旧响应都会被丢掉）
+const isStale = (G, v) => {
+  const a = G.view?.meta, b = v?.meta;
+  return !!(a && b && a.boot === b.boot && typeof a.rev === 'number' && typeof b.rev === 'number' && b.rev < a.rev);
+};
+function acceptView(G, v) {
+  if (isStale(G, v)) return false;
+  G.view = v;
+  try { update(G); } catch (err) { console.error(err); showFatal(err.message); }
+  return true;
+}
 function renderGame(id, { watch = false } = {}) {
   const saved = watch ? null : store.get(`ma_token_${id}`);
   const [myPid, token] = saved ? saved.split(':') : [null, null];
-  const G = { id, token, myPid, mode: token ? 'player' : (store.get(`ma_mode_${id}`) || 'spectator'), view: null, tab: store.get('ma_tab') || 'map', replay: null, es: null, actionKey: '', draft: { sub: 'SPEAK', text: '', target: '', clue: '' } };
+  const G = { id, token, myPid, mode: token ? 'player' : (store.get(`ma_mode_${id}`) || 'spectator'), view: null, usePoll: store.get('ma_live_poll') === '1', tab: store.get('ma_tab') || 'map', replay: null, es: null, actionKey: '', draft: { sub: 'SPEAK', text: '', target: '', clue: '' } };
 
   $app.innerHTML = `
     <div class="mobile-jump" role="navigation" aria-label="Workspace panels">
@@ -586,47 +597,55 @@ function renderGame(id, { watch = false } = {}) {
     };
   });
 
-  // 实时更新优先用 SSE；有些代理（如 Cloudflare Quick Tunnel）会把 SSE 整个缓冲住，
-  // 4 秒内收不到任何数据就改用长轮询 /view?wait=…
-  const poll = (q) => {
+  // 实时更新：一进来就用 /view 轮询（首个请求立即返回，开局不用等），同时试 SSE。
+  // 有些代理（如 Cloudflare Quick Tunnel）会缓冲 SSE、过一阵才成批吐出旧数据，所以：
+  // SSE 的首条数据要在 1.5 秒内到达且不比手上的局面旧，才算可用并停掉轮询；否则只用长轮询，并记住该站点需要轮询。
+  const poll = (q, gen) => {
     let stopped = false;
-    G.stopLive = () => { stopped = true; };
+    const live = () => !stopped && G.gen === gen;
     const cid = (G.cid ||= Math.random().toString(36).slice(2));
     (async () => {
-      let fails = 0;
-      while (!stopped) {
+      let fails = 0, first = true;
+      while (live()) {
         try {
-          const since = G.view ? G.view.events.length : -1;
-          const v = await api(`/api/games/${id}/view?${q}&wait=25&since=${since}&cid=${cid}`);
-          if (stopped) return;
-          G.view = v; fails = 0;
-          try { update(G); } catch (err) { console.error(err); showFatal(err.message); }
+          // 首个请求不等待；SSE 还在试探时不带 cid，免得和 SSE 连接重复计入观众数
+          const rev = G.view?.meta?.rev ?? -1;
+          const url = first ? `/api/games/${id}/view?${q}` : `/api/games/${id}/view?${q}&wait=25&rev=${rev}${G.usePoll ? `&cid=${cid}` : ''}`;
+          const v = await api(url);
+          if (!live()) return;
+          fails = 0; first = false; acceptView(G, v);
         } catch {
-          if (stopped) return;
+          if (!live()) return;
           if (G.mode === 'god' && !G.view) { G.mode = 'spectator'; connect(); return; }
           fails++;
           await new Promise((r) => setTimeout(r, Math.min(10000, 1000 * fails)));
         }
       }
     })();
+    return () => { stopped = true; };
   };
+  const giveUpSSE = (es) => { es.close(); if (G.es === es) G.es = null; G.usePoll = true; store.set('ma_live_poll', '1'); };
   const connect = () => {
     G.stopLive?.();
     if (G.es) { G.es.close(); G.es = null; }
+    const gen = (G.gen = (G.gen || 0) + 1);
     const q = G.token ? `token=${G.token}` : `view=${G.mode}`;
-    if (G.usePoll) return poll(q);
+    if (G.usePoll) { G.stopLive = poll(q, gen); return; }
+    const stopPoll = poll(q, gen);
+    const opened = Date.now();
     let got = false;
     const es = (G.es = new EventSource(`/api/games/${id}/stream?${q}`));
-    es.addEventListener('view', (ev) => { got = true; G.view = JSON.parse(ev.data); update(G); });
-    es.onerror = async () => {
-      // 上帝视角被拒绝等情况：退回观众视角
-      if (G.mode === 'god' && !G.view) { G.mode = 'spectator'; connect(); }
-    };
-    const fallback = setTimeout(() => {
-      if (got || G.es !== es) return;
-      es.close(); G.es = null; G.usePoll = true; poll(q);
-    }, 4000);
-    G.stopLive = () => clearTimeout(fallback);
+    es.addEventListener('view', (ev) => {
+      if (G.gen !== gen || G.es !== es) return;
+      const v = JSON.parse(ev.data);
+      if (!got) {
+        if (Date.now() - opened > 1500 || isStale(G, v)) { giveUpSSE(es); return; }
+        got = true; stopPoll();
+      }
+      acceptView(G, v);
+    });
+    const fallback = setTimeout(() => { if (!got && G.es === es) giveUpSSE(es); }, 1600);
+    G.stopLive = () => { stopPoll(); clearTimeout(fallback); };
   };
   G.connect = connect;
   connect();
@@ -1195,8 +1214,18 @@ function patchList(el, items) {
 // ---------- 行动面板 ----------
 async function act(G, action) {
   micStop(G);
-  try { await api(`/api/games/${G.id}/action`, { method: 'POST', body: { token: G.token, action } }); G.draft.text = ''; }
-  catch (e) { toast(e.message); }
+  if (G.acting) return; // 防止连点重复提交
+  G.acting = true;
+  const btns = [...document.querySelectorAll('#actions button')];
+  btns.forEach((b) => { b.disabled = true; });
+  try {
+    await api(`/api/games/${G.id}/action`, { method: 'POST', body: { token: G.token, action } });
+    G.draft.text = '';
+    // 不等实时推送，立刻拉一次最新局面（经代理时推送可能要几百毫秒）
+    const v = await api(`/api/games/${G.id}/view?token=${G.token}`).catch(() => null);
+    if (v) acceptView(G, v);
+  } catch (e) { toast(e.message); }
+  finally { G.acting = false; btns.forEach((b) => { if (b.isConnected) b.disabled = false; }); }
 }
 
 function renderActions(G, D) {

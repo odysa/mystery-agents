@@ -169,3 +169,28 @@ test('API：长轮询 /view?wait= 在有新事件时返回，并计入观众数�
   });
   rmSync(dir, { recursive: true, force: true });
 });
+
+test('API：长轮询带 rev 时，没有新事件的变化（好友加入）也会立刻返回', async () => {
+  const dir = await withServer(async (call) => {
+    const g = await call('/api/games', { seats: { lu_yuan: 'human', shen_qing: 'human' }, speedMs: 0, seed: 3 });
+    const { id, tokens } = g.body;
+    const first = await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`);
+    await new Promise((r) => setTimeout(r, 100));
+    const cur = (await call(`/api/games/${id}/view?token=${tokens.lu_yuan}`)).body;
+    assert.equal(typeof cur.meta.rev, 'number');
+    assert.ok(cur.meta.rev >= first.body.meta.rev);
+    // 没有变化：等满 wait 秒
+    const t0 = Date.now();
+    await call(`/api/games/${id}/view?token=${tokens.lu_yuan}&wait=1&rev=${cur.meta.rev}`);
+    assert.ok(Date.now() - t0 >= 900, '没有变化时应等待');
+    // 等待中好友加入：事件数不变，但应很快返回且看到已加入
+    const pending = call(`/api/games/${id}/view?token=${tokens.lu_yuan}&wait=10&rev=${cur.meta.rev}`);
+    await new Promise((r) => setTimeout(r, 200));
+    const t1 = Date.now();
+    await call(`/api/games/${id}/view?token=${tokens.shen_qing}`);
+    const got = await pending;
+    assert.ok(Date.now() - t1 < 3000, '好友加入后应很快返回');
+    assert.ok(got.body.meta.joined.includes('shen_qing'));
+  });
+  rmSync(dir, { recursive: true, force: true });
+});

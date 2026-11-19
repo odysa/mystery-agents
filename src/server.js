@@ -63,7 +63,8 @@ export function createApp({
   });
 
   // 在线观众：SSE 连接数 + 最近 45 秒内长轮询过的观众
-  const watchersOf = (r) => {
+  const BOOT = Date.now().toString(36); // 服务器重启后 rev 从 0 重新计数，客户端靠 boot 区分
+const watchersOf = (r) => {
     let n = r.watchers || 0; const now = Date.now();
     for (const [k, exp] of r.pollers || []) { if (exp > now) n++; else r.pollers.delete(k); }
     return n;
@@ -94,7 +95,7 @@ export function createApp({
         id: runner.meta.id, seats: runner.meta.seats, paused: runner.paused, speedMs: runner.meta.speedMs,
         thinking: runner.thinking, hasHumans: runner.humans.length > 0, createdAt: runner.meta.createdAt,
         godAllowed: !runner.humans.length || g.ended,
-        humans: runner.humans, joined: [...(runner.joined || [])], watchers: watchersOf(runner),
+        humans: runner.humans, joined: [...(runner.joined || [])], watchers: watchersOf(runner), rev: runner.rev || 0, boot: BOOT,
         open: openSeats(runner), agentNames: runner.meta.agentNames || {}, lang: runner.lang,
       },
       media: visibleMedia(runner, viewer),
@@ -329,7 +330,7 @@ export function createApp({
       if (q.get('format') === 'text' && v.kind === 'player') return text(res, 200, renderObservationText(buildView(runner, v), { since: Number(q.get('since') || 0), full: !q.get('since'), lang: runner.lang, base: baseOf(req) }));
       if (q.has('wait')) {
         // 长轮询版的实时更新：给会缓冲 SSE 的代理（如 Cloudflare Quick Tunnel）用。
-        // 浏览器带上已有的事件数 since；没有新事件时等到对局有任何变化（或超时）再返回。
+        // 浏览器带上上次拿到的 rev（旧客户端带事件数 since）；没有变化时等到对局有任何变化（或超时）再返回。
         const cid = q.get('cid');
         if (cid && v.kind !== 'player') {
           const pollers = (runner.pollers ||= new Map());
@@ -339,7 +340,8 @@ export function createApp({
         }
         const since = Number(q.get('since') ?? -1);
         const waitMs = Math.max(0, Math.min(25000, Number(q.get('wait')) * 1000 || 0));
-        if (waitMs && buildView(runner, v).events.length === since) {
+        const unchanged = q.has('rev') ? (runner.rev || 0) === Number(q.get('rev')) : buildView(runner, v).events.length === since;
+        if (waitMs && unchanged) {
           await new Promise((resolve) => {
             let timer = null;
             const done = () => { off(); clearTimeout(timer); resolve(); };

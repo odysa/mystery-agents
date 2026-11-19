@@ -71,7 +71,8 @@ export class GameRunner {
   get humans() { return Object.entries(this.meta.seats).filter(([, k]) => TOKEN_SEATS.includes(k)).map(([p]) => p); }
 
   onChange(fn) { this.listeners.add(fn); return () => this.listeners.delete(fn); }
-  notify() { for (const fn of this.listeners) fn(); }
+  // rev 每次变化都递增：长轮询靠它判断「有没有新东西」（加入、思考中、暂停等不一定产生新事件）
+  notify() { this.rev = (this.rev || 0) + 1; for (const fn of this.listeners) fn(); }
 
   flushSoon() {
     if (this._flushTimer) return;
