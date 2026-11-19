@@ -88,6 +88,8 @@ const EN = {
   // ---- 大厅 ----
   '加载剧本…': 'Loading scenarios…',
   '无法连接服务器：{msg}': "Can't reach the server: {msg}",
+  '页面出错了：{msg}。可尝试刷新，或换用最新版 Chrome / Safari / Edge。': 'Something went wrong on this page: {msg}. Try reloading, or use the latest Chrome, Safari or Edge.',
+  '刷新': 'Reload',
   '真人玩家': 'Human player',
   '我的 Agent': 'My agent',
   '空位（任何人的 Agent 可加入）': "Open seat (anyone's agent can join)",

@@ -599,7 +599,8 @@ function renderGame(id, { watch = false } = {}) {
           const since = G.view ? G.view.events.length : -1;
           const v = await api(`/api/games/${id}/view?${q}&wait=25&since=${since}&cid=${cid}`);
           if (stopped) return;
-          G.view = v; update(G); fails = 0;
+          G.view = v; fails = 0;
+          try { update(G); } catch (err) { console.error(err); showFatal(err.message); }
         } catch {
           if (stopped) return;
           if (G.mode === 'god' && !G.view) { G.mode = 'spectator'; connect(); return; }
@@ -821,7 +822,7 @@ if (TTS.supported) {
 const ttsReady = () => TTS.supported && TTS.voices.length > 0;
 // 按语言、性别挑系统声音；同性别有多个声音时按角色 id 分配，让不同角色听起来不一样
 const FEMALE = /female|woman|girl|女|xiaoxiao|xiaoyi|xiaohan|xiaomo|xiaochen|xiaorui|xiaoshuang|xiaoxuan|xiaoyan|huihui|yaoyao|tingting|meijia|sinji|hanhan|lili|samantha|victoria|karen|moira|tessa|fiona|zira|susan|hazel|serena|aria|jenny|libby|sonia|allison|\bava\b|kate|catherine|veena|nicky|joanna|salli|kimberly|ivy|emma|amy/i;
-const MALE = /(?<!fe)male|\bman\b|boy|男|yunxi|yunyang|yunjian|yunfeng|yunhao|yunze|kangkang|daniel|\balex\b|fred|\btom\b|david|mark|george|\bguy\b|ryan|aaron|arthur|oliver|rishi|gordon|lee|matthew|joey|justin|brian|eric|thomas/i;
+const MALE = /male|\bman\b|boy|男|yunxi|yunyang|yunjian|yunfeng|yunhao|yunze|kangkang|daniel|\balex\b|fred|\btom\b|david|mark|george|\bguy\b|ryan|aaron|arthur|oliver|rishi|gordon|lee|matthew|joey|justin|brian|eric|thomas/i;
 const voiceGender = (vc) => { const s = `${vc.name} ${vc.voiceURI}`; return FEMALE.test(s) ? 'female' : MALE.test(s) ? 'male' : null; };
 const hashStr = (s) => { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h; };
 function pickVoice(lang, gender, key) {
@@ -892,7 +893,7 @@ function ttsStop() {
 // 每次拿到新视图：只朗读首次加载之后新出现的发言类事件；回放时不读
 function ttsFeed(G) {
   const v = G.view;
-  const max = v.events.length ? v.events.at(-1).seq : 0;
+  const max = v.events.length ? v.events[v.events.length - 1].seq : 0;
   if (G.spokenSeq === undefined) { G.spokenSeq = max; return; }
   const fresh = v.events.filter((e) => e.seq > G.spokenSeq && SPEECH_EVENTS.has(e.type));
   G.spokenSeq = Math.max(G.spokenSeq, max);
@@ -1277,7 +1278,7 @@ function renderEnding(G, D) {
   const endEv = v.events.find((e) => e.type === 'game_ended');
   const res = v.result;
   const truth = endEv.data.truth;
-  const maxSeq = v.events.at(-1).seq;
+  const maxSeq = v.events[v.events.length - 1].seq;
   const key = `${G.replay}|${G.endOpen}`;
   if (el._key === key) return;
   el._key = key;
@@ -1633,5 +1634,17 @@ function vizBoard(G, D) {
 }
 
 // ======================= 启动 =======================
+// 出错时在页面上提示，而不是留下白屏（老浏览器缺少某些 API 时尤其有用）
+const showFatal = (msg) => {
+  if (document.getElementById('fatalBar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'fatalBar'; bar.setAttribute('role', 'alert');
+  bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:9999;padding:12px 14px;border-radius:8px;background:#7a1f1f;color:#fff;font:14px/1.5 system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.35);display:flex;gap:12px;align-items:center;flex-wrap:wrap';
+  bar.innerHTML = `<span style="flex:1;min-width:200px">${esc(T('页面出错了：{msg}。可尝试刷新，或换用最新版 Chrome / Safari / Edge。', { msg: String(msg || '').slice(0, 200) }))}</span><button type="button" style="padding:6px 12px;border-radius:6px;border:0;background:#fff;color:#7a1f1f;font-weight:600;cursor:pointer">${esc(T('刷新'))}</button>`;
+  bar.querySelector('button').onclick = () => location.reload();
+  document.body.appendChild(bar);
+};
+window.addEventListener('error', (e) => showFatal(e.message));
+window.addEventListener('unhandledrejection', (e) => showFatal(e.reason?.message || e.reason));
 window.addEventListener('hashchange', route);
 route();
